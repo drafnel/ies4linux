@@ -1,0 +1,188 @@
+WINE REGISTRY Version 2
+;; inspired by Sidenet (http://sidenet.ddo.jp/winetips/)
+;; continued for winetools by Joachim v. Thadden (http://vonthadden.de)
+;; Version 2.1.1jo
+;; All keys relative to \\Machine\\Software\\Wine\\Wine\\Config
+
+[wine]
+"GraphicsDriver" = "x11drv"; (x11drv, ttydrv)
+"ShowDotFiles" = "1"
+"ShowDirSymlinks" = "1"
+"Path" = "c:\\windows;c:\\windows\\system"
+"Windows" = "c:\\windows"
+"System" = "c:\\windows\\system"
+"Temp" = "t:\\"
+"Profile" = "c:\\windows\\Profiles\\Administrator"
+
+# [wineconf]
+
+[Version]
+"Windows" = "win98"
+
+[DllOverrides]
+"advapi32"     = "builtin";Native version won't work
+"avicap32"     = "builtin";Hardware related
+"capi2032"     = "builtin";Completely implemented
+"comctl32"     = "builtin";Native version cause bugs.
+"comdlg32"     = "builtin";thunk
+"crtdll"       = "builtin";Completely implemented
+"ctl3d32"      = "builtin";thunk
+"d3d8"         = "builtin";Hardware related
+"d3d9"         = "builtin";Hardware related
+"dbghelp"      = "builtin";Native version won't work
+"ddeml"        = "builtin";
+"ddraw"        = "builtin";Hardware related
+"ddrawex"      = "builtin";Hardware related
+"dinput"       = "builtin";
+"dinput8"      = "builtin";Hardware related
+"dispdib"      = "builtin";Completely implemented
+"display.drv"  = "builtin";Hardware related
+"dmusic32"     = "builtin";thunk
+"dplay"        = "builtin";
+"dplayx"       = "builtin";
+"dpnet"        = "builtin";
+"dsound"       = "builtin";Hardware related
+"dswave"       = "builtin";Hardware related
+"dxdiagn"      = "builtin";
+"gdi.exe"      = "builtin";Hardware related
+"gdi32"        = "builtin";Hardware related
+"glu32"        = "builtin";Hardware related
+"gult32"       = "builtin";Hardware related
+"icmp"         = "builtin";Hardware related
+"ifsmgr.vxd"   = "builtin";Completely implemented
+"imaadp32.acm" = "builtin";Completely implemented
+"imm"          = "builtin";Special hack needed
+"imm32"        = "builtin";Special hack needed
+"iphlpapi"     = "builtin";Hardware related
+"joystick.drv" = "builtin";Hardware related
+"kernel32"     = "builtin";Hardware related
+"keyboard.drv" = "builtin";Hardware related
+"krnl386.exe"  = "builtin";Hardware related
+"lz32"         = "builtin";Completely implemented
+"lzexpand"     = "builtin";Completely implemented
+"mcianim.drv"  = "builtin";Completely implemented
+"mciavi.drv"   = "builtin";Completely implemented
+"mcicda.drv"   = "builtin";Completely implemented
+"mciseq.drv"   = "builtin";Completely implemented
+"mciwave.drv"  = "builtin";Completely implemented
+"midimap.drv"  = "builtin";Completely implemented
+"mmsystem"     = "builtin";Hardware related
+"mouse.drv"    = "builtin";Hardware related
+"mpr"          = "builtin";thunk
+"msacm.drv"    = "builtin";Completely implemented
+"msacm32"      = "builtin";thunk
+"msadp32.acm"  = "builtin";Completely implemented
+"msvfw32"      = "builtin";Hardware related
+"msvidc32"     = "builtin";Completely implemented
+"mswsock"      = "builtin";Hardware related
+"newdev"       = "builtin";Hardware related
+"ntdll"        = "builtin";Hardware related
+"opengl32"     = "builtin";Hardware related
+"psapi"        = "builtin";Hardware related
+"rasapi16"     = "builtin";Hardware related
+"rasapi32"     = "builtin";Hardware related
+"serialui"     = "builtin";Hardware related
+"setupapi"     = "builtin";thunk
+"shell"        = "builtin";Special hack needed
+"shell32"      = "builtin";Special hack needed
+"snmpapi"      = "builtin";Hardware related
+"sound"        = "builtin";Hardware related
+"sti"          = "builtin";Hardware related
+"system.drv"   = "builtin";Hardware related
+"tapi32"       = "builtin";Hardware related
+"toolhelp"     = "builtin";Hardware related
+"twain"        = "builtin";Hardware related
+"twain_32"     = "builtin";Hardware related
+"user.exe"     = "builtin";Hardware related
+"user32"       = "builtin";Hardware related
+"ver"          = "builtin";Special hack needed
+"version"      = "builtin";Special hack needed
+"vnbt.vxd"     = "builtin";
+"vtdapi.vxd"   = "builtin";
+"vwin32.vxd"   = "builtin";Hardware related
+"w32skrnl"     = "builtin";Hardware related
+"w32sys"       = "builtin";Hardware related
+"win32s16"     = "builtin";Hardware related
+"win87em"      = "builtin";Hardware related
+"winaspi"      = "builtin";Hardware related
+"wing"         = "builtin";Hardware related
+"winmm"        = "builtin";Hardware related
+"winnls32"     = "builtin";thunk
+"winsock"      = "builtin";Hardware related
+"wintab"       = "builtin";Hardware related
+"wintab32"     = "builtin";Hardware related
+"wnaspi32"     = "builtin";Hardware related
+"wow32"        = "builtin";
+"wprocs"       = "builtin";Hardware related
+"ws2_32"       = "builtin";Hardware related
+"wsock32"      = "builtin";Hardware related
+"msi"         = "native"
+"ole32"        = "native"
+"odbc32"       = "native, builtin"
+
+"*autorun.exe" = "native,builtin"
+"*ctfmon.exe" = "builtin"
+"*ddhelp.exe" = "builtin"
+"eMusicClient.exe" = "builtin"
+"*findfast.exe" = "builtin"
+"icwconn1.exe" = "builtin"
+"*maildoff.exe" = "builtin"
+"*mdm.exe" = "builtin"
+"*mosearch.exe" = "builtin"
+"qttask.exe" = "builtin"
+"realsched.exe" = "builtin"
+"winampa.exe" = "builtin"
+"AGENTSVR.EXE" = "builtin"
+
+"*" = "native, builtin"
+
+[x11drv]
+"AllocSystemColors" = "100"
+"PrivateColorMap" = "N"
+"PerfectGraphics" = "N"
+"Managed" = "Y"
+"UseDGA" = "N"
+"UseXVidMode" = "Y"
+"UseXRandR" = "N"
+"UseTakeFocus" = "Y"
+"DXGrab" = "Y"
+"DesktopDoubleBuffered" = "Y"
+"TextCP" = "0"
+
+[registry]
+"LoadGlobalRegistryFiles" = "Y"
+"LoadWindowsRegistryFiles" = "Y"
+"SaveOnlyUpdatedKeys" = "Y"
+
+[Clipboard]
+"ClearAllSelections" = "0"
+"PersistentSelection" = "1"
+"UsePrimary" = "0"
+
+[WinMM]
+"Drivers" = "wineoss.drv"
+"WaveMapper" = "msacm.drv"
+"MidiMapper" = "midimap.drv"
+
+[dsound]
+
+
+[Network]
+
+[AppDefaults\\Jane2ch.exe\\DllOverrides]
+"mlang" = "builtin, native"
+
+;IE4,5,6 Installer
+[AppDefaults\\acmsetup.exe\\DllOverrides]
+"*comctl32" = "builtin"
+[AppDefaults\\grpconv.exe\\DllOverrides]
+"*comctl32" = "builtin"
+[AppDefaults\\iebatch.exe\\DllOverrides]
+"*comctl32" = "builtin"
+[AppDefaults\\updcrl.exe\\DllOverrides]
+"*comctl32" = "builtin"
+
+[AppDefaults\\wmplayer2.exe\\DllOverrides]
+"ddraw" = ""
+
+# [/wineconf]

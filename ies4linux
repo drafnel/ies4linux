@@ -1,0 +1,269 @@
+#!/bin/bash
+#
+# IEs 4 Linux
+# Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
+# Project site: http://tatanka.com.br/ies4linux
+#
+# Released under the GNU GPL. See LICENSE for more information
+
+# Splash screen
+echo -en "\E[34;1m"
+echo "=================  IEs 4 Linux ================="
+echo "Install IE6, IE5.5 and IE5 on Linux via Wine."
+echo "Credits: Sergio Lopes <slopes at gmail dot com>"
+echo "Project page: http://tatanka.com.br/ies4linux"
+echo "See README file for more info"
+echo -e "\n"
+tput sgr0
+
+# Check for cabextract
+if ! cabextract --version > /dev/null ; then
+	echo -e "\E[31;1mYou need to install cabextract first!"
+	echo "Download it here: http://www.kyz.uklinux.net/cabextract.php"
+	tput sgr0
+	exit
+fi
+
+# Ask user what he wants to install
+echo -e "\E[1mInstallation options:"; tput sgr0
+echo -e "\E[1m[1]\E[0m Install IE6, IE5.5 and IE5"
+echo -e "\E[1m[2]\E[0m Install only IE6"
+echo -e "\E[1m[3]\E[0m Install only IE5.5"
+echo -e "\E[1m[4]\E[0m Install only IE5.0"
+echo -n "Please choose an option: "
+read installoption
+echo -e "\n"
+
+# Determine User Option
+if [ "$installoption" =  "1" ]; then
+	OPTION="ie6 ie55 ie50"
+elif [ "$installoption" = "2" ]; then
+	OPTION="ie6"
+elif [ "$installoption" = "3" ]; then
+	OPTION="ie55"
+elif [ "$installoption" = "4" ]; then
+        OPTION="ie50"
+else
+        echo -e "\E[31;1mInvalid option! Please run again and choose a valid option"; tput sgr0; exit
+fi
+
+# Discover ies4linux installation folder
+if [ `expr match "$0" '/'` =  "1" ]; then
+	IES4LINUX=$0
+else
+	IES4LINUX=`pwd`/$0
+fi
+IES4LINUX=${IES4LINUX:0:((${#IES4LINUX}-9))}
+cd $IES4LINUX
+
+# Import config
+source config
+
+#### FOLDERS
+if [ ! -d $BASEDIR ]; then
+        mkdir $BASEDIR
+fi
+if [ ! -d $DOWNLOADDIR ]; then
+        mkdir $DOWNLOADDIR || exit
+fi
+rm -rf $BASEDIR/tmp/* $BASEDIR/ie6 $BASEDIR/ie55 $BASEDIR/ie5 &> /dev/null
+mkdir $BASEDIR/tmp &> /dev/null
+####
+
+# Download what we need
+echo -e "\E[1mDownloading everything we need... "; tput sgr0
+./lib/download $OPTION
+echo -e "\E[34;1m[ OK ]\n"; tput sgr0
+
+# Create BASE Installation
+##########################
+
+# create base folder
+echo -e "\E[1mCreating basic Windows installation... "; tput sgr0
+if [ -d $BASEDIR/base ]; then
+	rm -rf $BASEDIR/base
+fi
+mkdir $BASEDIR/base
+
+# creates wine installation
+WINEPREFIX=$BASEDIR/base/ wineprefixcreate &> /dev/null || WINEPREFIX=$BASEDIR/base/ wine &> /dev/null
+		
+# setting DRIVEC
+if [ -d $BASEDIR/base/fake_windows ]; then
+	DRIVEC=fake_windows
+else
+	DRIVEC=drive_c
+fi
+
+# setting variables
+if [ -d $BASEDIR/base/$DRIVEC/windows ]; then 
+	WINDOWS=windows 
+else
+	WINDOWS=Windows
+fi
+if [ -d $BASEDIR/base/$DRIVEC/$WINDOWS/system ]; then 
+	SYSTEM=system 
+else
+	SYSTEM=System
+fi
+if [ -d $BASEDIR/base/$DRIVEC/$WINDOWS/fonts ]; then 
+	FONTS=fonts
+else
+	FONTS=fonts
+fi
+if [ -d $BASEDIR/base/$DRIVEC/$WINDOWS/inf ]; then 
+	INF=inf 
+else
+	INF=Inf
+fi
+
+# creating IE folders
+if [ ! -d  $BASEDIR/base/$DRIVEC/Program\ Files ]; then
+	mkdir $BASEDIR/base/$DRIVEC/Program\ Files
+fi
+if [ ! -d $BASEDIR/base/$DRIVEC/Program\ Files/Internet\ Explorer ];then
+	mkdir $BASEDIR/base/$DRIVEC/Program\ Files/Internet\ Explorer
+fi
+if [ ! -d $BINDIR ]; then
+	mkdir $BINDIR
+fi
+
+chmod u+rwx -R $BASEDIR/base
+cd $BASEDIR/tmp
+
+# Install DCOM98
+cabextract -q -d $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/ $DOWNLOADDIR/DCOM98.EXE ||exit
+mv $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/dcom98.inf $BASEDIR/base/$DRIVEC/$WINDOWS/$INF/ || exit
+
+# Install riched.dll
+cabextract -q -F ver1200.exe $DOWNLOADDIR/249973USA8.exe || exit
+cabextract -q -F riched20.120 $BASEDIR/tmp/ver1200.exe || exit
+mv riched20.120 $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/riched20.dll || exit
+
+# Install schannel.dll
+cabextract -q -F "schannel.dll" $DOWNLOADDIR/249863USA8_128.EXE
+mv schannel.dll $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/
+
+# copy config files
+cp $IES4LINUX/winereg/* $BASEDIR/base/
+chmod u+rwx -R $BASEDIR/base
+rm -rf $BASEDIR/tmp/*
+
+# copy svg icon
+cp $IES4LINUX/lib/ie_wine.svg $BASEDIR/ie_wine.svg
+
+echo -e "\E[34;1m[ OK ]\n"; tput sgr0
+
+function createShortcuts() {
+        echo "#!/bin/bash" > $BINDIR/$1
+	echo "cd" >> $BINDIR/$1
+        echo "WINEPREFIX=$BASEDIR/$1 wine $BASEDIR/$1/$DRIVEC/Program\ Files/Internet\ Explorer/IEXPLORE.EXE \$@ " >> $HOME/bin/$1
+        chmod +x $HOME/bin/$1
+        if [ "$CREATE_ICON" = "yes" ]; then
+                if cd ~/Desktop || cd ~/desktop; then
+                       $IES4LINUX/lib/mkicon \
+                                Exec "$BINDIR/$1" \
+                                Icon "$BASEDIR/ie_wine.svg" \
+                                Name "Internet Explorer $2" \
+                                GenericName "Microsoft Windows Aplication" \
+                                Comment "MSIE $2 by IEs4Linux" > IE$2.desktop
+                fi
+        fi
+}
+
+# Install IE6
+##################
+if echo $OPTION | grep ie6 > /dev/null ; then
+	echo -e "\E[1mInstalling IE 6 ... "; tput sgr0
+
+	DIR="$BASEDIR/tmp/IE*"
+	cp -r $BASEDIR/base $BASEDIR/ie6
+        cd $BASEDIR/tmp/ 
+	WINEPREFIX=$BASEDIR/base/ wine $DOWNLOADDIR/ie60.exe &> /dev/null || exit
+
+	cabextract -q -d $DIR $DIR/IE_S*CAB &> /dev/null
+	cabextract -q -d $BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/IE_1.CAB $DIR/IEDOM.CAB &> /dev/null
+	mv $BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/IEXPLORE.EXE $BASEDIR/ie6/$DRIVEC/Program\ Files/Internet\ Explorer/IEXPLORE.EXE
+
+	cabextract -q -d $BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/SCR56EN.CAB  &> /dev/null
+        cabextract -q -F "pngfilt.dll" $DIR/ADVAUTH.CAB &> /dev/null
+	cabextract -q -F "*TTF" $DIR/FONT*CAB  &> /dev/null
+	mv pngfilt.dll *TTF $BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/
+
+	cat $BASEDIR/ie6/system.reg.model | 
+		sed -e "s/IES4LINUX_IE_VERSION/\"IE\"=\"6.0000\"/" |
+		sed -e "s/IES4LINUX_IE_HELP/\"Version\"=\"6.0.2800.1106\"/" > $BASEDIR/ie6/system.reg
+	mv $BASEDIR/ie6/user.reg.model $BASEDIR/ie6/user.reg
+	
+	createShortcuts ie6 6.0
+	rm -rf $BASEDIR/tmp/*
+	echo -e "\E[34;1m[ OK ]\n"; tput sgr0
+fi
+
+
+# Install IE55
+##################
+if echo $OPTION | grep ie55 > /dev/null ; then
+	echo -e "\E[1mInstalling IE 5.5 ... "; tput sgr0
+
+	DIR="$BASEDIR/tmp/IE*"
+	cp -r $BASEDIR/base $BASEDIR/ie55
+        cd $BASEDIR/tmp/ 
+	WINEPREFIX=$BASEDIR/base/ wine $DOWNLOADDIR/ie55sp2.exe &> /dev/null || exit
+
+	cabextract -q -d $DIR $DIR/IE_S*CAB &> /dev/null
+	cabextract -q -d $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/IE_1.CAB  $DIR/IEDOM.CAB &> /dev/null
+	mv $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/IEXPLORE.EXE $BASEDIR/ie55/$DRIVEC/Program\ Files/Internet\ Explorer/IEXPLORE.EXE
+
+	cabextract -q -d $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/VBSCRIPT.CAB &> /dev/null
+        cabextract -q -F "pngfilt.dll" $DIR/ADVAUTH.CAB &> /dev/null
+	cabextract -q -F "*TTF" $DIR/FONT*CAB &> /dev/null
+	mv pngfilt.dll *TTF $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/
+
+	cat $BASEDIR/ie55/system.reg.model | 
+		sed -e "s/IES4LINUX_IE_VERSION/\"IE\"=\"5.5000\"/" |
+		sed -e "s/IES4LINUX_IE_HELP/\"Version\"=\"5.50.4807.2300\"/" |
+		sed -e "s/MSXML3.DLL/MSXML.DLL/g" > $BASEDIR/ie55/system.reg
+	mv $BASEDIR/ie55/user.reg.model $BASEDIR/ie55/user.reg
+	
+	createShortcuts ie55 5.5
+	rm -rf $BASEDIR/tmp/*
+	echo -e "\E[34;1m[ OK ]\n"; tput sgr0
+fi
+
+# Install IE50
+##################
+if echo $OPTION | grep ie50 > /dev/null ; then
+	echo -e "\E[1mInstalling IE 5 ... "; tput sgr0
+
+	DIR="$BASEDIR/tmp/IE*"
+	cp -r $BASEDIR/base $BASEDIR/ie5
+        cd $BASEDIR/tmp/ 
+	WINEPREFIX=$BASEDIR/base/ wine $DOWNLOADDIR/ie501sp2.exe &> /dev/null || exit
+
+	cabextract -q -d $DIR $DIR/IE_S*CAB &> /dev/null
+	cabextract -q -d $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/IE_1.CAB $DIR/IEDOM.CAB &> /dev/null
+	mv $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/IEXPLORE.EXE $BASEDIR/ie5/$DRIVEC/Program\ Files/Internet\ Explorer/IEXPLORE.EXE
+
+	cabextract -q -d $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/VBSCRIPT.CAB  &> /dev/null
+        cabextract -q -F "pngfilt.dll" $DIR/ADVAUTH.CAB &> /dev/null
+	cabextract -q -F "*TTF" $DIR/FONT*CAB &> /dev/null
+	mv pngfilt.dll *TTF $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/
+
+	cat $BASEDIR/ie5/system.reg.model | 
+		sed -e "s/IES4LINUX_IE_VERSION/\"IE\"=\"5.0002\"/" |
+		sed -e "s/IES4LINUX_IE_HELP/\"Version\"=\"5.00.2614.3500\"/" |
+		sed -e "s/MSXML3.DLL/MSXML.DLL/g" > $BASEDIR/ie5/system.reg
+	mv $BASEDIR/ie5/user.reg.model $BASEDIR/ie5/user.reg
+
+	createShortcuts ie5 5.0
+	rm -rf $BASEDIR/tmp/*
+	echo -e "\E[34;1m[ OK ]\n"; tput sgr0
+fi
+
+# Remove folders
+rm -rf $BASEDIR/dcom &> /dev/null
+rm -rf $BASEDIR/base
+
+
+

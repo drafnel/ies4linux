@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Copyright 2005 Aurelio A. Heckert <aurium@gmail.com>
+# This is a free (as in freedom) software under the GNU-GPL licence
+# See hire for details: http://www.gnu.org/copyleft/gpl.html
+#
+# This simple script is an help to create icons for the GNOME
+# and KDE desktops using the specification of the desktop entry
+# by the FreeDesktop group. Details on this web page:
+# standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+
+[ "$#" = "0" ] && echo 'ERROR: mkicon need arguments' >&2
+
+if [ "$#" = "0" -o "$1" = "--help" -o "$1" = "-h" ]; then
+  echo '
+To create an icon file for GNOME and KDE you must give pairs of attribute and
+value, and that must be the same as defined in the desktop entry specification:
+standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+
+The value must be inside of quotations to be only one argument to the script.
+
+Example. Creating a icon to open an irc channel in the X-Chat:
+$ mkicon \
+Exec "xchat irc://irc.freenode.org/debian-br" \
+Icon "/usr/share/icons/hicolor/48x48/apps/xchat.png" \
+Name "#Debian-BR Channel" \
+GenericName "IRC Channel" \
+Comment "Brasilian Debian user channel" > channel-dbr.desktop
+
+The file uses some other arguments but the needed is added with the default
+values.
+'
+  if [ "$#" = "0" ]; then
+    exit 1
+  else
+    exit 0
+  fi
+fi
+
+echo '[Desktop Entry]
+Version=1.0'
+
+isAtt=1
+for arg in "$@"; do
+  if [ "$isAtt" = "1" ]; then
+    isAtt=0
+    echo -n "$arg="
+    case $arg in
+      Encoding)  EncodingOK=1 ;;
+      Terminal)  TerminalOK=1 ;;
+      Type)      TypeOK=1 ;;
+      Exec)      ExecOK=1 ;;
+      Name)      NameOK=1 ;;
+    esac
+  else
+    isAtt=1
+    echo "$arg"
+  fi
+done
+
+# necessary arguments default values:
+[ "$EncodingOK" != "1" ]  &&  echo 'Encoding=UTF-8'
+[ "$TerminalOK" != "1" ]  &&  echo 'Terminal=false'
+[ "$TypeOK"     != "1" ]  &&  echo 'Type=Application'
+[ "$ExecOK"     != "1" ]  &&  echo 'Exec=echo "noting to do"'
+[ "$NameOK"     != "1" ]  &&  echo 'Name=No Name'
