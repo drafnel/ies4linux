@@ -66,7 +66,7 @@ fi
 if [ ! -d $DOWNLOADDIR ]; then
         mkdir $DOWNLOADDIR || exit
 fi
-rm -rf $BASEDIR/tmp/* $BASEDIR/ie6 $BASEDIR/ie55 $BASEDIR/ie5 &> /dev/null
+rm -rf $BASEDIR/tmp/*  &> /dev/null
 mkdir $BASEDIR/tmp &> /dev/null
 ####
 
@@ -144,6 +144,9 @@ mv riched20.120 $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/riched20.dll || exit
 cabextract -q -F "schannel.dll" $DOWNLOADDIR/249863USA8_128.EXE
 mv schannel.dll $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/
 
+# Create tmp symlink
+ln -s /tmp $BASEDIR/base/dosdevices/t 
+
 # copy config files
 cp $IES4LINUX/winereg/* $BASEDIR/base/
 chmod u+rwx -R $BASEDIR/base
@@ -177,6 +180,7 @@ if echo $OPTION | grep ie6 > /dev/null ; then
 	echo -e "\E[1mInstalling IE 6 ... "; tput sgr0
 
 	DIR="$BASEDIR/tmp/IE*"
+	rm -rf $BASEDIR/ie6
 	cp -r $BASEDIR/base $BASEDIR/ie6
         cd $BASEDIR/tmp/ 
 	WINEPREFIX=$BASEDIR/base/ wine $DOWNLOADDIR/ie60.exe &> /dev/null || exit
@@ -207,6 +211,7 @@ if echo $OPTION | grep ie55 > /dev/null ; then
 	echo -e "\E[1mInstalling IE 5.5 ... "; tput sgr0
 
 	DIR="$BASEDIR/tmp/IE*"
+	rm -rf $BASEDIR/ie55
 	cp -r $BASEDIR/base $BASEDIR/ie55
         cd $BASEDIR/tmp/ 
 	WINEPREFIX=$BASEDIR/base/ wine $DOWNLOADDIR/ie55sp2.exe &> /dev/null || exit
@@ -237,6 +242,7 @@ if echo $OPTION | grep ie50 > /dev/null ; then
 	echo -e "\E[1mInstalling IE 5 ... "; tput sgr0
 
 	DIR="$BASEDIR/tmp/IE*"
+	rm -rf $BASEDIR/ie5
 	cp -r $BASEDIR/base $BASEDIR/ie5
         cd $BASEDIR/tmp/ 
 	WINEPREFIX=$BASEDIR/base/ wine $DOWNLOADDIR/ie501sp2.exe &> /dev/null || exit
@@ -248,7 +254,7 @@ if echo $OPTION | grep ie50 > /dev/null ; then
 	cabextract -q -d $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/VBSCRIPT.CAB  &> /dev/null
         cabextract -q -F "pngfilt.dll" $DIR/ADVAUTH.CAB &> /dev/null
 	cabextract -q -F "*TTF" $DIR/FONT*CAB &> /dev/null
-	mv pngfilt.dll *TTF $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/
+	mv pngfilt.dll *TTF $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/
 
 	cat $BASEDIR/ie5/system.reg.model | 
 		sed -e "s/IES4LINUX_IE_VERSION/\"IE\"=\"5.0002\"/" |
