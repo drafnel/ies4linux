@@ -1,7 +1,158 @@
 WINE REGISTRY Version 2
-;; All keys relative to \\User\\user
+;; IEs 4 Linux (http://tatanka.com.br/ies4linux)
 
-[Control Panel\\Colors] 1110506518
+[Software\\Wine] 1125232473
+"Version"="win98"
+
+[Software\\Wine\\DllOverrides]
+"advapi32"     = "builtin";Native version won't work
+"avicap32"     = "builtin";Hardware related
+"capi2032"     = "builtin";Completely implemented
+"comctl32"     = "builtin";Native version cause bugs.
+"comdlg32"     = "builtin";thunk
+"crtdll"       = "builtin";Completely implemented
+"ctl3d32"      = "builtin";thunk
+"d3d8"         = "builtin";Hardware related
+"d3d9"         = "builtin";Hardware related
+"dbghelp"      = "builtin";Native version won't work
+"ddeml"        = "builtin";
+"ddraw"        = "builtin";Hardware related
+"ddrawex"      = "builtin";Hardware related
+"dinput"       = "builtin";
+"dinput8"      = "builtin";Hardware related
+"dispdib"      = "builtin";Completely implemented
+"display.drv"  = "builtin";Hardware related
+"dmusic32"     = "builtin";thunk
+"dplay"        = "builtin";
+"dplayx"       = "builtin";
+"dpnet"        = "builtin";
+"dsound"       = "builtin";Hardware related
+"dswave"       = "builtin";Hardware related
+"dxdiagn"      = "builtin";
+"gdi.exe"      = "builtin";Hardware related
+"gdi32"        = "builtin";Hardware related
+"glu32"        = "builtin";Hardware related
+"gult32"       = "builtin";Hardware related
+"icmp"         = "builtin";Hardware related
+"ifsmgr.vxd"   = "builtin";Completely implemented
+"imaadp32.acm" = "builtin";Completely implemented
+"imm"          = "builtin";Special hack needed
+"imm32"        = "builtin";Special hack needed
+"iphlpapi"     = "builtin";Hardware related
+"joystick.drv" = "builtin";Hardware related
+"kernel32"     = "builtin";Hardware related
+"keyboard.drv" = "builtin";Hardware related
+"krnl386.exe"  = "builtin";Hardware related
+"lz32"         = "builtin";Completely implemented
+"lzexpand"     = "builtin";Completely implemented
+"mcianim.drv"  = "builtin";Completely implemented
+"mciavi.drv"   = "builtin";Completely implemented
+"mcicda.drv"   = "builtin";Completely implemented
+"mciseq.drv"   = "builtin";Completely implemented
+"mciwave.drv"  = "builtin";Completely implemented
+"midimap.drv"  = "builtin";Completely implemented
+;"mlang"="builtin"
+"mmsystem"     = "builtin";Hardware related
+"mouse.drv"    = "builtin";Hardware related
+"mpr"          = "builtin";thunk
+"msacm.drv"    = "builtin";Completely implemented
+"msacm32"      = "builtin";thunk
+"msadp32.acm"  = "builtin";Completely implemented
+"msvcrt"="builtin"
+"msvfw32"      = "builtin";Hardware related
+"msvidc32"     = "builtin";Completely implemented
+"mswsock"      = "builtin";Hardware related
+"newdev"       = "builtin";Hardware related
+"ntdll"        = "builtin";Hardware related
+"opengl32"     = "builtin";Hardware related
+"psapi"        = "builtin";Hardware related
+"rasapi16"     = "builtin";Hardware related
+"rasapi32"     = "builtin";Hardware related
+"serialui"     = "builtin";Hardware related
+"setupapi"     = "builtin";thunk
+"shdocvw"      = "native" 
+"shell"        = "builtin";Special hack needed
+"shell32"      = "builtin";Special hack needed
+"snmpapi"      = "builtin";Hardware related
+"sound"        = "builtin";Hardware related
+"sti"          = "builtin";Hardware related
+"system.drv"   = "builtin";Hardware related
+"tapi32"       = "builtin";Hardware related
+"toolhelp"     = "builtin";Hardware related
+"twain"        = "builtin";Hardware related
+"twain_32"     = "builtin";Hardware related
+"user.exe"     = "builtin";Hardware related
+"user32"       = "builtin";Hardware related
+"ver"          = "builtin";Special hack needed
+"version"      = "builtin";Special hack needed
+"vnbt.vxd"     = "builtin";
+"vtdapi.vxd"   = "builtin";
+"vwin32.vxd"   = "builtin";Hardware related
+"w32skrnl"     = "builtin";Hardware related
+"w32sys"       = "builtin";Hardware related
+"win32s16"     = "builtin";Hardware related
+"win87em"      = "builtin";Hardware related
+"winaspi"      = "builtin";Hardware related
+"wing"         = "builtin";Hardware related
+"winmm"        = "builtin";Hardware related
+"winnls32"     = "builtin";thunk
+"winsock"      = "builtin";Hardware related
+"wintab"       = "builtin";Hardware related
+"wintab32"     = "builtin";Hardware related
+"wnaspi32"     = "builtin";Hardware related
+"wow32"        = "builtin";
+"wprocs"       = "builtin";Hardware related
+"ws2_32"       = "builtin";Hardware related
+"wsock32"      = "builtin";Hardware related
+"msi"         = "native"
+"ole32"        = "native"
+"odbc32"       = "native, builtin"
+"*" = "native, builtin"
+
+[Control Panel\\Colors] 1110394537
+"ActiveBorder"="228 228 228"
+"ActiveTitle"=""
+"AppWorkSpace"=""
+"Background"="0 0 0"
+"ButtonAlternateFace"=""
+"ButtonDkShadow"=""
+"ButtonFace"="228 228 228"
+"ButtonHilight"=""
+"ButtonLight"="228 228 228"
+"ButtonShadow"=""
+"ButtonText"=""
+"GradientActiveTitle"=""
+"GradientInactiveTitle"=""
+"GrayText"=""
+"Hilight"=""
+"HilightText"=""
+"HotTrackingColor"=""
+"InactiveBorder"="228 228 228"
+"InactiveTitle"=""
+"InactiveTitleText"=""
+"InfoText"=""
+"InfoWindow"=""
+"Menu"="228 228 228"
+"MenuBar"=""
+"MenuHilight"=""
+"MenuText"=""
+"Scrollbar"=""
+"TitleText"=""
+"Window"=""
+"WindowFrame"=""
+"WindowText"=""
+
+[Control Panel\\Desktop\\WindowMetrics] 1131061145
+"BorderWidth"="1"
+"CaptionHeight"="18"
+"CaptionWidth"="18"
+"MenuHeight"="18"
+"MenuWidth"="18"
+"ScrollHeight"="16"
+"ScrollWidth"="16"
+"Shell Icon Size"="32"
+"SmCaptionHeight"="15"
+"SmCaptionWidth"="13"
 
 [Control Panel\\desktop] 1110506529
 "DragFullWindows"="0"
@@ -10,56 +161,34 @@ WINE REGISTRY Version 2
 "SmoothScroll"=hex:00,00,00,00
 "UserPreferencemask"=hex:00,00,00,00
 
-[Control Panel\\International] 1110506511
-"iCalendarType"="1"
-"iCountry"="55"
-"iCurrDigits"="2"
-"iCurrency"="0"
-"iDate"="1"
-"iDigits"="2"
-"iLDate"="0"
-"iLZero"="1"
-"iMeasure"="0"
-"iNegCurr"="0"
-"iTime"="1"
-"iTimePrefix"="0"
-"iTLZero"="1"
-"Locale"="00000416"
-"Numshape"="1"
-"s1159"=""
-"s2359"=""
-"sCountry"="Brazil"
-"sCurrency"="R$ "
-"sDate"="/"
-"sDecimal"=","
-"sLanguage"="Portuguese (Brazil)"
-"sList"=";"
-"sLongDate"="dddd, d' de 'MMMM' de 'yyyy"
-"sNativeDigits"="0123456789"
-"sShortDate"="d/M/yyyy"
-"sThousand"="."
-"sTime"=":"
-
 [Environment] 1110506511
 "PATH"="c:\\windows;c:\\windows\\system"
 "Systemroot"="c:\\windows"
-"TEMP"="t:\\"
-"TMP"="t:\\"
+"TEMP"="z:\\tmp"
+"TMP"="z:\\tmp"
 "USERPROFILE"="c:\\windows\\Profiles\\Administrator"
 "windir"="c:\\windows"
 "winsysdir"="c:\\windows\\system"
 
-[Software\\Microsoft\\Active Setup\\Installed Components\\{2179C5D3-EBFF-11CF-B6FD-00AA00B4E220}] 1110507625
-"Locale"="BR"
-"Version"="6,4,7,1121"
+[Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders] 1114022251
+"AppData"="c:\\windows\\Application Data"
+"Cache"="c:\\windows\\Temporary Internet Files"
+"Cookies"="c:\\windows\\Cookies"
+"Desktop"="c:\\windows\\Desktop"
+"Favorites"="c:\\windows\\Favorites"
+"Fonts"="c:\\windows\\Fonts"
+"History"="c:\\windows\\History"
+"Local AppData"="c:\\Local Settings\\Application Data"
+"NetHood"="c:\\windows\\NetHood"
+"Personal"="c:\\My Documents"
+"Programs"="c:\\windows\\Start Menu\\Programs"
+"Recent"="c:\\windows\\Recent"
+"SendTo"="c:\\windows\\SendTo"
+"Start Menu"="c:\\windows\\Start Menu"
+"StartUp"="c:\\windows\\Start Menu\\Programs\\Startup"
+"Templates"="c:\\windows\\ShellNew"
 
-[Software\\Microsoft\\Active Setup\\Installed Components\\{22d6f312-b0f6-11d0-94ab-0080c74c7e95}] 1110507625
-"Locale"="BR"
-"Version"="6,4,7,1121"
-
-[Software\\Microsoft\\Active Setup\\Installed Components\\{44BBA848-CC51-11CF-AAFA-00AA00B6015C}] 1110507625
-"Locale"="BR"
-"Version"="6,1,5,130"
+[Software\\Macromedia\\FlashPlayer] 1131163489
 
 [Software\\Microsoft\\Advanced INF Setup\\ConnectionConfiguration\\RegBackup\\0] 1110510298
 "6ce1cc9288b8676b"=hex:2c,53,6f,66,74,77,61,72,65,5c,4d,69,63,72,6f,73,6f,66,\
@@ -138,60 +267,6 @@ WINE REGISTRY Version 2
 
 [Software\\Microsoft\\Internet Explorer\\Security\\P3Sites] 1110510293
 
-[Software\\Microsoft\\Internet Explorer\\Toolbar] 1110510293
-"Locked"=dword:00000001
-
-[Software\\Microsoft\\Internet Explorer\\Toolbar\\WebBrowser] 1110510360
-"ITBarLayout"=hex:11,00,00,00,4c,00,00,00,00,00,00,00,30,00,00,00,1f,00,00,00,\
-  4c,00,00,00,01,00,00,00,20,07,00,00,a0,0f,00,00,05,00,00,00,62,05,00,00,00,\
-  00,00,00,02,00,00,00,21,07,00,00,a0,0f,00,00,04,00,00,00,21,01,00,00,a0,0f,\
-  00,00,03,00,00,00,20,03,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
-"{01E04581-4EEE-11D0-BFE9-00AA005B4383}"=hex:81,45,e0,01,ee,4e,d0,11,bf,e9,00,\
-  aa,00,5b,43,83,10,00,00,00,00,00,00,00,01,e0,32,f4,01,00,00,00
-"{0E5CBF21-D15F-11D0-8301-00AA005B4383}"=hex:21,bf,5c,0e,5f,d1,d0,11,83,01,00,\
-  aa,00,5b,43,83,22,00,1c,00,08,00,00,00,06,00,00,00,01,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,4c,00,00,00,01,14,02,00,00,00,00,00,c0,00,00,00,00,\
-  00,00,46,83,00,00,00,00,00,00,00,00,40,1f,b3,1f,31,fe,f8,00,40,1f,b3,1f,31,\
-  fe,f8,00,40,1f,b3,1f,31,fe,f8,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,84,00,14,00,1f,00,e0,4f,d0,20,ea,3a,69,10,a2,d8,\
-  08,00,2b,30,30,9d,19,00,23,43,3a,5c,00,00,00,00,00,00,00,00,00,00,00,00,00,\
-  00,00,00,00,00,00,17,00,31,00,00,00,00,00,6b,32,72,17,10,00,77,69,6e,64,6f,\
-  77,73,00,00,21,00,31,00,00,00,00,00,6b,32,9a,18,10,00,46,61,76,6f,72,69,74,\
-  65,73,00,46,41,56,4f,7e,58,32,4c,00,15,00,31,00,00,00,00,00,6b,32,9a,18,10,\
-  00,4c,69,6e,6b,73,00,00,00,00,00,00,00,00,00,00,00,00,18,00,00,00,00,00,00,\
-  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
-
-[Software\\Microsoft\\Internet Explorer\\TypedURLs] 1114071961
-"url1"="http://www.tatanka.com.br/ies4linux/"
-
-[Software\\Microsoft\\MediaPlayer\\Player\\Settings] 1110507626
-"Client ID"="{a23890f5-e8a1-485d-92a4-427a2ca8e1fa}"
-
-[Software\\Microsoft\\MediaPlayer\\Setup\\CreatedLinks] 1110507625
-@="Windows Media Player "
-
-[Software\\Microsoft\\NetShow\\Player\\Remote] 1110507626
-"EnableResend"=dword:00000001
-
 [Software\\Microsoft\\SystemCertificates\\CA\\Certificates] 1113069101
 
 [Software\\Microsoft\\SystemCertificates\\CA\\CRLs] 1113069101
@@ -227,26 +302,6 @@ WINE REGISTRY Version 2
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MenuOrder\\Favorites\\Links] 1110510360
 "Order"=hex:08,00,00,00,02,00,00,00
-
-[Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU] 1110510293
-
-[Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders] 1114022251
-"AppData"="c:\\windows\\Application Data"
-"Cache"="c:\\windows\\Temporary Internet Files"
-"Cookies"="c:\\windows\\Cookies"
-"Desktop"="c:\\windows\\Desktop"
-"Favorites"="c:\\windows\\Favorites"
-"Fonts"="c:\\windows\\Fonts"
-"History"="c:\\windows\\History"
-"Local AppData"="c:\\Local Settings\\Application Data"
-"NetHood"="c:\\windows\\NetHood"
-"Personal"="c:\\My Documents"
-"Programs"="c:\\windows\\Start Menu\\Programs"
-"Recent"="c:\\windows\\Recent"
-"SendTo"="c:\\windows\\SendTo"
-"Start Menu"="c:\\windows\\Start Menu"
-"StartUp"="c:\\windows\\Start Menu\\Programs\\Startup"
-"Templates"="c:\\windows\\ShellNew"
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StreamMRU] 1113982490
 "0"=hex:14,00,1f,00,80,53,1c,87,a0,42,69,10,a2,ea,08,00,2b,30,30,9d,00,00
@@ -516,96 +571,6 @@ WINE REGISTRY Version 2
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\WinTrust\\Trust Providers\\Software Publishing\\Trust Database\\0] 1110507634
 
-[Software\\Netscape\\Netscape Navigator\\Suffixes] 1110507626
-"application/x-mplayer2"="asf,asx,wm"
-"audio/aiff"="aif,aifc,aiff"
-"audio/basic"="au,snd"
-"audio/mid"="mid,midi,rmi"
-"audio/midi"="mid,midi,rmi"
-"audio/mpeg"="mp3"
-"audio/wav"="wav"
-"audio/x-aiff"="aif,aifc,aiff"
-"audio/x-mid"="mid,midi,rmi"
-"audio/x-midi"="mid,midi,rmi"
-"audio/x-mpegurl"="m3u"
-"audio/x-ms-wax"="wax"
-"audio/x-ms-wma"="wma"
-"audio/x-wav"="wav"
-"midi/mid"="mid,midi,rmi"
-"video/avi"="avi"
-"video/mpeg"="mpeg,mpg,mpe,mpv,m1v"
-"video/msvideo"="avi"
-"video/quicktime"="mov,qt"
-"video/x-mpeg"="mp2,mpa"
-"video/x-mpeg2a"="mp2,mpv2,mp2v"
-"video/x-ms-asf"="asf,asx,wm"
-"video/x-ms-asf-plugin"="asf,asx,wm"
-"video/x-ms-wm"="asf,asx,wm"
-"video/x-ms-wmv"="wmv"
-"video/x-ms-wvx"="wvx"
-"video/x-msvideo"="avi"
-
-[Software\\Netscape\\Netscape Navigator\\User Trusted External Applications] 1110507626
-"\"c:\\Program Files\\Windows Media Player\\mplayer2.exe\""="Yes"
-"\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""="Yes"
-"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe"="Yes"
-
-[Software\\Netscape\\Netscape Navigator\\Viewers] 1110507626
-"application/x-mplayer2"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/aiff"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/basic"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/mid"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/midi"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/mpeg"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/wav"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/x-aiff"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/x-mid"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/x-midi"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/x-mpegurl"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/x-ms-wax"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/x-ms-wma"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"audio/x-wav"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"midi/mid"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"TYPE0"="application/x-mplayer2"
-"TYPE1"="audio/aiff"
-"TYPE10"="audio/x-mpegurl"
-"TYPE11"="audio/x-ms-wax"
-"TYPE12"="audio/x-ms-wma"
-"TYPE13"="audio/x-wav"
-"TYPE14"="midi/mid"
-"TYPE15"="video/avi"
-"TYPE16"="video/mpeg"
-"TYPE17"="video/msvideo"
-"TYPE18"="video/quicktime"
-"TYPE19"="video/x-mpeg"
-"TYPE2"="audio/basic"
-"TYPE20"="video/x-mpeg2a"
-"TYPE21"="video/x-ms-asf"
-"TYPE22"="video/x-ms-asf-plugin"
-"TYPE23"="video/x-ms-wm"
-"TYPE24"="video/x-ms-wmv"
-"TYPE25"="video/x-ms-wvx"
-"TYPE26"="video/x-msvideo"
-"TYPE3"="audio/mid"
-"TYPE4"="audio/midi"
-"TYPE5"="audio/mpeg"
-"TYPE6"="audio/wav"
-"TYPE7"="audio/x-aiff"
-"TYPE8"="audio/x-mid"
-"TYPE9"="audio/x-midi"
-"video/avi"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/mpeg"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/msvideo"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/quicktime"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-mpeg"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-mpeg2a"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-ms-asf"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-ms-asf-plugin"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-ms-wm"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-ms-wmv"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-ms-wvx"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-"video/x-msvideo"="\"c:\\PROG~FBU\\WIND~ATD\\mplayer2.exe\""
-
 [Software\\Policies\\Microsoft\\SystemCertificates\\ca\\Certificates] 1114022255
 
 [Software\\Policies\\Microsoft\\SystemCertificates\\ca\\CRLs] 1114022255
@@ -626,127 +591,3 @@ WINE REGISTRY Version 2
 "BreakOnDllLoad"=dword:00000000
 "BreakOnFirstChance"=dword:00000001
 "CanDeferOnBPByAddr"=dword:00000000
-
-[Software\\Wine] 1125232473
-"Version"="win98"
-
-[Software\\Wine\\DllOverrides]
-"advapi32"     = "builtin";Native version won't work
-"avicap32"     = "builtin";Hardware related
-"capi2032"     = "builtin";Completely implemented
-"comctl32"     = "builtin";Native version cause bugs.
-"comdlg32"     = "builtin";thunk
-"crtdll"       = "builtin";Completely implemented
-"ctl3d32"      = "builtin";thunk
-"d3d8"         = "builtin";Hardware related
-"d3d9"         = "builtin";Hardware related
-"dbghelp"      = "builtin";Native version won't work
-"ddeml"        = "builtin";
-"ddraw"        = "builtin";Hardware related
-"ddrawex"      = "builtin";Hardware related
-"dinput"       = "builtin";
-"dinput8"      = "builtin";Hardware related
-"dispdib"      = "builtin";Completely implemented
-"display.drv"  = "builtin";Hardware related
-"dmusic32"     = "builtin";thunk
-"dplay"        = "builtin";
-"dplayx"       = "builtin";
-"dpnet"        = "builtin";
-"dsound"       = "builtin";Hardware related
-"dswave"       = "builtin";Hardware related
-"dxdiagn"      = "builtin";
-"gdi.exe"      = "builtin";Hardware related
-"gdi32"        = "builtin";Hardware related
-"glu32"        = "builtin";Hardware related
-"gult32"       = "builtin";Hardware related
-"icmp"         = "builtin";Hardware related
-"ifsmgr.vxd"   = "builtin";Completely implemented
-"imaadp32.acm" = "builtin";Completely implemented
-"imm"          = "builtin";Special hack needed
-"imm32"        = "builtin";Special hack needed
-"iphlpapi"     = "builtin";Hardware related
-"joystick.drv" = "builtin";Hardware related
-"kernel32"     = "builtin";Hardware related
-"keyboard.drv" = "builtin";Hardware related
-"krnl386.exe"  = "builtin";Hardware related
-"lz32"         = "builtin";Completely implemented
-"lzexpand"     = "builtin";Completely implemented
-"mcianim.drv"  = "builtin";Completely implemented
-"mciavi.drv"   = "builtin";Completely implemented
-"mcicda.drv"   = "builtin";Completely implemented
-"mciseq.drv"   = "builtin";Completely implemented
-"mciwave.drv"  = "builtin";Completely implemented
-"midimap.drv"  = "builtin";Completely implemented
-;"mlang"="builtin"
-"mmsystem"     = "builtin";Hardware related
-"mouse.drv"    = "builtin";Hardware related
-"mpr"          = "builtin";thunk
-"msacm.drv"    = "builtin";Completely implemented
-"msacm32"      = "builtin";thunk
-"msadp32.acm"  = "builtin";Completely implemented
-"msvfw32"      = "builtin";Hardware related
-"msvidc32"     = "builtin";Completely implemented
-"mswsock"      = "builtin";Hardware related
-"newdev"       = "builtin";Hardware related
-"ntdll"        = "builtin";Hardware related
-"opengl32"     = "builtin";Hardware related
-"psapi"        = "builtin";Hardware related
-"rasapi16"     = "builtin";Hardware related
-"rasapi32"     = "builtin";Hardware related
-"serialui"     = "builtin";Hardware related
-"setupapi"     = "builtin";thunk
-"shdocvw"      = "native" 
-"shell"        = "builtin";Special hack needed
-"shell32"      = "builtin";Special hack needed
-"snmpapi"      = "builtin";Hardware related
-"sound"        = "builtin";Hardware related
-"sti"          = "builtin";Hardware related
-"system.drv"   = "builtin";Hardware related
-"tapi32"       = "builtin";Hardware related
-"toolhelp"     = "builtin";Hardware related
-"twain"        = "builtin";Hardware related
-"twain_32"     = "builtin";Hardware related
-"user.exe"     = "builtin";Hardware related
-"user32"       = "builtin";Hardware related
-"ver"          = "builtin";Special hack needed
-"version"      = "builtin";Special hack needed
-"vnbt.vxd"     = "builtin";
-"vtdapi.vxd"   = "builtin";
-"vwin32.vxd"   = "builtin";Hardware related
-"w32skrnl"     = "builtin";Hardware related
-"w32sys"       = "builtin";Hardware related
-"win32s16"     = "builtin";Hardware related
-"win87em"      = "builtin";Hardware related
-"winaspi"      = "builtin";Hardware related
-"wing"         = "builtin";Hardware related
-"winmm"        = "builtin";Hardware related
-"winnls32"     = "builtin";thunk
-"winsock"      = "builtin";Hardware related
-"wintab"       = "builtin";Hardware related
-"wintab32"     = "builtin";Hardware related
-"wnaspi32"     = "builtin";Hardware related
-"wow32"        = "builtin";
-"wprocs"       = "builtin";Hardware related
-"ws2_32"       = "builtin";Hardware related
-"wsock32"      = "builtin";Hardware related
-"msi"         = "native"
-"ole32"        = "native"
-"odbc32"       = "native, builtin"
-"*" = "native, builtin"
-
-[Software\\Wine\\AppDefaults\\Jane2ch.exe\\DllOverrides]
-"mlang" = "builtin, native"
-
-;IE4,5,6 Installer
-[Software\\Wine\\AppDefaults\\acmsetup.exe\\DllOverrides]
-"*comctl32" = "builtin"
-[Software\\Wine\\AppDefaults\\grpconv.exe\\DllOverrides]
-"*comctl32" = "builtin"
-[Software\\Wine\\AppDefaults\\iebatch.exe\\DllOverrides]
-"*comctl32" = "builtin"
-[Software\\Wine\\AppDefaults\\updcrl.exe\\DllOverrides]
-"*comctl32" = "builtin"
-
-[Software\\Wine\\AppDefaults\\wmplayer2.exe\\DllOverrides]
-"ddraw" = ""
-

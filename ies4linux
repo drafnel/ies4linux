@@ -117,16 +117,8 @@ else
 	INF=Inf
 fi
 
-# creating IE folders
-if [ ! -d  $BASEDIR/base/$DRIVEC/Program\ Files ]; then
-	mkdir $BASEDIR/base/$DRIVEC/Program\ Files
-fi
-if [ ! -d $BASEDIR/base/$DRIVEC/Program\ Files/Internet\ Explorer ];then
-	mkdir $BASEDIR/base/$DRIVEC/Program\ Files/Internet\ Explorer
-fi
-if [ ! -d $BINDIR ]; then
-	mkdir $BINDIR
-fi
+mkdir -p $BASEDIR/base/$DRIVEC/Program\ Files/Internet\ Explorer
+mkdir -p $BINDIR
 
 chmod u+rwx -R $BASEDIR/base
 cd $BASEDIR/tmp
@@ -144,8 +136,10 @@ mv riched20.120 $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/riched20.dll || exit
 cabextract -q -F "schannel.dll" $DOWNLOADDIR/249863USA8_128.EXE
 mv schannel.dll $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/
 
-# Create tmp symlink
-ln -s /tmp $BASEDIR/base/dosdevices/t 
+# Install Flash
+mkdir -p $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/
+cabextract -q -d $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/ $DOWNLOADDIR/swflash.cab &> /dev/null
+mv $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/swflash.inf $BASEDIR/base/$DRIVEC/$WINDOWS/$INF
 
 # copy config files
 cp $IES4LINUX/winereg/* $BASEDIR/base/
@@ -160,8 +154,8 @@ echo -e "\E[34;1m[ OK ]\n"; tput sgr0
 function createShortcuts() {
         echo "#!/bin/bash" > $BINDIR/$1
 	echo "cd" >> $BINDIR/$1
-        echo "WINEPREFIX=$BASEDIR/$1 wine $BASEDIR/$1/$DRIVEC/Program\ Files/Internet\ Explorer/IEXPLORE.EXE \$@ " >> $HOME/bin/$1
-        chmod +x $HOME/bin/$1
+        echo "WINEPREFIX=$BASEDIR/$1 wine $BASEDIR/$1/$DRIVEC/Program\ Files/Internet\ Explorer/IEXPLORE.EXE \$@ " >> $BINDIR/$1
+        chmod +x $BINDIR/$1
         if [ "$CREATE_ICON" = "yes" ]; then
                 if cd ~/Desktop || cd ~/desktop; then
                        $IES4LINUX/lib/mkicon \
@@ -191,13 +185,12 @@ if echo $OPTION | grep ie6 > /dev/null ; then
 
 	cabextract -q -d $BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/SCR56EN.CAB  &> /dev/null
         cabextract -q -F "pngfilt.dll" $DIR/ADVAUTH.CAB &> /dev/null
+	cabextract -q -F "msvcrt.dll" $DIR/SETUPW95.CAB &> /dev/null
 	cabextract -q -F "*TTF" $DIR/FONT*CAB  &> /dev/null
-	mv pngfilt.dll *TTF $BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/
+	mv pngfilt.dll msvcrt.dll *TTF $BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/
 
-	cat $BASEDIR/ie6/system.reg.model | 
-		sed -e "s/IES4LINUX_IE_VERSION/\"IE\"=\"6.0000\"/" |
-		sed -e "s/IES4LINUX_IE_HELP/\"Version\"=\"6.0.2800.1106\"/" > $BASEDIR/ie6/system.reg
-	mv $BASEDIR/ie6/user.reg.model $BASEDIR/ie6/user.reg
+	mv $BASEDIR/ie6/model.system.reg $BASEDIR/ie6/system.reg
+	mv $BASEDIR/ie6/model.user.reg $BASEDIR/ie6/user.reg
 	
 	createShortcuts ie6 6.0
 	rm -rf $BASEDIR/tmp/*
@@ -222,14 +215,16 @@ if echo $OPTION | grep ie55 > /dev/null ; then
 
 	cabextract -q -d $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/VBSCRIPT.CAB &> /dev/null
         cabextract -q -F "pngfilt.dll" $DIR/ADVAUTH.CAB &> /dev/null
+	cabextract -q -F "msvcrt.dll" $DIR/SETUPW95.CAB &> /dev/null
 	cabextract -q -F "*TTF" $DIR/FONT*CAB &> /dev/null
-	mv pngfilt.dll *TTF $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/
+	mv pngfilt.dll msvcrt.dll *TTF $BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/
 
-	cat $BASEDIR/ie55/system.reg.model | 
-		sed -e "s/IES4LINUX_IE_VERSION/\"IE\"=\"5.5000\"/" |
-		sed -e "s/IES4LINUX_IE_HELP/\"Version\"=\"5.50.4807.2300\"/" |
+	cat $BASEDIR/ie55/model.system.reg | 
+		sed -e "s/6.0000/5.5000/g" |
+		sed -e "s/6.0.2800.1106/5.50.4807.2300/g" |
 		sed -e "s/MSXML3.DLL/MSXML.DLL/g" > $BASEDIR/ie55/system.reg
-	mv $BASEDIR/ie55/user.reg.model $BASEDIR/ie55/user.reg
+	rm $BASEDIR/ie55/model.system.reg
+	mv $BASEDIR/ie55/model.user.reg $BASEDIR/ie55/user.reg
 	
 	createShortcuts ie55 5.5
 	rm -rf $BASEDIR/tmp/*
@@ -253,14 +248,16 @@ if echo $OPTION | grep ie50 > /dev/null ; then
 
 	cabextract -q -d $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/ $DIR/VBSCRIPT.CAB  &> /dev/null
         cabextract -q -F "pngfilt.dll" $DIR/ADVAUTH.CAB &> /dev/null
+	cabextract -q -F "msvcrt.dll" $DIR/SETUPW95.CAB &> /dev/null
 	cabextract -q -F "*TTF" $DIR/FONT*CAB &> /dev/null
-	mv pngfilt.dll *TTF $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/
+	mv pngfilt.dll msvcrt.dll *TTF $BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/
 
-	cat $BASEDIR/ie5/system.reg.model | 
-		sed -e "s/IES4LINUX_IE_VERSION/\"IE\"=\"5.0002\"/" |
-		sed -e "s/IES4LINUX_IE_HELP/\"Version\"=\"5.00.2614.3500\"/" |
+	cat $BASEDIR/ie5/model.system.reg | 
+		sed -e "s/6.0000/5.0002/g" |
+		sed -e "s/6.0.2800.1106/5.00.2614.3500/g" |
 		sed -e "s/MSXML3.DLL/MSXML.DLL/g" > $BASEDIR/ie5/system.reg
-	mv $BASEDIR/ie5/user.reg.model $BASEDIR/ie5/user.reg
+	rm $BASEDIR/ie5/model.system.reg
+	mv $BASEDIR/ie5/model.user.reg $BASEDIR/ie5/user.reg
 
 	createShortcuts ie5 5.0
 	rm -rf $BASEDIR/tmp/*
@@ -268,7 +265,6 @@ if echo $OPTION | grep ie50 > /dev/null ; then
 fi
 
 # Remove folders
-rm -rf $BASEDIR/dcom &> /dev/null
 rm -rf $BASEDIR/base
 
 

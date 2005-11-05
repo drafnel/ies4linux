@@ -2474,9 +2474,10 @@ WINE REGISTRY Version 2
 [HARDWARE\\DESCRIPTION\\System] 1058037401
 "Identifier"="AT compatible"
 
-[HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0] 1113982385
-"Identifier"="CPU 586"
-"~MHz"=dword:00000367
+[HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0] 1131167436
+"Identifier"="x86 Family 6 Model 6 Stepping 10"
+"VendorIdentifier"="GenuineIntel"
+"~MHz"=dword:00000366
 
 [HARDWARE\\DESCRIPTION\\System\\FloatingPointProcessor] 1011802919
 
@@ -4244,6 +4245,10 @@ WINE REGISTRY Version 2
 [Software\\Classes\\.MAPIMail] 1058037891
 @="CLSID\\{9E56BE60-C50F-11CF-9A2C-00A0C90A90CE}"
 
+[Software\\Classes\\.mfp] 1131167651
+@="MacromediaFlashPaper.MacromediaFlashPaper"
+"Content Type"="application/x-shockwave-flash"
+
 [Software\\Classes\\.mht] 1058037892
 @="mhtmlfile"
 "Content Type"="message/rfc822"
@@ -4432,6 +4437,12 @@ WINE REGISTRY Version 2
 [Software\\Classes\\.snd] 1058037879
 @="AUFile"
 "Content Type"="audio/basic"
+
+[Software\\Classes\\.sol] 1131167651
+"Content Type"="text/plain"
+
+[Software\\Classes\\.sor] 1131167651
+"Content Type"="text/plain"
 
 [Software\\Classes\\.spc] 1058037895
 @="SPCFile"
@@ -4702,9 +4713,9 @@ WINE REGISTRY Version 2
 [Software\\Classes\\Applications\\msdxm.ocx] 1058037878
 "NoOpenWith"=""
 
-[Software\\Classes\\Applications\\notepad.exe\\shell] 1058040274
+[Software\\Classes\\Applications\\notepad.exe\\shell] 1131167478
 "FriendlyCache"="notepad"
-"FriendlyCacheCTime"=hex:80,eb,1f,1c,aa,48,c3,01
+"FriendlyCacheCTime"=hex:80,51,ff,94,52,df,c5,01
 
 [Software\\Classes\\Applications\\notepad.exe\\shell\\edit] 1058037889
 @="&Edit"
@@ -5125,7 +5136,7 @@ WINE REGISTRY Version 2
 [Software\\Classes\\ClientCaps.ClientCaps.1\\CLSID] 1058037896
 @="{7E8BC44E-AEFF-11D1-89C2-00C04FB6BFC4}"
 
-[Software\\Classes\\CLSID] 1058037902
+[Software\\Classes\\CLSID] 1131167651
 @="{0000031A-0000-0000-C000-000000000046}"
 
 [Software\\Classes\\CLSID\\CLSID] 1058037648
@@ -6564,14 +6575,14 @@ WINE REGISTRY Version 2
 @=str(2):"C:\\Program Files\\Outlook Express\\msoe.dll"
 "ThreadingModel"="Both"
 
-[Software\\Classes\\CLSID\\{1171A62F-05D2-11D1-83FC-00A0C9089C5A}] 1058037902
+[Software\\Classes\\CLSID\\{1171A62F-05D2-11D1-83FC-00A0C9089C5A}] 1131167651
 @="FlashProp Class"
 
-[Software\\Classes\\CLSID\\{1171A62F-05D2-11D1-83FC-00A0C9089C5A}\\InprocServer32] 1058037902
-@="C:\\Windows\\System\\Macromed\\Flash\\swflash.ocx"
+[Software\\Classes\\CLSID\\{1171A62F-05D2-11D1-83FC-00A0C9089C5A}\\InprocServer32] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx"
 "ThreadingModel"="Apartment"
 
-[Software\\Classes\\CLSID\\{1171A62F-05D2-11D1-83FC-00A0C9089C5A}\\Programmable] 1058037902
+[Software\\Classes\\CLSID\\{1171A62F-05D2-11D1-83FC-00A0C9089C5A}\\Programmable] 1131167651
 
 [Software\\Classes\\CLSID\\{1198A2C0-0940-11d1-838F-00C04FBD7C09}] 1058037901
 @="CLSID_CCommunicatorImport"
@@ -10220,14 +10231,14 @@ WINE REGISTRY Version 2
 @="C:\\Windows\\System\\mpg4ds32.ax"
 "ThreadingModel"="Both"
 
-[Software\\Classes\\CLSID\\{8369AB20-56C9-11D0-94E8-00AA0059CE02}] 1113982492
-@="Item para esvaziar a pasta 'Arquivos de programa descarregados'"
+[Software\\Classes\\CLSID\\{8369AB20-56C9-11D0-94E8-00AA0059CE02}] 1131167610
+@="Cleaner for Downloaded Program Files"
 
 [Software\\Classes\\CLSID\\{8369AB20-56C9-11D0-94E8-00AA0059CE02}\\DefaultIcon] 1113982492
-@=str(2):"C:\\windows\\system\\occache.dll,0"
+@=str(2):"C:\\Windows\\System\\occache.dll,0"
 
 [Software\\Classes\\CLSID\\{8369AB20-56C9-11D0-94E8-00AA0059CE02}\\InProcServer32] 1113982492
-@=str(2):"C:\\windows\\system\\occache.dll"
+@=str(2):"C:\\Windows\\System\\occache.dll"
 "ThreadingModel"="Apartment"
 
 [Software\\Classes\\CLSID\\{83799FE0-1F5A-11d1-95C7-00609797EA4F}] 1058037890
@@ -10426,14 +10437,14 @@ WINE REGISTRY Version 2
 [Software\\Classes\\CLSID\\{888D5481-CABB-11D1-8505-00A0C91F9CA0}\\VersionIndependentProgID] 1058037887
 @="VideoRenderCtl.VideoRenderCtl"
 
-[Software\\Classes\\CLSID\\{88C6C381-2E85-11D0-94DE-444553540000}] 1113982492
-@="Pasta cache de ActiveX"
+[Software\\Classes\\CLSID\\{88C6C381-2E85-11D0-94DE-444553540000}] 1131167610
+@="ActiveX Cache Folder"
 
 [Software\\Classes\\CLSID\\{88C6C381-2E85-11D0-94DE-444553540000}\\DefaultIcon] 1113982492
-@=str(2):"C:\\windows\\system\\occache.dll"
+@=str(2):"C:\\Windows\\System\\occache.dll"
 
 [Software\\Classes\\CLSID\\{88C6C381-2E85-11D0-94DE-444553540000}\\InProcServer32] 1113982492
-@=str(2):"C:\\windows\\system\\occache.dll"
+@=str(2):"C:\\Windows\\System\\occache.dll"
 "ThreadingModel"="Apartment"
 
 [Software\\Classes\\CLSID\\{88C6C381-2E85-11D0-94DE-444553540000}\\ShellFolder] 1058037896
@@ -12011,70 +12022,72 @@ WINE REGISTRY Version 2
 [Software\\Classes\\CLSID\\{d2423620-51a0-11d2-9caf-0060b0ec3d39}\\VersionIndependentProgID] 1058037894
 @="Microsoft.XMLParser"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}] 1131167651
 @="Shockwave Flash Object"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Control] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Control] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\EnableFullPage\\.spl] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\EnableFullPage\\.mfp] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\EnableFullPage\\.swf] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\EnableFullPage\\.spl] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Implemented Categories\\{7DD95801-9882-11CF-9FA9-00AA006C42C4}] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\EnableFullPage\\.swf] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Implemented Categories\\{7DD95802-9882-11CF-9FA9-00AA006C42C4}] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Implemented Categories\\{7DD95801-9882-11CF-9FA9-00AA006C42C4}] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\InprocServer32] 1058037902
-@="C:\\Windows\\System\\Macromed\\Flash\\swflash.ocx"
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Implemented Categories\\{7DD95802-9882-11CF-9FA9-00AA006C42C4}] 1131167651
+
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\InprocServer32] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx"
 "ThreadingModel"="Apartment"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\MiscStatus] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\MiscStatus] 1131167651
 @="0"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\MiscStatus\\1] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\MiscStatus\\1] 1131167651
 @="131473"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\ProgID] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\ProgID] 1131167651
 @="ShockwaveFlash.ShockwaveFlash.1"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Programmable] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Programmable] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\ToolboxBitmap32] 1058037902
-@="C:\\Windows\\System\\Macromed\\Flash\\swflash.ocx, 1"
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\ToolboxBitmap32] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx, 1"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\TypeLib] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\TypeLib] 1131167651
 @="{D27CDB6B-AE6D-11cf-96B8-444553540000}"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Version] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\Version] 1131167651
 @="1.0"
 
-[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\VersionIndependentProgID] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB6E-AE6D-11cf-96B8-444553540000}\\VersionIndependentProgID] 1131167651
 @="ShockwaveFlash.ShockwaveFlash"
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}] 1131167651
 @="Macromedia Flash Factory Object"
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\Control] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\Control] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\InprocServer32] 1058037902
-@="C:\\Windows\\System\\Macromed\\Flash\\swflash.ocx"
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\InprocServer32] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx"
 "ThreadingModel"="Apartment"
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\ProgID] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\ProgID] 1131167651
 @="FlashFactory.FlashFactory.1"
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\Programmable] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\Programmable] 1131167651
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\ToolboxBitmap32] 1058037902
-@="C:\\Windows\\System\\Macromed\\Flash\\swflash.ocx, 1"
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\ToolboxBitmap32] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx, 1"
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\TypeLib] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\TypeLib] 1131167651
 @="{D27CDB6B-AE6D-11cf-96B8-444553540000}"
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\Version] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\Version] 1131167651
 @="1.0"
 
-[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\VersionIndependentProgID] 1058037902
+[Software\\Classes\\CLSID\\{D27CDB70-AE6D-11cf-96B8-444553540000}\\VersionIndependentProgID] 1131167651
 @="FlashFactory.FlashFactory"
 
 [Software\\Classes\\CLSID\\{D3588AB0-0781-11CE-B03A-0020AF0BA770}] 1058037856
@@ -14725,7 +14738,7 @@ WINE REGISTRY Version 2
 "URL Protocol"=""
 
 [Software\\Classes\\ftp\\DefaultIcon] 1110510297
-@="c:\\windows\\system\\url.dll,0"
+@="c:\\Windows\\System\\url.dll,0"
 
 [Software\\Classes\\ftp\\shell\\open\\command] 1058037890
 @="\"C:\\PROG~FBU\\INTE~H1A\\iexplore.exe\" %1"
@@ -14783,7 +14796,7 @@ WINE REGISTRY Version 2
 "URL Protocol"=""
 
 [Software\\Classes\\gopher\\DefaultIcon] 1110510297
-@="c:\\windows\\system\\url.dll,0"
+@="c:\\Windows\\System\\url.dll,0"
 
 [Software\\Classes\\gopher\\shell\\open\\command] 1058037890
 @="\"C:\\PROG~FBU\\INTE~H1A\\iexplore.exe\" -nohome"
@@ -14992,7 +15005,7 @@ WINE REGISTRY Version 2
 ".wvx"="dxmasf.dll,150"
 
 [Software\\Classes\\http\\DefaultIcon] 1110510297
-@="c:\\windows\\system\\url.dll,0"
+@="c:\\Windows\\System\\url.dll,0"
 
 [Software\\Classes\\http\\Extensions] 1058037878
 ".ASF"="{6B6D0800-9ADA-11d0-A520-00A0D10129C0}"
@@ -15026,7 +15039,7 @@ WINE REGISTRY Version 2
 "URL Protocol"=""
 
 [Software\\Classes\\https\\DefaultIcon] 1110510297
-@="c:\\windows\\system\\url.dll,0"
+@="c:\\Windows\\System\\url.dll,0"
 
 [Software\\Classes\\https\\shell\\open\\command] 1058037890
 @="\"C:\\PROG~FBU\\INTE~H1A\\iexplore.exe\" -nohome"
@@ -21681,6 +21694,19 @@ WINE REGISTRY Version 2
 @="{3050F1C5-98B5-11CF-BB82-00AA00BDCE0B}"
 "Version"="4.0"
 
+[Software\\Classes\\Interface\\{307F64C0-621D-4D56-BBC6-91EFC13CE40D}] 1131167651
+@="ISimpleTextSelection"
+
+[Software\\Classes\\Interface\\{307F64C0-621D-4D56-BBC6-91EFC13CE40D}\\ProxyStubClsid] 1131167651
+@="{00020424-0000-0000-C000-000000000046}"
+
+[Software\\Classes\\Interface\\{307F64C0-621D-4D56-BBC6-91EFC13CE40D}\\ProxyStubClsid32] 1131167651
+@="{00020424-0000-0000-C000-000000000046}"
+
+[Software\\Classes\\Interface\\{307F64C0-621D-4D56-BBC6-91EFC13CE40D}\\TypeLib] 1131167651
+@="{57A0E746-3863-4D20-A811-950C84F1DB9B}"
+"Version"="1.0"
+
 [Software\\Classes\\Interface\\{310AFA62-0575-11D2-9CA9-0060B0EC3D39}] 1058037895
 @="IDSOControl"
 
@@ -22883,6 +22909,19 @@ WINE REGISTRY Version 2
 
 [Software\\Classes\\Interface\\{56FDF342-FD6D-11D0-958A-006097C9A090}\\ProxyStubClsid32] 1058037890
 @="{B8DA6310-E19B-11D0-933C-00A0C90DCAA9}"
+
+[Software\\Classes\\Interface\\{57A0E747-3863-4D20-A811-950C84F1DB9B}] 1131167651
+@="IFlashAccessibility"
+
+[Software\\Classes\\Interface\\{57A0E747-3863-4D20-A811-950C84F1DB9B}\\ProxyStubClsid] 1131167651
+@="{00020424-0000-0000-C000-000000000046}"
+
+[Software\\Classes\\Interface\\{57A0E747-3863-4D20-A811-950C84F1DB9B}\\ProxyStubClsid32] 1131167651
+@="{00020424-0000-0000-C000-000000000046}"
+
+[Software\\Classes\\Interface\\{57A0E747-3863-4D20-A811-950C84F1DB9B}\\TypeLib] 1131167651
+@="{57A0E746-3863-4D20-A811-950C84F1DB9B}"
+"Version"="1.0"
 
 [Software\\Classes\\Interface\\{57CED8A7-3F4A-432C-9350-30F24483F74F}] 1058037890
 @="INamespaceWalk"
@@ -25512,8 +25551,8 @@ WINE REGISTRY Version 2
 @="{D27CDB6B-AE6D-11CF-96B8-444553540000}"
 "Version"="1.0"
 
-[Software\\Classes\\Interface\\{D27CDB6D-AE6D-11CF-96B8-444553540000}] 1058037902
-@="DShockwaveFlashEvents"
+[Software\\Classes\\Interface\\{D27CDB6D-AE6D-11CF-96B8-444553540000}] 1131167651
+@="_IShockwaveFlashEvents"
 
 [Software\\Classes\\Interface\\{D27CDB6D-AE6D-11CF-96B8-444553540000}\\ProxyStubClsid] 1058037902
 @="{00020420-0000-0000-C000-000000000046}"
@@ -26472,7 +26511,7 @@ WINE REGISTRY Version 2
 @="{FBF23B40-E3F0-101B-8488-00AA003E56F8}"
 
 [Software\\Classes\\InternetShortcut\\DefaultIcon] 1110510297
-@="c:\\windows\\system\\url.dll,0"
+@="c:\\Windows\\System\\url.dll,0"
 
 [Software\\Classes\\InternetShortcut\\shell\\open] 1058037890
 "CLSID"="{FBF23B40-E3F0-101B-8488-00AA003E56F8}"
@@ -27029,6 +27068,18 @@ WINE REGISTRY Version 2
 
 [Software\\Classes\\m3ufile\\shell\\play\\command] 1058037879
 @="\"C:\\Program Files\\Windows Media Player\\mplayer2.exe\"  /Play \"%L\""
+
+[Software\\Classes\\MacromediaFlashPaper.MacromediaFlashPaper] 1131167651
+@="Macromedia Flash Paper"
+
+[Software\\Classes\\MacromediaFlashPaper.MacromediaFlashPaper\\CLSID] 1131167651
+@="{D27CDB6E-AE6D-11cf-96B8-444553540000}"
+
+[Software\\Classes\\MacromediaFlashPaper.MacromediaFlashPaper\\DefaultIcon] 1131167651
+@="C:\\PROG~FBU\\INTE~H1A\\iexplore.exe,1"
+
+[Software\\Classes\\MacromediaFlashPaper.MacromediaFlashPaper\\shell\\open\\command] 1131167651
+@="\"C:\\PROG~FBU\\INTE~H1A\\iexplore.exe\" -nohome \"%1\""
 
 [Software\\Classes\\mailto] 1058037854
 @="URL:MailTo Protocol"
@@ -30055,8 +30106,8 @@ WINE REGISTRY Version 2
 [Software\\Classes\\ShockwaveFlash.ShockwaveFlash\\CLSID] 1058037902
 @="{D27CDB6E-AE6D-11cf-96B8-444553540000}"
 
-[Software\\Classes\\ShockwaveFlash.ShockwaveFlash\\CurVer] 1058037902
-@="ShockwaveFlash.ShockwaveFlash.1"
+[Software\\Classes\\ShockwaveFlash.ShockwaveFlash\\CurVer] 1131167651
+@="ShockwaveFlash.ShockwaveFlash.8"
 
 [Software\\Classes\\ShockwaveFlash.ShockwaveFlash.1] 1058037902
 @="Shockwave Flash Object"
@@ -30080,6 +30131,24 @@ WINE REGISTRY Version 2
 @="Shockwave Flash Object"
 
 [Software\\Classes\\ShockwaveFlash.ShockwaveFlash.5\\CLSID] 1058037902
+@="{D27CDB6E-AE6D-11cf-96B8-444553540000}"
+
+[Software\\Classes\\ShockwaveFlash.ShockwaveFlash.6] 1131167651
+@="Shockwave Flash Object"
+
+[Software\\Classes\\ShockwaveFlash.ShockwaveFlash.6\\CLSID] 1131167651
+@="{D27CDB6E-AE6D-11cf-96B8-444553540000}"
+
+[Software\\Classes\\ShockwaveFlash.ShockwaveFlash.7] 1131167651
+@="Shockwave Flash Object"
+
+[Software\\Classes\\ShockwaveFlash.ShockwaveFlash.7\\CLSID] 1131167651
+@="{D27CDB6E-AE6D-11cf-96B8-444553540000}"
+
+[Software\\Classes\\ShockwaveFlash.ShockwaveFlash.8] 1131167651
+@="Shockwave Flash Object"
+
+[Software\\Classes\\ShockwaveFlash.ShockwaveFlash.8\\CLSID] 1131167651
 @="{D27CDB6E-AE6D-11cf-96B8-444553540000}"
 
 [Software\\Classes\\snews] 1058037854
@@ -30548,6 +30617,18 @@ WINE REGISTRY Version 2
 [Software\\Classes\\TypeLib\\{56a868b0-0ad4-11ce-b03a-0020af0ba770}\\1.0\\HELPDIR] 1058037856
 @="C:\\Windows\\System"
 
+[Software\\Classes\\TypeLib\\{57A0E746-3863-4D20-A811-950C84F1DB9B}\\1.0] 1131167651
+@="FlashAccessibility"
+
+[Software\\Classes\\TypeLib\\{57A0E746-3863-4D20-A811-950C84F1DB9B}\\1.0\\0\\win32] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx\\2"
+
+[Software\\Classes\\TypeLib\\{57A0E746-3863-4D20-A811-950C84F1DB9B}\\1.0\\FLAGS] 1131167651
+@="0"
+
+[Software\\Classes\\TypeLib\\{57A0E746-3863-4D20-A811-950C84F1DB9B}\\1.0\\HELPDIR] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\"
+
 [Software\\Classes\\TypeLib\\{5B9169C0-DB65-42AA-A38A-0726846AAEB3}\\1.0] 1058037895
 @="xenroll 1.0 Type Library"
 
@@ -30707,13 +30788,13 @@ WINE REGISTRY Version 2
 [Software\\Classes\\TypeLib\\{D27CDB6B-AE6D-11CF-96B8-444553540000}\\1.0] 1058037902
 @="Shockwave Flash"
 
-[Software\\Classes\\TypeLib\\{D27CDB6B-AE6D-11CF-96B8-444553540000}\\1.0\\0\\win32] 1058037902
-@="C:\\Windows\\System\\Macromed\\Flash\\swflash.ocx"
+[Software\\Classes\\TypeLib\\{D27CDB6B-AE6D-11CF-96B8-444553540000}\\1.0\\0\\win32] 1131167651
+@="C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx"
 
 [Software\\Classes\\TypeLib\\{D27CDB6B-AE6D-11CF-96B8-444553540000}\\1.0\\FLAGS] 1058037902
 @="0"
 
-[Software\\Classes\\TypeLib\\{D27CDB6B-AE6D-11CF-96B8-444553540000}\\1.0\\HELPDIR] 1058037902
+[Software\\Classes\\TypeLib\\{D27CDB6B-AE6D-11CF-96B8-444553540000}\\1.0\\HELPDIR] 1131167651
 @="C:\\Windows\\System\\Macromed\\Flash\\"
 
 [Software\\Classes\\TypeLib\\{D63E0CE2-A0A2-11D0-9C02-00C04FC99C8E}\\2.0] 1058037894
@@ -31655,12 +31736,12 @@ WINE REGISTRY Version 2
 "Locale"="EN"
 "Version"="4,71,1972,1"
 
-[Software\\Microsoft\\Active Setup\\Installed Components\\{D27CDB6E-AE6D-11cf-96B8-444553540000}] 1058037881
-@="Macromedia Flash Player"
+[Software\\Microsoft\\Active Setup\\Installed Components\\{D27CDB6E-AE6D-11cf-96B8-444553540000}] 1131167651
+@="Macromedia Flash Player 8"
 "ComponentID"="Flash"
-"IsInstalled"=dword:00000001
+"IsInstalled"=hex:01,00,00,00
 "Locale"="EN"
-"Version"="5,0,44,0"
+"Version"="8.0.22.0"
 
 [Software\\Microsoft\\Active Setup\\Installed Components\\{de5aed00-a4bf-11d1-9948-00c04f98bbc9}] 1058037848
 @="Internet Explorer Help Engine"
@@ -32091,6 +32172,20 @@ WINE REGISTRY Version 2
 "cFilterTags"=dword:00000000
 "cFormatTags"=dword:00000001
 "fdwSupport"=dword:00000002
+
+[Software\\Microsoft\\Code Store Database\\Distribution Units\\{D27CDB6E-AE6D-11CF-96B8-444553540000}] 1131167651
+"Installer"="MSICD"
+"SystemComponent"=dword:00000000
+
+[Software\\Microsoft\\Code Store Database\\Distribution Units\\{D27CDB6E-AE6D-11CF-96B8-444553540000}\\Contains] 1131167651
+
+[Software\\Microsoft\\Code Store Database\\Distribution Units\\{D27CDB6E-AE6D-11CF-96B8-444553540000}\\DownloadInformation] 1131167651
+"CODEBASE"="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab"
+"INF"="c:\\windows\\Downloaded Program Files\\swflash.inf"
+
+[Software\\Microsoft\\Code Store Database\\Distribution Units\\{D27CDB6E-AE6D-11CF-96B8-444553540000}\\InstalledVersion] 1131167651
+@="8,0,22,0"
+"LastModified"="Fri, 02 Sep 2005 17:43:14 GMT"
 
 [Software\\Microsoft\\Cryptography\\Defaults\\Provider\\Microsoft Base Cryptographic Provider v1.0] 1058037895
 "Image Path"="rsabase.dll"
@@ -33132,7 +33227,7 @@ WINE REGISTRY Version 2
 "IntegratedBrowser"=dword:00000001
 "IVer"="103"
 "MkEnabled"="Yes"
-IES4LINUX_IE_HELP
+"Version"="6.0.2800.1106"
 
 [Software\\Microsoft\\Internet Explorer\\AboutURLs] 1058037892
 "blank"="res://mshtml.dll/blank.htm"
@@ -33380,6 +33475,9 @@ IES4LINUX_IE_HELP
 
 [Software\\Microsoft\\Internet Explorer\\ActiveX Compatibility\\{CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA}] 1058037891
 "Compatibility Flags"=dword:00010000
+
+[Software\\Microsoft\\Internet Explorer\\ActiveX Compatibility\\{D27CDB6E-AE6D-11CF-96B8-444553540000}] 1131167651
+"Compatibility Flags"="0"
 
 [Software\\Microsoft\\Internet Explorer\\ActiveX Compatibility\\{D2F97240-C9F4-11CF-BFC4-00A0C90C2BDB}] 1058037891
 "Compatibility Flags"=dword:00000010
@@ -34365,7 +34463,7 @@ IES4LINUX_IE_HELP
 "Compatibility Flags"=dword:00000004
 
 [Software\\Microsoft\\Internet Explorer\\Version Vector] 1058037902
-IES4LINUX_IE_VERSION
+"IE"="6.0000"
 "VML"="1.0"
 
 [Software\\Microsoft\\MediaPlayer] 1058037901
@@ -41264,10 +41362,10 @@ IES4LINUX_IE_VERSION
 "LastAccess"=hex:02,00,00,00
 "Priority"=hex:00,00,00,00
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\explorer\\VolumeCaches\\Downloaded Program Files] 1113982492
+[Software\\Microsoft\\Windows\\CurrentVersion\\explorer\\VolumeCaches\\Downloaded Program Files] 1131167610
 @="{8369AB20-56C9-11D0-94E8-00AA0059CE02}"
-"AdvancedButtonText"="&Exibir arquivos"
-"Description"="Os arquivos de programa descarregados s\xe3o controles ActiveX e miniaplicativos Java cujo download \xe9 feito automaticamente da Internet quando voc\xea exibe determinadas p\xe1ginas. Eles s\xe3o armazenados temporariamente no seu disco na pasta 'Arquivos de programa descarregados'."
+"AdvancedButtonText"="&View Files"
+"Description"="Downloaded Program Files are ActiveX controls and Java applets downloaded automatically from the Internet when you view certain pages. They are temporarily stored in the Downloaded Program Files folder on your hard disk."
 "Display"="Downloaded Program Files"
 "Priority"=hex:64,00,00,00
 
@@ -41290,7 +41388,7 @@ IES4LINUX_IE_VERSION
 "MenuName"="as &Web Page"
 "TooltipText"="Web"
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Fonts] 1114071927
+[Software\\Microsoft\\Windows\\CurrentVersion\\Fonts] 1131167440
 @=""
 "04b_03b (TrueType)"="04B_03B_.TTF"
 "4Mini (TrueType)"="4mini.ttf"
@@ -41300,11 +41398,51 @@ IES4LINUX_IE_VERSION
 "911 Porscha Italic Italic (TrueType)"="911v2i.ttf"
 "911 Porscha Laser Italic Laser Italic (TrueType)"="911v2li.ttf"
 "911 Porscha Leftalic Leftalic (TrueType)"="911v2l.ttf"
+"aakar Medium (TrueType)"="aakar-medium.ttf"
 "Abstract (TrueType)"="ABSTRACT.TTF"
 "Adventure Normal (TrueType)"="Adventure.TTF"
 "AdvoCut (TrueType)"="AdvoCut.ttf"
-"Agency FB (TrueType)"="AGENCYR.TTF"
-"Agency FB Bold (TrueType)"="AGENCYB.TTF"
+"ae_AlArabiya (TrueType)"="AlArabiya.ttf"
+"ae_AlBattar (TrueType)"="ae_AlBattar.ttf"
+"ae_AlHor (TrueType)"="AlHor.ttf"
+"ae_AlManzomah (TrueType)"="AlManzomah.ttf"
+"ae_AlMateen Bold (TrueType)"="AlMateen.ttf"
+"ae_AlMohanad (TrueType)"="ae_AlMohanad.ttf"
+"ae_AlMothnna Bold (TrueType)"="ae_AlMothnna_bold.ttf"
+"ae_AlYermook (TrueType)"="ae_AlYermook.ttf"
+"ae_Arab (TrueType)"="ae_Arab.ttf"
+"ae_Cortoba (TrueType)"="ae_Cortoba.ttf"
+"ae_Dimnah (TrueType)"="ae_Dimnah.ttf"
+"ae_Electron (TrueType)"="ae_Electron.ttf"
+"ae_Furat (TrueType)"="Furat.ttf"
+"ae_Granada (TrueType)"="Granada.ttf"
+"ae_Graph (TrueType)"="Graph.ttf"
+"ae_Hani (TrueType)"="Hani.ttf"
+"ae_Haramain (TrueType)"="Haramain.ttf"
+"ae_Hor (TrueType)"="Hor.ttf"
+"ae_Japan (TrueType)"="Japan.ttf"
+"ae_Jet (TrueType)"="Jet.ttf"
+"ae_Kayrawan (TrueType)"="Kayrawan.ttf"
+"ae_Khalid (TrueType)"="Khalid.ttf"
+"ae_Mashq (TrueType)"="Mashq.ttf"
+"ae_Mashq Bold (TrueType)"="ae_Mashq_bold.ttf"
+"ae_Metal (TrueType)"="ae_Metal.ttf"
+"ae_Nada (TrueType)"="Nada.ttf"
+"ae_Nagham (TrueType)"="ae_Nagham.ttf"
+"ae_Nice (TrueType)"="Nice.ttf"
+"ae_Ostorah (TrueType)"="ae_Ostorah.ttf"
+"ae_Ouhod Bold (TrueType)"="Ouhod.ttf"
+"ae_Petra (TrueType)"="Petra.ttf"
+"ae_Rasheeq Bold (TrueType)"="Rasheeq.ttf"
+"ae_Rehan (TrueType)"="ae_Rehan.ttf"
+"ae_Salem (TrueType)"="ae_Salem.ttf"
+"ae_Shado (TrueType)"="ae_Shado.ttf"
+"ae_Sharjah (TrueType)"="Sharjah.ttf"
+"ae_Sindibad (TrueType)"="ae_Sindibad.ttf"
+"ae_Tarablus (TrueType)"="ae_Tarablus.ttf"
+"ae_Tholoth (TrueType)"="Tholoth.ttf"
+"Agency FB (TrueType)"="agencyr.ttf"
+"Agency FB Bold (TrueType)"="agencyb.ttf"
 "Akbar Plain (TrueType)"="akbar.ttf"
 "Aleia Abnormal (TrueType)"="ALEIA.TTF"
 "Alexis (TrueType)"="alex.ttf"
@@ -41317,179 +41455,201 @@ IES4LINUX_IE_VERSION
 "Alexis Laser Italic Laser Italic (TrueType)"="alexli.ttf"
 "Alexis Laser Laser (TrueType)"="alexl.ttf"
 "Alexis Leftalic Leftalic (TrueType)"="alexle.ttf"
-"Algerian (TrueType)"="ALGER.TTF"
+"Algerian (TrueType)"="alger.ttf"
 "Alien League (TrueType)"="ALIEN5.TTF"
 "AlphaMack AOE (TrueType)"="ALPHMA__.TTF"
 "Andale Mono (TrueType)"="andalemo.ttf"
 "Angelina (TrueType)"="angelina.TTF"
+"Ani (TrueType)"="Ani.ttf"
 "Another (TrueType)"="Another_.ttf"
+"AR PL KaitiM Big5 (TrueType)"="bkai00mp.ttf"
+"AR PL KaitiM GB (TrueType)"="gkai00mp.ttf"
+"AR PL Mingti2L Big5 Reguler (TrueType)"="bsmi00lp.ttf"
+"AR PL SungtiL GB (TrueType)"="gbsn00lp.ttf"
 "Arial (TrueType)"="arial.ttf"
-"Arial Black (TrueType)"="ariblk.ttf"
+"Arial Black (TrueType)"="Arial_Black.ttf"
 "Arial Bold (TrueType)"="arialbd.ttf"
 "Arial Bold Italic (TrueType)"="arialbi.ttf"
 "Arial Italic (TrueType)"="ariali.ttf"
-"Arial Narrow (TrueType)"="ARIALN.TTF"
-"Arial Narrow Bold (TrueType)"="ARIALNB.TTF"
-"Arial Narrow Bold Italic (TrueType)"="ARIALNBI.TTF"
-"Arial Narrow Italic (TrueType)"="ARIALNI.TTF"
-"Arial Rounded MT Bold (TrueType)"="ARLRDBD.TTF"
-"Arial Unicode MS (TrueType)"="ARIALUNI.TTF"
+"Arial Narrow (TrueType)"="arialn.ttf"
+"Arial Narrow Bold (TrueType)"="arialnb.ttf"
+"Arial Narrow Bold Italic (TrueType)"="arialnbi.ttf"
+"Arial Narrow Italic (TrueType)"="arialni.ttf"
+"Arial Rounded MT Bold (TrueType)"="arlrdbd.ttf"
+"Arial Unicode MS (TrueType)"="arialuni.ttf"
 "Arnold 2.1 (TrueType)"="ARNORG__.TTF"
 "augie (TrueType)"="augie.ttf"
 "Avante Normal (TrueType)"="avante.ttf"
 "Avenida LET Plain (TrueType)"="Avenida.ttf"
-"BankGothic Md BT Medium (TrueType)"="BNKGOTHM.TTF"
+"Baekmuk Batang (TrueType)"="Batang-Regular.ttf"
+"Baekmuk Dotum (TrueType)"="dotum.ttf"
+"Baekmuk Gulim (TrueType)"="Gulim-Regular.ttf"
+"Baekmuk Headline (TrueType)"="hline.ttf"
+"BankGothic Md BT Medium (TrueType)"="bnkgothm.ttf"
 "Base 02 (TrueType)"="Base02.ttf"
-"Baskerville Old Face (TrueType)"="BASKVILL.TTF"
-"Bauhaus 93 (TrueType)"="BAUHS93.TTF"
-"Bell MT (TrueType)"="BELL.TTF"
-"Bell MT Bold (TrueType)"="BELLB.TTF"
-"Bell MT Italic (TrueType)"="BELLI.TTF"
-"Berlin Sans FB (TrueType)"="BRLNSR.TTF"
-"Berlin Sans FB Bold (TrueType)"="BRLNSB.TTF"
-"Berlin Sans FB Demi Bold (TrueType)"="BRLNSDB.TTF"
-"Bernard MT Condensed (TrueType)"="BERNHC.TTF"
+"Baskerville Old Face (TrueType)"="baskvill.ttf"
+"Bauhaus 93 (TrueType)"="bauhs93.ttf"
+"Bell MT (TrueType)"="bell.ttf"
+"Bell MT Bold (TrueType)"="bellb.ttf"
+"Bell MT Italic (TrueType)"="belli.ttf"
+"Berlin Sans FB (TrueType)"="brlnsr.ttf"
+"Berlin Sans FB Bold (TrueType)"="brlnsb.ttf"
+"Berlin Sans FB Demi Bold (TrueType)"="brlnsdb.ttf"
+"Bernard MT Condensed (TrueType)"="bernhc.ttf"
 "Birdy (TrueType)"="Birdy.ttf"
 "Birdy No2 (TrueType)"="BirdyN2.ttf"
 "BitLow Regular 7pts (TrueType)"="bitlow.ttf"
-"Bitstream Vera Sans Bold (TrueType)"="VeraBd.ttf"
-"Bitstream Vera Sans Bold Oblique (TrueType)"="VeraBI.ttf"
-"Bitstream Vera Sans Mono Bold (TrueType)"="VeraMoBd.ttf"
-"Bitstream Vera Sans Mono Bold Oblique (TrueType)"="VeraMoBI.ttf"
-"Bitstream Vera Sans Mono Oblique (TrueType)"="VeraMoIt.ttf"
-"Bitstream Vera Sans Mono Roman (TrueType)"="VeraMono.ttf"
-"Bitstream Vera Sans Oblique (TrueType)"="VeraIt_0.ttf"
-"Bitstream Vera Sans Roman (TrueType)"="Vera.ttf"
+"Bitstream Vera Sans Bold (TrueType)"="VeraBd_0.ttf"
+"Bitstream Vera Sans Bold Oblique (TrueType)"="Bitstream-Vera-Sans-Bold-Oblique.ttf"
+"Bitstream Vera Sans Mono Bold (TrueType)"="VeraMoB0.ttf"
+"Bitstream Vera Sans Mono Bold Oblique (TrueType)"="VeraMoB2.ttf"
+"Bitstream Vera Sans Mono Oblique (TrueType)"="Bitstream-Vera-Sans-Mono-Oblique.ttf"
+"Bitstream Vera Sans Mono Roman (TrueType)"="Bitstream-Vera-Sans-Mono.ttf"
+"Bitstream Vera Sans Oblique (TrueType)"="VeraIt.ttf"
+"Bitstream Vera Sans Roman (TrueType)"="Bitstream-Vera-Sans.ttf"
 "Bitstream Vera Serif Bold (TrueType)"="VeraSeBd.ttf"
-"Bitstream Vera Serif Roman (TrueType)"="VeraSe_0.ttf"
-"Blackadder ITC (TrueType)"="ITCBLKAD.TTF"
-"Bodoni MT (TrueType)"="BOD_R.TTF"
-"Bodoni MT Black (TrueType)"="BOD_BLAR.TTF"
-"Bodoni MT Black Italic (TrueType)"="BOD_BLAI.TTF"
-"Bodoni MT Bold (TrueType)"="BOD_B.TTF"
-"Bodoni MT Bold Italic (TrueType)"="BOD_BI.TTF"
-"Bodoni MT Condensed (TrueType)"="BOD_CR.TTF"
-"Bodoni MT Condensed Bold (TrueType)"="BOD_CB.TTF"
-"Bodoni MT Condensed Bold Italic (TrueType)"="BOD_CBI.TTF"
-"Bodoni MT Condensed Italic (TrueType)"="BOD_CI.TTF"
-"Bodoni MT Italic (TrueType)"="BOD_I.TTF"
-"Bodoni MT Poster Compressed (TrueType)"="BOD_PSTC.TTF"
-"Boink LET Plain (TrueType)"="BOINKN.TTF"
-"Book Antiqua (TrueType)"="BKANT.TTF"
-"Book Antiqua Bold (TrueType)"="ANTQUAB.TTF"
-"Book Antiqua Bold Italic (TrueType)"="ANTQUABI.TTF"
-"Book Antiqua Italic (TrueType)"="ANTQUAI.TTF"
-"Bookman Old Style (TrueType)"="BOOKOS.TTF"
-"Bookman Old Style Bold (TrueType)"="BOOKOSB.TTF"
-"Bookman Old Style Bold Italic (TrueType)"="BOOKOSBI.TTF"
-"Bookman Old Style Italic (TrueType)"="BOOKOSI.TTF"
-"Bradley Hand ITC (TrueType)"="BRADHITC.TTF"
-"Britannic Bold (TrueType)"="BRITANIC.TTF"
-"Broadway (TrueType)"="BROADW.TTF"
-"Brush Script MT Italic (TrueType)"="BRUSHSCI.TTF"
+"Bitstream Vera Serif Roman (TrueType)"="Bitstream-Vera-Serif.ttf"
+"Blackadder ITC (TrueType)"="itcblkad.ttf"
+"Bodoni MT (TrueType)"="bod_r.ttf"
+"Bodoni MT Black (TrueType)"="bod_blar.ttf"
+"Bodoni MT Black Italic (TrueType)"="bod_blai.ttf"
+"Bodoni MT Bold (TrueType)"="bod_b.ttf"
+"Bodoni MT Bold Italic (TrueType)"="bod_bi.ttf"
+"Bodoni MT Condensed (TrueType)"="bod_cr.ttf"
+"Bodoni MT Condensed Bold (TrueType)"="bod_cb.ttf"
+"Bodoni MT Condensed Bold Italic (TrueType)"="bod_cbi.ttf"
+"Bodoni MT Condensed Italic (TrueType)"="bod_ci.ttf"
+"Bodoni MT Italic (TrueType)"="bod_i.ttf"
+"Bodoni MT Poster Compressed (TrueType)"="bod_pstc.ttf"
+"Boink LET Plain (TrueType)"="boinkn.ttf"
+"Book Antiqua (TrueType)"="bkant.ttf"
+"Book Antiqua Bold (TrueType)"="antquab.ttf"
+"Book Antiqua Bold Italic (TrueType)"="antquabi.ttf"
+"Book Antiqua Italic (TrueType)"="antquai.ttf"
+"Bookman Old Style (TrueType)"="bookos.ttf"
+"Bookman Old Style Bold (TrueType)"="bookosb.ttf"
+"Bookman Old Style Bold Italic (TrueType)"="bookosbi.ttf"
+"Bookman Old Style Italic (TrueType)"="bookosi.ttf"
+"Bradley Hand ITC (TrueType)"="bradhitc.ttf"
+"Britannic Bold (TrueType)"="britanic.ttf"
+"Broadway (TrueType)"="broadw.ttf"
+"Brush Script MT Italic (TrueType)"="brushsci.ttf"
 "Bumrush (TrueType)"="Bumrush.ttf"
-"Californian FB (TrueType)"="CALIFR.TTF"
-"Californian FB Bold (TrueType)"="CALIFB.TTF"
-"Californian FB Italic (TrueType)"="CALIFI.TTF"
-"Calisto MT (TrueType)"="CALIST.TTF"
-"Calisto MT Bold (TrueType)"="CALISTB.TTF"
-"Calisto MT Bold Italic (TrueType)"="CALISTBI.TTF"
-"Calisto MT Italic (TrueType)"="CALISTI.TTF"
+"Californian FB (TrueType)"="califr.ttf"
+"Californian FB Bold (TrueType)"="califb.ttf"
+"Californian FB Italic (TrueType)"="califi.ttf"
+"Calisto MT (TrueType)"="calist.ttf"
+"Calisto MT Bold (TrueType)"="calistb.ttf"
+"Calisto MT Bold Italic (TrueType)"="calistbi.ttf"
+"Calisto MT Italic (TrueType)"="calisti.ttf"
 "Calvin and Hobbes Normal (TrueType)"="CALVINN.TTF"
 "Calvin and Hobbes Outline (TrueType)"="CALVINO.TTF"
 "Captain Podd (TrueType)"="CaptainPodd.ttf"
-"Castellar (TrueType)"="CASTELAR.TTF"
-"CastleT (TrueType)"="CASTLEN.TTF"
-"Centaur (TrueType)"="CENTAUR.TTF"
-"Century Gothic (TrueType)"="GOTHIC.TTF"
-"Century Gothic Bold (TrueType)"="GOTHICB.TTF"
-"Century Gothic Bold Italic (TrueType)"="GOTHICBI.TTF"
-"Century Gothic Italic (TrueType)"="GOTHICI.TTF"
-"Century Schoolbook (TrueType)"="CENSCBK.TTF"
-"Century Schoolbook Bold (TrueType)"="SCHLBKB.TTF"
-"Century Schoolbook Bold Italic (TrueType)"="SCHLBKBI.TTF"
-"Century Schoolbook Italic (TrueType)"="SCHLBKI.TTF"
+"Castellar (TrueType)"="castelar.ttf"
+"CastleT (TrueType)"="castlen.ttf"
+"Centaur (TrueType)"="centaur.ttf"
+"Century Gothic (TrueType)"="gothic.ttf"
+"Century Gothic Bold (TrueType)"="gothicb.ttf"
+"Century Gothic Bold Italic (TrueType)"="gothicbi.ttf"
+"Century Gothic Italic (TrueType)"="gothici.ttf"
+"Century Schoolbook (TrueType)"="censcbk.ttf"
+"Century Schoolbook Bold (TrueType)"="schlbkb.ttf"
+"Century Schoolbook Bold Italic (TrueType)"="schlbkbi.ttf"
+"Century Schoolbook Italic (TrueType)"="schlbki.ttf"
 "ChickenScratch AOE (TrueType)"="CHICSA__.TTF"
-"Chiller (TrueType)"="CHILLER.TTF"
-"Colonna MT (TrueType)"="COLONNA.TTF"
-"Comic Sans MS (TrueType)"="comic.ttf"
-"Comic Sans MS Bold (TrueType)"="comicbd.ttf"
-"Cooper Black (TrueType)"="COOPBL.TTF"
-"Copperplate Gothic Bold (TrueType)"="COPRGTB.TTF"
-"Copperplate Gothic Light (TrueType)"="COPRGTL.TTF"
-"Courant (TrueType)"="CON_____.ttf"
-"Courant Bold (TrueType)"="COB_____.ttf"
-"Courant Bold Italic (TrueType)"="COBO____.ttf"
-"Courant Italic (TrueType)"="COO_____.ttf"
+"Chiller (TrueType)"="chiller.ttf"
+"Colonna MT (TrueType)"="colonna.ttf"
+"Comic Sans MS (TrueType)"="Comic_Sans_MS.ttf"
+"Comic Sans MS Bold (TrueType)"="ComicSansMS-Bold.ttf"
+"Cooper Black (TrueType)"="coopbl.ttf"
+"Copperplate Gothic Bold (TrueType)"="coprgtb.ttf"
+"Copperplate Gothic Light (TrueType)"="coprgtl.ttf"
+"Courant (TrueType)"="con_____.ttf"
+"Courant Bold (TrueType)"="cob_____.ttf"
+"Courant Bold Italic (TrueType)"="cobo____.ttf"
+"Courant Italic (TrueType)"="coo_____.ttf"
 "Courier New (TrueType)"="cour.ttf"
 "Courier New Bold (TrueType)"="courbd.ttf"
 "Courier New Bold Italic (TrueType)"="courbi.ttf"
 "Courier New Italic (TrueType)"="couri.ttf"
-"Curlz MT (TrueType)"="CURLZ___.TTF"
-"Edwardian Script ITC (TrueType)"="ITCEDSCR.TTF"
-"Elephant (TrueType)"="ELEPHNT.TTF"
-"Elephant Italic (TrueType)"="ELEPHNTI.TTF"
+"Curlz MT (TrueType)"="curlz___.ttf"
+"Edwardian Script ITC (TrueType)"="itcedscr.ttf"
+"Elephant (TrueType)"="elephnt.ttf"
+"Elephant Italic (TrueType)"="elephnti.ttf"
 "Enchanted Prairie Dog (TrueType)"="EnchantedPrairieDog.TTF"
-"Engravers MT (TrueType)"="ENGR.TTF"
-"Eras Bold ITC (TrueType)"="ERASBD.TTF"
-"Eras Demi ITC (TrueType)"="ERASDEMI.TTF"
-"Eras Light ITC (TrueType)"="ERASLGHT.TTF"
-"Eras Medium ITC (TrueType)"="ERASMD.TTF"
+"Engravers MT (TrueType)"="engr.ttf"
+"Eras Bold ITC (TrueType)"="erasbd.ttf"
+"Eras Demi ITC (TrueType)"="erasdemi.ttf"
+"Eras Light ITC (TrueType)"="eraslght.ttf"
+"Eras Medium ITC (TrueType)"="erasmd.ttf"
 "Estrangelo Edessa (TrueType)"="estre.ttf"
-"Felix Titling (TrueType)"="FELIXTI.TTF"
+"Felix Titling (TrueType)"="felixti.ttf"
 "Final Frontier (TrueType)"="Finalnew.ttf"
-"Footlight MT Light (TrueType)"="FTLTLT.TTF"
+"Footlight MT Light (TrueType)"="ftltlt.ttf"
 "Forgotten Futurist (TrueType)"="FORGOTTE.TTF"
-"Forte (TrueType)"="FORTE.TTF"
-"Franklin Gothic Book (TrueType)"="FRABK.TTF"
-"Franklin Gothic Book Italic (TrueType)"="FRABKIT.TTF"
-"Franklin Gothic Demi (TrueType)"="FRADM.TTF"
-"Franklin Gothic Demi Cond (TrueType)"="FRADMCN.TTF"
-"Franklin Gothic Demi Italic (TrueType)"="FRADMIT.TTF"
-"Franklin Gothic Heavy (TrueType)"="FRAHV.TTF"
-"Franklin Gothic Heavy Italic (TrueType)"="FRAHVIT.TTF"
+"Forte (TrueType)"="forte.ttf"
+"Franklin Gothic Book (TrueType)"="frabk.ttf"
+"Franklin Gothic Book Italic (TrueType)"="frabkit.ttf"
+"Franklin Gothic Demi (TrueType)"="fradm.ttf"
+"Franklin Gothic Demi Cond (TrueType)"="fradmcn.ttf"
+"Franklin Gothic Demi Italic (TrueType)"="fradmit.ttf"
+"Franklin Gothic Heavy (TrueType)"="frahv.ttf"
+"Franklin Gothic Heavy Italic (TrueType)"="frahvit.ttf"
 "Franklin Gothic Medium (TrueType)"="framd.ttf"
-"Franklin Gothic Medium Cond (TrueType)"="FRAMDCN.TTF"
+"Franklin Gothic Medium Cond (TrueType)"="framdcn.ttf"
 "Franklin Gothic Medium Italic (TrueType)"="framdit.ttf"
-"Freestyle Script (TrueType)"="FREESCPT.TTF"
-"French Script MT (TrueType)"="FRSCRIPT.TTF"
+"FreeMono Bold (TrueType)"="FreeMonoBold.ttf"
+"FreeMono BoldOblique (TrueType)"="FreeMono-BoldOblique.ttf"
+"FreeMono Medium (TrueType)"="FreeMono.ttf"
+"FreeMono Oblique (TrueType)"="FreeMono-Oblique.ttf"
+"FreeSans Bold (TrueType)"="FreeSans-Bold.ttf"
+"FreeSans BoldOblique (TrueType)"="FreeSansBoldOblique.ttf"
+"FreeSans Medium (TrueType)"="FreeSans.ttf"
+"FreeSans Oblique (TrueType)"="FreeSans-Oblique.ttf"
+"FreeSerif Bold (TrueType)"="FreeSerifBold.ttf"
+"FreeSerif BoldItalic (TrueType)"="FreeSerifBoldItalic.ttf"
+"FreeSerif Italic (TrueType)"="FreeSerif-Italic.ttf"
+"FreeSerif Medium (TrueType)"="FreeSerif-Medium.ttf"
+"Freestyle Script (TrueType)"="freescpt.ttf"
+"French Script MT (TrueType)"="frscript.ttf"
 "Futurist Fixed-width (TrueType)"="FUTRFW.TTF"
 "Gapstown AH (TrueType)"="Gapstown.ttf"
 "Gapstown AH Bold (TrueType)"="Gapst-b.ttf"
 "Gapstown Small AH (TrueType)"="GapsS.ttf"
 "Gapstown Small AH Bold (TrueType)"="GapsS-b.ttf"
-"Garamond (TrueType)"="GARA.TTF"
-"Garamond Bold (TrueType)"="GARABD.TTF"
-"Garamond Italic (TrueType)"="GARAIT.TTF"
+"Garamond (TrueType)"="gara.ttf"
+"Garamond Bold (TrueType)"="garabd.ttf"
+"Garamond Italic (TrueType)"="garait.ttf"
+"Gargi_1.7 Medium (TrueType)"="Gargi.ttf"
 "Gautami (TrueType)"="gautami.ttf"
-"Georgia (TrueType)"="georgia.ttf"
-"Georgia Bold (TrueType)"="georgiab.ttf"
-"Georgia Bold Italic (TrueType)"="georgiaz.ttf"
-"Georgia Italic (TrueType)"="georgiai.ttf"
-"Gigi (TrueType)"="GIGI.TTF"
-"Gill Sans MT (TrueType)"="GIL_____.TTF"
-"Gill Sans MT Bold (TrueType)"="GILB____.TTF"
-"Gill Sans MT Bold Italic (TrueType)"="GILBI___.TTF"
-"Gill Sans MT Condensed (TrueType)"="GILC____.TTF"
-"Gill Sans MT Ext Condensed Bold (TrueType)"="GLSNECB.TTF"
-"Gill Sans MT Italic (TrueType)"="GILI____.TTF"
-"Gill Sans Ultra Bold (TrueType)"="GILSANUB.TTF"
-"Gill Sans Ultra Bold Condensed (TrueType)"="GILLUBCD.TTF"
-"Gloucester MT Extra Condensed (TrueType)"="GLECB.TTF"
+"Georgia (TrueType)"="Georgia-Regular.ttf"
+"Georgia Bold (TrueType)"="Georgia-Bold.ttf"
+"Georgia Bold Italic (TrueType)"="Georgia-BoldItalic.ttf"
+"Georgia Italic (TrueType)"="Georgia-Italic.ttf"
+"Gigi (TrueType)"="gigi.ttf"
+"Gill Sans MT (TrueType)"="gil_____.ttf"
+"Gill Sans MT Bold (TrueType)"="gilb____.ttf"
+"Gill Sans MT Bold Italic (TrueType)"="gilbi___.ttf"
+"Gill Sans MT Condensed (TrueType)"="gilc____.ttf"
+"Gill Sans MT Ext Condensed Bold (TrueType)"="glsnecb.ttf"
+"Gill Sans MT Italic (TrueType)"="gili____.ttf"
+"Gill Sans Ultra Bold (TrueType)"="gilsanub.ttf"
+"Gill Sans Ultra Bold Condensed (TrueType)"="gillubcd.ttf"
+"Gloucester MT Extra Condensed (TrueType)"="glecb.ttf"
 "Good Times (TrueType)"="GOODTIME.ttf"
-"Goudy Old Style (TrueType)"="GOUDOS.TTF"
-"Goudy Old Style Bold (TrueType)"="GOUDOSB.TTF"
-"Goudy Old Style Italic (TrueType)"="GOUDOSI.TTF"
-"Goudy Stout (TrueType)"="GOUDYSTO.TTF"
-"Haettenschweiler (TrueType)"="HATTEN.TTF"
-"Harlow Solid Italic Italic (TrueType)"="HARLOWSI.TTF"
-"Harrington (TrueType)"="HARNGTON.TTF"
-"Helonia (TrueType)"="HEN_____.ttf"
-"Helonia Bold (TrueType)"="HEB_____.ttf"
-"Helonia Bold Italic (TrueType)"="HEBO____.ttf"
-"Helonia Italic (TrueType)"="HEO_____.ttf"
-"High Tower Text (TrueType)"="HTOWERT.TTF"
-"High Tower Text Italic (TrueType)"="HTOWERTI.TTF"
+"Goudy Old Style (TrueType)"="goudos.ttf"
+"Goudy Old Style Bold (TrueType)"="goudosb.ttf"
+"Goudy Old Style Italic (TrueType)"="goudosi.ttf"
+"Goudy Stout (TrueType)"="goudysto.ttf"
+"Haettenschweiler (TrueType)"="hatten.ttf"
+"Harlow Solid Italic Italic (TrueType)"="harlowsi.ttf"
+"Harrington (TrueType)"="harngton.ttf"
+"Helonia (TrueType)"="hen_____.ttf"
+"Helonia Bold (TrueType)"="heb_____.ttf"
+"Helonia Bold Italic (TrueType)"="hebo____.ttf"
+"Helonia Italic (TrueType)"="heo_____.ttf"
+"High Tower Text (TrueType)"="htowert.ttf"
+"High Tower Text Italic (TrueType)"="htowerti.ttf"
 "Homoarakhn (TrueType)"="HOMOARAK.TTF"
 "Impact (TrueType)"="impact.ttf"
 "Impossible - 0 (TrueType)"="IMPOS0__.ttf"
@@ -41499,38 +41659,47 @@ IES4LINUX_IE_VERSION
 "Impossible - 1000 (TrueType)"="IMPOS10_.ttf"
 "Impossible - 500 (TrueType)"="IMPOS50_.ttf"
 "Impossible - Selfdestruct (TrueType)"="IMPOSSD_.ttf"
-"Imprint MT Shadow (TrueType)"="IMPRISHA.TTF"
+"Imprint MT Shadow (TrueType)"="imprisha.ttf"
 "Inch 75 (TrueType)"="Inch75.ttf"
-"Informal Roman (TrueType)"="INFROMAN.TTF"
+"Informal Roman (TrueType)"="infroman.ttf"
+"Jamrul Normal (TrueType)"="jamrul.ttf"
 "Japanese Brush (TrueType)"="JAPAB___.TTF"
 "Jayne Print Hand (TrueType)"="Jayneprint.ttf"
 "Jennifer's Hand Writing (TrueType)"="Jennifer.ttf"
 "Jewel Hill (TrueType)"="kkjwlhil.ttf"
-"Jokerman (TrueType)"="JOKERMAN.TTF"
+"Jokerman (TrueType)"="jokerman.ttf"
 "Journal (TrueType)"="Journal.ttf"
-"Juice ITC (TrueType)"="JUICE___.TTF"
-"Kristen ITC (TrueType)"="ITCKRIST.TTF"
-"Kunstler Script (TrueType)"="KUNSTLER.TTF"
+"Juice ITC (TrueType)"="juice___.ttf"
+"Kochi Gothic (TrueType)"="kochi-gothic-subst.ttf"
+"Kochi Mincho (TrueType)"="kochi-mincho-subst.ttf"
+"Kristen ITC (TrueType)"="itckrist.ttf"
+"Kunstler Script (TrueType)"="kunstler.ttf"
 "Latha (TrueType)"="latha.ttf"
-"Lucida Bright (TrueType)"="LBRITE.TTF"
-"Lucida Bright Demibold (TrueType)"="LBRITED.TTF"
-"Lucida Bright Demibold Italic (TrueType)"="LBRITEDI.TTF"
-"Lucida Bright Italic (TrueType)"="LBRITEI.TTF"
-"Lucida Calligraphy Italic (TrueType)"="LCALLIG.TTF"
+"Likhan Normal (TrueType)"="LikhanNormal.ttf"
+"Lohit Bengali (TrueType)"="lohit_bn.ttf"
+"Lohit Gujarati (TrueType)"="lohit_gu.ttf"
+"Lohit Hindi (TrueType)"="lohit_hi.ttf"
+"Lohit Punjabi (TrueType)"="lohit_pa.ttf"
+"Lohit Tamil (TrueType)"="lohit_ta.ttf"
+"Lucida Bright (TrueType)"="lbrite.ttf"
+"Lucida Bright Demibold (TrueType)"="lbrited.ttf"
+"Lucida Bright Demibold Italic (TrueType)"="lbritedi.ttf"
+"Lucida Bright Italic (TrueType)"="lbritei.ttf"
+"Lucida Calligraphy Italic (TrueType)"="lcallig.ttf"
 "Lucida Console (TrueType)"="lucon.ttf"
-"Lucida Fax (TrueType)"="LFAX.TTF"
-"Lucida Fax Demibold (TrueType)"="LFAXD.TTF"
-"Lucida Fax Demibold Italic (TrueType)"="LFAXDI.TTF"
-"Lucida Fax Italic (TrueType)"="LFAXI.TTF"
-"Lucida Handwriting Italic (TrueType)"="LHANDW.TTF"
-"Lucida Sans (TrueType)"="LSANS.TTF"
-"Lucida Sans Demibold Italic (TrueType)"="LSANSDI.TTF"
-"Lucida Sans Demibold Roman (TrueType)"="LSANSD.TTF"
-"Lucida Sans Italic (TrueType)"="LSANSI.TTF"
-"Lucida Sans Typewriter (TrueType)"="LTYPE.TTF"
-"Lucida Sans Typewriter Bold (TrueType)"="LTYPEB.TTF"
-"Lucida Sans Typewriter Bold Oblique (TrueType)"="LTYPEBO.TTF"
-"Lucida Sans Typewriter Oblique (TrueType)"="LTYPEO.TTF"
+"Lucida Fax (TrueType)"="lfax.ttf"
+"Lucida Fax Demibold (TrueType)"="lfaxd.ttf"
+"Lucida Fax Demibold Italic (TrueType)"="lfaxdi.ttf"
+"Lucida Fax Italic (TrueType)"="lfaxi.ttf"
+"Lucida Handwriting Italic (TrueType)"="lhandw.ttf"
+"Lucida Sans (TrueType)"="lsans.ttf"
+"Lucida Sans Demibold Italic (TrueType)"="lsansdi.ttf"
+"Lucida Sans Demibold Roman (TrueType)"="lsansd.ttf"
+"Lucida Sans Italic (TrueType)"="lsansi.ttf"
+"Lucida Sans Typewriter (TrueType)"="ltype.ttf"
+"Lucida Sans Typewriter Bold (TrueType)"="ltypeb.ttf"
+"Lucida Sans Typewriter Bold Oblique (TrueType)"="ltypebo.ttf"
+"Lucida Sans Typewriter Oblique (TrueType)"="ltypeo.ttf"
 "Lucida Sans Unicode (TrueType)"="l_10646.ttf"
 "Luxi Mono (TrueType)"="luximr.ttf"
 "Luxi Mono Bold (TrueType)"="luximb.ttf"
@@ -41544,95 +41713,125 @@ IES4LINUX_IE_VERSION
 "Luxi Serif Bold (TrueType)"="luxirb.ttf"
 "Luxi Serif Bold Oblique (TrueType)"="luxirbi.ttf"
 "Luxi Serif Oblique (TrueType)"="luxirri.ttf"
-"Magneto Bold (TrueType)"="MAGNETOB.TTF"
-"Maiandra GD (TrueType)"="MAIAN.TTF"
+"Magneto Bold (TrueType)"="magnetob.ttf"
+"Maiandra GD (TrueType)"="maian.ttf"
+"malayalam (TrueType)"="malayalam.ttf"
 "Mangal (TrueType)"="mangal.ttf"
-"MaplePi (TrueType)"="MP______.ttf"
+"MaplePi (TrueType)"="mp______.ttf"
 "Marka (TrueType)"="MARKA___.TTF"
-"Marlett (TrueType)"="marlett0.ttf"
-"Matisse ITC (TrueType)"="MATISSE_.TTF"
-"Matura MT Script Capitals (TrueType)"="MATURASC.TTF"
+"Marlett (TrueType)"="marlett.ttf"
+"Matisse ITC (TrueType)"="matisse_.ttf"
+"Matura MT Script Capitals (TrueType)"="maturasc.ttf"
 "MeTooPixzi (TrueType)"="METOP___.TTF"
+"MgOpen Canonica (TrueType)"="MgOpenCanonicaRegular.ttf"
+"MgOpen Canonica Bold (TrueType)"="MgOpenCanonicaBold.ttf"
+"MgOpen Canonica Bold Italic (TrueType)"="MgOpenCanonicaBoldItalic.ttf"
+"MgOpen Canonica Italic (TrueType)"="MgOpenCanonicaItalic.ttf"
+"MgOpen Cosmetica (TrueType)"="MgOpenCosmeticaRegular.ttf"
+"MgOpen Cosmetica Bold (TrueType)"="MgOpenCosmeticaBold.ttf"
+"MgOpen Cosmetica Bold Oblique (TrueType)"="MgOpenCosmeticaBoldOblique.ttf"
+"MgOpen Cosmetica Oblique (TrueType)"="MgOpenCosmeticaOblique.ttf"
+"MgOpen Modata (TrueType)"="MgOpenModataRegular.ttf"
+"MgOpen Modata Bold (TrueType)"="MgOpenModataBold.ttf"
+"MgOpen Modata BoldOblique (TrueType)"="MgOpenModataBoldOblique.ttf"
+"MgOpen Modata Oblique (TrueType)"="MgOpenModataOblique.ttf"
+"MgOpen Moderna (TrueType)"="MgOpenModernaRegular.ttf"
+"MgOpen Moderna Bold (TrueType)"="MgOpenModernaBold.ttf"
+"MgOpen Moderna BoldOblique (TrueType)"="MgOpenModernaBoldOblique.ttf"
+"MgOpen Moderna Oblique (TrueType)"="MgOpenModernaOblique.ttf"
 "Microsoft Sans Serif (TrueType)"="micross.ttf"
 "Miltown (TrueType)"="Miltown_.ttf"
 "Miltown II (TrueType)"="MLTWNII_.ttf"
-"Mistral (TrueType)"="MISTRAL.TTF"
-"Modern No. 20 (TrueType)"="MOD20.TTF"
+"Mistral (TrueType)"="mistral.ttf"
+"Mitra Mono (TrueType)"="mitra.ttf"
+"Modern No. 20 (TrueType)"="mod20.ttf"
 "Monika Italic (TrueType)"="Monika.TTF"
-"Monotype Corsiva (TrueType)"="MTCORSVA.TTF"
+"Monotype Corsiva (TrueType)"="mtcorsva.ttf"
 "More Enchanted Prairie Dog (TrueType)"="MoreEnchanted.TTF"
+"Mukti Narrow (TrueType)"="MuktiNarrow.ttf"
+"Mukti Narrow Bold (TrueType)"="MuktiNarrowBold.ttf"
 "MV Boli (TrueType)"="mvboli.ttf"
 "Myriad Condensed Web (TrueType)"="myriadc.ttf"
 "Myriad Condensed Web Italic (TrueType)"="myriadci.ttf"
 "Myriad Web (TrueType)"="myriad.ttf"
 "Myriad Web Bold (TrueType)"="myriadb.ttf"
 "Myriad Web Italic (TrueType)"="myriadi.ttf"
-"Niagara Engraved (TrueType)"="NIAGENG.TTF"
-"Niagara Solid (TrueType)"="NIAGSOL.TTF"
+"Niagara Engraved (TrueType)"="niageng.ttf"
+"Niagara Solid (TrueType)"="niagsol.ttf"
 "Notepad (TrueType)"="NOTEPAD_.TTF"
-"OCR A Extended (TrueType)"="OCRAEXT.TTF"
+"OCR A Extended (TrueType)"="ocraext.ttf"
 "OCR-A BT (TrueType)"="OCR-a___.ttf"
 "OCR-B 10 BT (TrueType)"="OCR-b___.ttf"
-"Old English Text MT (TrueType)"="OLDENGL.TTF"
-"Onyx (TrueType)"="ONYX.TTF"
+"Old English Text MT (TrueType)"="oldengl.ttf"
+"Onyx (TrueType)"="onyx.ttf"
 "OpenSymbol (TrueType)"="opens___.ttf"
-"Palace Script MT (TrueType)"="PALSCRI.TTF"
+"padmaa (TrueType)"="padmaa-Medium-0.5.ttf"
+"padmaa Bold (TrueType)"="padmaa-Bold-0.5.ttf"
+"Palace Script MT (TrueType)"="palscri.ttf"
 "Palatino Linotype (TrueType)"="pala.ttf"
 "Palatino Linotype Bold (TrueType)"="palab.ttf"
 "Palatino Linotype Bold Italic (TrueType)"="palabi.ttf"
 "Palatino Linotype Italic (TrueType)"="palai.ttf"
-"Panther Normal (TrueType)"="PANTHER.TTF"
-"Papyrus (TrueType)"="PAPYRUS.TTF"
-"Parchment (TrueType)"="PARCHM.TTF"
-"Perpetua (TrueType)"="PER_____.TTF"
-"Perpetua Bold (TrueType)"="PERB____.TTF"
-"Perpetua Bold Italic (TrueType)"="PERBI___.TTF"
-"Perpetua Italic (TrueType)"="PERI____.TTF"
-"Perpetua Titling MT Bold (TrueType)"="PERTIBD.TTF"
-"Perpetua Titling MT Light (TrueType)"="PERTILI.TTF"
-"Phoenix (TrueType)"="PHOENIX_.TTF"
-"Playbill (TrueType)"="PLAYBILL.TTF"
-"Poor Richard (TrueType)"="POORICH.TTF"
-"Pristina (TrueType)"="PRISTINA.TTF"
+"Panther Normal (TrueType)"="panther.ttf"
+"Papyrus (TrueType)"="papyrus.ttf"
+"Parchment (TrueType)"="parchm.ttf"
+"Perpetua (TrueType)"="per_____.ttf"
+"Perpetua Bold (TrueType)"="perb____.ttf"
+"Perpetua Bold Italic (TrueType)"="perbi___.ttf"
+"Perpetua Italic (TrueType)"="peri____.ttf"
+"Perpetua Titling MT Bold (TrueType)"="pertibd.ttf"
+"Perpetua Titling MT Light (TrueType)"="pertili.ttf"
+"Phoenix (TrueType)"="phoenix_.ttf"
+"Playbill (TrueType)"="playbill.ttf"
+"Poor Richard (TrueType)"="poorich.ttf"
+"Pothana2000 (TrueType)"="Pothana2000.ttf"
+"Pristina (TrueType)"="pristina.ttf"
 "Raavi (TrueType)"="raavi.ttf"
-"Rage Italic (TrueType)"="RAGE.TTF"
-"Ravie (TrueType)"="RAVIE.TTF"
+"Rachana Medium (TrueType)"="RachanaMedium.ttf"
+"Rage Italic (TrueType)"="rage.ttf"
+"Ravie (TrueType)"="ravie.ttf"
 "regata (TrueType)"="REGATA__.TTF"
+"Rekha medium (TrueType)"="Rekha.ttf"
 "Repent (TrueType)"="REPENT__.TTF"
 "Rix Rix (TrueType)"="rix.ttf"
-"Rockwell (TrueType)"="ROCK.TTF"
-"Rockwell Bold (TrueType)"="ROCKB.TTF"
-"Rockwell Bold Italic (TrueType)"="ROCKBI.TTF"
-"Rockwell Condensed (TrueType)"="ROCC____.TTF"
-"Rockwell Condensed Bold (TrueType)"="ROCCB___.TTF"
-"Rockwell Extra Bold (TrueType)"="ROCKEB.TTF"
-"Rockwell Italic (TrueType)"="ROCKI.TTF"
+"Rockwell (TrueType)"="rock.ttf"
+"Rockwell Bold (TrueType)"="rockb.ttf"
+"Rockwell Bold Italic (TrueType)"="rockbi.ttf"
+"Rockwell Condensed (TrueType)"="rocc____.ttf"
+"Rockwell Condensed Bold (TrueType)"="roccb___.ttf"
+"Rockwell Extra Bold (TrueType)"="rockeb.ttf"
+"Rockwell Italic (TrueType)"="rocki.ttf"
+"Saab (TrueType)"="Saab.ttf"
 "Saginaw  Bold (TrueType)"="SaginawBold.ttf"
 "Saginaw  Light (TrueType)"="SaginawLight.ttf"
 "Saginaw  Medium (TrueType)"="SaginawMedium.ttf"
-"Script MT Bold (TrueType)"="SCRIPTBL.TTF"
+"Sampige (TrueType)"="Sampige.ttf"
+"Script MT Bold (TrueType)"="scriptbl.ttf"
 "Shopping List (TrueType)"="shoppinglist.TTF"
-"Showcard Gothic (TrueType)"="SHOWG.TTF"
+"Showcard Gothic (TrueType)"="showg.ttf"
 "Shruti (TrueType)"="shruti.ttf"
 "Silkscreen Bold (TrueType)"="slkscrb.ttf"
 "Silkscreen Expanded Bold (TrueType)"="slkscreb.ttf"
 "Silkscreen Expanded Normal (TrueType)"="slkscre.ttf"
 "Silkscreen Normal (TrueType)"="slkscr.ttf"
 "Slammer tag (TrueType)"="slammertag.ttf"
-"Snap ITC (TrueType)"="SNAP____.TTF"
-"Stencil (TrueType)"="STENCIL.TTF"
+"Snap ITC (TrueType)"="snap____.ttf"
+"Stencil (TrueType)"="stencil.ttf"
 "Swatch it (TrueType)"="SWATRG__.TTF"
 "Sylfaen (TrueType)"="sylfaen.ttf"
 "Symbol (TrueType)"="symbol.ttf"
 "Tahoma (TrueType)"="tahoma.ttf"
 "Tahoma Bold (TrueType)"="tahomabd.ttf"
 "Tall Paul (TrueType)"="tallpaul.ttf"
-"Tempus Sans ITC (TrueType)"="TEMPSITC.TTF"
+"TAMu_Kadambri (TrueType)"="TAMu_Kadampari.ttf"
+"TAMu_Kalyani (TrueType)"="TAMuKalyani-Regular.ttf"
+"TAMu_Maduram Normal (TrueType)"="TAMu_Maduram.ttf"
+"Tempus Sans ITC (TrueType)"="tempsitc.ttf"
 "Terminator Real NFI (TrueType)"="terminator.ttf"
-"Thames (TrueType)"="THR_____.ttf"
-"Thames Bold (TrueType)"="THB_____.ttf"
-"Thames Bold Italic (TrueType)"="THBI____.ttf"
-"Thames Italic (TrueType)"="THI_____.ttf"
+"Thames (TrueType)"="thr_____.ttf"
+"Thames Bold (TrueType)"="thb_____.ttf"
+"Thames Bold Italic (TrueType)"="thbi____.ttf"
+"Thames Italic (TrueType)"="thi_____.ttf"
 "The Sixth Sense (TrueType)"="The Sixth Sense.ttf"
 "Times New Roman (TrueType)"="times.ttf"
 "Times New Roman Bold (TrueType)"="timesbd.ttf"
@@ -41642,35 +41841,42 @@ IES4LINUX_IE_VERSION
 "Tintin Majuscules   Bold (TrueType)"="tintin.ttf"
 "TOMMY HILFIGER AF (TrueType)"="TOMMY___.TTF"
 "TrashHand (TrueType)"="TrashHand.TTF"
-"Trebuchet MS (TrueType)"="trebuc.ttf"
-"Trebuchet MS Bold (TrueType)"="trebucbd.ttf"
+"Trebuchet MS (TrueType)"="TrebuchetMS-Regular.ttf"
+"Trebuchet MS Bold (TrueType)"="TrebuchetMS-Bold.ttf"
 "Trebuchet MS Bold Italic (TrueType)"="trebucbi.ttf"
-"Trebuchet MS Italic (TrueType)"="trebucit.ttf"
+"Trebuchet MS Italic (TrueType)"="Trebuchet_MS_Italic.ttf"
+"TSCu_Comic Normal (TrueType)"="TSCuComic-Normal.ttf"
+"TSCu_Paranar (TrueType)"="TSCuParanar-Regular.ttf"
+"TSCu_Paranar Bold (TrueType)"="TSCuParanar-Bold.ttf"
+"TSCu_Paranar Italic (TrueType)"="TSCu_paranari.ttf"
+"TSCu_Times Normal (TrueType)"="TSCuTimes-Normal.ttf"
 "Tunga (TrueType)"="tunga.ttf"
-"Tw Cen MT (TrueType)"="TCM_____.TTF"
-"Tw Cen MT Bold (TrueType)"="TCB_____.TTF"
-"Tw Cen MT Bold Italic (TrueType)"="TCBI____.TTF"
-"Tw Cen MT Condensed (TrueType)"="TCCM____.TTF"
-"Tw Cen MT Condensed Bold (TrueType)"="TCCB____.TTF"
-"Tw Cen MT Condensed Extra Bold (TrueType)"="TCCEB.TTF"
-"Tw Cen MT Italic (TrueType)"="TCMI____.TTF"
+"Tw Cen MT (TrueType)"="tcm_____.ttf"
+"Tw Cen MT Bold (TrueType)"="tcb_____.ttf"
+"Tw Cen MT Bold Italic (TrueType)"="tcbi____.ttf"
+"Tw Cen MT Condensed (TrueType)"="tccm____.ttf"
+"Tw Cen MT Condensed Bold (TrueType)"="tccb____.ttf"
+"Tw Cen MT Condensed Extra Bold (TrueType)"="tcceb.ttf"
+"Tw Cen MT Italic (TrueType)"="tcmi____.ttf"
+"utkal Medium (TrueType)"="utkal.ttf"
+"Vemana2000 (TrueType)"="Vemana.ttf"
 "Verdana (TrueType)"="verdana.ttf"
-"Verdana Bold (TrueType)"="verdanab.ttf"
-"Verdana Bold Italic (TrueType)"="verdanaz.ttf"
-"Verdana Italic (TrueType)"="verdanai.ttf"
+"Verdana Bold (TrueType)"="Verdana-Bold.ttf"
+"Verdana Bold Italic (TrueType)"="Verdana_Bold_Italic.ttf"
+"Verdana Italic (TrueType)"="Verdana-Italic.ttf"
 "Village Plain (TrueType)"="Village.ttf"
-"Viner Hand ITC (TrueType)"="VINERITC.TTF"
-"Vivaldi Italic (TrueType)"="VIVALDII.TTF"
-"Vladimir Script (TrueType)"="VLADIMIR.TTF"
-"Webdings (TrueType)"="webdings.ttf"
-"Wide Latin (TrueType)"="LATINWD.TTF"
+"Viner Hand ITC (TrueType)"="vineritc.ttf"
+"Vivaldi Italic (TrueType)"="vivaldii.ttf"
+"Vladimir Script (TrueType)"="vladimir.ttf"
+"Webdings (TrueType)"="Webdings.ttf"
+"Wide Latin (TrueType)"="latinwd.ttf"
 "Wine Courier Medium (TrueType)"="wine_courier.ttf"
 "Wine Marlett (TrueType)"="wine_marlett.ttf"
 "Wine Sans Serif Medium (TrueType)"="wine_sans_serif.ttf"
 "Wine System Bold (TrueType)"="wine_system.ttf"
 "Wingdings (TrueType)"="wingding.ttf"
-"Wingdings 2 (TrueType)"="WINGDNG2.TTF"
-"Wingdings 3 (TrueType)"="WINGDNG3.TTF"
+"Wingdings 2 (TrueType)"="wingdng2.ttf"
+"Wingdings 3 (TrueType)"="wingdng3.ttf"
 "WP MultinationalA Courier Normal (TrueType)"="Wpco01na.ttf"
 "WP MultinationalA Helve Normal (TrueType)"="wphv01na.ttf"
 "WP MultinationalA Roman Normal (TrueType)"="wpro01na.ttf"
@@ -41703,32 +41909,11 @@ IES4LINUX_IE_VERSION
 "CacheLimit"=dword:00002000
 "CachePrefix"="Cookie:"
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\5.0\\Cache\\Extensible Cache\\MSHist012005040420050411] 1113596837
+[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\5.0\\Cache\\Extensible Cache\\MSHist012005110520051106] 1131167477
 "CacheLimit"=dword:00002000
 "CacheOptions"=dword:0000000b
-"CachePath"=str(2):"%SystemRoot%\\History\\History.IE5\\MSHist012005040420050411\\"
-"CachePrefix"=":2005040420050411: "
-"CacheRepair"=dword:00000000
-
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\5.0\\Cache\\Extensible Cache\\MSHist012005041120050418] 1113982435
-"CacheLimit"=dword:00002000
-"CacheOptions"=dword:0000000b
-"CachePath"=str(2):"%SystemRoot%\\History\\History.IE5\\MSHist012005041120050418\\"
-"CachePrefix"=":2005041120050418: "
-"CacheRepair"=dword:00000000
-
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\5.0\\Cache\\Extensible Cache\\MSHist012005042020050421] 1113982435
-"CacheLimit"=dword:00002000
-"CacheOptions"=dword:0000000b
-"CachePath"=str(2):"%SystemRoot%\\History\\History.IE5\\MSHist012005042020050421\\"
-"CachePrefix"=":2005042020050421: "
-"CacheRepair"=dword:00000000
-
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\5.0\\Cache\\Extensible Cache\\MSHist012005042120050422] 1114071955
-"CacheLimit"=dword:00002000
-"CacheOptions"=dword:0000000b
-"CachePath"=str(2):"%SystemRoot%\\History\\History.IE5\\MSHist012005042120050422\\"
-"CachePrefix"=":2005042120050422: "
+"CachePath"=str(2):"%SystemRoot%\\profiles\\se\\Hist\xf3rico\\History.IE5\\MSHist012005110520051106\\"
+"CachePrefix"=":2005110520051106: "
 "CacheRepair"=dword:00000000
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\5.0\\Cache\\History] 1058040239
@@ -41738,11 +41923,12 @@ IES4LINUX_IE_VERSION
 [Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\5.0\\NSCookieUpgrade] 1058037900
 "Version"=dword:00000000
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Accepted Documents] 1058037841
+[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Accepted Documents] 1131167651
 "0"="image/gif"
 "1"="image/x-xbitmap"
 "2"="image/jpeg"
 "3"="image/pjpeg"
+"flash"="application/x-shockwave-flash"
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\ActiveX Cache] 1058037896
 "0"="C:\\WINDOWS\\Downloaded Program Files"
@@ -41764,26 +41950,26 @@ IES4LINUX_IE_VERSION
 [Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\History] 1058040239
 "CacheLimit"=dword:00002000
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths] 1110510294
-"Directory"="c:\\windows\\Temporary Internet Files\\Content.IE5"
+[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths] 1131167442
+"Directory"="c:\\windows\\profiles\\se\\Temporary Internet Files\\Content.IE5"
 "Paths"=dword:00000004
 "Size"=hex:24,01,00,00
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path1] 1110510294
+[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path1] 1131167442
 "CacheLimit"=dword:000601ee
-"CachePath"="c:\\windows\\Temporary Internet Files\\Content.IE5\\Cache1"
+"CachePath"="c:\\windows\\profiles\\se\\Temporary Internet Files\\Content.IE5\\Cache1"
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path2] 1110510294
+[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path2] 1131167442
 "CacheLimit"=dword:000601ee
-"CachePath"="c:\\windows\\Temporary Internet Files\\Content.IE5\\Cache2"
+"CachePath"="c:\\windows\\profiles\\se\\Temporary Internet Files\\Content.IE5\\Cache2"
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path3] 1110510294
+[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path3] 1131167442
 "CacheLimit"=dword:000601ee
-"CachePath"="c:\\windows\\Temporary Internet Files\\Content.IE5\\Cache3"
+"CachePath"="c:\\windows\\profiles\\se\\Temporary Internet Files\\Content.IE5\\Cache3"
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path4] 1110510294
+[Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Paths\\path4] 1131167442
 "CacheLimit"=dword:000601ee
-"CachePath"="c:\\windows\\Temporary Internet Files\\Content.IE5\\Cache4"
+"CachePath"="c:\\windows\\profiles\\se\\Temporary Internet Files\\Content.IE5\\Cache4"
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Cache\\Special Paths\\Cookies] 1058037841
 "CacheLimit"=hex:00,04,00,00
@@ -43806,7 +43992,8 @@ IES4LINUX_IE_VERSION
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Run] 1058037903
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce] 1058037903
+[Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce] 1131167610
+"GrpConv"="grpconv.exe -o"
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\RunOnceEx] 1058037903
 
@@ -43857,7 +44044,7 @@ IES4LINUX_IE_VERSION
 "C:\\WINDOWS\\SYSTEM\\MSENCODE.DLL"=dword:00000001
 "C:\\WINDOWS\\SYSTEM\\SENDMAIL.DLL"=dword:00000001
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Approved] 1113982492
+[Software\\Microsoft\\Windows\\CurrentVersion\\Shell Extensions\\Approved] 1131167610
 "{00BB2763-6A77-11D0-A535-00C04FD7D062}"="Microsoft AutoComplete"
 "{00BB2764-6A77-11D0-A535-00C04FD7D062}"="Microsoft History AutoComplete List"
 "{00BB2765-6A77-11D0-A535-00C04FD7D062}"="Microsoft Multiple AutoComplete List Container"
@@ -43907,7 +44094,7 @@ IES4LINUX_IE_VERSION
 "{7FC0B86E-5FA7-11d1-BC7C-00C04FD929DB}"="WebCheck SyncMgr Handler"
 "{8278F931-2A3E-11d2-838F-00C04FD918D0}"="Tracking Shell Menu"
 "{871C5380-42A0-1069-A2EA-08002B30309D}"="Internet Name Space"
-"{88C6C381-2E85-11D0-94DE-444553540000}"="Pasta cache de ActiveX"
+"{88C6C381-2E85-11D0-94DE-444553540000}"="ActiveX Cache Folder"
 "{8BEBB290-52D0-11D0-B7F4-00C04FD706EC}"="Thumbnails"
 "{8DE56A0D-E58B-41FE-9F80-3563CDCB2C22}"="Default Image Extrator for Properties"
 "{91EA3F8B-C99B-11d0-9815-00C04FD91972}"="Augmented Shell Folder"
@@ -46414,10 +46601,18 @@ IES4LINUX_IE_VERSION
 "QuietUninstallString"="RunDll32 advpack.dll,LaunchINFSectionEx C:\\WINDOWS\\inf\\mstask.inf,,,256"
 "RequiresIESysFile"="5.00"
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\ShockwaveFlash] 1058037881
+[Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\ShockwaveFlash] 1131167651
+"DisplayName"="Macromedia Flash Player 8"
+"DisplayVersion"="8"
+"HelpLink"="http://www.macromedia.com/go/flashplayer_support/"
+"Publisher"="Macromedia"
 "QuietDisplayName"="Shockwave Flash"
 "QuietUninstallString"="RunDll32 advpack.dll,LaunchINFSection C:\\WINDOWS\\inf\\swflash.inf,DefaultUninstall,5"
 "RequiresIESysFile"="4.70.0.1155"
+"UninstallString"="RunDll32 advpack.dll,LaunchINFSection c:\\windows\\inf\\swflash.inf,DefaultUninstall,5"
+"URLUpdateInfo"="http://www.macromedia.com/go/flashplayer/"
+"VersionMajor"="8"
+"VersionMinor"="0"
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\VGX] 1058037880
 "QuietDisplayName"="Vector Graphics Rendering (VML)"
@@ -46477,6 +46672,9 @@ IES4LINUX_IE_VERSION
 
 [Software\\Microsoft\\Windows NT\\CurrentVersion\\Hotfix\\Q246009] 1046483206
 "Installed"="1"
+
+[Software\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList] 1131167441
+"ProfilesDirectory"=str(2):"c:\\windows\\profiles"
 
 [Software\\Microsoft\\Windows Script Host\\Settings] 1058037881
 "ActiveDebugging"="1"
@@ -46917,24 +47115,25 @@ IES4LINUX_IE_VERSION
 "You Rook Marbelous (TrueType)"="YouRookMarbelous.ttf"
 "Zero Hour (TrueType)"="ZEROHOUR.ttf"
 
-[System\\CurrentControlSet\\Control\\ComputerName\\ComputerName] 1110509977
-"ComputerName"="lowpis"
+[System\\CurrentControlSet\\Control\\ComputerName\\ComputerName] 1131167436
+"ComputerName"="tatanka"
 
 [System\\CurrentControlSet\\Control\\InstalledFiles\\Rename] 1058037648
 
 [System\\CurrentControlSet\\Control\\Lsa\\SSO\\Passport1.4] 1058037900
 "SSOURL"="http://www.passport.com"
 
-[System\\CurrentControlSet\\Control\\Nls\\Codepage] 1058037841
+[System\\CurrentControlSet\\Control\\Nls\\Codepage] 1131167436
 "20866"="cp_20866.nls"
 "28591"="cp_28591.nls"
 "28592"="cp_28592.nls"
 "28595"="cp_28595.nls"
 "28597"="cp_28597.nls"
 "ACP"="1252"
-"OEMCP"="437"
+"MACCP"="10000"
+"OEMCP"="850"
 
-[System\\CurrentControlSet\\Control\\Print\\Environments\\Windows 4.0\\Drivers\\PS Driver] 1114071954
+[System\\CurrentControlSet\\Control\\Print\\Environments\\Windows 4.0\\Drivers\\PS Driver] 1131167474
 "Configuration File"="wineps16"
 "Data File"="<datafile?>"
 "Datatype"="RAW"
