@@ -20,3 +20,9 @@ WGETFLAGS="--continue"
 
 # If you want to create a Desktop icon (KDE/Gnome), set this to 'yes'
 CREATE_ICON="yes"
+
+# If you want to install Flash Player 8 automatically, set this to 'yes'
+INSTALL_FLASH="yes"
+
+# DO NOT CHANGE NEXT LINE
+export BASEDIR DOWNLOADDIR BINDIR WGETFLAGS CREATE_ICON INSTALL_FLASH
