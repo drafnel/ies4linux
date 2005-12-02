@@ -104,7 +104,6 @@ WINE REGISTRY Version 2
 "wprocs"       = "builtin";Hardware related
 "ws2_32"       = "builtin";Hardware related
 "wsock32"      = "builtin";Hardware related
-"msi"         = "native"
 "ole32"        = "native"
 "odbc32"       = "native, builtin"
 "*" = "native, builtin"

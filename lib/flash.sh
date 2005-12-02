@@ -5,10 +5,10 @@
 print_section Installing Flash Player 8
 print_subsection Preparing installation
 
-cd $BASEDIR/tmp/
+cd "$BASEDIR/tmp/"
 
 # Copy Flash files
-cabextract -q -d $BASEDIR/tmp/ $DOWNLOADDIR/swflash.cab &> /dev/null
+cabextract -q -d "$BASEDIR/tmp/" "$DOWNLOADDIR/swflash.cab" &> /dev/null
 
 # Create add.reg
 sed -n -e 's/^\[/;\[/g;/^;\[SW.AddReg\]/,/^;\[/p;' swflash.inf > add.reg2
@@ -25,10 +25,10 @@ done
 
 # Function that installs Flash Player on a IE
 install_flash_player() {
-	set_wine_prefix $BASEDIR/$1/
-	mkdir -p $BASEDIR/$1/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/
-	cp GetFlash.exe Flash8.ocx $BASEDIR/$1/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/
-	add_registry $BASEDIR/tmp/add.reg
+	set_wine_prefix "$BASEDIR/$1/"
+	mkdir -p "$BASEDIR/$1/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/"
+	cp GetFlash.exe Flash8.ocx "$BASEDIR/$1/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/"
+	add_registry "$BASEDIR/tmp/add.reg"
 	register_dll "C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx"
 }
 

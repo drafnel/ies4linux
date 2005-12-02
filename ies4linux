@@ -16,7 +16,7 @@ export IES4LINUX=${IES4LINUX:0:((${#IES4LINUX}-9))}
 cd $IES4LINUX
 
 # Do the installation
-source config
+source lib/configure.sh
 source lib/init.sh
 source lib/functions.sh
 source lib/download.sh
@@ -32,6 +32,7 @@ install_plugins
 remove_extra_folders
 
 print_section IEs4Linux installations finished!
+
 
 
 

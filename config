@@ -1,5 +1,7 @@
 # CONFIGURATION
 # Change these vars if you need something specific
+##################################################
+
 
 # Location of IEs installations
 BASEDIR="$HOME/.ies4linux"
@@ -7,11 +9,11 @@ BASEDIR="$HOME/.ies4linux"
 # Where to download the files (You need ~250MB of free space for the 3 IEs)
 # [If you already installed IEs4Linux before, locate the download dir here]
 # Note: users who installed 20051012 version may use .ies4linux2/downloads
-DOWNLOADDIR=$BASEDIR/downloads
+DOWNLOADDIR="$BASEDIR/downloads"
 
 # Where to create the shortcuts to execute IE
 # (Maybe you want /bin or /usr/sbin)
-BINDIR=$HOME/bin
+BINDIR="$HOME/bin"
 
 # Options to Wget
 # --continue:  resume getting a partially-downloaded file
@@ -24,5 +26,7 @@ CREATE_ICON="yes"
 # If you want to install Flash Player 8 automatically, set this to 'yes'
 INSTALL_FLASH="yes"
 
+
+#####################################################
 # DO NOT CHANGE NEXT LINE
 export BASEDIR DOWNLOADDIR BINDIR WGETFLAGS CREATE_ICON INSTALL_FLASH
