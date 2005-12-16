@@ -3,6 +3,7 @@
 
 print_section Creating basic Windows installation
 set_wine_prefix "$BASEDIR/base/"
+mkdir -p "$BASEDIR/base"
 
 print_subsection Creating Wine Prefix
 wineprefixcreate &> /dev/null || wine &> /dev/null || exit
@@ -11,6 +12,12 @@ discover_folders
 mkdir -p "$BASEDIR/base/$DRIVEC/Program Files/Internet Explorer"
 chmod u+rwx -R "$BASEDIR/base"
 cd "$BASEDIR/tmp"
+
+# Install riched.dll
+print_subsection Installing RICHED20
+cabextract -q -F ver1200.exe $DOWNLOADDIR/249973USA8.exe || exit
+cabextract -q -F riched20.120 $BASEDIR/tmp/ver1200.exe || exit
+mv riched20.120 $BASEDIR/base/$DRIVEC/$WINDOWS/$SYSTEM/riched20.dll || exit
 
 # Install DCOM98
 print_subsection Installing DCOM98

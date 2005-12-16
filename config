@@ -2,7 +2,6 @@
 # Change these vars if you need something specific
 ##################################################
 
-
 # Location of IEs installations
 BASEDIR="$HOME/.ies4linux"
 
@@ -26,7 +25,3 @@ CREATE_ICON="yes"
 # If you want to install Flash Player 8 automatically, set this to 'yes'
 INSTALL_FLASH="yes"
 
-
-#####################################################
-# DO NOT CHANGE NEXT LINE
-export BASEDIR DOWNLOADDIR BINDIR WGETFLAGS CREATE_ICON INSTALL_FLASH
