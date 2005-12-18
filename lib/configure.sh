@@ -10,14 +10,7 @@ if [ -e ~/.ies4linux/config ]; then
 	source ~/.ies4linux/config
 fi
 
-# FreeBSD compatibility
-if [ `uname` = FreeBSD ] ;then
-  export MD5SUM="md5 -q"
-else
-  export MD5SUM="md5sum"
-fi
-
-md5=`$MD5SUM "$IES4LINUX"/config `
+md5=` md5sum "$IES4LINUX"/config `
 if [ "${md5:0:32}" != "$MD5_IES4LINUX_CONFIG" ]; then
 	source "$IES4LINUX"/config
 fi
@@ -25,20 +18,18 @@ fi
 # Save updated configuration
 echo "# Auto-generated IEs4Linux config file" > ~/.ies4linux/config
 function svcfg() {
-	tmp="\$$1"
-	value=`eval echo $tmp`
-	if [ "$value" != "" ]; then
-		echo -e "export $1=\"$value\"" >> ~/.ies4linux/config
-	fi
+	echo -e "export $1=\"$2\"" >> ~/.ies4linux/config
 }
-function saveConfigs() {
-	for a in $@; do 
-		svcfg $a 
-	done
-}
+svcfg BASEDIR $BASEDIR
+svcfg BINDIR $BINDIR
+svcfg DOWNLOADDIR $DOWNLOADDIR
+svcfg WGETFLAGS $WGETFLAGS
+svcfg CREATE_ICON $CREATE_ICON
+svcfg INSTALL_FLASH $INSTALL_FLASH
+svcfg INSTALL_GOOGLE_ADSENSE $INSTALL_GOOGLE_ADSENSE
+svcfg INSTALL_IPIX $INSTALL_IPIX
+svcfg INSTALL_IEDEVTOOLBAR $INSTALL_IEDEVTOOLBAR
 
-saveConfigs BASEDIR BINDIR DOWNLOADDIR WGETFLAGS CREATE_ICON
-saveConfigs INSTALL_FLASH INSTALL_GOOGLE_ADSENSE INSTALL_IPIX INSTALL_IEDEVTOOLBAR
-saveConfigs MD5_FLASH SIZE_FLASH MD5_IPIX SIZE_IPIX
 
-export BASEDIR DOWNLOADDIR BINDIR WGETFLAGS CREATE_ICON INSTALL_FLASH
+
+

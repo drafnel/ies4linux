@@ -2,15 +2,14 @@
 # Install ie55
 
 print_section Installing IE 5.5
+print_subsection Extracting and copying IE files
 
 cd "$BASEDIR"/tmp/
 new_installation ie55
 
-print_subsection Extracting downloaded exe file
 wine "$DOWNLOADDIR"/ie55sp2.exe &> /dev/null || exit
 cd IE*
 
-print_subsection Extracting CAB files
 cabextract -q IE_S*CAB &> /dev/null
 cabextract -q -L -d "$BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/" IE_1.CAB IEDOM.CAB &> /dev/null
 mv "$BASEDIR"/ie55/$DRIVEC/$WINDOWS/$SYSTEM/sch128c.dll  "$BASEDIR"/ie55/$DRIVEC/$WINDOWS/$SYSTEM/schannel.dll
@@ -19,10 +18,8 @@ mv "$BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/iexplore.exe" "$BASEDIR/ie55/$DRIVEC/
 cabextract -q -L -d "$BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/" VBSCRIPT.CAB &> /dev/null
 cabextract -q -L -F "pngfilt.dll" ADVAUTH.CAB &> /dev/null
 cabextract -q -L -F "msvcrt.dll" SETUPW95.CAB &> /dev/null
-mv pngfilt.dll msvcrt.dll "$BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/"
-
-print_subsection Installing TTF Fonts
 cabextract -q -L -F "*TTF" FONT*CAB &> /dev/null
+mv pngfilt.dll msvcrt.dll "$BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/"
 mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
 
 print_subsection Configuring ie55
