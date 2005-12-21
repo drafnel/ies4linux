@@ -6,19 +6,18 @@
 #
 # Released under the GNU GPL. See LICENSE for more information
 
-# Discover ies4linux installation folder
-if [ `expr match "$0" '/'` =  "1" ]; then
-	IES4LINUX=$0
-else
-	IES4LINUX=`pwd`/$0
-fi
-export IES4LINUX=${IES4LINUX:0:((${#IES4LINUX}-9))}
+# Discover ies4linux installation folder (by Fernando Gomes)
+IES4LINUX=`dirname $0`
 cd $IES4LINUX
+IES4LINUX=`pwd`
+export IES4LINUX
 
 # Do the installation
 source lib/configure.sh
-source lib/init.sh
 source lib/functions.sh
+log "### IES4Linux Installation"
+
+source lib/init.sh
 source lib/download.sh
 
 create_initial_folders

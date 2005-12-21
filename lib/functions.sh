@@ -106,3 +106,8 @@ function install_ie5() {
 function install_plugins(){
 	source "$IES4LINUX/lib/plugins.sh"
 }
+
+# TODO logging
+function log() {
+	echo $1 >> $HOME/.ies4linux/ies4linux.log
+}
