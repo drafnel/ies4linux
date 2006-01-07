@@ -11,7 +11,8 @@ if [ -e ~/.ies4linux/config ]; then
 fi
 
 # FreeBSD compatibility
-if `md5sum --version &> /dev/null` ;then
+# if `md5sum --version &> /dev/null` ;then
+if [ `uname` = Linux ]; then
   export MD5SUM="md5sum"
 else
   export MD5SUM="md5 -q"
