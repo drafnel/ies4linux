@@ -64,7 +64,7 @@ download() {
 	        rm -rf "$DOWNLOADDIR/$FILENAME"
       	fi
 }
-download-dyn() {
+downloaddyn() {
 	_getInfo $1
 	if [ ! -e "$DOWNLOADDIR/$FILENAME" ]; then tmp=1; fi
 	if [ "$FSIZE" = "" ]; then tmp=1; fi
@@ -97,10 +97,10 @@ fi
 
 # Other downloads
 if [ "$INSTALL_FLASH" = "yes" ]; then
-	download-dyn FLASH
+	downloaddyn FLASH
 fi
 if [ "$INSTALL_IPIX" = "yes" ]; then
-	download-dyn IPIX
+	downloaddyn IPIX
 fi
 
 print_ok
