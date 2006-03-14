@@ -18,6 +18,12 @@ if ! cabextract --version > /dev/null ; then
         tput sgr0
         exit
 fi
+if ! cabextract --version | grep "1." > /dev/null ; then
+        echo -e "\E[31;1mYou need to update cabextract first!"
+        echo "Download it here: http://www.kyz.uklinux.net/cabextract.php"
+        tput sgr0
+        exit
+fi
 
 # Ask user what he wants to install
 echo -e "\E[1mInstallation options:"; tput sgr0

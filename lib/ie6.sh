@@ -8,7 +8,7 @@ new_installation ie6
 
 print_subsection Extracting downloaded exe file
 wine "$DOWNLOADDIR"/ie60.exe &> /dev/null || exit
-cd IE*
+cd "IE 6.0 Full"
 
 print_subsection Extracting CAB files
 cabextract -q IE_S*CAB &> /dev/null || exit

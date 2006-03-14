@@ -23,7 +23,7 @@ mv pngfilt.dll msvcrt.dll "$BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/"
 
 print_subsection Installing TTF Fonts
 cabextract -q -L -F "*TTF" FONT*CAB &> /dev/null
-mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
+mv *ttf "$BASEDIR/ie5/$DRIVEC/$WINDOWS/$FONTS/"
 
 print_subsection Configuring ie5
 cat "$IES4LINUX"/winereg/model.system.reg |
