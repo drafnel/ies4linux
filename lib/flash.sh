@@ -9,6 +9,7 @@ cd "$BASEDIR/tmp/"
 
 # Copy Flash files
 cabextract -q -d "$BASEDIR/tmp/" "$DOWNLOADDIR/swflash.cab" &> /dev/null
+FLASHOCX=$BASEDIR/tmp/*.ocx
 
 # Create add.reg
 sed -n -e 's/^\[/;\[/g;/^;\[SW.AddReg\]/,/^;\[/p;' swflash.inf > add.reg2
@@ -27,9 +28,9 @@ done
 install_flash_player() {
 	set_wine_prefix "$BASEDIR/$1/"
 	mkdir -p "$BASEDIR/$1/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/"
-	cp GetFlash.exe Flash8.ocx "$BASEDIR/$1/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/"
+	cp GetFlash.exe $FLASHOCX "$BASEDIR/$1/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/"
 	add_registry "$BASEDIR/tmp/add.reg"
-	register_dll "C:\\Windows\\System\\Macromed\\Flash\\Flash8.ocx"
+	register_dll "C:\\Windows\\System\\Macromed\\Flash\\$FLASHOCX"
 }
 
 # Install Flash where we need

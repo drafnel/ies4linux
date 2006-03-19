@@ -24,4 +24,3 @@ CREATE_ICON="yes"
 
 # If you want to install Flash Player 8 automatically, set this to 'yes'
 INSTALL_FLASH="yes"
-
