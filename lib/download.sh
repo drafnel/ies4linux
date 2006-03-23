@@ -4,10 +4,13 @@
 print_section Downloading everything we need
 mkdir -p $DOWNLOADDIR
 
-# Evolt 
-URL_IE6=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/6.0/ie60.exe
-URL_IE5=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/5.01_SP2/ie501sp2.exe
-URL_IE55=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/5.5_SP2/ie55sp2.exe
+# Evolt
+URL_IE6=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers/ie/32bit/6.0/ie60.exe
+URL_IE5=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers/ie/32bit/5.01_SP2/ie501sp2.exe
+URL_IE55=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers/ie/32bit/5.5_SP2/ie55sp2.exe
+#URL_IE6=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/6.0/ie60.exe
+#URL_IE5=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/5.01_SP2/ie501sp2.exe
+#URL_IE55=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/5.5_SP2/ie55sp2.exe
 
 # Microsoft updates
 URL_DCOM98=http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
