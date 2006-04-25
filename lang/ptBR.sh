@@ -1,0 +1,46 @@
+# IEs 4 Linux
+# Version: 2.0
+
+# Translation details
+TRANSLATION_LOCALE="ptBR"
+TRANSLATION_WHO="Sérgio Lopes <slopes at gmail dot com>"
+TRANSLATION_LANGUAGE="Português"
+TRANSLATION_VERSION="1.0"
+TRANSLATION_ENCODING="UTF8"
+
+# ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
+YES=s
+NO=n
+
+MSG_WELCOME_TEXT="Bem-vindo, $(whoami)! Eu sou IEs4Linux.\nEu posso instalar os IE 6, 5.5 e 5.0 para você facilmente.\nVocê está apenas a 4 'enter' de distância dos seus IEs."
+MSG_WELCOME_INSTRUCTIONS="Vou fazer algumas perguntas agora. Apenas responda $YES ou $NO (o padrão é o que está em negrito)"
+
+MSG_WELCOME_QUESTION_IE55="IE 6 será instalado automaticamente.\nVocê quer instalar o IE 5.5 SP2 também?"
+MSG_WELCOME_QUESTION_IE5="E você quer instalar o IE 5.01 SP2?"
+
+MSG_LOCALES="Os IEs podem ser instalados usando uma das seguintes línguas:"
+MSG_CHOOSE_LOCALE="O padrão é $IE6_LOCALE. Aperte 'enter' para manter $IE6_LOCALE ou digite algum outro:"
+
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Vou instalar tudo em $HOME/.ies4linux\nTambém instalarei o plugin Flash 8 e criarei ícones de atalho no Desktop."
+MSG_WELCOME_QUESTION_CONFIGURE="Posso prosseguir? (Para configurar opções avançadas digite $NO)"
+
+MSG_CONFIGURE_FLASH="Devo instalar o plugin Macromedia Flash 8?"
+MSG_CONFIGURE_SHORTCUTS="E os ícones no Desktop? Posso criá-los?"
+
+MSG_CONFIGURE_BASEDIR_MSG="Tudo será instalado em $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_QUESTION="Tecle enter para aceitar ou digite outro diretório:"
+
+MSG_CONFIGURE_BINDIR_MSG="Executáveis serão criados em $HOME/bin/"
+MSG_CONFIGURE_BINDIR_QUESTION="Tecle enter para aceitar ou digite outro diretório:"
+
+MSG_CONFIGURE_WGET="Usaremos o wget para download. Se você precisa de alguma opção especial (proxy,...), digite-a agora: "
+
+MSG_START="Certinho! Vamos começar a instalar as coisas então..."
+
+MSG_ERROR_INSTALL_WINE="Você precisa instalar o wine antes! \nBaixe aqui: http://www.winehq.org"
+MSG_ERROR_INSTALL_CABEXTRACT="Você precisa baixar o cabextract antes! \nBaixe aqui: http://www.kyz.uklinux.net/cabextract.php"
+MSG_ERROR_UPDATE_CABEXTRACT="Você precisa atualizar o cabextract! \nBaixe aqui: http://www.kyz.uklinux.net/cabextract.php"
+
+MSG_ERROR_INVALIDLOCALE="Língua inválida! Por favor rode o IEs4Linux de novo e escolha uma opção válida."
+
+MSG_WARNING_ROOT="Você é o root! Isso é bastante desencorajado! O IE é inseguro demais para você lhe dar acesso root.\nQuer um conselho de amigo? Rode-me como seu usuário normal ou, o que é melhor, crie um usuário exclusivo para rodar seus IEs."

@@ -6,33 +6,60 @@
 #
 # Released under the GNU GPL. See LICENSE for more information
 
-# Discover ies4linux installation folder (by Fernando Gomes)
+# Discover ies4linux installation folder
 IES4LINUX=`dirname $0`
 cd $IES4LINUX
-IES4LINUX=`pwd`
+IES4LINUX=`pwd` 
 export IES4LINUX
 
-# Do the installation
-source lib/configure.sh
+# Create log file
+# mkdir -p "$HOME"/.ies4linux
+# touch "$HOME"/.ies4linux/log
+# LOG="$HOME/.ies4linux/log"
+
+# Instantiate variables
+INSTALLIE6=1
+INSTALLIE55=0
+INSTALLIE5=0
+INSTALLFLASH=1
+CREATE_ICON=1
+BASEDIR="$HOME/.ies4linux"
+DOWNLOADDIR="$BASEDIR/downloads"
+BINDIR="$HOME/bin"
+WGETFLAGS="--continue"
+
+IE6_LOCALE="EN-US"
+IE6_LOCALES="EN-US PT-BR DE FR ES IT NL SV JA KO NO DA CN TW FI PL HU AR HE CS PT RU EL TR"
+
+# Basic imports
 source lib/functions.sh
-log "### IES4Linux Installation"
+source lib/terminal.sh
+source lib/messages.sh
 
-source lib/init.sh
-source lib/download.sh
+# Check for wine and cabextract
+wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
+cabextract --version &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
+cabextract --version | grep "1." &> /dev/null || error $MSG_ERROR_UPDATE_CABEXTRACT
+[ "$(whoami)" = "root" ] && warning $MSG_WARNING_ROOT
 
-create_initial_folders
-do_basic_installation
+# Asks what user wants to install
+initAndConfigure
 
-install_ie6
-install_ie55
-install_ie5
+# Prepare folders
+DOWNLOADDIR="$BASEDIR/downloads"
+mkdir -p "$BINDIR"
+mkdir -p "$BASEDIR"
+mkdir -p "$BASEDIR/tmp/"
+mkdir -p "$BASEDIR/base/"
+rm -rf "$BASEDIR"/tmp/* "$BASEDIR"/base/*
+mkdir -p "$DOWNLOADDIR"
+mkdir -p "$BINDIR"
 
-install_plugins
-remove_extra_folders
+# Load modules
+source "$IES4LINUX/lib/download.sh"
+source "$IES4LINUX/lib/install.sh"
+source "$IES4LINUX/lib/plugins/flash.sh"
 
-print_section IEs4Linux installations finished!
+rm -rf "$BASEDIR/base" "$BASEDIR/tmp"
 
-
-
-
-
+section IEs 4 Linux installations finished

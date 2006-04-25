@@ -1,109 +1,77 @@
-#!/bin/bash
-# IEs 4 Linux download module
+# IEs 4 Linux
+# Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
+# Project site: http://tatanka.com.br/ies4linux
+# Released under the GNU GPL. See LICENSE for more information
+#
+# download.sh Download every file we need
 
-print_section Downloading everything we need
-mkdir -p $DOWNLOADDIR
+# VARIABLES
+###########
+# IE6 MS Downloads
+URL_IE6_CABS=http://download.microsoft.com/download/ie6sp1/finrel/6_sp1/W98NT42KMeXP
+IE6_CABS="ADVAUTH CRLUPD IEDOM IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX "
+# other cabs BRANDING GSETUP95 HHUPD  IEEXINST IE_EXTRA  README SWFLASH
 
-# Evolt
-URL_IE6=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers/ie/32bit/6.0/ie60.exe
-URL_IE5=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers/ie/32bit/5.01_SP2/ie501sp2.exe
-URL_IE55=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers/ie/32bit/5.5_SP2/ie55sp2.exe
-#URL_IE6=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/6.0/ie60.exe
-#URL_IE5=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/5.01_SP2/ie501sp2.exe
-#URL_IE55=http://www.mirror.ac.uk/mirror/ftp.evolt.org/ie/32bit/5.5_SP2/ie55sp2.exe
+# FUNCTIONS
+###########
 
-# Microsoft updates
-URL_DCOM98=http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
-URL_MFC40=http://activex.microsoft.com/controls/vc/mfc40.cab
-URL_RICHED=http://download.microsoft.com/download/win98SE/Update/5072/W98/EN-US/249973USA8.exe
-
-# Others
-URL_FLASH=http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab
-URL_IPIX=http://www.ipix.com/download/ipixx.cab
-
-# md5sum 
-MD5_IE6=f34f7f96e8307a01d51c9cc82abe90c2
-MD5_IE55=a60d9f27385399e25413d9cc51949c51
-MD5_IE5=c9e395c26bce21ee21230437e5574846
-MD5_DCOM98=9a7bc7ff37168217123a5e28aadef897
-MD5_MFC40=57b92899066e127dcb578b36ac6f6f4d
-MD5_RICHED=069c9efff9e21793ef60c445c36c5509
-
-# File Size
-SIZE_DCOM98=1208
-SIZE_IE6=78672
-SIZE_IE55=86236
-SIZE_IE5=81660
-SIZE_MFC40=584
-SIZE_RICHED=824
-
-# Download and check MD5
-_getInfo() {
-	tmp="\$URL_${1}"
-	FURL=`eval echo $tmp`
-	tmp="\$SIZE_${1}"
-	FSIZE=`eval echo $tmp`
-	tmp="\$MD5_${1}"
-	FMD5=`eval echo $tmp`
-	FILENAME=`echo $FURL | sed -e "s/.*\///"`
-	export FURL FSIZE FMD5 FILENAME
-}
 download() {
-	_getInfo $1
+	local URL=$1
+	local FILENAME=$(echo $URL | sed -e "s/.*\///")
+	local DIR=$(echo $URL | grep $URL_IE6_CABS | sed -e "s/.*W98NT42KMeXP\//ie6\//;s/\/[^\/]*$/\//")
 
-	# Download 'static' files
-	if [ ! -e "$DOWNLOADDIR/$FILENAME" ]; then
-	        wget $FURL $WGETFLAGS -O "$DOWNLOADDIR/$FILENAME"
-	else
-		size=` du -sk "$DOWNLOADDIR/$FILENAME" | awk '{print $1}' `
-		if [ $size -lt $FSIZE ]; then
-			wget $FURL $WGETFLAGS --continue -O "$DOWNLOADDIR/$FILENAME"
-		fi			
-	fi
-	        
-	# Check MD5
-	md5=`$MD5SUM "$DOWNLOADDIR/$FILENAME"`
-        if [ "${md5:0:32}" != "$FMD5" ]; then
-	        rm -rf "$DOWNLOADDIR/$FILENAME"
-      	fi
-}
-downloaddyn() {
-	_getInfo $1
-	if [ ! -e "$DOWNLOADDIR/$FILENAME" ]; then tmp=1; fi
-	if [ "$FSIZE" = "" ]; then tmp=1; fi
-	if [ "$tmp" = "1" ]; then
-		wget $FURL $WGETFLAGS --continue -O "$DOWNLOADDIR/$FILENAME"
-		md5=`$MD5SUM "$DOWNLOADDIR/$FILENAME"`
-		size=` du -sk "$DOWNLOADDIR/$FILENAME" | awk '{print $1}' `
-		echo export MD5_${1}=${md5:0:32} >> ~/.ies4linux/config
-		echo export SIZE_${1}=$size >> ~/.ies4linux/config
-	else
-		download $1
+	subsection $FILENAME
+	[ "$FILENAME" = "SCR56EN.CAB" ] && URL=$URL_IE6_CABS/EN-US/SCR56EN.CAB
+
+	if [ ! -f "$DOWNLOADDIR/$DIR$FILENAME" ] || ! cat "$DOWNLOADDIR/files" | grep $DIR$FILENAME &> /dev/null ; then
+		if wget  -c $URL $WGETFLAGS -O "$DOWNLOADDIR/$DIR$FILENAME"; then
+			echo $DIR$FILENAME >> "$DOWNLOADDIR/files"
+		else
+			return 1
+# 		else
+# 			UIerror "WGET returned an error code"
+# 			exit
+		fi
 	fi
 }
 
-# Default downloads
-download DCOM98
-download MFC40
-download RICHED
+downloadEvolt() {
+	local EVOLT_MIRROR1=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers
+	local EVOLT_MIRROR2=http://planetmirror.com/pub/browsers
+	local EVOLT_MIRROR3=http://download.mirror.ac.uk/mirror/ftp.evolt.org
 
-# IE downloads
-if [ "$INSTALLIE6" = "1" ] ; then
-	download IE6
-fi
-if [ "$INSTALLIE55" = "1" ] ; then
-	download IE55
-fi
-if [ "$INSTALLIE5" = "1" ] ; then
-        download IE5
-fi
+	if ! download $EVOLT_MIRROR1/$1 ; then
+		if ! download $EVOLT_MIRROR2/$1 ; then
+			if ! download $EVOLT_MIRROR3/$1 ; then
+				UIerror Could not find a suitable Evolt mirror
+				exit
+			fi
+		fi
+	fi
+}
 
-# Other downloads
-if [ "$INSTALL_FLASH" = "yes" ]; then
-	downloaddyn FLASH
-fi
-if [ "$INSTALL_IPIX" = "yes" ]; then
-	downloaddyn IPIX
-fi
+# Download everything
+#####################
 
-print_ok
+section Downloading everything we need
+	mkdir -p "$DOWNLOADDIR"
+	touch "$DOWNLOADDIR/files"
+	
+	
+	# Default downloads
+	download http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
+	download http://activex.microsoft.com/controls/vc/mfc40.cab
+	download http://download.microsoft.com/download/win98SE/Update/5072/W98/EN-US/249973USA8.exe
+	
+	[ "$INSTALLIE6"  = "1" ] && {
+		mkdir -p "$DOWNLOADDIR/ie6/$IE6_LOCALE"
+		for cab in $IE6_CABS; do
+			download "$URL_IE6_CABS/$IE6_LOCALE/$cab.CAB"
+		done
+	}
+	[ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
+	[ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
+	[ "$INSTALLFLASH" = "1" ] && download http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab
+	[ "$INSTALL_IPIX" = "1" ] && download http://www.ipix.com/download/ipixx.cab
+	
+ok

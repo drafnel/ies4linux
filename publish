@@ -1,0 +1,26 @@
+#!/bin/bash
+if [ "$1" = "" ]; then
+	exit
+fi
+VERSION=$1
+echo this is for beta only
+
+rm *~ lib/*~ winereg/*~ lib/plugins/*~ ui/*~ lang/*~
+
+tar zcvf ies4linux-$VERSION.tar.gz -C ~/Desktop ies4linux/ies4linux ies4linux/README ies4linux/LICENSE ies4linux/config ies4linux/lib ies4linux/winereg
+echo "<?php header(\"Location: downloads/ies4linux-$VERSION.tar.gz\");?>" > downloadBeta.php
+echo "$VERSION" > lastversionBeta.php
+
+ftp -pinv tatanka.com.br <<FIM
+user lowpis
+cd tatanka.com.br/ies4linux
+put downloadBeta.php
+put lastversionBeta.php
+cd downloads
+put ies4linux-$VERSION.tar.gz
+quit
+FIM
+
+rm  ies4linux-$VERSION.tar.gz downloadBeta.php lastversionBeta.php
+
+
