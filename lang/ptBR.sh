@@ -5,7 +5,7 @@
 TRANSLATION_LOCALE="ptBR"
 TRANSLATION_WHO="Sérgio Lopes <slopes at gmail dot com>"
 TRANSLATION_LANGUAGE="Português"
-TRANSLATION_VERSION="1.0"
+TRANSLATION_VERSION="1.1"
 TRANSLATION_ENCODING="UTF8"
 
 # ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
@@ -37,10 +37,31 @@ MSG_CONFIGURE_WGET="Usaremos o wget para download. Se você precisa de alguma op
 
 MSG_START="Certinho! Vamos começar a instalar as coisas então..."
 
+# Sections
+MSG_DOWNLOADING="Baixando tudo que precisamos"
+MSG_INSTALLING="Instalando"
+MSG_INSTALLING_FLASH="Instalando Flash Player 8"
+
+# Subsections
+MSG_INITIALIZING="Inicializando"
+MSG_CREATING_PREFIX="Criando Wine Prefix"
+MSG_EXTRACTING_CABS="Extraindo arquivos CAB"
+MSG_INSTALLING_FONTS="Instalando Fontes TTF"
+MSG_INSTALLING_REGISTRY="Instalando registro"
+MSG_FINALIZING="Finalizando"
+MSG_COPYING_IE6="Copiando instalação do ie6"
+MSG_EXTRACTING_FILES="Extraindo arquivos"
+MSG_PROCESSING_INF="Processando arquivo inf"
+MSG_PERFORM_INSTALLATIONS="Efetuando instalações"
+MSG_INSTALLING_FLASH_ON="Instalando flash no"
+
+
+# Erros
 MSG_ERROR_INSTALL_WINE="Você precisa instalar o wine antes! \nBaixe aqui: http://www.winehq.org"
 MSG_ERROR_INSTALL_CABEXTRACT="Você precisa baixar o cabextract antes! \nBaixe aqui: http://www.kyz.uklinux.net/cabextract.php"
 MSG_ERROR_UPDATE_CABEXTRACT="Você precisa atualizar o cabextract! \nBaixe aqui: http://www.kyz.uklinux.net/cabextract.php"
-
 MSG_ERROR_INVALIDLOCALE="Língua inválida! Por favor rode o IEs4Linux de novo e escolha uma opção válida."
-
 MSG_WARNING_ROOT="Você é o root! Isso é bastante desencorajado! O IE é inseguro demais para você lhe dar acesso root.\nQuer um conselho de amigo? Rode-me como seu usuário normal ou, o que é melhor, crie um usuário exclusivo para rodar seus IEs."
+
+MSG_INSTALLATIONS_FINISHED="Instalações do IEs4Linux concluídas!"
+MSG_RUN_IES="Para rodar seus IEs, digite:"

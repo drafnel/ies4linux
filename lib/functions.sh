@@ -4,7 +4,7 @@
 createShortcuts() {
         echo "#!/bin/bash" > "$BINDIR/$1"
         echo cd >> "$BINDIR/$1"
-        echo WINEPREFIX=\"$BASEDIR/$1\" wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \$@ >> "$BINDIR/$1"
+        echo WINEPREFIX=\"$BASEDIR/$1\" wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \"\$@\" >> "$BINDIR/$1"
         chmod +x "$BINDIR/$1"
         if [ "$CREATE_ICON" = "0" ]; then
                 if cd ~/Desktop || cd ~/desktop; then
@@ -40,4 +40,20 @@ function new_installation() {
 	rm -rf "$BASEDIR/$1"
 	cp -R "$BASEDIR"/base/ "$BASEDIR/$1"
 	set_wine_prefix "$BASEDIR/$1"
+}
+
+# Post install
+function run_ies() {
+	section $MSG_RUN_IES
+	[ "$INSTALLIE6"  = "1" ] && run_ie 6
+	[ "$INSTALLIE55" = "1" ] && run_ie 55
+	[ "$INSTALLIE5"  = "1" ] && run_ie 5
+}
+function run_ie(){
+	if which ie$1 2> /dev/null | grep "$BINDIR/ie$1" &> /dev/null ; then
+		subsection ie$1
+	else
+		local l=$($BINDIR/ie$1)
+		subsection ${l//\/\//\/}
+	fi
 }

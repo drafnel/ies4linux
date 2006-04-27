@@ -1,8 +1,4 @@
 # IEs 4 Linux
-# Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
-# Project site: http://tatanka.com.br/ies4linux
-# Released under the GNU GPL. See LICENSE for more information
-#
 # download.sh Download every file we need
 
 # VARIABLES
@@ -28,9 +24,6 @@ download() {
 			echo $DIR$FILENAME >> "$DOWNLOADDIR/files"
 		else
 			return 1
-# 		else
-# 			UIerror "WGET returned an error code"
-# 			exit
 		fi
 	fi
 }
@@ -43,17 +36,17 @@ downloadEvolt() {
 	if ! download $EVOLT_MIRROR1/$1 ; then
 		if ! download $EVOLT_MIRROR2/$1 ; then
 			if ! download $EVOLT_MIRROR3/$1 ; then
-				UIerror Could not find a suitable Evolt mirror
+				error Could not find a suitable Evolt mirror
 				exit
 			fi
 		fi
 	fi
 }
 
-# Download everything
-#####################
+# CODE
+######
 
-section Downloading everything we need
+section $MSG_DOWNLOADING
 	mkdir -p "$DOWNLOADDIR"
 	touch "$DOWNLOADDIR/files"
 	
@@ -71,7 +64,8 @@ section Downloading everything we need
 	}
 	[ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
 	[ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
-	[ "$INSTALLFLASH" = "1" ] && download http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab
-	[ "$INSTALL_IPIX" = "1" ] && download http://www.ipix.com/download/ipixx.cab
-	
+	[ "$INSTALLFLASH" = "1" ] && {
+		download "http://www.macromedia.com/software/flashplayer"
+		download "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
+	}
 ok

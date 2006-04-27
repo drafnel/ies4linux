@@ -37,10 +37,32 @@ MSG_CONFIGURE_WGET="We'll use wget to download files. If you need some special f
 
 MSG_START="All right! Let's start the installations..."
 
+# Sections
+MSG_DOWNLOADING="Downloading everything we need"
+MSG_INSTALLING="Installing"
+MSG_INSTALLING_FLASH="Installing Flash Player 8"
+
+# Subsections
+MSG_INITIALIZING="Initializing"
+MSG_CREATING_PREFIX="Creating Wine Prefix"
+MSG_EXTRACTING_CABS="Extracting CAB files"
+MSG_INSTALLING_FONTS="Installing TTF Fonts"
+MSG_INSTALLING_REGISTRY="Installing registry"
+MSG_FINALIZING="Finalizing"
+MSG_COPYING_IE6="Copying ie6 installation"
+MSG_EXTRACTING_FILES="Extracting files"
+MSG_PROCESSING_INF="Processing inf file"
+MSG_PERFORM_INSTALLATIONS="Performing Installations"
+MSG_INSTALLING_FLASH_ON="Installing flash on"
+
+# Errors
 MSG_ERROR_INSTALL_WINE="You need to install wine first! \nDownload it here: http://www.winehq.org"
 MSG_ERROR_INSTALL_CABEXTRACT="You need to install cabextract first! \nDownload it here: http://www.kyz.uklinux.net/cabextract.php"
 MSG_ERROR_UPDATE_CABEXTRACT="You need to update cabextract first! \nDownload it here: http://www.kyz.uklinux.net/cabextract.php"
-
 MSG_ERROR_INVALIDLOCALE="Invalid locale! Please run IEs4Linux again and choose a valid one."
-
 MSG_WARNING_ROOT="You are root! This is very discouraged! IE is too insecure for you to give him root access.\nWant a tip from a friend? Run me as your normal user or, what's better, if you can, create a separate user just do handle your IEs."
+
+# Post Install messages
+MSG_INSTALLATIONS_FINISHED="IEs 4 Linux installations finished!"
+MSG_RUN_IES="To run your IEs, type:"
+MSG_NEEDS_TRANSLATION="If you have 5 minutes, help me translating IEs4Linux to your language.\nVisit: http://tatanka.com.br/ies4linux/forum/viewtopic.php?p=2"

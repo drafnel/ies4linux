@@ -217,8 +217,6 @@ WINE REGISTRY Version 2
 "StartUp"="c:\\windows\\Start Menu\\Programs\\Startup"
 "Templates"="c:\\windows\\ShellNew"
 
-[Software\\Macromedia\\FlashPlayer] 1131163489
-
 [Software\\Microsoft\\Internet Explorer\\Extensions\\CmdMapping] 1110510297
 "NextId"=dword:00002001
 "{c95fe080-8f5d-11d2-a20b-00aa003c157a}"=dword:00002000
@@ -290,9 +288,6 @@ WINE REGISTRY Version 2
 
 [Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders] 1110506529
 
-[Software\\Microsoft\\Windows\\CurrentVersion\\GrpConv] 1110507596
-"Log"="Uninit Application."
-
 [Software\\Microsoft\\Windows\\CurrentVersion\\WinTrust\\Trust Providers\\Software Publishing] 1110507469
 "State"=dword:00023c00
 
@@ -309,12 +304,3 @@ WINE REGISTRY Version 2
 [Software\\Policies\\Microsoft\\SystemCertificates\\trust\\CRLs] 1114022255
 
 [Software\\Policies\\Microsoft\\SystemCertificates\\trust\\CTLs] 1114022255
-
-[Software\\Wine\\WineDbg] 1110507555
-"AlwaysShowThunks"=dword:00000000
-"BreakAllThreadsStartup"=dword:00000000
-"BreakOnAttach"=dword:00000000
-"BreakOnCritSectTimeOut"=dword:00000000
-"BreakOnDllLoad"=dword:00000000
-"BreakOnFirstChance"=dword:00000001
-"CanDeferOnBPByAddr"=dword:00000000

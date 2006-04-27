@@ -9,6 +9,7 @@ exec << END
 en	.	enUS	EN-US
 pt	br	ptBR	PT-BR
 pt	.	ptBR	PT
+cs	.	csCZ	CS
 de	.	enUS	DE
 fr	.	enUS	FR
 es	.	enUS	ES
@@ -26,7 +27,6 @@ pl	.	enUS	PL
 hu	.	enUS	HU
 ar	.	enUS	AR
 he	.	enUS	HE
-cs	.	enUS	CS
 ru	.	enUS	RU
 el	.	enUS	EL
 tr	.	enUS	TR
@@ -34,6 +34,7 @@ END
 
 SYSLANG=$(echo ${LANG:0:2} | tr A-Z a-z)
 SYSCOUNTRY=$(echo ${LANG:3:2} | tr A-Z a-z)
+NEEDSTRANSLATION=0
 
 while read line; do
 	l=$(echo $line | awk '{print $1}' | tr A-Z a-z)
@@ -45,8 +46,12 @@ while read line; do
 		if [ "$c" = "." ] || [ "$SYSCOUNTRY" = "$c" ]; then
 			export IE6_LOCALE=$i
 			source "$IES4LINUX"/lang/$f.sh
-			exec 0<&6
+
+			[ ! "$l" = "en" ] && [ "$f" = "enUS" ] && NEEDSTRANSLATION=1
+
 			break
 		fi
 	fi
 done
+
+exec 0<&6

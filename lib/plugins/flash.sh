@@ -4,13 +4,13 @@
 cd "$BASEDIR/tmp/"
 
 [ "$INSTALLFLASH" = "1" ] && {
-	section Installing Flash Player 8
+	section $MSG_INSTALLING_FLASH
 
-	subsection Extracting files
+	subsection $MSG_EXTRACTING_FILES
 		cabextract -q -d "$BASEDIR/tmp/" "$DOWNLOADDIR/swflash.cab" &> /dev/null
 		FLASHOCX=$(echo $BASEDIR/tmp/*.ocx | sed -e "s/.*\///")
 
-	subsection Processing inf file
+	subsection $MSG_PROCESSING_INF
 		# Create add.reg
 		sed -n -e 's/^\[/;\[/g;/^;\[SW.AddReg\]/,/^;\[/p;' swflash.inf > add.reg2
 		sed '/^;/ d;/^\s/ d' add.reg2 > add.reg
@@ -24,7 +24,7 @@ cd "$BASEDIR/tmp/"
 			mv add.reg2 add.reg
 		done
 	
-	subsection Performing Installations
+	subsection $MSG_PERFORM_INSTALLATIONS
 
 		install_flash_player() {
 			set_wine_prefix "$BASEDIR/$1/"
@@ -36,15 +36,15 @@ cd "$BASEDIR/tmp/"
 	
 		# Install Flash where we need
 		[ "$INSTALLIE6" = "1" ] && {
-			subsection Installing flash on ie6
+			subsection $MSG_INSTALLING_FLASH_ON ie6
 			install_flash_player ie6
 		}
 		[ "$INSTALLIE55" = "1" ] && {
-			subsection Installing flash on ie55
+			subsection $MSG_INSTALLING_FLASH_ON ie55
 			install_flash_player ie55
 		}
 		[ "$INSTALLIE5" = "1" ] && {
-			subsection Installing flash on ie5
+			subsection $MSG_INSTALLING_FLASH_ON ie5
 			install_flash_player ie5
 		}
 	

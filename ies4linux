@@ -62,4 +62,13 @@ source "$IES4LINUX/lib/plugins/flash.sh"
 
 rm -rf "$BASEDIR/base" "$BASEDIR/tmp"
 
-section IEs 4 Linux installations finished
+# Last messages
+section $MSG_INSTALLATIONS_FINISHED
+echo
+
+run_ies
+echo
+
+ask_for_translation
+
+

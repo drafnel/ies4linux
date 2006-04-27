@@ -100,3 +100,9 @@ print_error() {
 	exit
 }
 
+ask_for_translation() {
+	[ "$NEEDSTRANSLATION" = "1" ] && {
+		echo -e "\E[34;1m$MSG_NEEDS_TRANSLATION"; tput sgr0
+	}
+}
+
