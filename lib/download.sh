@@ -15,11 +15,26 @@ download() {
 	local URL=$1
 	local FILENAME=$(echo $URL | sed -e "s/.*\///")
 	local DIR=$(echo $URL | grep $URL_IE6_CABS | sed -e "s/.*W98NT42KMeXP\//ie6\//;s/\/[^\/]*$/\//")
-
 	subsection $FILENAME
+
+	# SCR56EN is always downloaded from EN-US
 	[ "$FILENAME" = "SCR56EN.CAB" ] && URL=$URL_IE6_CABS/EN-US/SCR56EN.CAB
 
-	if [ ! -f "$DOWNLOADDIR/$DIR$FILENAME" ] || ! cat "$DOWNLOADDIR/files" | grep $DIR$FILENAME &> /dev/null ; then
+	# If file does not exist, remove it from 'files'
+	[ ! -f "$DOWNLOADDIR/$DIR$FILENAME" ] && {
+		# TODO sed maybe not working when downloading IE
+		cat "$DOWNLOADDIR/files" | sed -e "s/$DIR$FILENAME//g" > "$DOWNLOADDIR/files2"
+		mv "$DOWNLOADDIR/files2" "$DOWNLOADDIR/files"
+	}
+
+	# Download file
+	if ! cat "$DOWNLOADDIR/files" | grep $DIR$FILENAME &> /dev/null ; then
+		# If flash, we have to 'ping' their home page first
+		[ "$FILENAME" = "swflash.cab" ] && {
+			wget $WGETFLAGS "http://www.macromedia.com/software/flashplayer" -O /dev/null
+		}
+
+		# Try to download the file
 		if wget  -c $URL $WGETFLAGS -O "$DOWNLOADDIR/$DIR$FILENAME"; then
 			echo $DIR$FILENAME >> "$DOWNLOADDIR/files"
 		else
@@ -64,8 +79,5 @@ section $MSG_DOWNLOADING
 	}
 	[ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
 	[ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
-	[ "$INSTALLFLASH" = "1" ] && {
-		download "http://www.macromedia.com/software/flashplayer"
-		download "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
-	}
+	[ "$INSTALLFLASH" = "1" ] && download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
 ok

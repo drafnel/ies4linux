@@ -10,27 +10,31 @@ en	.	enUS	EN-US
 pt	br	ptBR	PT-BR
 pt	.	ptBR	PT
 cs	.	csCZ	CS
+it	.	itIT	IT
+fr	.	frFR	FR
+ru	.	ruRU	RU
+nb	.	nbNO	NO
+nn	.	nbNO	NO
+no	.	nbNO	NO 
+pl	.	plPL	PL
+es	ar	esAR	ES
+es	.	esAR	ES
 de	.	enUS	DE
-fr	.	enUS	FR
-es	.	enUS	ES
-it	.	enUS	IT
 nl	.	enUS	NL
 sv	.	enUS	SV
 ja	.	enUS	JA
 ko	.	enUS	KO
-no	.	enUS	NO
 da	.	enUS	DA
 cn	.	enUS	CN
 tw	.	enUS	TW
 fi	.	enUS	FI
-pl	.	enUS	PL
 hu	.	enUS	HU
 ar	.	enUS	AR
 he	.	enUS	HE
-ru	.	enUS	RU
 el	.	enUS	EL
 tr	.	enUS	TR
 END
+# Spanish and portuguese still needs other translations (pt_PT, es_ES...)
 
 SYSLANG=$(echo ${LANG:0:2} | tr A-Z a-z)
 SYSCOUNTRY=$(echo ${LANG:3:2} | tr A-Z a-z)

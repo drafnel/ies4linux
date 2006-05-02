@@ -20,7 +20,7 @@ initAndConfigure() {
 	echo JA KO NO DA CN TW FI PL AR HE CS EL TR
 	text_question "$MSG_CHOOSE_LOCALE" IE6_LOCALE
 	IE6_LOCALE=$(echo $IE6_LOCALE | tr a-z A-Z)
-	! echo "$IE6_LOCALES" | grep "$IE6_LOCALE" &> /dev/null && error $MSG_ERROR_INVALIDLOCALE
+	! echo " $IE6_LOCALES " | grep " $IE6_LOCALE " &> /dev/null && error $MSG_ERROR_INVALIDLOCALE
 
 	echo -e $MSG_WELCOME_INSTRUCTIONS_DEFAULT
 	yesno_question "$MSG_WELCOME_QUESTION_CONFIGURE"
@@ -58,7 +58,7 @@ yesno_question(){
 	read answer
 	tput sgr0
 	echo
-	echo $answer | grep -i $NO &> /dev/null
+	echo $answer | grep -i -e "^${NO:0:1}" &> /dev/null
 	return $?
 }
 

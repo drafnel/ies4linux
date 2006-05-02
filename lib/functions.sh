@@ -4,7 +4,7 @@
 createShortcuts() {
         echo "#!/bin/bash" > "$BINDIR/$1"
         echo cd >> "$BINDIR/$1"
-        echo WINEPREFIX=\"$BASEDIR/$1\" wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \"\$@\" >> "$BINDIR/$1"
+	echo WINEPREFIX=\"$BASEDIR/$1\" wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \"\$@\" >> "$BINDIR/$1"
         chmod +x "$BINDIR/$1"
         if [ "$CREATE_ICON" = "0" ]; then
                 if cd ~/Desktop || cd ~/desktop; then

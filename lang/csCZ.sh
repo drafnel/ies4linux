@@ -6,7 +6,7 @@ TRANSLATION_LOCALE="csCZ"
 TRANSLATION_WHO="Pavel Chovancik <http://www.chovancik.cz>"
 TRANSLATION_LANGUAGE="Czech"
 TRANSLATION_VERSION="1.0"
-TRANSLATION_ENCODING="UTF-8"
+TRANSLATION_ENCODING="UTF8"
 
 # ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
 YES=a
@@ -25,12 +25,12 @@ MSG_WELCOME_INSTRUCTIONS_DEFAULT="Defaultně se instaluje do $HOME/.ies4linux\nT
 MSG_WELCOME_QUESTION_CONFIGURE="Je to v pořádku? (Pro rozšířenou konfiguraci stikněte $NO)"
 
 MSG_CONFIGURE_FLASH="Má se instalovat Macromedia Flash 8 plugin?"
-MSG_CONFIGURE_SHORTCUTS="Májí se vytvořit zástupyci na ploše?"
+MSG_CONFIGURE_SHORTCUTS="Májí se vytvořit zástupci na ploše?"
 
 MSG_CONFIGURE_BASEDIR_MSG="Vše bude nainstalováno do $HOME/.ies4linux/"
-MSG_CONFIGURE_BASEDIR_QUESTION="Hit enter to keep this or type the new folder: "
+MSG_CONFIGURE_BASEDIR_QUESTION="Stiskněte Enter pro ponechání nebo zadejte svůj vlastní adresář: "
 
-MSG_CONFIGURE_BINDIR_MSG="Binary launchers will be created at $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Spuštěcí skripty budou nainstalovány do $HOME/bin/"
 MSG_CONFIGURE_BINDIR_QUESTION="Stiskněte Enter pro ponechání nebo zadejte svůj vlastní adresář: "
 
 MSG_CONFIGURE_WGET="Pro stahování souborů se používá wget. Pokud je potřaba zadat nějaké zvláštní přepínaše (proxy,...), prosím, zadejte je zde: "
@@ -41,6 +41,28 @@ MSG_ERROR_INSTALL_WINE="Před instalací je nutné nainstalovat wine! \nStáhnut
 MSG_ERROR_INSTALL_CABEXTRACT="Před instalací je nutné nainstalovat cabextract! \nStáhnutí: http://www.kyz.uklinux.net/cabextract.php"
 MSG_ERROR_UPDATE_CABEXTRACT="Před instalací je nutné nainstalovat novou verzi cabextract! \nStáhnutí: http://www.kyz.uklinux.net/cabextract.php"
 
-MSG_ERROR_INVALIDLOCALE="3patná lokalizace! Prosím spusťte instalaci znovu a vyberte správnou (existující) lokalizaci."
+MSG_ERROR_INVALIDLOCALE="Špatná lokalizace! Prosím spusťte instalaci znovu a vyberte správnou (existující) lokalizaci."
 
-MSG_WARNING_ROOT="Jsou přihlášen jako root! To je velmi nerozvážné! IE není příliš bezpečný, aby mohl běžet jako proces uživatel root.\nDoporučuje se používat IE pod jiným účtem, než-li je root."
+MSG_WARNING_ROOT="Jste přihlášen jako root! To je velmi nerozvážné! IE není příliš bezpečný, aby mohl běžet jako proces uživatel root.\nDoporučuje se používat IE pod jiným účtem, než-li je root."
+
+# Sections
+MSG_DOWNLOADING="Stahuje se vše potřebné"
+MSG_INSTALLING="Instalace"
+MSG_INSTALLING_FLASH="IInstalace Flash Player 8"
+
+# Subsections
+MSG_INITIALIZING="Inizializace"
+MSG_CREATING_PREFIX="Vytváří se Wine prefix"
+MSG_EXTRACTING_CABS="Rozbalují se archívy CAB"
+MSG_INSTALLING_FONTS="Instalují se TTF fonty"
+MSG_INSTALLING_REGISTRY="Instalují se položky do registru"
+MSG_FINALIZING="Dokončování"
+MSG_COPYING_IE6="Kopírují se soubory instalace IE6"
+MSG_EXTRACTING_FILES="Rozbalují se soubory"
+MSG_PROCESSING_INF="Zpracovává se soubor .inf"
+MSG_PERFORM_INSTALLATIONS="Vykonávájí se jednotlivé instalace"
+MSG_INSTALLING_FLASH_ON="Flash se instaluje"
+
+# Post install
+MSG_INSTALLATIONS_FINISHED="Instalace IEs 4 Linux je dokoncečna!"
+MSG_RUN_IES="Pro spuštění IE použijte příkazy: "
