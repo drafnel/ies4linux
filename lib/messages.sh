@@ -19,8 +19,10 @@ no	.	nbNO	NO
 pl	.	plPL	PL
 es	ar	esAR	ES
 es	.	esAR	ES
-de	.	enUS	DE
-nl	.	enUS	NL
+de	de	deDE	DE
+de	.	deDE	DE
+bg	bg	bgBG	EN-US
+nl	.	nlNL	NL
 sv	.	enUS	SV
 ja	.	enUS	JA
 ko	.	enUS	KO
@@ -38,6 +40,8 @@ END
 
 SYSLANG=$(echo ${LANG:0:2} | tr A-Z a-z)
 SYSCOUNTRY=$(echo ${LANG:3:2} | tr A-Z a-z)
+SYSENCODING=UTF-8
+[ "${LANG:5:1}" = "." ] && SYSENCODING=${LANG:6}
 NEEDSTRANSLATION=0
 
 while read line; do
@@ -50,6 +54,12 @@ while read line; do
 		if [ "$c" = "." ] || [ "$SYSCOUNTRY" = "$c" ]; then
 			export IE6_LOCALE=$i
 			source "$IES4LINUX"/lang/$f.sh
+			
+			# Try to convert to user system encoding
+			iconv --version &> /dev/null && {
+				iconv -f $TRANSLATION_ENCODING -t $SYSENCODING "$IES4LINUX"/lang/$f.sh > "$IES4LINUX"/lang/lang.sh
+				source "$IES4LINUX"/lang/lang.sh
+			}
 
 			[ ! "$l" = "en" ] && [ "$f" = "enUS" ] && NEEDSTRANSLATION=1
 

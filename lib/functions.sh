@@ -25,7 +25,7 @@ function register_dll() {
 	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i $1 &> /dev/null
 }
 function add_registry() {
-	wine regedit $1
+	wine regedit $1 &> /dev/null
 }
 function set_wine_prefix() {
 	export WINEPREFIX="$1"
@@ -50,6 +50,7 @@ function run_ies() {
 	[ "$INSTALLIE5"  = "1" ] && run_ie 5
 }
 function run_ie(){
+	cd
 	if which ie$1 2> /dev/null | grep "$BINDIR/ie$1" &> /dev/null ; then
 		subsection ie$1
 	else

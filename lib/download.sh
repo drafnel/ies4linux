@@ -22,17 +22,16 @@ download() {
 
 	# If file does not exist, remove it from 'files'
 	[ ! -f "$DOWNLOADDIR/$DIR$FILENAME" ] && {
-		# TODO sed maybe not working when downloading IE
-		cat "$DOWNLOADDIR/files" | sed -e "s/$DIR$FILENAME//g" > "$DOWNLOADDIR/files2"
+		grep -v "$DIR$FILENAME" "$DOWNLOADDIR/files" > "$DOWNLOADDIR/files2"
 		mv "$DOWNLOADDIR/files2" "$DOWNLOADDIR/files"
 	}
 
 	# Download file
 	if ! cat "$DOWNLOADDIR/files" | grep $DIR$FILENAME &> /dev/null ; then
 		# If flash, we have to 'ping' their home page first
-		[ "$FILENAME" = "swflash.cab" ] && {
-			wget $WGETFLAGS "http://www.macromedia.com/software/flashplayer" -O /dev/null
-		}
+		# [ "$FILENAME" = "swflash.cab" ] && {
+		#	wget $WGETFLAGS "http://www.macromedia.com/software/flashplayer" -O /dev/null
+		# }
 
 		# Try to download the file
 		if wget  -c $URL $WGETFLAGS -O "$DOWNLOADDIR/$DIR$FILENAME"; then
@@ -79,5 +78,7 @@ section $MSG_DOWNLOADING
 	}
 	[ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
 	[ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
-	[ "$INSTALLFLASH" = "1" ] && download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
+	[ "$INSTALLFLASH" = "1" ] && {
+		download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
+	}
 ok

@@ -2,7 +2,6 @@
 # Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
 # Project site: http://tatanka.com.br/ies4linux
 # Released under the GNU GPL. See LICENSE for more information
-#
 # install.sh Perform all three ies installations
 
 [ "$INSTALLIE6"   = "1" ] &&  {
@@ -15,12 +14,6 @@
 
 	subsection $MSG_CREATING_PREFIX
 		wineprefixcreate &> /dev/null || exit
-	
-		# maybe reg files don't appear and we have to wait
-		# is this a wine bug?? it sounds so crazy... if anyone have any idea please tell me
-		while ! ls "$BASEDIR/ie6" | grep system.reg &> /dev/null ; do 
-			sleep 1
-		done
 	
 		# Discover Wine folders
 		DRIVEC=drive_c
@@ -81,17 +74,8 @@
 		mv "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/dcom98.inf" "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 
 	subsection $MSG_INSTALLING_REGISTRY
-		cp "$IES4LINUX"/winereg/model.system.reg "$BASEDIR"/ie6/system.reg
-# 		cp "$IES4LINUX"/winereg/model.user.reg "$BASEDIR"/ie6/user.reg
-
-		# add_registry to user.reg
-		# but wine does not make the changes immediatelly,so we have to wait
-		olduserreg=$(du -b "$BASEDIR/ie6/user.reg" | awk '{print $1}')
-		add_registry "$IES4LINUX"/winereg/add.user.reg
-		while [ $olduserreg -eq $(du -b "$BASEDIR/ie6/user.reg" | awk '{print $1}') ]; do
-			sleep 1
-		done
-
+		add_registry "$IES4LINUX"/winereg/ie6.reg
+		wineserver -k		
 	
 	subsection $MSG_FINALIZING
 		cp "$IES4LINUX/lib/ie_wine.svg" "$BASEDIR/ie_wine.svg"
@@ -102,8 +86,11 @@
 	ok
 }
 
+source "$IES4LINUX/lib/flash.sh"
+
 [ "$INSTALLIE55"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 5.5
+		set_wine_prefix "$BASEDIR/ie55/"
 
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie55"
@@ -113,16 +100,12 @@
 	
 	subsection $MSG_EXTRACTING_FILES
 		cd "$BASEDIR/tmp/"
-# 		ls $DOWNLOADDIR
 		unzip -Lqq "$DOWNLOADDIR"/ie55sp2_9x.zip
 		mv ie55sp2_9x/*{dll,tlb,cpl} "$BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM/"
 		mv ie55sp2_9x/iexplore.exe "$BASEDIR/ie55/$DRIVEC/Program Files/Internet Explorer/iexplore.exe"
 	
 	subsection $MSG_INSTALLING_REGISTRY
-		cat "$IES4LINUX"/winereg/model.system.reg |
-				sed -e "s/6.0000/5.5000/g" |
-				sed -e "s/6.0.2800.1106/5.50.4807.2300/g" > "$BASEDIR"/ie55/system.reg
-		#		sed -e "s/MSXML3.DLL/MSXML.DLL/g" > "$BASEDIR"/ie55/system.reg
+		add_registry "$IES4LINUX"/winereg/ie55.reg
 
 	subsection $MSG_FINALIZING
 		createShortcuts ie55 5.5
@@ -134,6 +117,8 @@
 
 [ "$INSTALLIE5"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 5.0
+		set_wine_prefix "$BASEDIR/ie5/"
+
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie5"
 		cp -r "$BASEDIR"/ie6 "$BASEDIR"/ie5
@@ -148,10 +133,7 @@
 
 	
 	subsection $MSG_INSTALLING_REGISTRY
-		cat "$IES4LINUX"/winereg/model.system.reg |
-				sed -e "s/6.0000/5.0002/g" |
-				sed -e "s/6.0.2800.1106/5.00.2614.3500/g" > "$BASEDIR"/ie5/system.reg
-# 				sed -e "s/MSXML3.DLL/MSXML.DLL/g" > "$BASEDIR"/ie5/system.reg
+		add_registry "$IES4LINUX"/winereg/ie5.reg
 	
 	subsection $MSG_FINALIZING
 		createShortcuts ie5 5.0

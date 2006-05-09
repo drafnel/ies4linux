@@ -1,0 +1,11 @@
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Version Vector]
+"IE"="5.5000"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\InstallInfo]
+"Version"="5.50.4807.2300"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer]
+"Version"="5.50.4807.2300"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion]
+"Plus! VersionNumber"="IE 5 5.50.4807.2300"

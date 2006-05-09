@@ -58,7 +58,6 @@ mkdir -p "$BINDIR"
 # Load modules
 source "$IES4LINUX/lib/download.sh"
 source "$IES4LINUX/lib/install.sh"
-source "$IES4LINUX/lib/plugins/flash.sh"
 
 rm -rf "$BASEDIR/base" "$BASEDIR/tmp"
 
