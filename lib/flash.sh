@@ -26,9 +26,8 @@
 	subsection $MSG_INSTALLING_FLASH_ON ie6
 		mkdir -p "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/"
 		cp GetFlash.exe $FLASHOCX "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/Macromed/Flash/"
-		add_registry "$BASEDIR/tmp/add.reg"
 		register_dll "C:\\Windows\\System\\Macromed\\Flash\\$FLASHOCX"
-		wineserver -k
+		add_registry "$BASEDIR/tmp/add.reg"
 		
 	clean_tmp
 	ok

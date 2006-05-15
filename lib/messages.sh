@@ -23,18 +23,19 @@ de	de	deDE	DE
 de	.	deDE	DE
 bg	bg	bgBG	EN-US
 nl	.	nlNL	NL
+tw	.	zhTW	TW
+tr	.	trTR	TR
 sv	.	enUS	SV
 ja	.	enUS	JA
 ko	.	enUS	KO
 da	.	enUS	DA
 cn	.	enUS	CN
-tw	.	enUS	TW
 fi	.	enUS	FI
 hu	.	enUS	HU
 ar	.	enUS	AR
 he	.	enUS	HE
 el	.	enUS	EL
-tr	.	enUS	TR
+
 END
 # Spanish and portuguese still needs other translations (pt_PT, es_ES...)
 

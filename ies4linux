@@ -31,6 +31,22 @@ WGETFLAGS="--continue"
 IE6_LOCALE="EN-US"
 IE6_LOCALES="EN-US PT-BR DE FR ES IT NL SV JA KO NO DA CN TW FI PL HU AR HE CS PT RU EL TR"
 
+# Get some command-line options
+while [ $# -gt 0 ]; do
+	case "$1" in 
+		--install-ie6 ) INSTALLIE6=1 ; shift ;;
+		--install-ie55 ) INSTALLIE55=1 ; shift ;;
+		--install-ie5 ) INSTALLIE5=1 ; shift ;;
+		
+		--basedir ) BASEDIR=$2 ; shift 2 ;;
+		--bindir ) BINDIR=$2 ; shift 2 ;;
+		--downloaddir ) DOWNLOADDIR=$2 ; shift 2 ;;
+		
+		--wget-flags ) WGETFLAGS=$2 ; shift 2 ;;
+		* ) shift 1 ;;
+	esac
+done
+
 # Basic imports
 source lib/functions.sh
 source lib/terminal.sh
@@ -48,12 +64,14 @@ initAndConfigure
 # Prepare folders
 DOWNLOADDIR="$BASEDIR/downloads"
 mkdir -p "$BINDIR"
-mkdir -p "$BASEDIR"
-mkdir -p "$BASEDIR/tmp/"
+mkdir -p "$BASEDIR/tmp/" || error "Can't create tmp folder"
 mkdir -p "$BASEDIR/base/"
 rm -rf "$BASEDIR"/tmp/* "$BASEDIR"/base/*
 mkdir -p "$DOWNLOADDIR"
 mkdir -p "$BINDIR"
+
+# Copy svg icon
+cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
 
 # Load modules
 source "$IES4LINUX/lib/download.sh"

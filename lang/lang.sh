@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="E você quer instalar o IE 5.01 SP2?"
 MSG_LOCALES="Os IEs podem ser instalados usando uma das seguintes línguas:"
 MSG_CHOOSE_LOCALE="O padrão é $IE6_LOCALE. Aperte 'enter' para manter $IE6_LOCALE ou digite algum outro:"
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Vou instalar tudo em $HOME/.ies4linux\nTambém instalarei o plugin Flash 8 e criarei ícones de atalho no Desktop."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Vou instalar tudo em $BASEDIR\nTambém instalarei o plugin Flash 8 e criarei ícones de atalho no Desktop."
 MSG_WELCOME_QUESTION_CONFIGURE="Posso prosseguir? (Para configurar opções avançadas digite $NO)"
 
 MSG_CONFIGURE_FLASH="Devo instalar o plugin Macromedia Flash 8?"
 MSG_CONFIGURE_SHORTCUTS="E os ícones no Desktop? Posso criá-los?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Tudo será instalado em $HOME/.ies4linux/"
-MSG_CONFIGURE_BASEDIR_QUESTION="Tecle enter para aceitar ou digite outro diretório:"
+MSG_CONFIGURE_BASEDIR_MSG="Tudo será instalado em $BASEDIR"
+MSG_CONFIGURE_BASEDIR_QUESTION="Tecle enter para aceitar ou digite outro diretório (caminho absoluto):"
 
-MSG_CONFIGURE_BINDIR_MSG="Executáveis serão criados em $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Executáveis serão criados em $BINDIR"
 MSG_CONFIGURE_BINDIR_QUESTION="Tecle enter para aceitar ou digite outro diretório:"
 
 MSG_CONFIGURE_WGET="Usaremos o wget para download. Se você precisa de alguma opção especial (proxy,...), digite-a agora: "

@@ -5,7 +5,7 @@
 TRANSLATION_LOCALE="enUS"
 TRANSLATION_WHO="Sérgio Lopes <slopes at gmail dot com>"
 TRANSLATION_LANGUAGE="English"
-TRANSLATION_VERSION="1.0"
+TRANSLATION_VERSION="1.1"
 TRANSLATION_ENCODING="UTF8"
 
 # ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
@@ -21,14 +21,14 @@ MSG_WELCOME_QUESTION_IE5="And do you want to install IE 5.01 SP2?"
 MSG_LOCALES="IEs can be installed using one of the following locales:"
 MSG_CHOOSE_LOCALE="Default is $IE6_LOCALE. Hit enter to keep it or choose a different one: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="By default, I will install everything at $HOME/.ies4linux\nI will also install Flash 8 plugin and create Desktop shortcuts."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="By default, I will install everything at $BASEDIR\nI will also install Flash 8 plugin and create Desktop shortcuts."
 MSG_WELCOME_QUESTION_CONFIGURE="Is that ok for you? (To configure advanced options type $NO)"
 
 MSG_CONFIGURE_FLASH="Should I install Macromedia Flash 8 plugin?"
 MSG_CONFIGURE_SHORTCUTS="And how about Desktop icons? Can I create them?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Everything will be installed at $HOME/.ies4linux/"
-MSG_CONFIGURE_BASEDIR_QUESTION="Hit enter to keep this or type the new folder: "
+MSG_CONFIGURE_BASEDIR_MSG="Everything will be installed at $BASEDIR"
+MSG_CONFIGURE_BASEDIR_QUESTION="Hit enter to keep this or type the new folder (absolute path): "
 
 MSG_CONFIGURE_BINDIR_MSG="Binary launchers will be created at $HOME/bin/"
 MSG_CONFIGURE_BINDIR_QUESTION="Hit enter to keep this or type the new folder: "

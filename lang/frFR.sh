@@ -5,7 +5,7 @@
 TRANSLATION_LOCALE="frFR"
 TRANSLATION_WHO="Rolus <rolus at esoterikeskort dot com>"
 TRANSLATION_LANGUAGE="French"
-TRANSLATION_VERSION="1.0"
+TRANSLATION_VERSION="1.0.1"
 TRANSLATION_ENCODING="UTF8"
 
 # ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="Et maintenant voulez-vous installer IE 5.01 SP2 ?"
 MSG_LOCALES="IEs4Linux peut installer une de ces 'locales':"
 MSG_CHOOSE_LOCALE="Votre 'locale' est aparement $IE6_LOCALE. Appuyez sur 'entrer' pour valider ou bien choisisez-en une autre : "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Par défaut, Je vais vous installer l'ensemble des navigateurs dans $HOME/.ies4linux\nI, vous installer le plugin Flash 8 et créer un raccourci sur votre bureau."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Par défaut, Je vais vous installer l'ensemble des navigateurs dans $BASEDIR\nI, vous installer le plugin Flash 8 et créer un raccourci sur votre bureau."
 MSG_WELCOME_QUESTION_CONFIGURE="Etes-vous d'accord ? (Pour une configuration avancée cliquez sur $NO)"
 
 MSG_CONFIGURE_FLASH="Dois-je installer le plugin Flash 8 de Macromedia ?"
 MSG_CONFIGURE_SHORTCUTS="Et qu'en est-il des raccourcis sur votre bureau ? Puis-je les créer ?"
 
-MSG_CONFIGURE_BASEDIR_MSG="L'ensemble sera installé dans $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_MSG="L'ensemble sera installé dans $BASEDIR"
 MSG_CONFIGURE_BASEDIR_QUESTION="Appuyez sur 'entrer' ou bien tapez la destination désirée : "
 
-MSG_CONFIGURE_BINDIR_MSG="Les lanceurs d'applications binaires 'Binary launchers' vont être crée dans $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Les lanceurs d'applications binaires 'Binary launchers' vont être crée dans $BINDIR"
 MSG_CONFIGURE_BINDIR_QUESTION="Appuyez sur 'entrer' ou bien tapez la destination désirée : "
 
 MSG_CONFIGURE_WGET="Nous allons utiliser wget pour télécharger les fichiers nécessaires. Si vous avez besoin de préciser un élément supplementaire (proxy,...), tapez-le maintenant : "
@@ -38,7 +38,7 @@ MSG_CONFIGURE_WGET="Nous allons utiliser wget pour télécharger les fichiers n�
 MSG_START="Parfait ! Commençons l'installation..."
 
 # Sections
-MSG_DOWNLOADING="Téléchargeons tout ce que nous avons besoin !"
+MSG_DOWNLOADING="Téléchargeons tout ce dont nous avons besoin !"
 MSG_INSTALLING="Installation"
 MSG_INSTALLING_FLASH="Installation du plugin Flash 8 de Macromedia"
 

@@ -9,3 +9,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion]
 "Plus! VersionNumber"="IE 5 5.50.4807.2300"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\AdvancedOptions\BROWSE\FORCE_OFFSCREEN]
+"Text"="Force offscreen compositing even under Terminal server (requires restart)"

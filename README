@@ -1,30 +1,29 @@
-IEs4Linux - Internet Explorers for Linux
+IEs 4 Linux - Internet Explorers for Linux
 http://www.tatanka.com.br/ies4linux
 
 COPYRIGHT AND LICENSE
 =====================
-This software was entirely written by me,
-Sergio Lopes <slopes at gmail>.
+This software was written by me, Sergio Lopes <slopes at gmail>.
+Many people helped with patches, suggestions and tests.
 
-This is distributed under the GNU GPL. See
-LICENSE for the license terms.
+This is distributed under the GNU GPL. See LICENSE for the license terms.
 
 USAGE
 =====
-Just execute the program ies4linux inside 
-this folder. Choose an installation option,
-hit enter and wait.
+Just execute the program ies4linux inside this folder and follow the instructions.
+To do this, open a terminal, cd to this folder and type:
+./ies4linux
 
 DEPENDENCIES
 ============
-You need cabextract to use IEs4Linux. You can
-download it from here: 
+You will need both Wine and cabextract. Homepages:
+http://www.winehq.com
 http://www.kyz.uklinux.net/cabextract.php
 
 MORE INFORMATION
 ================
-Read the official Web page:
-http://www.tatanka.com.br/ies4linux
+Read the official Web page: http://www.tatanka.com.br/ies4linux/
+And the official forum: http://www.tatanka.com.br/ies4linux/forum/
 
 +++
 Thanks for using this software!

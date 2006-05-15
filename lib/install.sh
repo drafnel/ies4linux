@@ -30,9 +30,11 @@
 		export DRIVEC WINDOWS SYSTEM FONTS INF
 
 		# symlinking system to system32
-		rm -rf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"{S,s}ystem
-		cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"
-		ln -s "$SYSTEM32" "system"
+		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM32" ]; then 
+			rm -rf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"{S,s}ystem
+			cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"
+			ln -s "$SYSTEM32" "system"
+		fi
 
 	subsection $MSG_EXTRACTING_CABS
 		cd "$BASEDIR/tmp"
@@ -75,10 +77,8 @@
 
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/ie6.reg
-		wineserver -k		
 	
 	subsection $MSG_FINALIZING
-		cp "$IES4LINUX/lib/ie_wine.svg" "$BASEDIR/ie_wine.svg"
 		createShortcuts ie6 6.0
 		chmod u+rwx -R "$BASEDIR/ie6"
 		clean_tmp

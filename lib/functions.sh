@@ -6,11 +6,11 @@ createShortcuts() {
         echo cd >> "$BINDIR/$1"
 	echo WINEPREFIX=\"$BASEDIR/$1\" wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \"\$@\" >> "$BINDIR/$1"
         chmod +x "$BINDIR/$1"
-        if [ "$CREATE_ICON" = "0" ]; then
+        if [ "$CREATE_ICON" = "1" ]; then
                 if cd ~/Desktop || cd ~/desktop; then
                       "$IES4LINUX/lib/mkicon" \
                                 Exec "$BINDIR/$1" \
-                                Icon "$BASEDIR/ie_wine.svg" \
+                                Icon "$BASEDIR/ies4linux.svg" \
                                 Name "Internet Explorer $2" \
                                 GenericName "Microsoft Windows Aplication" \
                                 Comment "MSIE $2 by IEs4Linux" > IE$2.desktop
@@ -25,7 +25,17 @@ function register_dll() {
 	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i $1 &> /dev/null
 }
 function add_registry() {
+	local old=$(du -b "${WINEPREFIX}system.reg" 2>/dev/null  || echo 0 | awk '{print $1}')
+	
 	wine regedit $1 &> /dev/null
+
+	wineserver -k &> /dev/null || {
+		local new=$old
+		while [ "$old" = "$new" ]; do
+			sleep 1
+			new=$(du -b "${WINEPREFIX}system.reg" 2>/dev/null  || echo 0 | awk '{print $1}')
+		done
+	}
 }
 function set_wine_prefix() {
 	export WINEPREFIX="$1"

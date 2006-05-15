@@ -34,11 +34,9 @@ initAndConfigure() {
 
 		echo -e "$MSG_CONFIGURE_BASEDIR_MSG"
 		text_question "$MSG_CONFIGURE_BASEDIR_QUESTION" BASEDIR
-		mkdir -p "$BASEDIR"
 
 		echo -e "$MSG_CONFIGURE_BINDIR_MSG"
 		text_question "$MSG_CONFIGURE_BINDIR_QUESTION" BINDIR
-		mkdir -p "$BINDIR"
 		
 		text_question "$MSG_CONFIGURE_WGET" WGETFLAGS_2
 		export WGETFLAGS="$WGETFLAGS $WGETFLAGS_2"
