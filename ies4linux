@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # IEs 4 Linux
 # Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
@@ -64,9 +64,8 @@ initAndConfigure
 # Prepare folders
 DOWNLOADDIR="$BASEDIR/downloads"
 mkdir -p "$BINDIR"
-mkdir -p "$BASEDIR/tmp/" || error "Can't create tmp folder"
-mkdir -p "$BASEDIR/base/"
-rm -rf "$BASEDIR"/tmp/* "$BASEDIR"/base/*
+mkdir -p "$BASEDIR/tmp/"
+rm -rf "$BASEDIR"/tmp/*
 mkdir -p "$DOWNLOADDIR"
 mkdir -p "$BINDIR"
 
@@ -77,7 +76,7 @@ cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
 source "$IES4LINUX/lib/download.sh"
 source "$IES4LINUX/lib/install.sh"
 
-rm -rf "$BASEDIR/base" "$BASEDIR/tmp"
+rm -rf "$BASEDIR/tmp"
 
 # Last messages
 section $MSG_INSTALLATIONS_FINISHED

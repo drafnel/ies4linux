@@ -25,10 +25,10 @@ bg	bg	bgBG	EN-US
 nl	.	nlNL	NL
 tw	.	zhTW	TW
 tr	.	trTR	TR
+ja	.	jaJP	JA
+da	.	daDK	DA
 sv	.	enUS	SV
-ja	.	enUS	JA
 ko	.	enUS	KO
-da	.	enUS	DA
 cn	.	enUS	CN
 fi	.	enUS	FI
 hu	.	enUS	HU
@@ -41,8 +41,18 @@ END
 
 SYSLANG=$(echo ${LANG:0:2} | tr A-Z a-z)
 SYSCOUNTRY=$(echo ${LANG:3:2} | tr A-Z a-z)
-SYSENCODING=UTF-8
-[ "${LANG:5:1}" = "." ] && SYSENCODING=${LANG:6}
+
+# try to discover encoding (or use utf8)
+SYSENCODING=
+if [ "${LANG:5:1}" = "." ]; then 
+	SYSENCODING=${LANG:6}
+elif locate --version &>/dev/null; then
+	L=$(grep -m 1 ${LANG} $(locate X11/locale/locale.alias) | awk '{print $2}')
+	SYSENCODING=${L:6}
+else
+	SYSENCODING=UTF-8
+fi
+
 NEEDSTRANSLATION=0
 
 while read line; do

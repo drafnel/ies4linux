@@ -164,7 +164,6 @@
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Extensions\CmdMapping]
 "NextId"=dword:00002001
-"{c95fe080-8f5d-11d2-a20b-00aa003c157a}"=dword:00002000
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\IntelliForms]
 "AskUser"=dword:00000001
@@ -1998,7 +1997,6 @@
 "03281b4bc4feaca9"=",33,HKCR,lnkfile\\CLSID,,"
 "040620b024e36180"=",33,HKCR,CLSID\\{25336920-03F9-11CF-8FD0-00AA00686F13}\\ProgID,,"
 "045ad4c7444ed27d"=",33,HKCR,CLSID\\{43A8F463-4222-11d2-B641-006097DF5BD4},,"
-"0529bcf0af21235f"=",33,HKLM,SOFTWARE\\Microsoft\\Internet Explorer\\Extensions\\{c95fe080-8f5d-11d2-a20b-00aa003c157a},MenuStatusBar,"
 "07c0c81870b15ed9"=",33,HKCR,CLSID\\{B45FF030-4447-11D2-85DE-00C04FA35C89}\\ProgID,,"
 "08a7e6610d5d56a6"=",33,HKCR,CLSID\\{0A89A860-D7B1-11CE-8350-444553540000},,"
 "0900119ec47c2b82"=",33,HKCR,SearchAssistantOC.SearchAssistantOC.1,,"
@@ -2024,7 +2022,6 @@
 "2390b1767edc7913"=",33,HKCR,CLSID\\{4D5C8C25-D075-11d0-B416-00C04FB90376},,"
 "2631c2e0437a449f"=",33,HKCR,CLSID\\{2B4F54B1-3D6D-11d0-8258-00C04FD5AE38}\\InProcServer32,,"
 "266284dea0f650a0"=",33,HKCR,CLSID\\{131A6951-7F78-11D0-A979-00C04FD705A2},,"
-"268193927810ac06"=",33,HKLM,SOFTWARE\\Microsoft\\Internet Explorer\\Extensions\\{c95fe080-8f5d-11d2-a20b-00aa003c157a},ButtonText,"
 "271b4f0b1c2b61fe"=",33,HKCR,CLSID\\{64AB4BB7-111E-11d1-8F79-00C04FC2FBE1}\\ProgID,,"
 "277892c1d1cf33d2"=",33,HKCR,CLSID\\{8856F961-340A-11D0-A96B-00C04FD705A2}\\ProgID,,"
 "280ab36848d043e6"=",33,HKCR,lnkfile,EditFlags,"
@@ -2064,15 +2061,12 @@
 "4b33d3334cdcb457"=",33,HKLM,Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\SafeSites,ie.search.msn.com,"
 "4c198a6071c5872b"=",33,HKCR,CLSID\\{55136805-B2DE-11D1-B9F2-00A0C98BC547}\\VersionIndependentProgID,,"
 "4cf4767e7aa29640"=",33,HKCR,CLSID\\{E0DD6CAB-2D10-11d2-8F1A-0000F87ABD16}\\InprocServer32,ThreadingModel,"
-"4f2d07a71d61453b"=",33,HKLM,SOFTWARE\\Microsoft\\Internet Explorer\\Extensions\\{c95fe080-8f5d-11d2-a20b-00aa003c157a},Icon,"
-"4f2d07a7a0a4298d"=",33,HKLM,SOFTWARE\\Microsoft\\Internet Explorer\\Extensions\\{c95fe080-8f5d-11d2-a20b-00aa003c157a},clsid,"
 "4f6e99e2e8c937d6"=",33,HKCR,CLSID\\{4F748358-CD6B-11d0-9816-00C04FD91972},"
 "4ff7e0b036f60ffa"=",33,HKCR,CLSID\\{8856F961-340A-11D0-A96B-00C04FD705A2}\\Control,,"
 "4ff7e0b06431f072"=",33,HKCR,CLSID\\{8856F961-340A-11D0-A96B-00C04FD705A2}\\Version,,"
 "4ff7e0b0e962173e"=",33,HKCR,CLSID\\{8856F961-340A-11D0-A96B-00C04FD705A2}\\TypeLib,,"
 "51af1ff27bdfd90d"=",33,HKCR,CLSID\\{EFA24E61-B078-11d0-89E4-00C04FC9E26E}\\InProcServer32,ThreadingModel,"
 "563688d4ee5dbce3"=",33,HKCR,CLSID\\{ffdc1a80-d527-11d0-a32c-34af06c10000}\\InProcServer32,ThreadingModel,"
-"57c94e78eed440bb"=",33,HKLM,SOFTWARE\\Microsoft\\Internet Explorer\\Extensions\\{c95fe080-8f5d-11d2-a20b-00aa003c157a},MenuText,"
 "582231db57e7ae57"=",33,HKCR,CLSID\\{E0DD6CAB-2D10-11d2-8F1A-0000F87ABD16}\\InprocServer32,,"
 "58819327ffcef20d"=",33,HKCR,CLSID\\{E7E4BC40-E76A-11CE-A9BB-00AA004AE837},,"
 "590dd9d535fa51fd"=",33,HKCR,CLSID\\{FF393560-C2A7-11CF-BFF4-444553540000},,"
@@ -2162,8 +2156,6 @@
 "aa0f99335e5c147d"=",33,HKCR,CLSID\\{B45FF030-4447-11D2-85DE-00C04FA35C89}\\Programmable,,"
 "ab5ec68d97ca2fc0"=",33,HKCR,CLSID\\{EAB22AC3-30C1-11CF-A7EB-0000C05BAE0B}\\InProcServer32,,"
 "adb78c9d287841de"=",33,HKCR,CLSID\\{E7E4BC40-E76A-11CE-A9BB-00AA004AE837}\\InProcServer32,,"
-"ae912d3d06fb2150"=",33,HKLM,SOFTWARE\\Microsoft\\Internet Explorer\\Extensions\\{c95fe080-8f5d-11d2-a20b-00aa003c157a},Script,"
-"ae912d3d995a8d65"=",33,HKLM,SOFTWARE\\Microsoft\\Internet Explorer\\Extensions\\{c95fe080-8f5d-11d2-a20b-00aa003c157a},HotIcon,"
 "b03697b9a96e147a"=",33,HKCR,CLSID\\{3C374A40-BAE4-11CF-BF7D-00AA006946EE},,"
 "b0d8329a7e11b0db"=",33,HKCR,CLSID\\{B45FF030-4447-11D2-85DE-00C04FA35C89}\\TypeLib,,"
 "b0d8329af3425797"=",33,HKCR,CLSID\\{B45FF030-4447-11D2-85DE-00C04FA35C89}\\Version,,"
@@ -4498,18 +4490,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\.zip]
 "Content Type"="application/x-zip-compressed"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\adbanner.adbanner]
-@="adbanner Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\adbanner.adbanner\CurVer]
-@="adbanner.adbanner.1"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\adbanner.adbanner.1]
-@="adbanner Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\adbanner.adbanner.1\CLSID]
-@="{89643D21-7B2A-11d1-8271-00A0C91F9CA0}"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\AllFilesystemEditObjects\shellex\ContextMenuHandlers\Copy To]
 @="{C2FBB630-2971-11d1-A18C-00C04FD75D13}"
 
@@ -4578,9 +4558,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\Applications\iexplore.exe\shell\open\command]
 @="\"C:\\PROG~FBU\\INTE~H1A\\iexplore.exe\" %1"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\Applications\msdxm.ocx]
-"NoOpenWith"=""
 
 [HKEY_LOCAL_MACHINE\Software\Classes\Applications\notepad.exe\shell]
 "FriendlyCache"="notepad"
@@ -5094,10 +5071,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{0368BFF0-9870-11D0-94AB-0080C74C7E95}]
 @="AMtoolbar Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{0368BFF0-9870-11D0-94AB-0080C74C7E95}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{0368BFF0-9870-11D0-94AB-0080C74C7E95}\MiscStatus]
 @="0"
 
@@ -5498,40 +5471,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{131A6951-7F78-11D0-A979-00C04FD705A2}\TypeLib]
 @="{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}]
-@="MozillaBrowser Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\Control]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\InprocServer32]
-@="mozctl.dll"
-"ThreadingModel"="Apartment"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\Insertable]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\MiscStatus]
-@="0"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\MiscStatus\1]
-@="131473"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\ProgID]
-@="Mozilla.Browser.1"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\Programmable]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\ToolboxBitmap32]
-@="mozctl.dll, 1"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\TypeLib]
-@="{1339B53E-3453-11D2-93B9-000000000000}"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\Version]
-@="1.0"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1339B54C-3453-11D2-93B9-000000000000}\VersionIndependentProgID]
-@="Mozilla.Browser"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{13709620-C279-11CE-A49E-444553540000}]
 @="Shell Automation Service"
 
@@ -5735,10 +5674,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1D1237A0-6CD6-11d2-96BA-00104B242E64}]
 @="ppDSFile Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1D1237A0-6CD6-11d2-96BA-00104B242E64}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1D1237A0-6CD6-11d2-96BA-00104B242E64}\Programmable]
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{1E54333B-2A00-11d1-8198-0000F87557DB}]
@@ -5791,10 +5726,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2179C5D3-EBFF-11CF-B6FD-00AA00B4E220}\Control]
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2179C5D3-EBFF-11CF-B6FD-00AA00B4E220}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2179C5D3-EBFF-11CF-B6FD-00AA00B4E220}\MiscStatus]
 @="0"
 
@@ -5805,9 +5736,6 @@
 @="NSPlay.NSPlayCtl.1"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2179C5D3-EBFF-11CF-B6FD-00AA00B4E220}\Programmable]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2179C5D3-EBFF-11CF-B6FD-00AA00B4E220}\ToolboxBitmap32]
-@="C:\\Windows\\System\\msdxm.ocx, 1"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2179C5D3-EBFF-11CF-B6FD-00AA00B4E220}\TypeLib]
 @="{2179C5D0-EBFF-11cf-B6FD-00AA00B4E220}"
@@ -6010,10 +5938,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2AFA62E2-5548-11D1-A6E1-006097C4E476}]
 @="ppDSApp Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2AFA62E2-5548-11D1-A6E1-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2AFA62E2-5548-11D1-A6E1-006097C4E476}\Programmable]
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2B4F54B1-3D6D-11d0-8258-00C04FD5AE38}]
@@ -6074,10 +5998,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2FEB9591-50CF-11D1-A6DF-006097C4E476}]
 @="ppDSMeta Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2FEB9591-50CF-11D1-A6DF-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{2FEB9591-50CF-11D1-A6DF-006097C4E476}\Programmable]
 
@@ -6490,18 +6410,10 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{31C48C31-70B0-11d1-A708-006097C4E476}]
 @="ppDSClip Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{31C48C31-70B0-11d1-A708-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{31C48C31-70B0-11d1-A708-006097C4E476}\Programmable]
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{31C48C32-70B0-11d1-A708-006097C4E476}]
 @="ppDSDetl Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{31C48C32-70B0-11d1-A708-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{31C48C32-70B0-11d1-A708-006097C4E476}\Programmable]
 
@@ -6706,10 +6618,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{3DA2AA3B-3D96-11D2-9BD2-204C4F4F5020}]
 @="AsyncPProt Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{3DA2AA3B-3D96-11D2-9BD2-204C4F4F5020}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{3DA2AA3B-3D96-11D2-9BD2-204C4F4F5020}\ProgID]
 @="Mmedia.AsyncPProt.1"
 
@@ -6723,10 +6631,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{3DA2AA3E-3D96-11D2-9BD2-204C4F4F5020}]
 @="AsyncMHandler Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{3DA2AA3E-3D96-11D2-9BD2-204C4F4F5020}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{3DA2AA3E-3D96-11D2-9BD2-204C4F4F5020}\ProgID]
 @="Mmedia.AsyncMHandler.1"
@@ -7263,10 +7167,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{49FC0185-4B32-11d1-A40E-00600831F336}\Control]
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{49FC0185-4B32-11d1-A40E-00600831F336}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{49FC0185-4B32-11d1-A40E-00600831F336}\MiscStatus]
 @="0"
 
@@ -7651,10 +7551,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{5C85DCB0-F967-11D0-81ED-00C04FC99D4C}]
 @="ppDShowNet Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{5C85DCB0-F967-11D0-81ED-00C04FC99D4C}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{5C85DCB0-F967-11D0-81ED-00C04FC99D4C}\Programmable]
 
@@ -8455,10 +8351,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{847B4DF5-4B61-11D2-9BDB-204C4F4F5020}]
 @="RadioView Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{847B4DF5-4B61-11D2-9BDB-204C4F4F5020}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{847B4DF5-4B61-11D2-9BDB-204C4F4F5020}\MiscStatus]
 @="0"
 
@@ -8469,9 +8361,6 @@
 @="DirectFrame.RadioView.1"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{847B4DF5-4B61-11D2-9BDB-204C4F4F5020}\Programmable]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{847B4DF5-4B61-11D2-9BDB-204C4F4F5020}\ToolboxBitmap32]
-@="C:\\Windows\\System\\msdxm.ocx, 104"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{847B4DF5-4B61-11D2-9BDB-204C4F4F5020}\TypeLib]
 @="{39A2C297-4778-11D2-9BDB-204C4F4F5020}"
@@ -8620,43 +8509,10 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{88C6C381-2E85-11D0-94DE-444553540000}\ShellFolder]
 "Attributes"=hex:04,00,00,00
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}]
-@="adbanner Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\Control]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\MiscStatus]
-@="0"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\MiscStatus\1]
-@="131473"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\ProgID]
-@="adbanner.adbanner.1"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\Programmable]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\ToolboxBitmap32]
-@="C:\\Windows\\System\\msdxm.ocx, 1"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\Version]
-@="1.0"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{89643D21-7B2A-11d1-8271-00A0C91F9CA0}\VersionIndependentProgID]
-@="adbanner.adbanner"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8A3F59E1-4994-11D1-A40D-00600831F336}]
 @="DSStatusBar Class"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8A3F59E1-4994-11D1-A40D-00600831F336}\Control]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8A3F59E1-4994-11D1-A40D-00600831F336}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8A3F59E1-4994-11D1-A40D-00600831F336}\MiscStatus]
 @="0"
@@ -8704,10 +8560,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8C4EB103-516F-11D1-A6DF-006097C4E476}]
 @="ppDSPropAdv Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8C4EB103-516F-11D1-A6DF-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8C4EB103-516F-11D1-A6DF-006097C4E476}\Programmable]
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8C7461EF-2B13-11d2-BE35-3078302C2030}]
@@ -8743,10 +8595,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8E718888-423F-11D2-876E-00A0C9082467}]
 @="&Radio"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8E718888-423F-11D2-876E-00A0C9082467}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8E718888-423F-11D2-876E-00A0C9082467}\ProgID]
 @="Mmedia.RadioBand.1"
 
@@ -8760,10 +8608,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8E71888A-423F-11D2-876E-00A0C9082467}]
 @="RadioServer Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8E71888A-423F-11D2-876E-00A0C9082467}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Both"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{8E71888A-423F-11D2-876E-00A0C9082467}\ProgID]
 @="Mmedia.RadioServer.1"
@@ -8966,10 +8810,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9C2263B0-3E3C-11D2-9BD3-204C4F4F5020}]
 @="RadioPlayer Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9C2263B0-3E3C-11D2-9BD3-204C4F4F5020}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Both"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9C2263B0-3E3C-11D2-9BD3-204C4F4F5020}\ProgID]
 @="Mmedia.RadioPlayer.1"
 
@@ -9055,10 +8895,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9F4D2FA2-54A1-11d1-8267-00A0C91F9CA0}\Control]
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9F4D2FA2-54A1-11d1-8267-00A0C91F9CA0}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9F4D2FA2-54A1-11d1-8267-00A0C91F9CA0}\MiscStatus]
 @="0"
 
@@ -9069,9 +8905,6 @@
 @="gotobar.gotobar.1"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9F4D2FA2-54A1-11d1-8267-00A0C91F9CA0}\Programmable]
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9F4D2FA2-54A1-11d1-8267-00A0C91F9CA0}\ToolboxBitmap32]
-@="C:\\Windows\\System\\msdxm.ocx, 1"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{9F4D2FA2-54A1-11d1-8267-00A0C91F9CA0}\Version]
 @="1.0"
@@ -9371,18 +9204,10 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{AE1A5812-5230-11D1-A6E0-006097C4E476}]
 @="ppDSView Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{AE1A5812-5230-11D1-A6E0-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{AE1A5812-5230-11D1-A6E0-006097C4E476}\Programmable]
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{AE1A5813-5230-11D1-A6E0-006097C4E476}]
 @="ppDSOAdv Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{AE1A5813-5230-11D1-A6E0-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{AE1A5813-5230-11D1-A6E0-006097C4E476}\Programmable]
 
@@ -9716,10 +9541,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{BB314F91-A010-11d1-A75A-006097C4E476}]
 @="ppDSMeta Class"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{BB314F91-A010-11d1-A75A-006097C4E476}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{BB314F91-A010-11d1-A75A-006097C4E476}\Programmable]
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{BCB80276-4807-11d2-9717-00C04F79E98B}]
@@ -9790,10 +9611,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{C0CD59AE-020D-11d1-81F2-00C04FC99D4C}]
 @="ppDShowPlay Class"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{C0CD59AE-020D-11d1-81F2-00C04FC99D4C}\InprocServer32]
-@="C:\\Windows\\System\\msdxm.ocx"
-"ThreadingModel"="Apartment"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{C0CD59AE-020D-11d1-81F2-00C04FC99D4C}\Programmable]
 
@@ -25909,18 +25726,6 @@
 [HKEY_LOCAL_MACHINE\Software\Classes\Mmedia.RadioServer.1\CLSID]
 @="{8E71888A-423F-11D2-876E-00A0C9082467}"
 
-[HKEY_LOCAL_MACHINE\Software\Classes\Mozilla.Browser]
-@="Mozilla Web Browser"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\Mozilla.Browser\CurVer]
-@="Mozilla.Browser.1"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\Mozilla.Browser.1]
-@="Mozilla Web Browser"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\Mozilla.Browser.1\CLSID]
-@="{1339B54C-3453-11D2-93B9-000000000000}"
-
 [HKEY_LOCAL_MACHINE\Software\Classes\MSFSStore]
 @="Microsoft InfoTech IStorage for Win32 Files"
 
@@ -26235,9 +26040,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\Msxml2.XSLTemplate.3.0\CLSID]
 @="{f5078f36-c551-11d3-89b9-0000f81fe221}"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\NetscapeMarkup\shell\open\command]
-@="C:\\Program Files\\Netscape\\Communicator\\Program\\netscape.exe \"%1\""
 
 [HKEY_LOCAL_MACHINE\Software\Classes\NSM]
 "Animation"="dxmasf.dll,150"
@@ -27208,12 +27010,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Classes\TypeLib\{06DD38D0-D187-11CF-A80D-00C04FD74AD8}\1.0\HELPDIR]
 @="C:\\Windows\\System"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\TypeLib\{1339B53E-3453-11D2-93B9-000000000000}\1.0]
-@="MozillaControl 1.0 Type Library"
-
-[HKEY_LOCAL_MACHINE\Software\Classes\TypeLib\{1339B53E-3453-11D2-93B9-000000000000}\1.0\0\win32]
-@="C:\\mozilla\\bin\\mozctl.dll"
 
 [HKEY_LOCAL_MACHINE\Software\Classes\TypeLib\{3050F1C5-98B5-11CF-BB82-00AA00BDCE0B}\4.0]
 @="Microsoft HTML Object Library"
@@ -30086,15 +29882,6 @@
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Explorer Bars\{4D5C8C25-D075-11d0-B416-00C04FB90376}]
 "BarSize"=hex:41,00,00,00,00,00,00,00
-
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Extensions\{c95fe080-8f5d-11d2-a20b-00aa003c157a}]
-"ButtonText"="@shdoclc.dll,-866"
-"clsid"="{1FBA04EE-3024-11D2-8F1F-0000F87ABD16}"
-"HotIcon"=",4"
-"Icon"=",4"
-"MenuStatusBar"="@shdoclc.dll,-865"
-"MenuText"="@shdoclc.dll,-864"
-"Script"=str(2):"C:\\WINDOWS\\web\\related.htm"
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Image Caching]
 "Number"=hex:04,00,00,00
@@ -38677,8 +38464,13 @@
 "AutodialDllName32"="wininet.dll"
 "AutodialFcnName32"="InternetAutodialCallback"
 
-[HKEY_LOCAL_MACHINE\TypeLib\{1339B53E-3453-11D2-93B9-000000000000}\1.0]
-@="MozillaControl 1.0 Type Library"
-
-[HKEY_LOCAL_MACHINE\TypeLib\{1339B53E-3453-11D2-93B9-000000000000}\1.0\0\win32]
-@="C:\\mozilla\\bin\\mozctl.dll"
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Fonts]
+"Arial Black (TrueType)"="ARIBLK.TTF"
+"Comic Sans MS (TrueType)"="COMIC.TTF"
+"Comic Sans MS Bold (TrueType)"="COMICBD.TTF"
+"Impact (TrueType)"="IMPACT.TTF"
+"Verdana (TrueType)"="VERDANA.TTF"
+"Verdana Bold (TrueType)"="VERDANAB.TTF"
+"Verdana Bold Italic (TrueType)"="VERDANAZ.TTF"
+"Verdana Italic (TrueType)"="VERDANAI.TTF"
+"Webdings (TrueType)"="WEBDINGS.TTF"

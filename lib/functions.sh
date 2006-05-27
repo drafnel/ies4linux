@@ -25,16 +25,14 @@ function register_dll() {
 	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i $1 &> /dev/null
 }
 function add_registry() {
-	local old=$(du -b "${WINEPREFIX}system.reg" 2>/dev/null  || echo 0 | awk '{print $1}')
-	
 	wine regedit $1 &> /dev/null
+}
 
+function kill_wineserver() {
+	local old=$(du -b "${WINEPREFIX}system.reg" 2>/dev/null  || echo 0 | awk '{print $1}')
 	wineserver -k &> /dev/null || {
-		local new=$old
-		while [ "$old" = "$new" ]; do
-			sleep 1
-			new=$(du -b "${WINEPREFIX}system.reg" 2>/dev/null  || echo 0 | awk '{print $1}')
-		done
+		killall wine &>/dev/null
+		killall wineserver &>/dev/null
 	}
 }
 function set_wine_prefix() {
@@ -43,13 +41,6 @@ function set_wine_prefix() {
 
 function clean_tmp() {
 	rm -rf "$BASEDIR"/tmp/*
-}
-
-# Installations functions
-function new_installation() {
-	rm -rf "$BASEDIR/$1"
-	cp -R "$BASEDIR"/base/ "$BASEDIR/$1"
-	set_wine_prefix "$BASEDIR/$1"
 }
 
 # Post install

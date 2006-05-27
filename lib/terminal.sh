@@ -1,4 +1,3 @@
-#!/bin/bash
 # IEs 4 Linux 
 # Text terminal User Interface
 
