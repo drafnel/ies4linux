@@ -13,7 +13,10 @@
 		rm -rf "$BASEDIR/ie6"
 
 	subsection $MSG_CREATING_PREFIX
-		wineprefixcreate &> /dev/null || exit
+		wineprefixcreate &> /dev/null || {
+			wineprefixcreate
+			error $MSG_ERROR_NO_WINEPREFIXCREATE
+		}
 	
 		# Discover Wine folders
 		DRIVEC=drive_c
@@ -38,8 +41,8 @@
 
 	subsection $MSG_EXTRACTING_CABS
 		cd "$BASEDIR/tmp"
-		cabextract -Lq "$DIR"/{ADVAUTH,CRLUPD,IEDOM,IE_S*,SCR56EN,SETUPW95,VGX}.CAB &> /dev/null || error Error
-		cabextract -Lq ie_1.cab &> /dev/null || error Error
+		extractCABs "$DIR"/{ADVAUTH,CRLUPD,HHUPD,IEDOM,IE_S*,SCR56EN,SETUPW95,VGX}.CAB
+		extractCABs ie_1.cab
 		rm -f *cab regsvr32.exe setup*
 
 	subsection $MSG_PROCESSING_INF
@@ -62,25 +65,25 @@
 		mv -f * "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
 	
 	subsection $MSG_INSTALLING_FONTS
-		cabextract -Lq -F "*TTF" "$DIR"/FONT*CAB  &> /dev/null
+		extractCABs -F "*TTF" "$DIR"/FONT*CAB
 		mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
 
 	subsection $MSG_INSTALLING RICHED20
-		cabextract -q -F ver1200.exe "$DOWNLOADDIR/249973USA8.exe" || error Error
-		cabextract -Lq "$BASEDIR/tmp/ver1200.exe" || error Error
+		extractCABs -F ver1200.exe "$DOWNLOADDIR/249973USA8.exe"
+		extractCABs "$BASEDIR/tmp/ver1200.exe"
 		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./1200up.inf
 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 		rm -f *
 	
 	subsection $MSG_INSTALLING ActiveX MFC40
-		cabextract -q "$DOWNLOADDIR/mfc40.cab" &> /dev/null
-		cabextract -Lq mfc40.exe
+		extractCABs "$DOWNLOADDIR/mfc40.cab"
+		extractCABs mfc40.exe
 		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./mfc40.inf
 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 		rm -f *
 	
 	subsection $MSG_INSTALLING DCOM98
-		cabextract -Lq -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE" || error Error
+		extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
 		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./dcom98.inf
 		rm -f *
 

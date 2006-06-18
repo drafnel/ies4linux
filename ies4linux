@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # IEs 4 Linux
 # Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
@@ -24,7 +24,6 @@ INSTALLIE5=0
 INSTALLFLASH=1
 CREATE_ICON=1
 BASEDIR="$HOME/.ies4linux"
-DOWNLOADDIR="$BASEDIR/downloads"
 BINDIR="$HOME/bin"
 WGETFLAGS="--continue"
 
@@ -40,7 +39,7 @@ while [ $# -gt 0 ]; do
 		
 		--basedir ) BASEDIR=$2 ; shift 2 ;;
 		--bindir ) BINDIR=$2 ; shift 2 ;;
-		--downloaddir ) DOWNLOADDIR=$2 ; shift 2 ;;
+		--downloaddir ) OTHER_DOWNLOADDIR=$2 ; shift 2 ;;
 		
 		--wget-flags ) WGETFLAGS=$2 ; shift 2 ;;
 		* ) shift 1 ;;
@@ -56,6 +55,7 @@ source lib/messages.sh
 wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
 cabextract --version &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
 cabextract --version | grep "1." &> /dev/null || error $MSG_ERROR_UPDATE_CABEXTRACT
+wine --version | grep "0.9." &> /dev/null || warning $MSG_WARNING_OLDWINE
 [ "$(whoami)" = "root" ] && warning $MSG_WARNING_ROOT
 
 # Asks what user wants to install
@@ -63,6 +63,7 @@ initAndConfigure
 
 # Prepare folders
 DOWNLOADDIR="$BASEDIR/downloads"
+[ "$OTHER_DOWNLOADDIR" != "" ]  && DOWNLOADDIR=$OTHER_DOWNLOADDIR
 mkdir -p "$BINDIR"
 mkdir -p "$BASEDIR/tmp/"
 rm -rf "$BASEDIR"/tmp/*

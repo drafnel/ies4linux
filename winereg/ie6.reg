@@ -29,6 +29,8 @@
 "enhsig"="native"
 "hlink"="native"
 "hmmapi"="native"
+"hh.exe"="native"
+"hhctrl.ocx"="native"
 "ie4"="native"
 "iedkcs32"="native"
 "iemigrat"="native"

@@ -1,5 +1,6 @@
 # Import default strings
 source "$IES4LINUX"/lang/enUS.sh
+IE6_LOCALE=EN-US
 
 exec 6<&0
 
@@ -27,15 +28,14 @@ tw	.	zhTW	TW
 tr	.	trTR	TR
 ja	.	jaJP	JA
 da	.	daDK	DA
+hu	.	huHU	HU
+cn	.	zhCN	CN
 sv	.	enUS	SV
 ko	.	enUS	KO
-cn	.	enUS	CN
 fi	.	enUS	FI
-hu	.	enUS	HU
 ar	.	enUS	AR
 he	.	enUS	HE
 el	.	enUS	EL
-
 END
 # Spanish and portuguese still needs other translations (pt_PT, es_ES...)
 

@@ -12,17 +12,17 @@ TRANSLATION_ENCODING="UTF8"
 YES=oui
 NO=non
 
-MSG_WELCOME_TEXT="Bienvenue, $(whoami)! Je suis IEs4Linux.\nJe vais vous installer facillement et rapidement IE 6, 5.5 et 5.0.\nIl vous suffit simplement de cliquer sur 'entrer' pour répondre aux questions"
+MSG_WELCOME_TEXT="Bienvenue, $(whoami)! Je suis IEs4Linux.\nJe vais vous installer facilement et rapidement IE 6, 5.5 et 5.0.\nIl vous suffit simplement de cliquer sur 'entrer' pour répondre aux questions"
 MSG_WELCOME_INSTRUCTIONS="Je vais maintenant vous poser quelques questions. Répondez juste par $YES or $NO (La réponse par défaut est en gras)"
 
 MSG_WELCOME_QUESTION_IE55="IE 6 sera installé automatiquement.\nVoulez-vous également installer IE 5.5 SP2 ?"
 MSG_WELCOME_QUESTION_IE5="Et maintenant voulez-vous installer IE 5.01 SP2 ?"
 
-MSG_LOCALES="IEs4Linux peut installer une de ces 'locales':"
-MSG_CHOOSE_LOCALE="Votre 'locale' est aparement $IE6_LOCALE. Appuyez sur 'entrer' pour valider ou bien choisisez-en une autre : "
+MSG_LOCALES="IEs4Linux peut installer une de ces langues :"
+MSG_CHOOSE_LOCALE="Votre langue est apparemment $IE6_LOCALE. Appuyez sur 'entrer' pour valider ou bien choisissez-en une autre : "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Par défaut, Je vais vous installer l'ensemble des navigateurs dans $BASEDIR\nI, vous installer le plugin Flash 8 et créer un raccourci sur votre bureau."
-MSG_WELCOME_QUESTION_CONFIGURE="Etes-vous d'accord ? (Pour une configuration avancée cliquez sur $NO)"
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Par défaut, Je vais vous installer l'ensemble des navigateurs dans $BASEDIR\n, vous installer le plugin Flash 8 et créer un raccourci sur votre bureau."
+MSG_WELCOME_QUESTION_CONFIGURE="Êtes-vous d'accord ? (Pour une configuration avancée cliquez sur $NO)"
 
 MSG_CONFIGURE_FLASH="Dois-je installer le plugin Flash 8 de Macromedia ?"
 MSG_CONFIGURE_SHORTCUTS="Et qu'en est-il des raccourcis sur votre bureau ? Puis-je les créer ?"
@@ -33,7 +33,7 @@ MSG_CONFIGURE_BASEDIR_QUESTION="Appuyez sur 'entrer' ou bien tapez la destinatio
 MSG_CONFIGURE_BINDIR_MSG="Les lanceurs d'applications binaires 'Binary launchers' vont être crée dans $BINDIR"
 MSG_CONFIGURE_BINDIR_QUESTION="Appuyez sur 'entrer' ou bien tapez la destination désirée : "
 
-MSG_CONFIGURE_WGET="Nous allons utiliser wget pour télécharger les fichiers nécessaires. Si vous avez besoin de préciser un élément supplementaire (proxy,...), tapez-le maintenant : "
+MSG_CONFIGURE_WGET="Nous allons utiliser wget pour télécharger les fichiers nécessaires. Si vous avez besoin de préciser un élément supplémentaire (proxy,...), tapez-le maintenant : "
 
 MSG_START="Parfait ! Commençons l'installation..."
 
@@ -58,9 +58,9 @@ MSG_INSTALLING_FLASH_ON="Installation de flash"
 # Errors
 MSG_ERROR_INSTALL_WINE="Vous devez d'abord installer Wine en premier ! \nTéléchargez-le à cette adresse : http://www.winehq.org"
 MSG_ERROR_INSTALL_CABEXTRACT="Vous devez installer cabextract en premier ! \nTéléchargez-le à cette adresse : http://www.kyz.uklinux.net/cabextract.php"
-MSG_ERROR_UPDATE_CABEXTRACT="Vous devez mette a jour cabextract en premier ! \nTéléchargez-le à cette adresse : http://www.kyz.uklinux.net/cabextract.php"
-MSG_ERROR_INVALIDLOCALE="Mauvaise locale ! Relancez IEs4Linux et choisissez la bonne."
-MSG_WARNING_ROOT="Vous êtes en root ! C'est a EVITER ! IE n'est pas assez sécurisé pour lui donner tout les privilèges de root.\nUn petit conseil d'ami ? Relancez moi en mode normal (non root) ou bien, encore mieux, si vous le pouvez, créez un utilisateur différent pour lancer IE."
+MSG_ERROR_UPDATE_CABEXTRACT="Vous devez mettre à jour cabextract en premier ! \nTéléchargez-le à cette adresse : http://www.kyz.uklinux.net/cabextract.php"
+MSG_ERROR_INVALIDLOCALE="Mauvaise langue ! Relancez IEs4Linux et choisissez la bonne."
+MSG_WARNING_ROOT="Vous êtes en root ! C'est à ÉVITER ! IE n'est pas assez sécurisé pour lui donner tout les privilèges de root.\nUn petit conseil d'ami ? Relancez moi en mode normal (non root) ou bien, encore mieux, si vous le pouvez, créez un utilisateur différent pour lancer IE."
 
 # Post Install messages
 MSG_INSTALLATIONS_FINISHED="L'installation de IEs 4 Linux est finie !"
