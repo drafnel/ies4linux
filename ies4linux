@@ -55,7 +55,7 @@ source lib/messages.sh
 wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
 cabextract --version &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
 cabextract --version | grep "1." &> /dev/null || error $MSG_ERROR_UPDATE_CABEXTRACT
-wine --version | grep "0.9." &> /dev/null || warning $MSG_WARNING_OLDWINE
+wine --version 2> /dev/null | grep "0.9." &> /dev/null || warning $MSG_WARNING_OLDWINE
 [ "$(whoami)" = "root" ] && warning $MSG_WARNING_ROOT
 
 # Asks what user wants to install

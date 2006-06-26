@@ -47,8 +47,8 @@ function extractCABs() {
 		tmp="$tmp \"$(eval echo \${$num})\""
 	done
 	eval $tmp &> "$IES4LINUX"/cabextract.log || {
-		rm "$IES4LINUX"/cabextract.log
 		cat "$IES4LINUX"/cabextract.log
+		rm "$IES4LINUX"/cabextract.log
 		error $MSG_ERROR_CABEXTRACTING
 	}
 	rm "$IES4LINUX"/cabextract.log
@@ -64,9 +64,9 @@ function run_ies() {
 function run_ie(){
 	cd
 	if which ie$1 2> /dev/null | grep "$BINDIR/ie$1" &> /dev/null ; then
-		subsection " ie$1"
+		echo " ie$1"
 	else
 		local l=$($BINDIR/ie$1)
-		subsection " ${l//\/\//\/}"
+		echo " ${l//\/\//\/}"
 	fi
 }

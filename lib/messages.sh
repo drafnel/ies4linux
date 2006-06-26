@@ -18,9 +18,7 @@ nb	.	nbNO	NO
 nn	.	nbNO	NO
 no	.	nbNO	NO 
 pl	.	plPL	PL
-es	ar	esAR	ES
 es	.	esAR	ES
-de	de	deDE	DE
 de	.	deDE	DE
 bg	bg	bgBG	EN-US
 nl	.	nlNL	NL
@@ -30,11 +28,11 @@ ja	.	jaJP	JA
 da	.	daDK	DA
 hu	.	huHU	HU
 cn	.	zhCN	CN
+he	.	heIL	HE
 sv	.	enUS	SV
 ko	.	enUS	KO
 fi	.	enUS	FI
 ar	.	enUS	AR
-he	.	enUS	HE
 el	.	enUS	EL
 END
 # Spanish and portuguese still needs other translations (pt_PT, es_ES...)
