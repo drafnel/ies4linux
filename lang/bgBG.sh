@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="А желаете ли да инсталирам IE 5.
 MSG_LOCALES="IEs могат да бъдат инсталирани използвайки една от следните локализации:"
 MSG_CHOOSE_LOCALE="По подразбиране е $IE6_LOCALE. Натиснете Enter за да потвърдите или изберете друга локализация: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="По подразбиране ще инсталирам всичко в $HOME/.ies4linux\nСъщо така ще инсталирам и Flash 8 приставка и ще създам икони на работния плот."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="По подразбиране ще инсталирам всичко в $BASEDIR_DEFAULT\nСъщо така ще инсталирам и Flash 9 приставка и ще създам икони на работния плот."
 MSG_WELCOME_QUESTION_CONFIGURE="Приемате ли настройките? (За да използвате разширените настройки напишете $NO)"
 
-MSG_CONFIGURE_FLASH="Да инсталирам ли Macromedia Flash 8 приставка?"
+MSG_CONFIGURE_FLASH="Да инсталирам ли Macromedia Flash 9 приставка?"
 MSG_CONFIGURE_SHORTCUTS="А икони на работния плот? Да ги създам ли?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Всичко ще бъде инсталироно в $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_MSG="Всичко ще бъде инсталироно в $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Натиснете Еnter ако приемате или напишете нова папка: "
 
-MSG_CONFIGURE_BINDIR_MSG="Изпълнимите файлове ще бъдат инсталирани в $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Изпълнимите файлове ще бъдат инсталирани в $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Натиснете Еnter ако приемате или напишете нова папка: "
 
 MSG_CONFIGURE_WGET="Ще използвам wget за изтегляне на файловете. Ако се нуждате от специални параметри (proxy,...), напишете ги сега: "
@@ -40,7 +40,7 @@ MSG_START="Добре! Хайде да стартираме инсталации
 # Sections
 MSG_DOWNLOADING="Изтегляне на всичко необходимо"
 MSG_INSTALLING="Инсталиране"
-MSG_INSTALLING_FLASH="Инсталиране на Flash Player 8"
+MSG_INSTALLING_FLASH="Инсталиране на Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="Инициализация"

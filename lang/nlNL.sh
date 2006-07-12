@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="En versie IE 5.01 SP2?"
 MSG_LOCALES="De IE's kunnen in de volgende talen worden geïnstalleerd:"
 MSG_CHOOSE_LOCALE="De standaardtaal is$IE6_LOCALE. Druk op ENTER om verder te gaan of vul een andere taal in: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Standaard word alles in $HOME/./ies4linux/ map geïnstalleerd ( IE('s) en flash 8) en worden er snelkoppelingen op het bureaublad gemaakt."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Standaard word alles in $BASEDIR_DEFAULT map geïnstalleerd ( IE('s) en flash 9) en worden er snelkoppelingen op het bureaublad gemaakt."
 MSG_WELCOME_QUESTION_CONFIGURE="Vind ja dat goed? (Voor geavanceerde opties typ $NO)"
 
-MSG_CONFIGURE_FLASH="Zal ik macromedia flashplugin 8 installeren?"
+MSG_CONFIGURE_FLASH="Zal ik adobe flashplugin 9 installeren?"
 MSG_CONFIGURE_SHORTCUTS="En de snelkoppelingen?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Alles zal in de volgende map worden geïnstalleerd $HOME/.ies4linux/ "
+MSG_CONFIGURE_BASEDIR_MSG="Alles zal in de volgende map worden geïnstalleerd $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Vul een andere map in of druk op enter als je het er me eens bent: "
 
-MSG_CONFIGURE_BINDIR_MSG="De uitvoerbare bestanden zullen in $HOME/bin/ worden geïnstalleerd "
+MSG_CONFIGURE_BINDIR_MSG="De uitvoerbare bestanden zullen in $BINDIR_DEFAULT worden geïnstalleerd "
 MSG_CONFIGURE_BINDIR_QUESTION="Vul een andere map in of druk op enter als je het er me eens bent: "
 
 MSG_CONFIGURE_WGET="Ik gebruik wget om alles te downloaden, als je nog aanvullende opties wilt gebruiken typ ze dan nu.(vb proxy())"

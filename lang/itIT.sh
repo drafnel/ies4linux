@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="E vuoi installare IE 5.01 SP2?"
 MSG_LOCALES="IE può essere installato usando una delle seguenti localizzazioni:"
 MSG_CHOOSE_LOCALE="La tua lingua predefinita è $IE6_LOCALE. Premi INVIO per confermarla, o scegli una di quelle indicate: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Installerò tutto in $HOME/.ies4linux\nInstallerò anche il plugin di Macromedia Flash 8 e creerò l'icona sul desktop."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Installerò tutto in $BASEDIR_DEFAULT\nInstallerò anche il plugin di Adobe Flash 9 e creerò l'icona sul desktop."
 MSG_WELCOME_QUESTION_CONFIGURE="Queste scelte di soddisfano? (Per una configurazione avanzata digita $NO)"
 
-MSG_CONFIGURE_FLASH="Posso installare il plugin di Macromedia Flash 8?"
+MSG_CONFIGURE_FLASH="Posso installare il plugin di Adobe Flash 9?"
 MSG_CONFIGURE_SHORTCUTS="E per quanto riguarda l'icona sul desktop? Posso crearla?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Normalmente viene installato tutto in $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_MSG="Normalmente viene installato tutto in $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Premi INVIO per confermare la scelta, oppure digita il precorso della nuova destinazione: "
 
-MSG_CONFIGURE_BINDIR_MSG="I programmi da lanciare saranno creati in $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="I programmi da lanciare saranno creati in $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Premi INVIO per confermare la scelta o digita il precorso della nuova destinazione: "
 
 MSG_CONFIGURE_WGET="Userò wget per scaricare i file necessari. Se devi aggiungere dei parametri particolari (proxy,...), scrivili qui: "
@@ -40,7 +40,7 @@ MSG_START="BENE! Cominciamo l'installazione..."
 # Sections
 MSG_DOWNLOADING="Scarico tutto quello che serve..."
 MSG_INSTALLING="Installo"
-MSG_INSTALLING_FLASH="Installo Flash Player 8"
+MSG_INSTALLING_FLASH="Installo Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="Inizializzo"
@@ -53,7 +53,7 @@ MSG_COPYING_IE6="Copio il file di installazione di ie6"
 MSG_EXTRACTING_FILES="Estraggo i files"
 MSG_PROCESSING_INF="Processo i file inf"
 MSG_PERFORM_INSTALLATIONS="Completo l'installazione"
-MSG_INSTALLING_FLASH_ON="Installo flash 8"
+MSG_INSTALLING_FLASH_ON="Installo flash 9"
 
 # Errors
 MSG_ERROR_INSTALL_WINE="Prima devi installare wine! \nScaricalo da qui: http://www.winehq.org"

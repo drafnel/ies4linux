@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="Og ønsker du at installere IE 5.01 SP2?"
 MSG_LOCALES="IE kan installeres med de følgende sprog:"
 MSG_CHOOSE_LOCALE="Default er $IE6_LOCALE. Tryk enter for at bruge dette eller vælg et andet sprog: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Som default installerer jeg alt i $BASEDIR\nJEg vil også installere Flash 8 plugin og oprette genveje på skrivebordet."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Som default installerer jeg alt i $BASEDIR_DEFAULT\nJEg vil også installere Flash 9 plugin og oprette genveje på skrivebordet."
 MSG_WELCOME_QUESTION_CONFIGURE="Er dette ok? (For at ændre indstillingerne, tast $NO)"
 
-MSG_CONFIGURE_FLASH="Skal jeg installere plugin til Macromedia Flash 8?"
+MSG_CONFIGURE_FLASH="Skal jeg installere plugin til Adobe Flash 9?"
 MSG_CONFIGURE_SHORTCUTS="Og hvad med genveje på skrivebordet? Skal jeg oprette dem?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Alting vil blive installeret i $BASEDIR"
+MSG_CONFIGURE_BASEDIR_MSG="Alting vil blive installeret i $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Tryk enter for at bruge dette, eller angiv et andet katalog (skriv den fulde sti): "
 
-MSG_CONFIGURE_BINDIR_MSG="Binære opstartsprogrammer vil blive oprettet i $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Binære opstartsprogrammer vil blive oprettet i $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Tryk enter for at bruge dette eller angiv et andet katalog: "
 
 MSG_CONFIGURE_WGET="Vi bruger wget til at downloade de nødvendige filer. Hvis der behøves særlige parametre (proxy,...), så indtast dem nu: "
@@ -40,7 +40,7 @@ MSG_START="OK! Lad os begynde installationerne..."
 # Sections
 MSG_DOWNLOADING="Downloader alt hvad vi skal bruge"
 MSG_INSTALLING="Installerer"
-MSG_INSTALLING_FLASH="Installerer Flash Player 8"
+MSG_INSTALLING_FLASH="Installerer Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="Initialiserer"

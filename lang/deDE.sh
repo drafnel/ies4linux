@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="Und außerdem IE 5.01 SP2 installieren?"
 MSG_LOCALES="Die IEs können in folgenden Sprachen installiert werden:"
 MSG_CHOOSE_LOCALE="Standard: $IE6_LOCALE. Drücken sie <Enter> um dies bezubehalten oder wählen sie eine andere Sprache aus "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Standardmäßig wird alles in $HOME/.ies4linux installiert\nAußerdem wird das Flash 8 Plugin installiert und Icons auf dem Desktop angelegt"
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Standardmäßig wird alles in $BASEDIR_DEFAULT installiert\nAußerdem wird das Flash 9 Plugin installiert und Icons auf dem Desktop angelegt"
 MSG_WELCOME_QUESTION_CONFIGURE="Ist das in Ordnung? (Für erweiterte Einstellungen $NO eingeben)"
 
-MSG_CONFIGURE_FLASH="Soll das Macromedia Flash 8 Plugin? installiert werden"
+MSG_CONFIGURE_FLASH="Soll das Adobe Flash 9 Plugin? installiert werden"
 MSG_CONFIGURE_SHORTCUTS="Was ist mit Desktop Icons? Sollen sie erstellt werden?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Alles wird in $HOME/.ies4linux/ installiert"
+MSG_CONFIGURE_BASEDIR_MSG="Alles wird in $BASEDIR_DEFAULT installiert"
 MSG_CONFIGURE_BASEDIR_QUESTION="Drücken sie <Enter> oder geben sie ein anderes Verzeichnis ein: "
 
-MSG_CONFIGURE_BINDIR_MSG="Verknüpfungen werden in $HOME/bin/ installiert"
+MSG_CONFIGURE_BINDIR_MSG="Verknüpfungen werden in $BINDIR_DEFAULT installiert"
 MSG_CONFIGURE_BINDIR_QUESTION="Drücken sie <Enter> oder geben sie ein anderes Verzeichnis ein: "
 
 MSG_CONFIGURE_WGET="wget wird zum herunterladen der Datein benutzt. Wenn sie speziell Optionen benötigen (proxy,...), geben sie diese jetzt ein: "
@@ -40,7 +40,7 @@ MSG_START="OK, die Installation wird jetzt gestartet"
 # Sections
 MSG_DOWNLOADING="Alles Nötige wird heruntergeladen!"
 MSG_INSTALLING="Installiere"
-MSG_INSTALLING_FLASH="Installiere Flash Player 8"
+MSG_INSTALLING_FLASH="Installiere Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="Initialisierung"

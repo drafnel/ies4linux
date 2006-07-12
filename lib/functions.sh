@@ -4,7 +4,8 @@
 createShortcuts() {
         echo "#!/bin/sh" > "$BINDIR/$1"
         echo cd >> "$BINDIR/$1"
-	echo WINEPREFIX=\"$BASEDIR/$1\" wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \"\$@\" >> "$BINDIR/$1"
+	echo export WINEPREFIX=\"$BASEDIR/$1\" >> "$BINDIR/$1"
+	echo wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \"\$@\" >> "$BINDIR/$1"
         chmod +x "$BINDIR/$1"
         if [ "$CREATE_ICON" = "1" ]; then
                 if cd ~/Desktop || cd ~/desktop; then
@@ -43,8 +44,10 @@ function clean_tmp() {
 }
 function extractCABs() {
 	local tmp="cabextract -Lq"
-	for num in `seq 1 $#`; do
+	local num=1
+	while [ $num -le $# ]; do
 		tmp="$tmp \"$(eval echo \${$num})\""
+		num=$((num+1))
 	done
 	eval $tmp &> "$IES4LINUX"/cabextract.log || {
 		cat "$IES4LINUX"/cabextract.log

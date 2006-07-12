@@ -20,16 +20,16 @@ MSG_WELCOME_QUESTION_IE5="¿Desea instalar también IE 5.01 SP2?"
 MSG_LOCALES="IEs puede ser instalado usando alguna de las siguientes localizaciones:"
 MSG_CHOOSE_LOCALE="La localización por defecto es $IE6_LOCALE. Presione enter para mantenerla o seleccione una diferente: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Por defecto, instalaré todo en $HOME/.ies4linux\nTambién instalaré el plugin de Flash 8 y crearé accesos directos en el Escritorio."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Por defecto, instalaré todo en $BASEDIR_DEFAULT\nTambién instalaré el plugin de Flash 9 y crearé accesos directos en el Escritorio."
 MSG_WELCOME_QUESTION_CONFIGURE="¿Es esto correcto para usted? (Para configurar opciones avanzadas tipee $NO)"
 
-MSG_CONFIGURE_FLASH="¿Debo instalar el plugin de Macromedia Flash 8?"
+MSG_CONFIGURE_FLASH="¿Debo instalar el plugin de Adobe Flash 9?"
 MSG_CONFIGURE_SHORTCUTS="¿Debo crear los accesos directos en el Escritorio?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Todo va a ser instalado en $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_MSG="Todo va a ser instalado en $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Presione enter para mantener este directorio o tipee el nuevo: "
 
-MSG_CONFIGURE_BINDIR_MSG="Los ejecutables serán creados en $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Los ejecutables serán creados en $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Presione enterHit enter to keep this or type the new folder: "
 MSG_CONFIGURE_BINDIR_QUESTION="Presione enter para mantener este directorio o tipee el nuevo: "
 MSG_CONFIGURE_WGET="Vamos a utilizar wget para descargar los archivos. Si es necesario algún parámetro adicional, ingréselo ahora: "
@@ -39,7 +39,7 @@ MSG_START="¡Muy Bien!. Vamos a comezar las instalaciones..."
 # Sections
 MSG_DOWNLOADING="Descargando todo lo que necesitamos"
 MSG_INSTALLING="Instalando"
-MSG_INSTALLING_FLASH="Instalando Flash Player 8"
+MSG_INSTALLING_FLASH="Instalando Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="Inicializando"

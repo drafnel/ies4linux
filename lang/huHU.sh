@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="Szeretné telepíteni az IE 5.01 SP2-t is?"
 MSG_LOCALES="Az IE-k a következő „locale”-k használatával telepíthetőek:"
 MSG_CHOOSE_LOCALE="Alapértelmezett: $IE6_LOCALE. Gépelje be a választott „locale”-t vagy üssön egy entert az alapértelmezett használatához."
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Alapértelmezésben minden a következő helyre települ: $BASEDIR\nA Flash 8 beépülő telepítve lesz, és a program létrehoz munkaasztali indítóikonokat is."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Alapértelmezésben minden a következő helyre települ: $BASEDIR_DEFAULT\nA Flash 9 beépülő telepítve lesz, és a program létrehoz munkaasztali indítóikonokat is."
 MSG_WELCOME_QUESTION_CONFIGURE="Megfelel ez önnek? (További beállításokért válaszoljon $NO-t.)"
 
-MSG_CONFIGURE_FLASH="Kerüljön telepítésre a Macromedia Flash 8 beépülő?"
+MSG_CONFIGURE_FLASH="Kerüljön telepítésre a Adobe Flash 9 beépülő?"
 MSG_CONFIGURE_SHORTCUTS="Hozzon létre a program munkaasztali indítóikonokat?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Minden a következő helyre települ: $BASEDIR"
+MSG_CONFIGURE_BASEDIR_MSG="Minden a következő helyre települ: $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Üssön egy entert a beállítás megtartásához vagy írja be a kívánt (abszolút) útvonalat: "
 
-MSG_CONFIGURE_BINDIR_MSG="A bináris futtatók a következő helyre települnek: $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="A bináris futtatók a következő helyre települnek: $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Üssön egy entert a beállítás megtartásához vagy írja be a kívánt (abszolút) útvonalat: "
 
 MSG_CONFIGURE_WGET="A program wgetet használ a fájlok letöltéséhez. Ha szükség van speciális kapcsolókra, (proxy, …), itt megadhatóak: "
@@ -40,7 +40,7 @@ MSG_START="A telepítés megkezdése…"
 # Sections
 MSG_DOWNLOADING="A szükséges fájlok letöltése…"
 MSG_INSTALLING="Telepítés…"
-MSG_INSTALLING_FLASH="A Flash Player 8 telepítése…"
+MSG_INSTALLING_FLASH="A Flash Player 9 telepítése…"
 
 # Subsections
 MSG_INITIALIZING="A telepítés előkészítése"

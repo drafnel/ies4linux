@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="IE 5.01 SP2を追加でインストールしますか�
 MSG_LOCALES="IEは一つの言語のみをサポートできます:"
 MSG_CHOOSE_LOCALE="デフォルトの言語は $IE6_LOCALE です。このままEnterキーを押すか、違う言語を入力してください: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="デフォルトのインストール設定\nインストールディレクトリ: $BASEDIR\nFlash 8 pluginのインストール: y\nデスクトップにショートカットを作成: y"
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="デフォルトのインストール設定\nインストールディレクトリ: $BASEDIR_DEFAULT\nFlash 9 pluginのインストール: y\nデスクトップにショートカットを作成: y"
 MSG_WELCOME_QUESTION_CONFIGURE="この設定でよろしいですか？(設定を変更したい場合は $NO とタイプしてください。)"
 
-MSG_CONFIGURE_FLASH="Macromedia Flash 8 pluginをインストールしますか？"
+MSG_CONFIGURE_FLASH="Adobe Flash 9 pluginをインストールしますか？"
 MSG_CONFIGURE_SHORTCUTS="デスクトップにアイコンを作成しますか？"
 
-MSG_CONFIGURE_BASEDIR_MSG="すべてのファイルは以下のディレクトリにインストールされます: $BASEDIR"
+MSG_CONFIGURE_BASEDIR_MSG="すべてのファイルは以下のディレクトリにインストールされます: $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="問題ない場合はEnterキーを、違うフォルダにインストールする場合はディレクトリへのパスを入力してください(絶対パスで指定): "
 
-MSG_CONFIGURE_BINDIR_MSG="デフォルトでは、起動スクリプトが以下のディレクトリに作成されます: $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="デフォルトでは、起動スクリプトが以下のディレクトリに作成されます: $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Enterキーを押して続行するか、別のフォルダを入力してください: "
 
 MSG_CONFIGURE_WGET="ファイルのダウンロードには wget を使用します。特別な flag (proxy,...)が必要な場合は、それらを入力してください: "
@@ -40,7 +40,7 @@ MSG_START="すべての設定が完了しました！インストールを開始
 # Sections
 MSG_DOWNLOADING="必要なファイルをダウンロードしています"
 MSG_INSTALLING="インストールしています"
-MSG_INSTALLING_FLASH="Flash Player 8 をインストールしています"
+MSG_INSTALLING_FLASH="Flash Player 9 をインストールしています"
 
 # Subsections
 MSG_INITIALIZING="初期化しています"

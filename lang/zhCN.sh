@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="也要安装 IE 5.01 SP2吗?"
 MSG_LOCALES="IE 可以使用下面这些语言区域设置安装:"
 MSG_CHOOSE_LOCALE="默认是 $IE6_LOCALE. 按回车保持当前选择或选择另一个设置: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="默认情况下,我会安装所有文件到 $BASEDIR\n也会安装Flash 8 插件并创建桌面快捷方式."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="默认情况下,我会安装所有文件到 $BASEDIR_DEFAULT\n也会安装Flash 9 插件并创建桌面快捷方式."
 MSG_WELCOME_QUESTION_CONFIGURE="这样可以吗? (进入高级选项请输入 $NO)"
 
-MSG_CONFIGURE_FLASH="要安装Macromedia Flash 8 插件吗?"
+MSG_CONFIGURE_FLASH="要安装Adobe Flash 9 插件吗?"
 MSG_CONFIGURE_SHORTCUTS="桌面快捷方式呢? 要我创建它们吗?"
 
-MSG_CONFIGURE_BASEDIR_MSG="所有文件将会安装在 $BASEDIR"
+MSG_CONFIGURE_BASEDIR_MSG="所有文件将会安装在 $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="按下回车保持当前设定或键入另一个文件夹 (绝对路径): "
 
-MSG_CONFIGURE_BINDIR_MSG="可执行文件将创建在 $HOME/bin/ 下"
+MSG_CONFIGURE_BINDIR_MSG="可执行文件将创建在 $BINDIR_DEFAULT 下"
 MSG_CONFIGURE_BINDIR_QUESTION="按下回车保持当前设定或键入另一个文件夹: "
 
 MSG_CONFIGURE_WGET="我们将会用wget来下载文件.如果需要特别的设定(proxy,等),现在键入它们: "
@@ -40,7 +40,7 @@ MSG_START="好了! 让我们开始安装..."
 # Sections
 MSG_DOWNLOADING="正在下载所有我们需要的文件"
 MSG_INSTALLING="正在安装"
-MSG_INSTALLING_FLASH="正在安装Flash Player 8"
+MSG_INSTALLING_FLASH="正在安装Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="正在初始化"

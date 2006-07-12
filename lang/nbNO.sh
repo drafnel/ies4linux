@@ -18,16 +18,16 @@ MSG_WELCOME_QUESTION_IE5="Og vil du installere IE 5.01 SP2?"
 MSG_LOCALES="IEs kan installeres med følgende språk:"
 MSG_CHOOSE_LOCALE="Standard er $IE6_LOCALE. Trykk Enter for å bruke det, eller velg et annet: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Det vanlige er å installere alt i «$HOME/.ies4linux».\nFlash 8 og snarveier på skrivebordet følger også med.."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Det vanlige er å installere alt i «$BASEDIR_DEFAULT».\nFlash 9 og snarveier på skrivebordet følger også med.."
 MSG_WELCOME_QUESTION_CONFIGURE="Er det greit? (Skriv $NO for å se avanserte innstillinger.)"
 
-MSG_CONFIGURE_FLASH="Installere Macromedia Flash 8?"
+MSG_CONFIGURE_FLASH="Installere Adobe Flash 9?"
 MSG_CONFIGURE_SHORTCUTS="Og hva med skrivebordsikoner? Vil du ha dem?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Alt installeres i «$HOME/.ies4linux/»"
+MSG_CONFIGURE_BASEDIR_MSG="Alt installeres i «$BASEDIR_DEFAULT»"
 MSG_CONFIGURE_BASEDIR_QUESTION="Trykk Enter for å beholde dette, eller skriv inn navnet på en annen mappe: "
 
-MSG_CONFIGURE_BINDIR_MSG="Binærstartere lages i «$HOME/bin/»"
+MSG_CONFIGURE_BINDIR_MSG="Binærstartere lages i «$BINDIR_DEFAULT»"
 MSG_CONFIGURE_BINDIR_QUESTION="Trykk enter for å beholde dette, eller skriv inn navnet på en annen mappe: "
 
 MSG_CONFIGURE_WGET="Filene lastes ned med «wget». Hvis du trenger spesielle kommandolinjevalg\n(mellomtjener etc.), må du oppgi dem nå.: "

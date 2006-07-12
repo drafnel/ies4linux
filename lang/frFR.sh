@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="Et maintenant voulez-vous installer IE 5.01 SP2 ?"
 MSG_LOCALES="IEs4Linux peut installer une de ces langues :"
 MSG_CHOOSE_LOCALE="Votre langue est apparemment $IE6_LOCALE. Appuyez sur 'entrer' pour valider ou bien choisissez-en une autre : "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Par défaut, Je vais vous installer l'ensemble des navigateurs dans $BASEDIR\n, vous installer le plugin Flash 8 et créer un raccourci sur votre bureau."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Par défaut, Je vais vous installer l'ensemble des navigateurs dans $BASEDIR_DEFAULT\n, vous installer le plugin Flash 9 et créer un raccourci sur votre bureau."
 MSG_WELCOME_QUESTION_CONFIGURE="Êtes-vous d'accord ? (Pour une configuration avancée cliquez sur $NO)"
 
-MSG_CONFIGURE_FLASH="Dois-je installer le plugin Flash 8 de Macromedia ?"
+MSG_CONFIGURE_FLASH="Dois-je installer le plugin Flash 9 de Adobe ?"
 MSG_CONFIGURE_SHORTCUTS="Et qu'en est-il des raccourcis sur votre bureau ? Puis-je les créer ?"
 
-MSG_CONFIGURE_BASEDIR_MSG="L'ensemble sera installé dans $BASEDIR"
+MSG_CONFIGURE_BASEDIR_MSG="L'ensemble sera installé dans $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Appuyez sur 'entrer' ou bien tapez la destination désirée : "
 
-MSG_CONFIGURE_BINDIR_MSG="Les lanceurs d'applications binaires 'Binary launchers' vont être crée dans $BINDIR"
+MSG_CONFIGURE_BINDIR_MSG="Les lanceurs d'applications binaires 'Binary launchers' vont être crée dans $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Appuyez sur 'entrer' ou bien tapez la destination désirée : "
 
 MSG_CONFIGURE_WGET="Nous allons utiliser wget pour télécharger les fichiers nécessaires. Si vous avez besoin de préciser un élément supplémentaire (proxy,...), tapez-le maintenant : "
@@ -40,7 +40,7 @@ MSG_START="Parfait ! Commençons l'installation..."
 # Sections
 MSG_DOWNLOADING="Téléchargeons tout ce dont nous avons besoin !"
 MSG_INSTALLING="Installation"
-MSG_INSTALLING_FLASH="Installation du plugin Flash 8 de Macromedia"
+MSG_INSTALLING_FLASH="Installation du plugin Flash 9 de Macromedia"
 
 # Subsections
 MSG_INITIALIZING="Initialisation"

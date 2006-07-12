@@ -20,6 +20,10 @@ You will need both Wine and cabextract. Homepages:
 http://www.winehq.com
 http://www.kyz.uklinux.net/cabextract.php
 
+ADVANCED USAGE
+==============
+Run ./ies4linux --help
+
 MORE INFORMATION
 ================
 Read the official Web page: http://www.tatanka.com.br/ies4linux/

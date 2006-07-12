@@ -11,7 +11,7 @@
 	
 	subsection $MSG_INSTALLING_FLASH_ON ie6
 		cp swflash.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
-		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./swflash.inf
+		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./swflash.inf &> /dev/null
 		register_dll "C:\\Windows\\System\\Macromed\\Flash\\$FLASHOCX"
 		
 	clean_tmp

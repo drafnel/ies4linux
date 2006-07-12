@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="您想要安裝 IE 5.01 SP2 嗎?"
 MSG_LOCALES="IEs 可以使用下列幾種語言安裝:"
 MSG_CHOOSE_LOCALE="預設使用 $IE6_LOCALE 安裝. 請按下 enter 保留目前設定或選擇其他語言: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="預設情況下, 我將會把所有檔案安裝在 $HOME/.ies4linux\n同時也會安裝 Flash 8 外掛以及建立桌面捷徑."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="預設情況下, 我將會把所有檔案安裝在 $BASEDIR_DEFAULT\n同時也會安裝 Flash  9 外掛以及建立桌面捷徑."
 MSG_WELCOME_QUESTION_CONFIGURE="您都同意嗎? (若要進階設定請按 $NO)"
 
-MSG_CONFIGURE_FLASH="您想要順便安裝 Macromedia Flash 8 的外掛嗎 ?"
+MSG_CONFIGURE_FLASH="您想要順便安裝 Adobe Flash  9 的外掛嗎 ?"
 MSG_CONFIGURE_SHORTCUTS="還有桌面捷徑圖示啊 ?我要順便建立嗎?"
 
-MSG_CONFIGURE_BASEDIR_MSG="所有程式檔案將安裝在 $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_MSG="所有程式檔案將安裝在 $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="按下 enter 保留原來設定或輸入指定的資料夾: "
 
-MSG_CONFIGURE_BINDIR_MSG="啟動程式會安裝在 $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="啟動程式會安裝在 $BIN_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="按下 enter保留原來設定或輸入指定的資料夾: "
 
 MSG_CONFIGURE_WGET="我們將使用 wget來下載檔案. 如果您有個別的特殊設定 (proxy,等), 請趁現在輸入: "
@@ -40,7 +40,7 @@ MSG_START="太好了! 讓我們現在開始安裝吧！"
 # Sections
 MSG_DOWNLOADING="正在下載所需要的檔案"
 MSG_INSTALLING="安裝中"
-MSG_INSTALLING_FLASH="正在安裝 Flash Player 8"
+MSG_INSTALLING_FLASH="正在安裝 Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="程式正在初始化"

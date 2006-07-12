@@ -19,37 +19,68 @@ export IES4LINUX
 
 # Instantiate variables
 INSTALLIE6=1
-INSTALLIE55=0
-INSTALLIE5=0
-INSTALLFLASH=1
-CREATE_ICON=1
-BASEDIR="$HOME/.ies4linux"
-BINDIR="$HOME/bin"
-WGETFLAGS="--continue"
 
-IE6_LOCALE="EN-US"
+# Default options.
+# Corresponding config variables are named as below minus the trailing _DEFAULT
+INSTALLIE55_DEFAULT=0
+INSTALLIE5_DEFAULT=0
+INSTALLFLASH_DEFAULT=1
+CREATE_ICON_DEFAULT=1
+BASEDIR_DEFAULT="$HOME/.ies4linux"
+BINDIR_DEFAULT="$HOME/bin"
+WGETFLAGS_DEFAULT="--continue"
+DOWNLOADDIR_SUFFIX="downloads"
+DOWNLOADDIR_DEFAULT="$BASEDIR/$DOWNLOADDIR_SUFFIX"
+
+IE6_LOCALE_DEFAULT="EN-US"
 IE6_LOCALES="EN-US PT-BR DE FR ES IT NL SV JA KO NO DA CN TW FI PL HU AR HE CS PT RU EL TR"
-
-# Get some command-line options
-while [ $# -gt 0 ]; do
-	case "$1" in 
-		--install-ie6 ) INSTALLIE6=1 ; shift ;;
-		--install-ie55 ) INSTALLIE55=1 ; shift ;;
-		--install-ie5 ) INSTALLIE5=1 ; shift ;;
-		
-		--basedir ) BASEDIR=$2 ; shift 2 ;;
-		--bindir ) BINDIR=$2 ; shift 2 ;;
-		--downloaddir ) OTHER_DOWNLOADDIR=$2 ; shift 2 ;;
-		
-		--wget-flags ) WGETFLAGS=$2 ; shift 2 ;;
-		* ) shift 1 ;;
-	esac
-done
 
 # Basic imports
 source lib/functions.sh
 source lib/terminal.sh
 source lib/messages.sh
+
+# Get some command-line options.
+# If an option is specified on the command line, the user won't be asked for it later on.
+while [ $# -gt 0 ]; do
+    case "$1" in
+      --install-ie55)     INSTALLIE55=1;   shift ;;
+      --no-install-ie55)  INSTALLIE55=0;   shift ;;
+      --install-ie5)      INSTALLIE5=1;    shift ;;
+      --no-install-ie5)   INSTALLIE5=0;    shift ;;
+      --install-flash)    INSTALLFLASH=1;  shift ;;
+      --no-install-flash) INSTALLFLASH=0;  shift ;;
+      --install-icon)     CREATE_ICON=1;   shift ;;
+      --no-install-icon)  CREATE_ICON=0;   shift ;;
+      --basedir)           BASEDIR=$2;     shift 2 ;;
+      --bindir)            BINDIR=$2;      shift 2 ;;
+      --downloaddir)	   DOWNLOADDIR=$2; shift 2 ;;
+      --wget-flags)        WGETFLAGS=$2;   shift 2 ;;
+      --help | -h)
+         show_help
+         exit 0
+         ;;
+      --locale)
+         IE6_LOCALE=$(echo "$2" | tr a-z A-Z)
+	 USING_GUESSED_IE6_LOCALE=false
+         shift 2
+         ;;
+      --list-locales)
+	 echo $IE6_LOCALES | fmt -w 40
+         exit 0
+         ;;
+      *)
+         echo "Error: unknown option \"$1\""
+         if echo "$1" | grep '=' >/dev/null; then
+            echo "Options are not GNU-style"
+            echo "  i.e. don't use: --option=value"
+            echo "     use instead: --option value"
+         fi
+         echo "run \"./ies4linux --help\" for more info"
+         exit 1
+         ;;
+    esac
+done
 
 # Check for wine and cabextract
 wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
@@ -62,13 +93,10 @@ wine --version 2> /dev/null | grep "0.9." &> /dev/null || warning $MSG_WARNING_O
 initAndConfigure
 
 # Prepare folders
-DOWNLOADDIR="$BASEDIR/downloads"
-[ "$OTHER_DOWNLOADDIR" != "" ]  && DOWNLOADDIR=$OTHER_DOWNLOADDIR
 mkdir -p "$BINDIR"
 mkdir -p "$BASEDIR/tmp/"
 rm -rf "$BASEDIR"/tmp/*
 mkdir -p "$DOWNLOADDIR"
-mkdir -p "$BINDIR"
 
 # Copy svg icon
 cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
@@ -83,8 +111,8 @@ rm -rf "$BASEDIR/tmp"
 section $MSG_INSTALLATIONS_FINISHED
 echo
 
-run_ies
-echo
+# run_ies
+# echo
 
 ask_for_translation
 

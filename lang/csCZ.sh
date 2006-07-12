@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="Přejete si nainstalovat IE 5.01 SP2?"
 MSG_LOCALES="IE může být nainstalován s použítím několika možných lokalizací: "
 MSG_CHOOSE_LOCALE="Defaultní je $IE6_LOCALE. Stiskněte Enter pro ponechání defaulní, a nebo vyberte jinou: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Defaultně se instaluje do $HOME/.ies4linux\nTaké se instaluje Flash 8 plugin a vytvoříze zástupce na ploše."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Defaultně se instaluje do $BASEDIR_DEFAULT\nTaké se instaluje Flash 9 plugin a vytvoříze zástupce na ploše."
 MSG_WELCOME_QUESTION_CONFIGURE="Je to v pořádku? (Pro rozšířenou konfiguraci stikněte $NO)"
 
-MSG_CONFIGURE_FLASH="Má se instalovat Macromedia Flash 8 plugin?"
+MSG_CONFIGURE_FLASH="Má se instalovat Adobe Flash 9 plugin?"
 MSG_CONFIGURE_SHORTCUTS="Májí se vytvořit zástupci na ploše?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Vše bude nainstalováno do $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_MSG="Vše bude nainstalováno do $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Stiskněte Enter pro ponechání nebo zadejte svůj vlastní adresář: "
 
-MSG_CONFIGURE_BINDIR_MSG="Spuštěcí skripty budou nainstalovány do $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Spuštěcí skripty budou nainstalovány do $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Stiskněte Enter pro ponechání nebo zadejte svůj vlastní adresář: "
 
 MSG_CONFIGURE_WGET="Pro stahování souborů se používá wget. Pokud je potřaba zadat nějaké zvláštní přepínaše (proxy,...), prosím, zadejte je zde: "
@@ -48,7 +48,7 @@ MSG_WARNING_ROOT="Jste přihlášen jako root! To je velmi nerozvážné! IE nen
 # Sections
 MSG_DOWNLOADING="Stahuje se vše potřebné"
 MSG_INSTALLING="Instalace"
-MSG_INSTALLING_FLASH="IInstalace Flash Player 8"
+MSG_INSTALLING_FLASH="IInstalace Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="Inizializace"

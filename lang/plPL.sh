@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="I czy chcesz zainstalować IE 5.01 SP2?"
 MSG_LOCALES="IE może zostać zainstalowane z jedną z podanych lokalizacji:"
 MSG_CHOOSE_LOCALE="Domyślną jest $IE6_LOCALE. Naciśnij enter aby użyć domyślnej lub wybierz inną: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Domyślnie zainstaluję wszystko w $HOME/.ies4linux\nZainstaluję również plugin Flash 8 i stworzę skrót na pulpicie."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Domyślnie zainstaluję wszystko w $BASEDIR_DEFAULT\nZainstaluję również plugin Flash 9 i stworzę skrót na pulpicie."
 MSG_WELCOME_QUESTION_CONFIGURE="Czy to Ci odpowiada? (Aby skonfigurować zaawansowane opcje wpisz $NO)"
 
-MSG_CONFIGURE_FLASH="Czy mam zainstalować plugin Macromedia Flash 8?"
+MSG_CONFIGURE_FLASH="Czy mam zainstalować plugin Adobe Flash 9?"
 MSG_CONFIGURE_SHORTCUTS="I co z ikonką na pulpicie? Mogę ją stworzyć?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Wszystko zostanie zainstalowane do $HOME/.ies4linux/"
+MSG_CONFIGURE_BASEDIR_MSG="Wszystko zostanie zainstalowane do $BASEDIR_DEFAULT"
 MSG_CONFIGURE_BASEDIR_QUESTION="Naciśnij enter aby zachować ten wybór lub wpisz własną ścieżke do nowego katalogu: "
 
-MSG_CONFIGURE_BINDIR_MSG="Skrypt uruchamiający zostanie stworzony w $HOME/bin/"
+MSG_CONFIGURE_BINDIR_MSG="Skrypt uruchamiający zostanie stworzony w $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Naciśnij enter aby zachować ten wybór lub wpisz własną ścieżke do nowego katalogu: "
 
 MSG_CONFIGURE_WGET="Użyję program wget do pobrania plików. Jeśli potrzebujesz użyć specjalnej flagi (proxy,...), wpisz ją teraz: "
@@ -40,7 +40,7 @@ MSG_START="Wszystko w porządku! Zacznijmy instalacje..."
 # Sections
 MSG_DOWNLOADING="Pobieranie wszystkiego czego potrzebujemy"
 MSG_INSTALLING="Instalowanie"
-MSG_INSTALLING_FLASH="Instalowanie pluginu Flash Player 8"
+MSG_INSTALLING_FLASH="Instalowanie pluginu Flash Player 9"
 
 # Subsections
 MSG_INITIALIZING="Inicjalizacja"

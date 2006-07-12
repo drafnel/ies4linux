@@ -21,16 +21,16 @@ MSG_WELCOME_QUESTION_IE5="Peki IE 5.01 SP2'yi kurmak ister misiniz?"
 MSG_LOCALES="IE'ler aşağıdaki yerelleri kullanarak kurulabilirler:"
 MSG_CHOOSE_LOCALE="Öntanımlı yerel $IE6_LOCALE. Öntanımlıyı seçmek için enter'a basın ya da başka birini seçin: "
 
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Öntanımlı olarak, her şeyi $BASEDIR altına kuracağım\nAyrıca Flash 8 eklentisini de kurup masaüstü kısayollarını oluşturacağım."
+MSG_WELCOME_INSTRUCTIONS_DEFAULT="Öntanımlı olarak, her şeyi $BASEDIR_DEFAULT altına kuracağım\nAyrıca Flash 9 eklentisini de kurup masaüstü kısayollarını oluşturacağım."
 MSG_WELCOME_QUESTION_CONFIGURE="Bunlar size uygun mu? (Gelişmiş ayarları yapılandırmak için $NO girin)"
 
-MSG_CONFIGURE_FLASH="Macromedia Flash 8 eklentisini kurayım mı?"
+MSG_CONFIGURE_FLASH="Adobe Flash 9 eklentisini kurayım mı?"
 MSG_CONFIGURE_SHORTCUTS="Peki ya masaüstü simgeleri? Onları da oluşturayım mı?"
 
-MSG_CONFIGURE_BASEDIR_MSG="Her şey $BASEDIR/ dizini altına kurulacak."
+MSG_CONFIGURE_BASEDIR_MSG="Her şey $BASEDIR_DEFAULT dizini altına kurulacak."
 MSG_CONFIGURE_BASEDIR_QUESTION="Bu ayarı korumak için enter'a basın ya da yeni klasörü girin: "
 
-MSG_CONFIGURE_BINDIR_MSG="İkilileri çalıştıracak betikler $HOME/bin/ altına kurulacak"
+MSG_CONFIGURE_BINDIR_MSG="İkilileri çalıştıracak betikler $BINDIR_DEFAULT altına kurulacak"
 MSG_CONFIGURE_BINDIR_QUESTION="Bu ayarı korumak için enter'a basın ya da yeni klasörü girin: "
 
 MSG_CONFIGURE_WGET="Dosyaları indirmek için wget kullanacağız. Eğer özel bir bayrağa ihtiyacınız varsa (vekil sunucu,...), onları şimdi girin: "
@@ -40,7 +40,7 @@ MSG_START="Tamam! Hadi kurulumlara başlayalım..."
 # Sections
 MSG_DOWNLOADING="Gerek duyduğumuz her şey indiriliyor"
 MSG_INSTALLING="Kuruluyor"
-MSG_INSTALLING_FLASH="Flash Player 8 kuruluyor"
+MSG_INSTALLING_FLASH="Flash Player 9 kuruluyor"
 
 # Subsections
 MSG_INITIALIZING="Hazırlanıyor"
