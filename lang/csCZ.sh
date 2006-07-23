@@ -33,7 +33,7 @@ MSG_CONFIGURE_BASEDIR_QUESTION="Stiskněte Enter pro ponechání nebo zadejte sv
 MSG_CONFIGURE_BINDIR_MSG="Spuštěcí skripty budou nainstalovány do $BINDIR_DEFAULT"
 MSG_CONFIGURE_BINDIR_QUESTION="Stiskněte Enter pro ponechání nebo zadejte svůj vlastní adresář: "
 
-MSG_CONFIGURE_WGET="Pro stahování souborů se používá wget. Pokud je potřaba zadat nějaké zvláštní přepínaše (proxy,...), prosím, zadejte je zde: "
+MSG_CONFIGURE_WGET="Pro stahování souborů se používá wget. Pokud je potřaba zadat nějaké zvláštní přepína če (proxy,...), prosím, zadejte je zde: "
 
 MSG_START="Instalace započata..."
 

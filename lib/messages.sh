@@ -26,6 +26,9 @@ hu	.	huHU	HU
 cn	.	zhCN	CN
 sv	.	svSE	SV
 he	.	heIL	HE
+sk	sk	skSK	EN-US
+ro	ro	roRO	EN-US
+lt	lt	ltLT	EN-US
 ko	.	enUS	KO
 fi	.	enUS	FI
 ar	.	enUS	AR
