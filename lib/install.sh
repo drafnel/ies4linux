@@ -91,6 +91,8 @@
 		add_registry "$IES4LINUX"/winereg/ie6.reg
 	
 	subsection $MSG_FINALIZING
+		wineboot
+		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie6 6.0
 		chmod -R u+rwx "$BASEDIR/ie6"
 		clean_tmp
@@ -121,6 +123,8 @@ source "$IES4LINUX/lib/flash.sh"
 		add_registry "$IES4LINUX"/winereg/ie55.reg
 
 	subsection $MSG_FINALIZING
+		wineboot
+		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie55 5.5
 		chmod -R u+rwx "$BASEDIR/ie55"
 		clean_tmp
@@ -150,6 +154,8 @@ source "$IES4LINUX/lib/flash.sh"
 		add_registry "$IES4LINUX"/winereg/ie5.reg
 	
 	subsection $MSG_FINALIZING
+		wineboot
+		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie5 5.0
 		chmod -R u+rwx "$BASEDIR/ie5"
 		clean_tmp

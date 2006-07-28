@@ -1,38 +1,40 @@
 exec 6<&0
 
 # language table
-# lang country msgfile ielocale
+# lang country msgfile ielocale	okpage
 exec << END
-en	.	enUS	EN-US
-pt	br	ptBR	PT-BR
-pt	.	ptBR	PT
-cs	.	csCZ	CS
-it	.	itIT	IT
-fr	.	frFR	FR
-ru	.	ruRU	RU
-nb	.	nbNO	NO
-nn	.	nbNO	NO
-no	.	nbNO	NO 
-pl	.	plPL	PL
-es	.	esAR	ES
-de	.	deDE	DE
-bg	bg	bgBG	EN-US
-nl	.	nlNL	NL
-tw	.	zhTW	TW
-tr	.	trTR	TR
-ja	.	jaJP	JA
-da	.	daDK	DA
-hu	.	huHU	HU
-cn	.	zhCN	CN
-sv	.	svSE	SV
-he	.	heIL	HE
-sk	sk	skSK	EN-US
-ro	ro	roRO	EN-US
-lt	lt	ltLT	EN-US
-ko	.	enUS	KO
-fi	.	enUS	FI
-ar	.	enUS	AR
-el	.	enUS	EL
+en	.	enUS	EN-US	ok-en.html
+pt	br	ptBR	PT-BR	ok-en.html
+pt	.	ptBR	PT	ok-en.html
+cs	.	csCZ	CS	ok-en.html
+it	.	itIT	IT	ok-en.html
+fr	.	frFR	FR	ok-en.html
+ru	.	ruRU	RU	ok-en.html
+nb	.	nbNO	NO	ok-en.html
+nn	.	nbNO	NO	ok-en.html
+no	.	nbNO	NO 	ok-en.html
+pl	.	plPL	PL	ok-en.html
+es	.	esAR	ES	ok-en.html
+de	.	deDE	DE	ok-en.html
+bg	bg	bgBG	EN-US	ok-en.html
+nl	.	nlNL	NL	ok-en.html
+tw	.	zhTW	TW	ok-en.html
+tr	.	trTR	TR	ok-en.html
+ja	.	jaJP	JA	ok-en.html
+da	.	daDK	DA	ok-en.html
+hu	.	huHU	HU	ok-en.html
+cn	.	zhCN	CN	ok-en.html
+sv	.	svSE	SV	ok-en.html
+he	.	heIL	HE	ok-en.html
+sk	sk	skSK	EN-US	ok-en.html
+ro	ro	roRO	EN-US	ok-en.html
+lt	lt	ltLT	EN-US	ok-en.html
+sl	sl	slSL	EN-US	ok-en.html
+et	et	etET	EN-US	ok-en.html
+ko	.	enUS	KO	ok-en.html
+fi	.	enUS	FI	ok-en.html
+ar	.	enUS	AR	ok-en.html
+el	.	enUS	EL	ok-en.html
 END
 # Spanish and portuguese still needs other translations (pt_PT, es_ES...)
 
@@ -72,6 +74,7 @@ while read line; do
     c=$(echo $line | awk '{print $2}' | tr A-Z a-z)
     f=$(echo $line | awk '{print $3}')
     i=$(echo $line | awk '{print $4}')
+    export OK_URL=http://www.tatanka.com.br/ies4linux/$(echo $line | awk '{print $5}')
 
     if "$USING_GUESSED_IE6_LOCALE"; then
         # Make an informed guess using LANG and country subcode if applicable.

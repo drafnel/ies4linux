@@ -13,6 +13,7 @@
 		cp swflash.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./swflash.inf &> /dev/null
 		register_dll "C:\\Windows\\System\\Macromed\\Flash\\$FLASHOCX"
+		wineboot
 		
 	clean_tmp
 	ok

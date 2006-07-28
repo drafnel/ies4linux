@@ -7,10 +7,9 @@
 # Released under the GNU GPL. See LICENSE for more information
 
 # Discover ies4linux installation folder
-IES4LINUX=`dirname $0`
-cd $IES4LINUX
-IES4LINUX=`pwd` 
-export IES4LINUX
+IES4LINUX=`dirname "$0"`
+cd "$IES4LINUX"
+export IES4LINUX=`pwd`
 
 # Create log file
 # mkdir -p "$HOME"/.ies4linux
@@ -111,8 +110,8 @@ rm -rf "$BASEDIR/tmp"
 section $MSG_INSTALLATIONS_FINISHED
 echo
 
-# run_ies
-# echo
+run_ies
+echo
 
 ask_for_translation
 

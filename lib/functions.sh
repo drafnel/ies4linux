@@ -2,10 +2,20 @@
 # Functions and vars
 
 createShortcuts() {
-        echo "#!/bin/sh" > "$BINDIR/$1"
-        echo cd >> "$BINDIR/$1"
-	echo export WINEPREFIX=\"$BASEDIR/$1\" >> "$BINDIR/$1"
-	echo wine \"$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE\" \"\$@\" >> "$BINDIR/$1"
+        cat << END > "$BINDIR/$1"
+#!/usr/bin/env bash
+# IEs 4 Linux script to run $1 - http://tatanka.com.br/ies4linux
+
+cd
+export WINEPREFIX="$BASEDIR/$1"
+if [ -f "$BASEDIR/$1/.firstrun" ]; then
+	rm "$BASEDIR/$1/.firstrun"
+	wine "$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE" "$OK_URL"
+else
+	wine "$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE" "\$@"
+fi
+
+END
         chmod +x "$BINDIR/$1"
         if [ "$CREATE_ICON" = "1" ]; then
                 if cd ~/Desktop || cd ~/desktop; then
@@ -23,10 +33,10 @@ createShortcuts() {
 
 # Wine functions
 function register_dll() {
-	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i $1 &> /dev/null
+	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i "$1" &> /dev/null
 }
 function add_registry() {
-	wine regedit $1 &> /dev/null
+	wine regedit "$1" &> /dev/null
 }
 
 function kill_wineserver() {
@@ -69,7 +79,7 @@ function run_ie(){
 	if which ie$1 2> /dev/null | grep "$BINDIR/ie$1" &> /dev/null ; then
 		echo " ie$1"
 	else
-		local l=$($BINDIR/ie$1)
+		local l=$BINDIR/ie$1
 		echo " ${l//\/\//\/}"
 	fi
 }
