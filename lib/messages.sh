@@ -7,8 +7,8 @@ en	.	enUS	EN-US	ok-en.html
 pt	br	ptBR	PT-BR	ok-pt.html
 pt	.	ptBR	PT	ok-pt.html
 cs	.	csCZ	CS	ok-en.html
-it	.	itIT	IT	ok-en.html
-fr	.	frFR	FR	ok-en.html
+it	.	itIT	IT	ok-it.html
+fr	.	frFR	FR	ok-fr.html
 ru	.	ruRU	RU	ok-en.html
 nb	.	nbNO	NO	ok-en.html
 nn	.	nbNO	NO	ok-en.html
@@ -20,13 +20,13 @@ es	.	esES	ES	ok-es.html
 ca	es	caES	ES	ok-es.html
 de	.	deDE	DE	ok-de.html
 bg	bg	bgBG	EN-US	ok-en.html
-nl	.	nlNL	NL	ok-en.html
+nl	.	nlNL	NL	ok-nl.html
 tw	.	zhTW	TW	ok-en.html
 tr	.	trTR	TR	ok-en.html
 ja	.	jaJP	JA	ok-en.html
 da	.	daDK	DA	ok-en.html
 hu	.	huHU	HU	ok-en.html
-cn	.	zhCN	CN	ok-en.html
+cn	.	zhCN	CN	ok-zh.html
 sv	.	svSE	SV	ok-en.html
 he	.	heIL	HE	ok-en.html
 sk	sk	skSK	EN-US	ok-sk.html
@@ -34,8 +34,8 @@ ro	ro	roRO	EN-US	ok-en.html
 lt	lt	ltLT	EN-US	ok-lt.html
 sl	sl	slSL	EN-US	ok-en.html
 et	et	etET	EN-US	ok-en.html
+fi	.	fiFI	FI	ok-fi.html
 ko	.	enUS	KO	ok-en.html
-fi	.	enUS	FI	ok-en.html
 ar	.	enUS	AR	ok-en.html
 el	.	enUS	EL	ok-en.html
 END
@@ -119,3 +119,9 @@ else
 fi
 
 exec 0<&6
+
+# generate homepage registry file
+cat <<FIM > "$IES4LINUX"/winereg/homepage.reg
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Start Page"="${OK_URL}"
+FIM

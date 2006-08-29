@@ -89,6 +89,7 @@
 
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/ie6.reg
+		add_registry "$IES4LINUX"/winereg/homepage.reg
 	
 	subsection $MSG_FINALIZING
 		wineboot
@@ -123,7 +124,6 @@ source "$IES4LINUX/lib/flash.sh"
 		add_registry "$IES4LINUX"/winereg/ie55.reg
 
 	subsection $MSG_FINALIZING
-		wineboot
 		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie55 5.5
 		chmod -R u+rwx "$BASEDIR/ie55"
@@ -154,7 +154,6 @@ source "$IES4LINUX/lib/flash.sh"
 		add_registry "$IES4LINUX"/winereg/ie5.reg
 	
 	subsection $MSG_FINALIZING
-		wineboot
 		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie5 5.0
 		chmod -R u+rwx "$BASEDIR/ie5"
