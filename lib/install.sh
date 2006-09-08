@@ -148,7 +148,6 @@ source "$IES4LINUX/lib/flash.sh"
 		unzip -Lqq "$DOWNLOADDIR/ie501sp2_9x.zip"
 		mv ie501sp2_9x/*{dll,tlb,cpl} "$BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM/"
 		mv ie501sp2_9x/iexplore.exe "$BASEDIR/ie5/$DRIVEC/Program Files/Internet Explorer/iexplore.exe"
-
 	
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/ie5.reg
@@ -159,5 +158,82 @@ source "$IES4LINUX/lib/flash.sh"
 		chmod -R u+rwx "$BASEDIR/ie5"
 		clean_tmp
 
+	ok
+}
+
+# Some Easter Eggs
+[ "$INSTALLIE1"   = "1" ] &&  {
+	section $MSG_INSTALLING IE 1.0
+		kill_wineserver
+		rm -rf "$BASEDIR/ie1"
+		mkdir -p "$BASEDIR/ie1/$DRIVEC/Program Files/Internet Explorer/History"
+		mkdir -p "$BASEDIR/ie1/$DRIVEC/Program Files/Internet Explorer/dcache"
+
+	subsection $MSG_CREATING_PREFIX
+		set_wine_prefix "$BASEDIR/ie1/"
+		wineprefixcreate &> /dev/null
+
+	subsection $MSG_EXTRACTING_CABS
+		cd "$BASEDIR/tmp"
+		extractCABs "$DOWNLOADDIR"/Msie10.exe
+		extractCABs iexplore.cab -d "$BASEDIR/ie1/$DRIVEC/Program Files/Internet Explorer/"
+		
+	subsection $MSG_INSTALLING_REGISTRY
+		add_registry "$IES4LINUX"/winereg/.ie1.reg
+		
+	subsection $MSG_FINALIZING
+		createShortcuts ie1 1.0
+		chmod -R u+rwx "$BASEDIR/ie1"
+		clean_tmp
+	
+	ok
+}
+[ "$INSTALLIE15"   = "1" ] &&  {
+	section $MSG_INSTALLING IE 1.5
+		kill_wineserver
+		rm -rf "$BASEDIR/ie15"
+		mkdir -p "$BASEDIR/ie15/$DRIVEC/Program Files/Internet Explorer/History"
+
+	subsection $MSG_CREATING_PREFIX
+		set_wine_prefix "$BASEDIR/ie15/"
+		wineprefixcreate &> /dev/null
+
+	subsection $MSG_EXTRACTING_CABS
+		cd "$BASEDIR/tmp"
+		extractCABs "$DOWNLOADDIR"/IE15I386.EXE -d "$BASEDIR/ie15/$DRIVEC/Program Files/Internet Explorer/"
+		
+	subsection $MSG_INSTALLING_REGISTRY
+		add_registry "$IES4LINUX"/winereg/.ie1.reg
+		
+	subsection $MSG_FINALIZING
+		createShortcuts ie15 1.5
+		chmod -R u+rwx "$BASEDIR/ie15"
+		clean_tmp
+	
+	ok
+}
+[ "$INSTALLIE2"   = "1" ] &&  {
+	section $MSG_INSTALLING IE 2.0
+		kill_wineserver
+		rm -rf "$BASEDIR/ie2"
+		mkdir -p "$BASEDIR/ie2/$DRIVEC/Program Files/Internet Explorer/History"
+
+	subsection $MSG_CREATING_PREFIX
+		set_wine_prefix "$BASEDIR/ie2/"
+		wineprefixcreate &> /dev/null
+
+	subsection $MSG_EXTRACTING_CABS
+		cd "$BASEDIR/tmp"
+		extractCABs "$DOWNLOADDIR"/msie20.exe
+		extractCABs iexplore.cab -d "$BASEDIR/ie2/$DRIVEC/Program Files/Internet Explorer/"
+		
+	subsection $MSG_INSTALLING_REGISTRY
+		add_registry "$IES4LINUX"/winereg/.ie1.reg
+		
+	subsection $MSG_FINALIZING
+		createShortcuts ie2 2.0
+		chmod -R u+rwx "$BASEDIR/ie2"
+		clean_tmp
+	
 	ok
 }

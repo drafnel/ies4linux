@@ -29,10 +29,15 @@ BASEDIR_DEFAULT="$HOME/.ies4linux"
 BINDIR_DEFAULT="$HOME/bin"
 WGETFLAGS_DEFAULT="--continue"
 DOWNLOADDIR_SUFFIX="downloads"
-DOWNLOADDIR_DEFAULT="$BASEDIR/$DOWNLOADDIR_SUFFIX"
+DOWNLOADDIR_DEFAULT="$BASEDIR_DEFAULT/$DOWNLOADDIR_SUFFIX"
 
 IE6_LOCALE_DEFAULT="EN-US"
 IE6_LOCALES="EN-US PT-BR DE FR ES IT NL SV JA KO NO DA CN TW FI PL HU AR HE CS PT RU EL TR"
+
+# Easter eggs
+INSTALLIE1=0
+INSTALLIE15=0
+INSTALLIE2=0
 
 # Basic imports
 source lib/functions.sh
@@ -47,6 +52,9 @@ while [ $# -gt 0 ]; do
       --no-install-ie55)  INSTALLIE55=0;   shift ;;
       --install-ie5)      INSTALLIE5=1;    shift ;;
       --no-install-ie5)   INSTALLIE5=0;    shift ;;
+      --install-ie1)      INSTALLIE1=1;    shift ;;
+      --install-ie15)     INSTALLIE15=1;    shift ;;
+      --install-ie2)      INSTALLIE2=1;    shift ;;
       --install-flash)    INSTALLFLASH=1;  shift ;;
       --no-install-flash) INSTALLFLASH=0;  shift ;;
       --install-icon)     CREATE_ICON=1;   shift ;;
@@ -81,11 +89,13 @@ while [ $# -gt 0 ]; do
     esac
 done
 
-# Check for wine and cabextract
+# Check for dependencies
 wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
 cabextract --version &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
+wget --version &> /dev/null || error $MSG_ERROR_INSTALL_WGET
+unzip -version &> /dev/null || error $MSG_ERROR_INSTALL_UNZIP
 cabextract --version | grep "1." &> /dev/null || error $MSG_ERROR_UPDATE_CABEXTRACT
-wine --version 2> /dev/null | grep "0.9." &> /dev/null || warning $MSG_WARNING_OLDWINE
+wine --version 2>&1  | grep "0.9." &> /dev/null || warning $MSG_WARNING_OLDWINE
 [ "$(whoami)" = "root" ] && warning $MSG_WARNING_ROOT
 
 # Asks what user wants to install
@@ -114,5 +124,3 @@ run_ies
 echo
 
 ask_for_translation
-
-

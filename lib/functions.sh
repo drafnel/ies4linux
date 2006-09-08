@@ -73,6 +73,9 @@ function run_ies() {
 	[ "$INSTALLIE6"  = "1" ] && run_ie 6
 	[ "$INSTALLIE55" = "1" ] && run_ie 55
 	[ "$INSTALLIE5"  = "1" ] && run_ie 5
+	[ "$INSTALLIE1"  = "1" ] && run_ie 1
+	[ "$INSTALLIE15"  = "1" ] && run_ie 15
+	[ "$INSTALLIE2"  = "1" ] && run_ie 2
 }
 function run_ie(){
 	cd

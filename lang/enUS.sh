@@ -5,7 +5,7 @@
 TRANSLATION_LOCALE="enUS"
 TRANSLATION_WHO="Sérgio Lopes <slopes at gmail dot com>"
 TRANSLATION_LANGUAGE="English"
-TRANSLATION_VERSION="1.2"
+TRANSLATION_VERSION="1.3"
 TRANSLATION_ENCODING="UTF8"
 
 # ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
@@ -71,3 +71,7 @@ MSG_NEEDS_TRANSLATION="If you have 5 minutes, help me translating IEs4Linux to y
 MSG_WARNING_OLDWINE="IEs4Linux 2.0 is developed to be used with recent Wine versions (0.9.x). It seems that you are using an old version ($(wine --version)). It's recommended that you update your wine to the latest version (Go to: winehq.com)."
 MSG_ERROR_NO_WINEPREFIXCREATE="Your wine does not have wineprefixcreate installed. Maybe you are running an old Wine version. Try to update it to the latest version."
 MSG_ERROR_CABEXTRACTING="An error occured when trying to cabextract some files."
+
+# TRANSLATION VERSION 1.3
+MSG_ERROR_INSTALL_WGET="You need to install 'wget' first!"
+MSG_ERROR_INSTALL_UNZIP="You need to install 'unzip' first!"

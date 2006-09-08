@@ -1,0 +1,50 @@
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main]
+"History_Directory"="C:\\Program Files\\Internet Explorer\\History"
+
+[HKEY_CURRENT_USER\Software\Wine]
+"Version"="win95"
+
+[HKEY_CURRENT_USER\Software\Wine\DllOverrides]
+"iexplore.exe"="native"
+
+[HKEY_CURRENT_USER\Control Panel\Colors]
+"ActiveBorder"="228 228 228"
+"ActiveTitle"=""
+"AppWorkSpace"=""
+"Background"="0 0 0"
+"ButtonAlternateFace"=""
+"ButtonDkShadow"=""
+"ButtonFace"="228 228 228"
+"ButtonHilight"=""
+"ButtonLight"="228 228 228"
+"ButtonShadow"=""
+"ButtonText"=""
+"GradientActiveTitle"=""
+"GradientInactiveTitle"=""
+"GrayText"=""
+"Hilight"=""
+"HilightText"=""
+"HotTrackingColor"=""
+"InactiveBorder"="228 228 228"
+"InactiveTitle"=""
+"InactiveTitleText"=""
+"InfoText"=""
+"InfoWindow"=""
+"Menu"="228 228 228"
+"MenuBar"=""
+"MenuHilight"=""
+"MenuText"=""
+"Scrollbar"=""
+"TitleText"=""
+"Window"=""
+"WindowFrame"=""
+"WindowText"=""
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Check_Associations"="no"
+"Start Page"="http://www.google.com/"
+"Show_FullURL"="no"
+"Show_StatusBar"="yes"
+"Show_ToolBar"="yes"
+"Show_URLinStatusBar"="yes"
+"Show_URLToolBar"="yes"

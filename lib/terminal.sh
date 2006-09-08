@@ -68,7 +68,7 @@ initAndConfigure() {
 			test -z "$WGETFLAGS" 	&& WGETFLAGS=$WGETFLAGS_DEFAULT
 		fi
 	fi
-	test -z "$DOWNLOADDIR" 	&& DOWNLOADDIR=$BASEDIR/downloads
+	test -z "$DOWNLOADDIR" && DOWNLOADDIR="$BASEDIR/$DOWNLOADDIR_SUFFIX"
 
 	echo -e "\E[34;1m$MSG_START\n"; tput sgr0
 }
