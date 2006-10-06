@@ -25,12 +25,14 @@
 		SYSTEM32=System32
 		FONTS=Fonts
 		INF=Inf
+		COMMAND=Command
 		if [ -d "$BASEDIR/ie6/fake_windows" ]; then DRIVEC=fake_windows; fi
 		if [ -d "$BASEDIR/ie6/$DRIVEC/windows" ]; then WINDOWS=windows; fi
 		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/system32" ]; then SYSTEM32=system32; fi
 		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/fonts" ]; then FONTS=fonts; fi
 		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/inf" ]; then INF=inf;fi
-		export DRIVEC WINDOWS SYSTEM FONTS INF
+		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/command" ]; then COMMAND=command;fi 
+		export DRIVEC WINDOWS SYSTEM FONTS INF COMMAND
 
 		# symlinking system to system32
 		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM32" ]; then 
@@ -47,7 +49,7 @@
 
 	subsection $MSG_PROCESSING_INF
 		for i in *.inf; do
-			wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./$i
+			wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./$i &> /dev/null
 		done
 		rm *hlp
 	
@@ -71,20 +73,20 @@
 	subsection $MSG_INSTALLING RICHED20
 		extractCABs -F ver1200.exe "$DOWNLOADDIR/249973USA8.exe"
 		extractCABs "$BASEDIR/tmp/ver1200.exe"
-		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./1200up.inf
+		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./1200up.inf &> /dev/null
 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 		rm -f *
 	
 	subsection $MSG_INSTALLING ActiveX MFC40
 		extractCABs "$DOWNLOADDIR/mfc40.cab"
 		extractCABs mfc40.exe
-		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./mfc40.inf
+		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./mfc40.inf &> /dev/null
 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 		rm -f *
 	
 	subsection $MSG_INSTALLING DCOM98
 		extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
-		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./dcom98.inf
+		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./dcom98.inf &> /dev/null
 		rm -f *
 
 	subsection $MSG_INSTALLING_REGISTRY
@@ -92,7 +94,7 @@
 		add_registry "$IES4LINUX"/winereg/homepage.reg
 	
 	subsection $MSG_FINALIZING
-		wineboot
+		wineboot &> /dev/null
 		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie6 6.0
 		chmod -R u+rwx "$BASEDIR/ie6"

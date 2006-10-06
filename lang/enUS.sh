@@ -75,3 +75,24 @@ MSG_ERROR_CABEXTRACTING="An error occured when trying to cabextract some files."
 # TRANSLATION VERSION 1.3
 MSG_ERROR_INSTALL_WGET="You need to install 'wget' first!"
 MSG_ERROR_INSTALL_UNZIP="You need to install 'unzip' first!"
+
+# TRANSLATION VERSION 1.4
+GUI_TITLE="Internet Explorers for Linux"
+GUI_OK="Install"
+GUI_CANCEL="Cancel"
+
+GUI_INSTALLATION_OPTIONS="Installation options"
+GUI_IE="Internet Explorer"
+GUI_EXTRA="Extra"
+GUI_INSTALL_IE6="Install Internet Explorer 6.0 SP1"
+GUI_INSTALL_IE55="Install Internet Explorer 5.5"
+GUI_INSTALL_IE5="Install Internet Explorer 5.01"
+GUI_INSTALL_FLASH="Install Adobe Flash player 9"
+GUI_CREATE_ICONS="Create Desktop icons"
+GUI_LOCALE="Locale"
+
+GUI_ADVANCED_OPTIONS="Advanced options"
+GUI_ADVANCED_BASEDIR="Base dir"
+GUI_ADVANCED_BINDIR="Bin dir"
+GUI_ADVANCED_DOWNLOADDIR="Download dir"
+GUI_ADVANCED_WGETFLAGS="Wget Flags"

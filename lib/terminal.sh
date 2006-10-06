@@ -5,10 +5,16 @@
 
 initAndConfigure() {
 	# print welcome screen
-	echo -e "\E[34;1m$MSG_WELCOME_TEXT"; tput sgr0
-	echo
-	echo -e $MSG_WELCOME_INSTRUCTIONS
-	echo
+	if test -z "$INSTALLIE55" || test -z "$INSTALLIE5" || test -z "$INSTALLFLASH" || test -z "$CREATE_ICON" || test -z "$BASEDIR" || test -z "$BINDIR" || test -z "$WGETFLAGS" || test -z "$DOWNLOADDIR" ; then
+		if [ $NOCOLOR = 0 ]; then
+			echo -e "\E[34;1m$MSG_WELCOME_TEXT"; tput sgr0
+		else
+			echo -e "$MSG_WELCOME_TEXT"
+		fi
+		echo
+		echo -e $MSG_WELCOME_INSTRUCTIONS
+		echo
+	fi
 
 	if test -z "$INSTALLIE55"; then
 		yesno_question "$MSG_WELCOME_QUESTION_IE55" $INSTALLIE55_DEFAULT
@@ -70,7 +76,11 @@ initAndConfigure() {
 	fi
 	test -z "$DOWNLOADDIR" && DOWNLOADDIR="$BASEDIR/$DOWNLOADDIR_SUFFIX"
 
-	echo -e "\E[34;1m$MSG_START\n"; tput sgr0
+	if [ $NOCOLOR = 0 ]; then
+		echo -e "\E[34;1m$MSG_START\n"; tput sgr0
+	else
+		echo -e "$MSG_START\n"
+	fi
 }
 
 yesno_question(){
@@ -78,24 +88,25 @@ yesno_question(){
 	local default="$2"
 
 	while true; do
-		echo -en "\E[1m"
+		if [ $NOCOLOR = 0 ]; then echo -en "\E[1m"; fi
 		echo -en "$prompt"
-		tput sgr0
+		if [ $NOCOLOR = 0 ]; then tput sgr0; fi
 		echo -n " [ "
 		if test "x$2" = "x1"; then
-			tput bold
+			if [ $NOCOLOR = 0 ]; then tput bold; fi
 			echo -en "$YES"
-			tput sgr0
+			if [ $NOCOLOR = 0 ]; then tput sgr0; fi
 			echo -en " / $NO"
 		else
 			echo -en "$YES / "
-			tput bold
+			if [ $NOCOLOR = 0 ]; then tput bold; fi
 			echo -en "$NO"
-			tput sgr0
+			if [ $NOCOLOR = 0 ]; then tput sgr0; fi
 		fi
-		echo -en " ] \E[34m"
+		echo -en " ] "
+		if [ $NOCOLOR = 0 ]; then echo -en "\E[34m"; fi
 		read answer
-		tput sgr0
+		if [ $NOCOLOR = 0 ]; then tput sgr0; fi
 		echo
 		
 		# The first character counts. If they said blank, then assume the
@@ -124,12 +135,12 @@ text_question(){
 	local var_name="$2"
 	local default="$3"
 
-	echo -en "\E[1m"
+	if [ $NOCOLOR = 0 ]; then echo -en "\E[1m"; fi
 	echo -e $1
-	tput sgr0
-	echo -en "\E[34m"
+	if [ $NOCOLOR = 0 ]; then tput sgr0;fi
+	if [ $NOCOLOR = 0 ]; then echo -en "\E[34m"; fi
 	read answer
-	tput sgr0
+	if [ $NOCOLOR = 0 ]; then tput sgr0; fi
 	echo
 
 	if test -z "$answer"; then
@@ -140,23 +151,39 @@ text_question(){
 }
 
 warning() {
-	echo -en "\E[31;1m"
+	if [ $NOCOLOR = 0 ]; then echo -en "\E[31;1m"; fi
 	echo -e $*
 	echo
-	tput sgr0
+	if [ $NOCOLOR = 0 ]; then tput sgr0; fi
 }
 error() {
 	warning $*
 	exit 1
 }
 section() {
-	echo -e "\E[1m$*"; tput sgr0
+	if [ $NOCOLOR = 0 ]; then 
+		echo -e "\E[1m$*"; tput sgr0
+	else
+		local a="$*"		
+		echo "$a"
+		
+		local i=0
+		while [ $i -lt ${#a} ]; do
+			echo -n "#"
+			i=$((i+1))
+		done
+		echo
+	fi
 }
 subsection() {
-	echo " $*"
+	echo "  $*"
 }
 ok() {
-	echo -e "\E[34;1m[ OK ]\n"; tput sgr0
+	if [ $NOCOLOR = 0 ]; then 
+		echo -e "\E[34;1m[ OK ]\n"; tput sgr0
+	else
+		echo -e "[[ OK ]]\n"
+	fi
 }
 print_error() {
 	local tmp="\$${1}"
@@ -168,7 +195,11 @@ print_error() {
 
 ask_for_translation() {
 	[ "$NEEDSTRANSLATION" = "1" ] && {
-		echo -e "\E[34;1m$MSG_NEEDS_TRANSLATION"; tput sgr0
+		if [ $NOCOLOR = 0 ]; then	
+			echo -e "\E[34;1m$MSG_NEEDS_TRANSLATION"; tput sgr0
+		else
+			echo -e ">> $MSG_NEEDS_TRANSLATION"
+		fi
 	}
 }
 
@@ -180,7 +211,6 @@ Usage: ./ies4linux [OPTIONS]
 
 This script downloads and automagically installs multiple versions of
 Microsoft Internet Explorer on Wine.
-
 
 IE6 will always be installed at BASEDIR/ie6/. You can configure other things:
 
@@ -203,10 +233,9 @@ IE6 will always be installed at BASEDIR/ie6/. You can configure other things:
  --locale LOCALE        The locale for the installation [\$LANG determines]
  --list-locales         Display all possible locales and exit
  --wget-flags FLAGS     Extra flags for wget [$WGETFLAGS_DEFAULT]
+ --no-color             Don't show colors
 
  --help / -h            Display this message and exit OK
-
-IE6 will be installed
 
 By default, ies4linux will run interactively and ask you for most of
 the details above. The defaults make sense for most people, so just running
@@ -217,5 +246,4 @@ on its own will result in a working IE.
 
 __END_HELP__
 }
-
 

@@ -86,5 +86,5 @@ section $MSG_DOWNLOADING
 	[ "$INSTALLIE1"  = "1" ] && downloadEvolt ie/32bit/1.0/Msie10.exe
 	[ "$INSTALLIE15" = "1" ] && downloadEvolt ie/32bit/1.5/IE15I386.EXE
 	[ "$INSTALLIE2"  = "1" ] && downloadEvolt ie/32bit/2.0/msie20.exe
-	[ "$INSTALLIE3"  = "1" ] && downloadEvolt ie/32bit/3.0/ie_dlmin30c.exe
+	[ "$INSTALLIE3"  = "1" ] && downloadEvolt ie/32bit/3.02/win95typical/msie302r.exe
 ok

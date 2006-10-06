@@ -71,3 +71,8 @@ MSG_NEEDS_TRANSLATION="Si té 5 minuts, tradueixi IEs4Linux al seu llenguatge.\n
 MSG_WARNING_OLDWINE="IEs4Linux 2.0 està desenvolupat per ser utilitzat amb versions de Wine recents (0.9.x). Sembla que està utilitzant una versió antiga($(wine --version)). Es recomanable que actualitzi a la última versió (Vagi a: winehq.com)."
 MSG_ERROR_NO_WINEPREFIXCREATE="El seu wine no té wineprefixcreate instal·lat. És possible que estigui fent servir una versió de wine antiga. Actualitzi a la última versió."
 MSG_ERROR_CABEXTRACTING="Hi ha hagut un error mentre cabextract extreia uns fitxers."
+
+# TRANSLATION VERSION 1.3
+MSG_ERROR_INSTALL_WGET="Has d'instal·lar el 'wget' primer de tot!"
+MSG_ERROR_INSTALL_UNZIP="Has d'instal·lar el 'unzip' primer de tot!"
+

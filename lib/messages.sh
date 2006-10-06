@@ -38,6 +38,9 @@ et	et	etET	EN-US	ok-en.html
 fi	.	fiFI	FI	ok-fi.html
 eo	.	eoXX	EN-US	ok-en.html
 sr	yu	srYU	EN-US	ok-en.html
+id	.	idID	EN-US	ok-en.html
+lv	.	lvLV	EN-US	ok-en.html
+ms	my	msMY	EN-US	ok-en.html
 ko	.	enUS	KO	ok-en.html
 ar	.	enUS	AR	ok-en.html
 el	.	enUS	EL	ok-en.html
