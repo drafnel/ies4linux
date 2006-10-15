@@ -5,5 +5,5 @@ export GUI_INSTALLATION_OPTIONS GUI_ADVANCED_OPTIONS GUI_ADVANCED_BASEDIR GUI_AD
 
 # Decide what UI to run
 if python -h &> /dev/null python -c "import pygtk; pygtk.require('2.0'); import gtk"; then
-	python "$IES4LINUX"/ui/ies4linux.py gtk 2> /dev/null
+	python "$IES4LINUX"/ui/ies4linux.py gtk
 fi

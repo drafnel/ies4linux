@@ -2,7 +2,8 @@
 # Functions and vars
 
 createShortcuts() {
-        cat << END > "$BINDIR/$1"
+	mkdir -p "$BASEDIR/bin"
+        cat << END > "$BASEDIR/bin/$1"
 #!/usr/bin/env bash
 # IEs 4 Linux script to run $1 - http://tatanka.com.br/ies4linux
 
@@ -14,17 +15,24 @@ if [ -f "$BASEDIR/$1/.firstrun" ]; then
 else
 	wine "$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE" "\$@"
 fi
-
 END
-        chmod +x "$BINDIR/$1"
+        chmod +x "$BASEDIR/bin/$1"
+	ln -sf "$BASEDIR/bin/$1" "$BINDIR/$1"
+
         if [ "$CREATE_ICON" = "1" ]; then
                 if cd ~/Desktop || cd ~/desktop; then
-                      "$IES4LINUX/lib/mkicon" \
-                                Exec "$BINDIR/$1" \
-                                Icon "$BASEDIR/ies4linux.svg" \
-                                Name "Internet Explorer $2" \
-                                GenericName "Microsoft Windows Aplication" \
-                                Comment "MSIE $2 by IEs4Linux" > IE$2.desktop
+			cat << END > IE$2.desktop
+[Desktop Entry]
+Version=1.0
+Exec=$BINDIR/$1
+Icon=$BASEDIR/ies4linux.svg
+Name=Internet Explorer $2
+GenericName=Microsoft Windows Aplication
+Comment=MSIE $2 by IEs4Linux
+Encoding=UTF-8
+Terminal=false
+Type=Application
+END
                 fi
         fi
 }
@@ -38,7 +46,6 @@ function register_dll() {
 function add_registry() {
 	wine regedit "$1" &> /dev/null
 }
-
 function kill_wineserver() {
 	wineserver -k &> /dev/null || {
 		killall wine &>/dev/null

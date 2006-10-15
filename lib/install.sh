@@ -43,7 +43,7 @@
 
 	subsection $MSG_EXTRACTING_CABS
 		cd "$BASEDIR/tmp"
-		extractCABs "$DIR"/{ADVAUTH,CRLUPD,HHUPD,IEDOM,IE_S*,SCR56EN,SETUPW95,VGX}.CAB
+		extractCABs "$DIR"/{ADVAUTH,CRLUPD,HHUPD,IEDOM,IE_EXTRA,IE_S*,SCR56EN,SETUPW95,VGX}.CAB
 		extractCABs ie_1.cab
 		rm -f *cab regsvr32.exe setup*
 
@@ -112,7 +112,7 @@ source "$IES4LINUX/lib/flash.sh"
 
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie55"
-		cp -r "$BASEDIR"/ie6 "$BASEDIR"/ie55
+		cp -PR "$BASEDIR"/ie6 "$BASEDIR"/ie55
 		DIR="$BASEDIR/ie55/$DRIVEC/$WINDOWS/$SYSTEM"
 		rm "$DIR"/{browseui,dispex,dxtmsft,dxtrans,inetcpl,inetcplc,jscript,mshtml,mshtmled,mshtmler,shdocvw,urlmon}.*
 	
@@ -141,7 +141,7 @@ source "$IES4LINUX/lib/flash.sh"
 
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie5"
-		cp -r "$BASEDIR"/ie6 "$BASEDIR"/ie5
+		cp -PR "$BASEDIR"/ie6 "$BASEDIR"/ie5
 		DIR="$BASEDIR/ie5/$DRIVEC/$WINDOWS/$SYSTEM"
 		rm "$DIR"/{browseui,dispex,dxtmsft,dxtrans,inetcpl,inetcplc,jscript,mshtml,mshtmled,mshtmler,shdocvw,urlmon}.*
 	

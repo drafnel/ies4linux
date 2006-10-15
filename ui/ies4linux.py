@@ -9,13 +9,14 @@ class IEs4Linux:
 		self.gui.init()
 		
 		# Installation options
-		self.gui.newInstallOptionFrame("GUI_IE")
+		#self.gui.newInstallOptionFrame("GUI_IE")
 		self.gui.addInstallOption("GUI_INSTALL_IE6", "--install-ie6", "", True)
 		self.gui.addInstallOption("GUI_INSTALL_IE55", "--install-ie55", "--no-install-ie55", False)
 		self.gui.addInstallOption("GUI_INSTALL_IE5", "--install-ie5", "--no-install-ie5", False)
 		self.gui.addLanguageSelect()
+		self.gui.addSeparator()
 		
-		self.gui.newInstallOptionFrame("GUI_EXTRA")
+		#self.gui.newInstallOptionFrame("GUI_EXTRA")
 		self.gui.addInstallOption("GUI_INSTALL_FLASH", "--install-flash", "--no-install-flash", True)
 		self.gui.addInstallOption("GUI_CREATE_ICONS", "--install-icon", "--no-install-icon", True)
 		

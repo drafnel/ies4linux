@@ -3,7 +3,7 @@
 
 import pygtk
 pygtk.require('2.0')
-import gtk, os, sys
+import gtk, gobject, os, sys
 from threading import Thread
 
 class GTKgui:
@@ -20,20 +20,25 @@ class GTKgui:
 		self.window.connect("destroy", gtk.main_quit)
 		self.window.set_position(gtk.WIN_POS_CENTER)
 		self.window.set_title(self.title)
-		
-		self.logoImg = gtk.gdk.pixbuf_new_from_file(self.logoFile)
-		self.window.set_icon(self.logoImg)
 		self.window.set_border_width(10)
 		
 		# Create main VBox
 		mainBox = gtk.VBox()
 		self.window.add(mainBox)
 		
-		# Create top logo
-		logo = gtk.Image()
-		logo.set_from_pixbuf(self.logoImg.scale_simple(100,100,gtk.gdk.INTERP_BILINEAR))
-		logo.set_size_request(100, 100);
-		mainBox.pack_start(logo)
+		try:
+			self.logoImg = gtk.gdk.pixbuf_new_from_file(self.logoFile)
+			
+			# Create top logo
+			logo = gtk.Image()
+			logo.set_from_pixbuf(self.logoImg.scale_simple(100,100,gtk.gdk.INTERP_BILINEAR))
+			logo.set_size_request(100, 100);
+			mainBox.pack_start(logo)
+			
+			# Create window logo
+			self.window.set_icon(self.logoImg.scale_simple(15,15,gtk.gdk.INTERP_BILINEAR))
+		except gobject.GError:
+			print "DEBUG: Could not load image file"
 		
 		# Create top notebook
 		notebook = gtk.Notebook()
@@ -75,7 +80,11 @@ class GTKgui:
 		frame.add(vbox)
 		
 		self.installContainer = vbox
-
+		
+	def addSeparator(self):
+		separator = gtk.HSeparator()
+		self.installContainer.pack_start(separator, False, True, 8)
+		
 	def addInstallOption(self, msg, checkedOption, uncheckedOption, toggled):
 		container = self.installContainer
 		
@@ -100,17 +109,22 @@ class GTKgui:
 		locales = os.getenv("IE6_LOCALES").split(' ')
 		locales.sort()
 		label = gtk.Label(os.getenv("GUI_LOCALE") + ': ')
-		select = gtk.Combo()
-		select.entry.set_editable(False)
-		select.set_popdown_strings(locales)
-		select.entry.set_text(os.getenv("IE6_LOCALE"))
 		
+		user_locale = os.getenv("IE6_LOCALE")
+		combo = gtk.combo_box_new_text()
+		i = 0
+		for locale in locales:
+			combo.append_text(locale)
+			if locale == user_locale:
+				combo.set_active(i)
+			i = i+1
+				
 		box = gtk.HBox()
 		box.pack_start(label, False, False, 0)
-		box.pack_start(select, False, False, 0)
+		box.pack_start(combo, False, False, 0)
 		
 		container.pack_start(box)
-		self.localeEntry = select.entry
+		self.locales = combo
 		
 	def addAdvancedOption(self, msg, option, default):
 		self.advancedTable.resize(len(self.advancedOptions) + 1, 2)
@@ -138,9 +152,17 @@ class GTKgui:
 
 	def okAction(self, widget, data=None):
 		self.window.hide()
-		t = ExecuteThread(self.installationOptions, self.advancedOptions, self.localeEntry)
+		t = ExecuteThread(self.installationOptions, self.advancedOptions, self.getSelectedLocale())
 		t.start()
 		gtk.main_quit()
+		
+	def getSelectedLocale(self):
+		combobox = self.locales
+		model = combobox.get_model()
+		active = combobox.get_active()
+		if active < 0:
+			return None
+		return model[active][0]
 		
 class ExecuteThread(Thread):
 	
@@ -148,7 +170,7 @@ class ExecuteThread(Thread):
 		Thread.__init__(self)
 		self.installationOptions = i
 		self.advancedOptions = a
-		self.localeEntry = l
+		self.locale = l
 	
 	def run(self):
 		command = os.getenv('IES4LINUX') + "/ies4linux "
@@ -162,7 +184,7 @@ class ExecuteThread(Thread):
 		for option in self.advancedOptions:
 			command += " " + option.option + ' "' + option.get_text() + '"'
 		
-		command += " --locale " + self.localeEntry.get_text() + " "
+		command += " --locale " + self.locale + " "
 		
 		os.system(command)
 		

@@ -1,16 +1,11 @@
-# IEs 4 Linux
 # download.sh Download every file we need
 
-# VARIABLES
-###########
 # IE6 MS Downloads
 URL_IE6_CABS=http://download.microsoft.com/download/ie6sp1/finrel/6_sp1/W98NT42KMeXP
-IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX "
-# other cabs BRANDING GSETUP95 IEEXINST IE_EXTRA  README SWFLASH
+IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_EXTRA IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX"
+# other cabs BRANDING GSETUP95 IEEXINST README SWFLASH
 
 # FUNCTIONS
-###########
-
 download() {
 	local URL=$1
 	local FILENAME=$(echo $URL | sed -e "s/.*\///")
@@ -28,12 +23,6 @@ download() {
 
 	# Download file
 	if ! cat "$DOWNLOADDIR/files" | grep $DIR$FILENAME &> /dev/null ; then
-		# If flash, we have to 'ping' their home page first
-		# [ "$FILENAME" = "swflash.cab" ] && {
-		#	wget $WGETFLAGS "http://www.macromedia.com/software/flashplayer" -O /dev/null
-		# }
-
-		# Try to download the file
 		if wget  -c $URL $WGETFLAGS -O "$DOWNLOADDIR/$DIR$FILENAME"; then
 			echo $DIR$FILENAME >> "$DOWNLOADDIR/files"
 		else
@@ -58,12 +47,9 @@ downloadEvolt() {
 }
 
 # CODE
-######
-
 section $MSG_DOWNLOADING
 	mkdir -p "$DOWNLOADDIR"
 	touch "$DOWNLOADDIR/files"
-	
 	
 	# Default downloads
 	download http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE

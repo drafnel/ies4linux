@@ -56,20 +56,8 @@ if test -z "$IE6_LOCALE"; then
     USING_GUESSED_IE6_LOCALE=true
 fi
 
-
 SYSLANG=$(echo ${LANG:0:2} | tr A-Z a-z)
 SYSCOUNTRY=$(echo ${LANG:3:2} | tr A-Z a-z)
-
-# try to discover encoding (or use utf8)
-SYSENCODING=
-if [ "${LANG:5:1}" = "." ]; then 
-	SYSENCODING=${LANG:6}
-elif locate --version &>/dev/null; then
-	L=$(grep -m 1 ${LANG} $(locate X11/locale/locale.alias) | awk '{print $2}')
-	SYSENCODING=${L:6}
-else
-	SYSENCODING=UTF-8
-fi
 
 # Some helper variables
 NEEDSTRANSLATION=0
@@ -115,7 +103,7 @@ else
     # Try to convert to user system encoding
     iconv_tmpfile="$IES4LINUX"/lang/lang.sh
     if iconv --version &> /dev/null; then
-        iconv -f $TRANSLATION_ENCODING -t $SYSENCODING "$msg_file" > "$iconv_tmpfile" && source "$iconv_tmpfile"
+        iconv -f $TRANSLATION_ENCODING "$msg_file" > "$iconv_tmpfile" && source "$iconv_tmpfile"
 	rm -f "$iconv_tmpfile"
     fi
 
