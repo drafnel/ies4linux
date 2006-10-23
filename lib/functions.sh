@@ -2,6 +2,8 @@
 # Functions and vars
 
 createShortcuts() {
+	rm -f "$BASEDIR/bin/$1" "$BINDIR/$1"
+
 	mkdir -p "$BASEDIR/bin"
         cat << END > "$BASEDIR/bin/$1"
 #!/usr/bin/env bash
@@ -10,10 +12,10 @@ createShortcuts() {
 cd
 export WINEPREFIX="$BASEDIR/$1"
 if [ -f "$BASEDIR/$1/.firstrun" ]; then
-	rm "$BASEDIR/$1/.firstrun"
-	wine "$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE" "$OK_URL"
+        rm "$BASEDIR/$1/.firstrun"
+        wine "$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE" "$OK_URL"
 else
-	wine "$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE" "\$@"
+        wine "$BASEDIR/$1/$DRIVEC/Program Files/Internet Explorer/IEXPLORE.EXE" "\$@"
 fi
 END
         chmod +x "$BASEDIR/bin/$1"
@@ -41,7 +43,8 @@ END
 
 # Wine functions
 function register_dll() {
-	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i "$1" &> /dev/null
+	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i "$1" 
+#&> /dev/null
 }
 function add_registry() {
 	wine regedit "$1" &> /dev/null

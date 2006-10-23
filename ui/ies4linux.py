@@ -10,21 +10,21 @@ class IEs4Linux:
 		
 		# Installation options
 		#self.gui.newInstallOptionFrame("GUI_IE")
-		self.gui.addInstallOption("GUI_INSTALL_IE6", "--install-ie6", "", True)
-		self.gui.addInstallOption("GUI_INSTALL_IE55", "--install-ie55", "--no-install-ie55", False)
-		self.gui.addInstallOption("GUI_INSTALL_IE5", "--install-ie5", "--no-install-ie5", False)
+		self.gui.addInstallOption("GUI_INSTALL_IE6",  "INSTALLIE6",  True, False)
+		self.gui.addInstallOption("GUI_INSTALL_IE55", "INSTALLIE55", False)
+		self.gui.addInstallOption("GUI_INSTALL_IE5",  "INSTALLIE5",  False)
 		self.gui.addLanguageSelect()
 		self.gui.addSeparator()
 		
 		#self.gui.newInstallOptionFrame("GUI_EXTRA")
-		self.gui.addInstallOption("GUI_INSTALL_FLASH", "--install-flash", "--no-install-flash", True)
-		self.gui.addInstallOption("GUI_CREATE_ICONS", "--install-icon", "--no-install-icon", True)
+		self.gui.addInstallOption("GUI_INSTALL_FLASH", "INSTALLFLASH", True)
+		self.gui.addInstallOption("GUI_CREATE_ICONS",  "CREATE_ICON",  True)
 		
 		# Advanced options
-		self.gui.addAdvancedOption("GUI_ADVANCED_BASEDIR", "--basedir", "~/.ies4linux")
-		self.gui.addAdvancedOption("GUI_ADVANCED_BINDIR", "--bindir", "~/bin")
-		self.gui.addAdvancedOption("GUI_ADVANCED_DOWNLOADDIR", "--downloaddir", "~/.ies4linux/downloads")
-		self.gui.addAdvancedOption("GUI_ADVANCED_WGETFLAGS", "--wget-flags", "--continue")
+		self.gui.addAdvancedOption("GUI_ADVANCED_BASEDIR",     "BASEDIR",     "~/.ies4linux")
+		self.gui.addAdvancedOption("GUI_ADVANCED_BINDIR",      "BINDIR",      "~/bin")
+		self.gui.addAdvancedOption("GUI_ADVANCED_DOWNLOADDIR", "DOWNLOADDIR", "~/.ies4linux/downloads")
+		self.gui.addAdvancedOption("GUI_ADVANCED_WGETFLAGS",   "WGETFLAGS",   "--continue")
 		
 		self.gui.show()
 		

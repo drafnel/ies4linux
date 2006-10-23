@@ -1,9 +1,6 @@
-# Export GUI Strings
-# TODO make this simpler
-export GUI_TITLE GUI_INSTALL_IE6 GUI_INSTALL_IE55 GUI_INSTALL_IE5 GUI_INSTALL_FLASH GUI_CREATE_ICONS GUI_OK GUI_CANCEL GUI_LOCALE GUI_IE GUI_EXTRA
-export GUI_INSTALLATION_OPTIONS GUI_ADVANCED_OPTIONS GUI_ADVANCED_BASEDIR GUI_ADVANCED_BINDIR GUI_ADVANCED_DOWNLOADDIR GUI_ADVANCED_WGETFLAGS
-
 # Decide what UI to run
-if python -h &> /dev/null python -c "import pygtk; pygtk.require('2.0'); import gtk"; then
-	python "$IES4LINUX"/ui/ies4linux.py gtk
+if python -h &> /dev/null && python -c "import pygtk; pygtk.require('2.0'); import gtk" &> dev/null; then
+	source "$IES4LINUX"/ui/pygtk.sh
+else
+	source "$IES4LINUX"/ui/terminal.sh
 fi

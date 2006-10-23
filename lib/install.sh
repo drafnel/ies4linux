@@ -163,6 +163,71 @@ source "$IES4LINUX/lib/flash.sh"
 	ok
 }
 
+# ATTENTION: IES4LINUX IE7 SUPPORT IS PRE-PRE-ALPHA!
+# USE ONLY TO HELP ME TESTING THIS FEATURE
+[ "$INSTALLIE7"   = "1" ] &&  {
+	section $MSG_INSTALLING IE 7 ALPHA
+		kill_wineserver
+		set_wine_prefix "$BASEDIR/ie7/"
+
+	subsection $MSG_COPYING_IE6
+		rm -rf "$BASEDIR/ie7"
+		cp -r "$BASEDIR"/ie6 "$BASEDIR"/ie7
+	
+	subsection $MSG_EXTRACTING_FILES
+		cd "$BASEDIR/tmp/"
+
+# 		this is to msvcrt
+# 		extractCABs "$DOWNLOADDIR"/Q305601_WxP_SP1_x86_ENU.exe
+# 		cp msvcrt.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+# 		clean_tmp
+
+		extractCABs "$DOWNLOADDIR"/IE7-WindowsXP-x86-enu.exe
+		
+		cp wininet.dll iertutil.dll shlwapi.dll urlmon.dll jscript.dll vbscript.dll advpack.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+		cp mshtml.dll mshtml.tlb mshtmled.dll mshtmler.dll inetcpl.cpl "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+		cp ieapfltr.dll mstime.dll ieencode.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+
+		cp dxtmsft.dll dxtrans.dll pngfilt.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+		cp ieproxy.dll ieui.dll jsproxy.dll vgx.dll imgutil.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+		
+		register_dll "C:\\Windows\\System\\mshtml.dll"
+		register_dll "C:\\Windows\\System\\mshtmled.dll"
+		register_dll "C:\\Windows\\System\\mshtmler.dll"
+		register_dll "C:\\Windows\\System\\dxtmsft.dll"
+		register_dll "C:\\Windows\\System\\dxtrans.dll"
+		register_dll "C:\\Windows\\System\\pngfilt.dll"
+		
+		# we can't register these dlls
+		#register_dll "C:\\Windows\\System\\msvcrt.dll"
+		#register_dll "C:\\Windows\\System\\imgutil.dll"
+		#register_dll "C:\\Windows\\System\\jscript.dll"
+		#register_dll "C:\\Windows\\System\\vbscript.dll"
+
+		# don't use ie7 exe
+		#cp iexplore.exe "$BASEDIR/ie7/$DRIVEC/Program Files/Internet Explorer/iexplore.exe"
+
+		cd update
+		extractCABs idndl.exe
+		cp normaliz.dll idndl.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+
+		register_dll "C:\\Windows\\System\\normaliz.dll"
+		register_dll "C:\\Windows\\System\\idndl.dll"
+
+	subsection $MSG_INSTALLING_REGISTRY
+		#add_registry "$IES4LINUX"/winereg/ie7.reg
+		add_registry "$IES4LINUX"/winereg/.ie7.reg
+	
+	subsection $MSG_FINALIZING
+		wineboot
+		touch "$BASEDIR/ie7/.firstrun"
+		createShortcuts ie7 7.0
+		chmod -R u+rwx "$BASEDIR/ie7"
+		clean_tmp
+
+	ok
+}
+
 # Some Easter Eggs
 [ "$INSTALLIE1"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 1.0

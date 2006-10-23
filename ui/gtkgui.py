@@ -85,20 +85,17 @@ class GTKgui:
 		separator = gtk.HSeparator()
 		self.installContainer.pack_start(separator, False, True, 8)
 		
-	def addInstallOption(self, msg, checkedOption, uncheckedOption, toggled):
+	def addInstallOption(self, msg, variable, toggled, changeable=True):
 		container = self.installContainer
 		
 		checkButton = gtk.CheckButton(os.getenv(msg), container)
 		checkButton.set_active(toggled)
 		
 		# Don't let user change state if he can't
-		if uncheckedOption == '':
-			checkButton.connect('toggled', lambda w: w.set_active(True))
-		if checkedOption == '': 
-			checkButton.connect('toggled', lambda w: w.set_active(False))
+		if not changeable:
+			checkButton.connect('toggled', lambda w: w.set_active(toggled))
 
-		checkButton.checked_option = checkedOption
-		checkButton.unchecked_option = uncheckedOption
+		checkButton.variable = variable
 
 		container.pack_start(checkButton, True, True, 0)
 		self.installationOptions.append(checkButton)
@@ -126,7 +123,7 @@ class GTKgui:
 		container.pack_start(box)
 		self.locales = combo
 		
-	def addAdvancedOption(self, msg, option, default):
+	def addAdvancedOption(self, msg, variable, default):
 		self.advancedTable.resize(len(self.advancedOptions) + 1, 2)
 		
 		label = gtk.Label(os.getenv(msg))
@@ -141,7 +138,7 @@ class GTKgui:
 		self.advancedTable.attach(label, 0, 1, i, i+1)
 		self.advancedTable.attach(entry, 1, 2, i, i+1)
 
-		entry.option = option
+		entry.variable = variable
 		self.advancedOptions.append(entry)
 
 	def show(self):
@@ -149,12 +146,6 @@ class GTKgui:
 		gtk.threads_enter()
 		gtk.main()
 		gtk.threads_leave()
-
-	def okAction(self, widget, data=None):
-		self.window.hide()
-		t = ExecuteThread(self.installationOptions, self.advancedOptions, self.getSelectedLocale())
-		t.start()
-		gtk.main_quit()
 		
 	def getSelectedLocale(self):
 		combobox = self.locales
@@ -163,28 +154,16 @@ class GTKgui:
 		if active < 0:
 			return None
 		return model[active][0]
-		
-class ExecuteThread(Thread):
 	
-	def __init__(self, i, a, l):
-		Thread.__init__(self)
-		self.installationOptions = i
-		self.advancedOptions = a
-		self.locale = l
-	
-	def run(self):
-		command = os.getenv('IES4LINUX') + "/ies4linux "
+	def okAction(self, widget, data=None):
+		self.window.hide()
+		gtk.main_quit()
 		
 		for option in self.installationOptions:
-			if option.get_active():
-				command += " " + option.checked_option
-			else:
-				command += " " + option.unchecked_option
+			print option.variable + '=' + (option.get_active() and "1" or "0")
 				
 		for option in self.advancedOptions:
-			command += " " + option.option + ' "' + option.get_text() + '"'
+			print option.variable + '="' + option.get_text() + '"'
 		
-		command += " --locale " + self.locale + " "
-		
-		os.system(command)
+		print "IE6_LOCALE=" + self.getSelectedLocale()
 		

@@ -18,6 +18,7 @@ export IES4LINUX=`pwd`
 
 # Instantiate variables
 INSTALLIE6=1
+INSTALLIE7=0
 NOCOLOR=0
 
 # Default options.
@@ -42,7 +43,7 @@ INSTALLIE2=0
 
 # Basic imports
 source lib/functions.sh
-source lib/terminal.sh
+source lib/ui.sh
 source lib/messages.sh
 
 # Get some command-line options.
@@ -57,6 +58,7 @@ while [ $# -gt 0 ]; do
       --install-ie1)      INSTALLIE1=1;    shift ;;
       --install-ie15)     INSTALLIE15=1;    shift ;;
       --install-ie2)      INSTALLIE2=1;    shift ;;
+      --beta-install-ie7) INSTALLIE7=1;    shift ;;
       --install-flash)    INSTALLFLASH=1;  shift ;;
       --no-install-flash) INSTALLFLASH=0;  shift ;;
       --install-icon)     CREATE_ICON=1;   shift ;;
@@ -66,10 +68,6 @@ while [ $# -gt 0 ]; do
       --downloaddir)	   DOWNLOADDIR=$2; shift 2 ;;
       --wget-flags)        WGETFLAGS=$2;   shift 2 ;;
       --no-color)	   NOCOLOR=1;	   shift 1 ;;
-      --beta-gui)
-	source lib/ui.sh
-	exit 0
-	;;
       --help | -h)
          show_help
          exit 0

@@ -68,6 +68,11 @@ section $MSG_DOWNLOADING
 		download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
 	}
 
+	[ "$INSTALLIE7" = "1" ] && {
+		download "http://download.microsoft.com/download/3/8/8/38889DC1-848C-4BF2-8335-86C573AD86D9/IE7-WindowsXP-x86-enu.exe"
+		#download "http://download.microsoft.com/download/whistler/Patch/q305601/WXP/EN-US/Q305601_WxP_SP1_x86_ENU.exe"
+	}
+
 	# Easter eggs
 	[ "$INSTALLIE1"  = "1" ] && downloadEvolt ie/32bit/1.0/Msie10.exe
 	[ "$INSTALLIE15" = "1" ] && downloadEvolt ie/32bit/1.5/IE15I386.EXE
