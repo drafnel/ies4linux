@@ -43,8 +43,7 @@ END
 
 # Wine functions
 function register_dll() {
-	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i "$1" 
-#&> /dev/null
+	WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i "$1" &> /dev/null
 }
 function add_registry() {
 	wine regedit "$1" &> /dev/null

@@ -215,8 +215,7 @@ source "$IES4LINUX/lib/flash.sh"
 		register_dll "C:\\Windows\\System\\idndl.dll"
 
 	subsection $MSG_INSTALLING_REGISTRY
-		#add_registry "$IES4LINUX"/winereg/ie7.reg
-		add_registry "$IES4LINUX"/winereg/.ie7.reg
+		add_registry "$IES4LINUX"/winereg/ie7.reg
 	
 	subsection $MSG_FINALIZING
 		wineboot
