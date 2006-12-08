@@ -3,28 +3,26 @@
 
 import pygtk
 pygtk.require('2.0')
-import gtk, gobject, os, sys
-from threading import Thread
+import gtk, gobject, pango
 
 class GTKgui:
-	
+		
 	def __init__(self):
-		self.title = os.getenv("GUI_TITLE")
-		self.logoFile = "lib/ies4linux.svg"
+		gtk.gdk.threads_init()
+		self.remove_next_line = False
 		
-	def init(self):
-		gtk.threads_init()
+	def create_window(self, title, logo):
+		self.title = title
+		self.logoFile = logo
 		
-		# Create Window
 		self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
 		self.window.connect("destroy", gtk.main_quit)
 		self.window.set_position(gtk.WIN_POS_CENTER)
 		self.window.set_title(self.title)
 		self.window.set_border_width(10)
-		
-		# Create main VBox
-		mainBox = gtk.VBox()
-		self.window.add(mainBox)
+
+		self.mainBox = gtk.VBox()
+		self.window.add(self.mainBox)
 		
 		try:
 			self.logoImg = gtk.gdk.pixbuf_new_from_file(self.logoFile)
@@ -33,7 +31,7 @@ class GTKgui:
 			logo = gtk.Image()
 			logo.set_from_pixbuf(self.logoImg.scale_simple(100,100,gtk.gdk.INTERP_BILINEAR))
 			logo.set_size_request(100, 100);
-			mainBox.pack_start(logo)
+			self.mainBox.pack_start(logo)
 			
 			# Create window logo
 			self.window.set_icon(self.logoImg.scale_simple(15,15,gtk.gdk.INTERP_BILINEAR))
@@ -41,38 +39,37 @@ class GTKgui:
 			print "DEBUG: Could not load image file"
 		
 		# Create top notebook
-		notebook = gtk.Notebook()
-		mainBox.pack_start(notebook)
+		self.notebook = gtk.Notebook()
+		self.mainBox.pack_start(self.notebook)
+		self.buttonBox = gtk.HBox()
+		self.mainBox.pack_end(self.buttonBox, False, False)
 		
-		# Create buttons area
-		buttonBox = gtk.HBox()
-		mainBox.pack_end(buttonBox, False, False)
-		
+	def create_install_tab(self, title):
 		# Create notebook pages
 		self.optionsVbox = gtk.VBox()
-		notebook.append_page(self.optionsVbox, gtk.Label(os.getenv('GUI_INSTALLATION_OPTIONS')))
+		self.notebook.append_page(self.optionsVbox, gtk.Label(title))
+		self.installationOptions = []
+		self.installContainer = self.optionsVbox
 		
+	def create_advanced_tab(self, title):
 		self.advancedTable = gtk.Table()
-		notebook.append_page(self.advancedTable, gtk.Label(os.getenv('GUI_ADVANCED_OPTIONS')))
+		self.notebook.append_page(self.advancedTable, gtk.Label(title))
+		self.advancedOptions = []
 		
-		# Create buttons
+	def add_ok_button(self, title, callback=None):
 		okButton = gtk.Button(stock=gtk.STOCK_OK)
-		buttonBox.pack_start(okButton)
-		okButton.connect("clicked", self.okAction)
+		self.buttonBox.pack_start(okButton)
+		okButton.connect("clicked", self.callback_ok_button, callback)
 		okButton.set_flags(gtk.CAN_DEFAULT)
 		okButton.grab_default()
 		
+	def add_cancel_button(self, title, callback=None):
 		quitButton = gtk.Button(stock=gtk.STOCK_CANCEL)
-		buttonBox.pack_end(quitButton)
-		quitButton.connect_object("clicked", gtk.main_quit, self.window,None)
+		self.buttonBox.pack_end(quitButton)
+		quitButton.connect_object("clicked", self.callback_cancel_button, callback)
 		
-		# Create options
-		self.installationOptions = []
-		self.advancedOptions = []
-		self.installContainer = self.optionsVbox
-
-	def newInstallOptionFrame(self, msg):
-		frame = gtk.Frame(os.getenv(msg))
+	def new_install_option_frame(self, msg):
+		frame = gtk.Frame(msg)
 		frame.set_border_width(5)
 		self.optionsVbox.pack_start(frame)
 		
@@ -81,38 +78,38 @@ class GTKgui:
 		
 		self.installContainer = vbox
 		
-	def addSeparator(self):
+	def add_separator(self):
 		separator = gtk.HSeparator()
 		self.installContainer.pack_start(separator, False, True, 8)
 		
-	def addInstallOption(self, msg, variable, toggled, changeable=True):
+	def add_install_option(self, msg, option, toggled, changeable=True):
 		container = self.installContainer
 		
-		checkButton = gtk.CheckButton(os.getenv(msg), container)
+		checkButton = gtk.CheckButton(msg, container)
 		checkButton.set_active(toggled)
+		checkButton.defaultValue = toggled
 		
 		# Don't let user change state if he can't
 		if not changeable:
 			checkButton.connect('toggled', lambda w: w.set_active(toggled))
 
-		checkButton.variable = variable
+		checkButton.commandLineOption = option
 
 		container.pack_start(checkButton, True, True, 0)
 		self.installationOptions.append(checkButton)
 		
-	def addLanguageSelect(self):
+	def add_language_select(self, title, locales, default, option):
 		container = self.installContainer
 		
-		locales = os.getenv("IE6_LOCALES").split(' ')
+		locales = locales.split(' ')
 		locales.sort()
-		label = gtk.Label(os.getenv("GUI_LOCALE") + ': ')
+		label = gtk.Label(title + ': ')
 		
-		user_locale = os.getenv("IE6_LOCALE")
 		combo = gtk.combo_box_new_text()
 		i = 0
 		for locale in locales:
 			combo.append_text(locale)
-			if locale == user_locale:
+			if locale == default:
 				combo.set_active(i)
 			i = i+1
 				
@@ -122,17 +119,14 @@ class GTKgui:
 		
 		container.pack_start(box)
 		self.locales = combo
+		self.locales.option = option
 		
-	def addAdvancedOption(self, msg, variable, default):
+	def add_advanced_option(self, msg, variable, default):
 		self.advancedTable.resize(len(self.advancedOptions) + 1, 2)
 		
-		label = gtk.Label(os.getenv(msg))
+		label = gtk.Label(msg)
 		entry = gtk.Entry()
-
-		if default[0] == '~':
-			entry.set_text(os.getenv('HOME') + default[1:])
-		else:
-			entry.set_text(default)
+		entry.set_text(default)
 
 		i = len(self.advancedOptions)
 		self.advancedTable.attach(label, 0, 1, i, i+1)
@@ -143,11 +137,11 @@ class GTKgui:
 
 	def show(self):
 		self.window.show_all()
-		gtk.threads_enter()
+		gtk.gdk.threads_enter()
 		gtk.main()
-		gtk.threads_leave()
+		gtk.gdk.threads_leave()
 		
-	def getSelectedLocale(self):
+	def get_selected_locale(self):
 		combobox = self.locales
 		model = combobox.get_model()
 		active = combobox.get_active()
@@ -155,15 +149,106 @@ class GTKgui:
 			return None
 		return model[active][0]
 	
-	def okAction(self, widget, data=None):
-		self.window.hide()
-		gtk.main_quit()
+	def callback_ok_button(self, widget, function=None):
+		if function != None: function()
 		
+	def create_installation_window(self):
+		# Hide installation window
+		self.window.hide()
+		
+		# Make Console Window
+		self.window.resize(500,500)
+		sw = gtk.ScrolledWindow()
+		sw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+		self.textview = gtk.TextView()
+		self.textview.set_editable(False)
+		self.textbuffer = self.textview.get_buffer()
+		sw.add(self.textview)
+		
+		# Tags
+		self.normal_tag = self.textbuffer.create_tag(font="Monospace")
+	
+		#tag = gtk.TextBuffer.create_tag('aligned')
+		#tag.set_property("font", "Courier")
+		#tag.set_property("foreground", "red")
+		#tag.set_property("size-points", 12)
+		#tag.set_property("weight", 400)
+		
+		self.section_tag = self.textbuffer.create_tag(weight=pango.WEIGHT_BOLD)
+		self.ok_tag = self.textbuffer.create_tag(weight=pango.WEIGHT_BOLD, foreground='Blue')
+		self.error_tag = self.textbuffer.create_tag(weight=pango.WEIGHT_BOLD, foreground='Red')
+		
+		# Box elements
+		self.loggerVbox = gtk.VBox()
+		self.loggerVbox.pack_start(sw)
+		
+		# Set box on window
+		self.window.remove(self.window.get_children()[0])
+		self.window.add(self.loggerVbox)
+		self.window.show_all()
+		
+	def add_abort_installation_button(self, title, callback):
+		# Cancel/Close Button
+		button = gtk.Button(stock=gtk.STOCK_CANCEL)
+		button.connect("clicked", self.callback_abort_installation, callback)
+		self.loggerVbox.pack_start(button, False, False)
+		button.show()
+		
+	def get_command(self):
+		command = []
 		for option in self.installationOptions:
-			print option.variable + '=' + (option.get_active() and "1" or "0")
+			if option.get_active() != option.defaultValue:
+				command.append(option.commandLineOption)
 				
 		for option in self.advancedOptions:
-			print option.variable + '="' + option.get_text() + '"'
+			command.append(option.variable)
+			command.append(option.get_text())
 		
-		print "IE6_LOCALE=" + self.getSelectedLocale()
+		command.append(self.locales.option)
+		command.append(self.get_selected_locale())
 		
+		return command
+		
+	def installation_insert_text(self, line):
+		# What tag to use
+		tag = self.normal_tag
+		if line[0:2] == '# ':
+			tag = self.section_tag
+			line = line[2:]
+		elif line == "[ OK ]\n":
+			tag = self.ok_tag
+		elif line[0:3] == '!! ':
+			tag = self.error_tag
+			line = line[2:]
+				
+		gtk.gdk.threads_enter()
+		
+		# Delete last line if it is \r
+		if self.remove_next_line and line != '\n':
+			it = self.textbuffer.get_iter_at_line(self.textbuffer.get_line_count()-2)
+			self.textbuffer.delete(it, self.textbuffer.get_end_iter())
+			self.remove_next_line = False
+
+		# Insert text and relocate scroll
+		self.textbuffer.insert_with_tags(self.textbuffer.get_end_iter(), line, tag)
+		self.textview.scroll_to_iter(self.textbuffer.get_end_iter(), 0)
+		
+		gtk.gdk.threads_leave()
+		
+		if line[-1] == '\r': self.remove_next_line = True
+		
+	def add_close_button(self):
+		# Installation finshed correctly
+		button = self.loggerVbox.get_children()[-1]
+		button.set_use_stock(True)
+		button.set_label(gtk.STOCK_CLOSE)
+	
+	def callback_cancel_button(self, widget, function=None):
+		if function != None: function()
+		gtk.gdk.threads_enter()
+		gtk.main_quit()
+		gtk.gdk.threads_leave()
+
+	def callback_abort_installation(self, widget, function=None):
+		if function != None: function()
+		gtk.main_quit()

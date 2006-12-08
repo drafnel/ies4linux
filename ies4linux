@@ -11,121 +11,174 @@ IES4LINUX=`dirname "$0"`
 cd "$IES4LINUX"
 export IES4LINUX=`pwd`
 
-# Create log file
-# mkdir -p "$HOME"/.ies4linux
-# touch "$HOME"/.ies4linux/log
-# LOG="$HOME/.ies4linux/log"
-
-# Instantiate variables
-INSTALLIE6=1
-INSTALLIE7=0
-NOCOLOR=0
-
-# Default options.
-# Corresponding config variables are named as below minus the trailing _DEFAULT
-INSTALLIE55_DEFAULT=0
-INSTALLIE5_DEFAULT=0
-INSTALLFLASH_DEFAULT=1
-CREATE_ICON_DEFAULT=1
-BASEDIR_DEFAULT="$HOME/.ies4linux"
-BINDIR_DEFAULT="$HOME/bin"
-WGETFLAGS_DEFAULT="--continue"
-DOWNLOADDIR_SUFFIX="downloads"
-DOWNLOADDIR_DEFAULT="$BASEDIR_DEFAULT/$DOWNLOADDIR_SUFFIX"
-
-export IE6_LOCALE_DEFAULT="EN-US"
-export IE6_LOCALES="EN-US PT-BR DE FR ES IT NL SV JA KO NO DA CN TW FI PL HU AR HE CS PT RU EL TR"
-
-# Easter eggs
-INSTALLIE1=0
-INSTALLIE15=0
-INSTALLIE2=0
-
-# Basic imports
 source lib/functions.sh
-source lib/ui.sh
-source lib/messages.sh
+initDebug
+initVariables
+initLanguage
+checkDependencies
 
-# Get some command-line options.
-# If an option is specified on the command line, the user won't be asked for it later on.
-while [ $# -gt 0 ]; do
-    case "$1" in
-      --install-ie6) shift;;
-      --install-ie55)     INSTALLIE55=1;   shift ;;
-      --no-install-ie55)  INSTALLIE55=0;   shift ;;
-      --install-ie5)      INSTALLIE5=1;    shift ;;
-      --no-install-ie5)   INSTALLIE5=0;    shift ;;
-      --install-ie1)      INSTALLIE1=1;    shift ;;
-      --install-ie15)     INSTALLIE15=1;    shift ;;
-      --install-ie2)      INSTALLIE2=1;    shift ;;
-      --beta-install-ie7) INSTALLIE7=1;    shift ;;
-      --install-flash)    INSTALLFLASH=1;  shift ;;
-      --no-install-flash) INSTALLFLASH=0;  shift ;;
-      --install-icon)     CREATE_ICON=1;   shift ;;
-      --no-install-icon)  CREATE_ICON=0;   shift ;;
-      --basedir)           BASEDIR=$2;     shift 2 ;;
-      --bindir)            BINDIR=$2;      shift 2 ;;
-      --downloaddir)	   DOWNLOADDIR=$2; shift 2 ;;
-      --wget-flags)        WGETFLAGS=$2;   shift 2 ;;
-      --no-color)	   NOCOLOR=1;	   shift 1 ;;
-      --help | -h)
-         show_help
-         exit 0
-         ;;
-      --locale)
-         IE6_LOCALE=$(echo "$2" | tr a-z A-Z)
-	 USING_GUESSED_IE6_LOCALE=false
-         shift 2
-         ;;
-      --list-locales)
-	 echo $IE6_LOCALES | fmt -w 40
-         exit 0
-         ;;
-      *)
-         echo "Error: unknown option \"$1\""
-         if echo "$1" | grep '=' >/dev/null; then
-            echo "Options are not GNU-style"
-            echo "  i.e. don't use: --option=value"
-            echo "     use instead: --option value"
-         fi
-         echo "run \"./ies4linux --help\" for more info"
-         exit 1
-         ;;
-    esac
-done
+# Configure options
+{
+	# Get command-line options
+	while [ $# -gt 0 ]; do
+		case "$1" in
+		--install-ie6 | --install-flash)   shift;;
+		--install-ie55)     INSTALLIE55=1;   shift ;;
+		--install-ie5)      INSTALLIE5=1;    shift ;;
+		--install-ie2)      INSTALLIE2=1;    shift ;;
+		--install-ie15)     INSTALLIE15=1;    shift ;;
+		--install-ie1)      INSTALLIE1=1;    shift ;;
+	
+		--beta-install-ie7) INSTALLIE7=1;    shift ;;
+	
+		--no-flash) INSTALLFLASH=0;  shift ;;
+		--no-icon)  CREATE_ICON=0;   shift ;;
+		
+		--basedir)          BASEDIR=$2;     shift 2 ;;
+		--bindir)           BINDIR=$2;      shift 2 ;;
+		--downloaddir)	    DOWNLOADDIR=$2; changeddownloaddir=1; shift 2 ;;
+		
+		--wget-flags)       WGETFLAGS=$2;   shift 2 ;;
+		--no-color)	    NOCOLOR=1;	   shift 1 ;;
+	
+		--locale)
+			CHOOSED_IE6_LOCALE=$(echo "$2" | tr a-z A-Z)
+			shift 2
+			;;
+		--list-locales)
+			echo $IE6_LOCALES | fmt -w 40
+			exit 0
+			;;
+	
+		--easter-eggs)
+			cat <<__END_EGGS__
+IEs4Linux can do other useful (?!) things:
 
-# Check for dependencies
-wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
-cabextract --version &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
-wget --version &> /dev/null || error $MSG_ERROR_INSTALL_WGET
-unzip -version &> /dev/null || error $MSG_ERROR_INSTALL_UNZIP
-cabextract --version | grep "1." &> /dev/null || error $MSG_ERROR_UPDATE_CABEXTRACT
-wine --version 2>&1  | grep "0.9." &> /dev/null || warning $MSG_WARNING_OLDWINE
-[ "$(whoami)" = "root" ] && warning $MSG_WARNING_ROOT
+--install-ie1         Install IE 1.0
+--install-ie15        Install IE 1.5
+--install-ie2         Install IE 2.0
+__END_EGGS__
+			exit 0
+			;;
+		--help | -h)
+			cat <<__END_HELP__
+	
+Usage: ./ies4linux [OPTIONS]
 
-# Asks what user wants to install
-initAndConfigure
+This script downloads and automagically installs multiple versions of
+Microsoft Internet Explorer on Wine.
+
+Without any option, IEs4Linux will:
+- install IE6
+- install Adobe Flash 9
+- create icons on Desktop
+
+You can configure other things:
+
+Installation options:
+
+--install-ie55         Install IE5.5 in BASEDIR/ie55/
+--install-ie5          Install IE5 in BASEDIR/ie5/
+--no-flash             Don't install Adobe Flash Player 9
+--no-icon              Don't create an icon in Desktop
+
+Configurations:
+
+--locale LOCALE        The locale for the installation [$GUESSED_IE6_LOCALE]
+--wget-flags FLAGS     Extra flags for wget [$WGETFLAGS]
+--list-locales         Display all possible locales and exit
+
+Directories:
+
+--basedir BASEDIR      Base location for installs [$BASEDIR]
+--bindir BINDIR        Location of your bin folder [$BINDIR]
+--downloaddir DLDIR    Where downloads will go [BASEDIR/$DOWNLOADDIR_SUFFIX]
+
+Other options:
+
+--no-color             Don't show colors
+--help / -h            Display this message and exit OK
+
+Beta options:
+
+--beta--install-ie7    Install Internet Explorer 7 (BETA INSTALLER!)
+
+__END_HELP__
+			exit 0
+			;;
+	
+		*)
+			echo "Error: unknown option \"$1\""
+			if echo "$1" | grep '=' >/dev/null; then
+				echo "Options are not GNU-style"
+				echo "  i.e. don't use: --option=value"
+				echo "     use instead: --option value"
+			fi
+			echo "run \"./ies4linux --help\" for more info"
+			exit 1
+			;;
+		esac
+	done
+	
+	# Hack for downloaddir
+	if [ "$changeddownloaddir" != "1" ]; then
+		DOWNLOADDIR="$BASEDIR/$DOWNLOADDIR_SUFFIX"
+	fi
+	
+	# Determine IE6 locale
+	if [ "$CHOOSED_IE6_LOCALE" != "" ]; then
+		if ! echo " $IE6_LOCALES " | grep " $CHOOSED_IE6_LOCALE " &> /dev/null; then
+			error $MSG_ERROR_INVALIDLOCALE
+		fi
+		IE6_LOCALE=$CHOOSED_IE6_LOCALE
+	else
+		IE6_LOCALE=$GUESSED_IE6_LOCALE
+	fi
+}
+
+# Show what we will do
+{
+	section $MSG_INSTALLATION_OPTIONS
+		IES="6.0"
+		[ "$INSTALLIE55" = "1" ] && IES="$IES, 5.5"
+		[ "$INSTALLIE5"  = "1" ] && IES="$IES, 5.01"
+		[ "$INSTALLIE1"  = "1" ] && IES="$IES, 1.0"
+		[ "$INSTALLIE15"  = "1" ] && IES="$IES, 1.5"
+		[ "$INSTALLIE2"  = "1" ] && IES="$IES, 2.0"
+		[ "$INSTALLIE7"  = "1" ] && IES="$IES, 7.0"
+		subsection - $MSG_OPTION_INSTALL_IES $IES
+		subsection - $MSG_OPTION_LOCALE	 $IE6_LOCALE
+	
+		[ "$INSTALLFLASH" = "1" ] && subsection - $MSG_OPTION_INSTALL_FLASH
+		[ "$CREATE_ICON" = "1"  ] && subsection - $MSG_OPTION_CREATE_ICONS
+		subsection - $MSG_OPTION_BASEDIR $BASEDIR
+		#subsection - $MSG_OPTION_DOWNLOADDIR $DOWNLOADDIR
+	ok
+}
 
 # Prepare folders
-mkdir -p "$BINDIR"
-mkdir -p "$BASEDIR/tmp/"
-rm -rf "$BASEDIR"/tmp/*
-mkdir -p "$DOWNLOADDIR"
+{
+	mkdir -p "$BINDIR"       || error $MSG_ERROR_CREATE_FOLDER $BINDIR
+	mkdir -p "$BASEDIR/tmp/" || error $MSG_ERROR_CREATE_FOLDER $BASEDIR
+	mkdir -p "$DOWNLOADDIR"  || error $MSG_ERROR_CREATE_FOLDER $DOWNLOADDIR
+	cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
+}
 
-# Copy svg icon
-cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
-
-# Load modules
-source "$IES4LINUX/lib/download.sh"
 source "$IES4LINUX/lib/install.sh"
 
-rm -rf "$BASEDIR/tmp"
-
-# Last messages
 section $MSG_INSTALLATIONS_FINISHED
-echo
 
-run_ies
-echo
-
-ask_for_translation
+# Show user how to run her IEs
+{
+	echo
+	section $MSG_RUN_IES
+	[ "$INSTALLIE6"  = "1" ] && run_ie 6
+	[ "$INSTALLIE55" = "1" ] && run_ie 55
+	[ "$INSTALLIE5"  = "1" ] && run_ie 5
+	[ "$INSTALLIE1"  = "1" ] && run_ie 1
+	[ "$INSTALLIE15"  = "1" ] && run_ie 15
+	[ "$INSTALLIE2"  = "1" ] && run_ie 2
+	[ "$INSTALLIE3"  = "1" ] && run_ie 3
+	[ "$INSTALLIE7"  = "1" ] && run_ie 7
+	echo
+}

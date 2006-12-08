@@ -2,21 +2,62 @@
 # Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
 # Project site: http://tatanka.com.br/ies4linux
 # Released under the GNU GPL. See LICENSE for more information
-# install.sh Perform all three ies installations
+# install.sh Perform all installations
 
+section $MSG_DOWNLOADING
+	# Prepare downloads
+	touch "$DOWNLOADDIR/files"
+
+	[ "$INSTALLIE6"   = "1" ] &&  {
+		URL_IE6_CABS=http://download.microsoft.com/download/ie6sp1/finrel/6_sp1/W98NT42KMeXP
+		IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_EXTRA IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX"
+		# other possible cabs BRANDING GSETUP95 IEEXINST README SWFLASH
+
+		download http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
+		download http://activex.microsoft.com/controls/vc/mfc42.cab
+
+		mkdir -p "$DOWNLOADDIR/ie6/EN-US"
+		mkdir -p "$DOWNLOADDIR/ie6/$IE6_LOCALE"
+
+		for cab in $IE6_CABS; do
+			# SCR56EN is always downloaded from EN-US
+			if [ "$cab" = "SCR56EN" ] ; then
+				URL="$URL_IE6_CABS/EN-US/SCR56EN.CAB"
+			else
+				URL="$URL_IE6_CABS/$IE6_LOCALE/$cab.CAB"
+			fi
+			
+			download "$URL"
+		done
+	}
+        [ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
+        [ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
+        [ "$INSTALLFLASH" = "1" ] && {
+                download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
+        }
+        [ "$INSTALLIE7" = "1" ] && {
+		download "http://download.microsoft.com/download/3/8/8/38889DC1-848C-4BF2-8335-86C573AD86D9/IE7-WindowsXP-x86-enu.exe"
+		#download "http://download.microsoft.com/download/whistler/Patch/q305601/WXP/EN-US/Q305601_WxP_SP1_x86_ENU.exe"
+	}
+
+        # Easter eggs
+        [ "$INSTALLIE1"  = "1" ] && downloadEvolt ie/32bit/1.0/Msie10.exe
+        [ "$INSTALLIE15" = "1" ] && downloadEvolt ie/32bit/1.5/IE15I386.EXE
+        [ "$INSTALLIE2"  = "1" ] && downloadEvolt ie/32bit/2.0/msie20.exe
+        [ "$INSTALLIE3"  = "1" ] && downloadEvolt ie/32bit/3.02/win95typical/msie302r.exe
+ok
+
+# IE6 Installation Process
 [ "$INSTALLIE6"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 6
 	
 	subsection $MSG_INITIALIZING
-		DIR="$DOWNLOADDIR/ie6/$IE6_LOCALE/"
+		clean_tmp
 		set_wine_prefix "$BASEDIR/ie6/"
 		rm -rf "$BASEDIR/ie6"
 
 	subsection $MSG_CREATING_PREFIX
-		wineprefixcreate &> /dev/null || {
-			wineprefixcreate
-			error $MSG_ERROR_NO_WINEPREFIXCREATE
-		}
+		create_wine_prefix
 	
 		# Discover Wine folders
 		DRIVEC=drive_c
@@ -41,20 +82,28 @@
 			ln -s "$SYSTEM32" "system"
 		fi
 
+	subsection $MSG_INSTALLING DCOM98
+		extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
+		# run_inf_file "C:\\Windows\\System32\\dcom98.inf"
+
 	subsection $MSG_EXTRACTING_CABS
+		clean_tmp
 		cd "$BASEDIR/tmp"
-		extractCABs "$DIR"/{ADVAUTH,CRLUPD,HHUPD,IEDOM,IE_EXTRA,IE_S*,SCR56EN,SETUPW95,VGX}.CAB
+		extractCABs "$DOWNLOADDIR/ie6/$IE6_LOCALE"/{ADVAUTH,CRLUPD,HHUPD,IEDOM,IE_EXTRA,IE_S*,SETUPW95,VGX}.CAB
+		extractCABs "$DOWNLOADDIR/ie6/EN-US/SCR56EN.CAB"
 		extractCABs ie_1.cab
 		rm -f *cab regsvr32.exe setup*
 
-	subsection $MSG_PROCESSING_INF
-		for i in *.inf; do
-			wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./$i &> /dev/null
-		done
-		rm *hlp
-	
+# 	subsection $MSG_PROCESSING_INF
+# 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
+# 		cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
+# 
+# 		for i in *.inf; do
+# 			subsubsection $i
+# 			run_inf_file ./$i
+# 		done
+
 	subsection $MSG_INSTALLING IE 6
-		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 		mv cscript.exe "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$COMMAND/"
 		mv wscript.exe "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"
 		
@@ -65,50 +114,69 @@
 		mkdir -p "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
 		mv vgx.cat "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
 		mv -f * "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
-	
-	subsection $MSG_INSTALLING_FONTS
-		extractCABs -F "*TTF" "$DIR"/FONT*CAB
-		mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
-
-	subsection $MSG_INSTALLING RICHED20
-		extractCABs -F ver1200.exe "$DOWNLOADDIR/249973USA8.exe"
-		extractCABs "$BASEDIR/tmp/ver1200.exe"
-		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./1200up.inf &> /dev/null
-		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
-		rm -f *
-	
-	subsection $MSG_INSTALLING ActiveX MFC40
-		extractCABs "$DOWNLOADDIR/mfc40.cab"
-		extractCABs mfc40.exe
-		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./mfc40.inf &> /dev/null
-		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
-		rm -f *
-	
-	subsection $MSG_INSTALLING DCOM98
-		extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
-		wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 ./dcom98.inf &> /dev/null
-		rm -f *
 
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/ie6.reg
-		add_registry "$IES4LINUX"/winereg/homepage.reg
+		install_home_page ie6
+		reboot_wine
+
+# 	subsection $MSG_REGISTERING_DLLS	
+# 		cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM"
+# 		for dll in *.dll; do
+# 			[ $dll = "itss.dll" ] && continue
+# 			register_dll "C:\\Windows\\System\\$dll"
+# 		done
+
+
+	subsection $MSG_INSTALLING_FONTS
+		clean_tmp
+		cd "$BASEDIR/tmp"
+		extractCABs -F "*TTF" "$DOWNLOADDIR/ie6/$IE6_LOCALE/"/FONT*CAB
+		mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
+
+	subsection $MSG_INSTALLING ActiveX MFC42
+		extractCABs "$DOWNLOADDIR/mfc42.cab"
+		extractCABs mfc42.exe
+		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
+		mv {olepro32,msvcrt,mfc42}.dll "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
+		register_dll "C:\\Windows\\System\\olepro32.dll"
+		register_dll "C:\\Windows\\System\\mfc42.dll"
+		reboot_wine
 	
 	subsection $MSG_FINALIZING
-		wineboot &> /dev/null
-		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie6 6.0
 		chmod -R u+rwx "$BASEDIR/ie6"
-		clean_tmp
 	
 	ok
 }
 
-source "$IES4LINUX/lib/flash.sh"
+# Flash Installation Process
+[ "$INSTALLFLASH" = "1" ] && {
+	section $MSG_INSTALLING_FLASH
+		clean_tmp
+		cd "$BASEDIR/tmp/"
 
+	subsection $MSG_EXTRACTING_FILES
+		extractCABs "$DOWNLOADDIR/swflash.cab"
+		FLASHOCX=$(echo $BASEDIR/tmp/*.ocx | sed -e "s/.*\///")
+	
+	subsection $MSG_INSTALLING_FLASH_ON ie6
+		cp swflash.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
+		run_inf_file ./swflash.inf
+		register_dll "C:\\Windows\\System\\Macromed\\Flash\\$FLASHOCX"
+		
+	subsection $MSG_FINALIZING
+		reboot_wine
+		
+	ok
+}
+
+# IE5.5 Installation Process
 [ "$INSTALLIE55"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 5.5
 		kill_wineserver
 		set_wine_prefix "$BASEDIR/ie55/"
+		clean_tmp
 
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie55"
@@ -124,20 +192,21 @@ source "$IES4LINUX/lib/flash.sh"
 	
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/ie55.reg
+		install_home_page ie55
 
 	subsection $MSG_FINALIZING
-		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie55 5.5
 		chmod -R u+rwx "$BASEDIR/ie55"
-		clean_tmp
 	
 	ok
 }
 
+# IE5 Installation Process
 [ "$INSTALLIE5"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 5.0
 		kill_wineserver
 		set_wine_prefix "$BASEDIR/ie5/"
+		clean_tmp
 
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie5"
@@ -153,12 +222,11 @@ source "$IES4LINUX/lib/flash.sh"
 	
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/ie5.reg
+		install_home_page ie5
 	
 	subsection $MSG_FINALIZING
-		touch "$BASEDIR/ie6/.firstrun"
 		createShortcuts ie5 5.0
 		chmod -R u+rwx "$BASEDIR/ie5"
-		clean_tmp
 
 	ok
 }
@@ -169,6 +237,7 @@ source "$IES4LINUX/lib/flash.sh"
 	section $MSG_INSTALLING IE 7 ALPHA
 		kill_wineserver
 		set_wine_prefix "$BASEDIR/ie7/"
+		clean_tmp
 
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie7"
@@ -216,13 +285,13 @@ source "$IES4LINUX/lib/flash.sh"
 
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/ie7.reg
+		install_home_page ie7
 	
 	subsection $MSG_FINALIZING
 		wineboot
 		touch "$BASEDIR/ie7/.firstrun"
 		createShortcuts ie7 7.0
 		chmod -R u+rwx "$BASEDIR/ie7"
-		clean_tmp
 
 	ok
 }
@@ -238,6 +307,7 @@ source "$IES4LINUX/lib/flash.sh"
 	subsection $MSG_CREATING_PREFIX
 		set_wine_prefix "$BASEDIR/ie1/"
 		wineprefixcreate &> /dev/null
+		clean_tmp
 
 	subsection $MSG_EXTRACTING_CABS
 		cd "$BASEDIR/tmp"
@@ -246,11 +316,11 @@ source "$IES4LINUX/lib/flash.sh"
 		
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/.ie1.reg
+		install_home_page ie1
 		
 	subsection $MSG_FINALIZING
 		createShortcuts ie1 1.0
 		chmod -R u+rwx "$BASEDIR/ie1"
-		clean_tmp
 	
 	ok
 }
@@ -262,7 +332,8 @@ source "$IES4LINUX/lib/flash.sh"
 
 	subsection $MSG_CREATING_PREFIX
 		set_wine_prefix "$BASEDIR/ie15/"
-		wineprefixcreate &> /dev/null
+		create_wine_prefix
+		clean_tmp
 
 	subsection $MSG_EXTRACTING_CABS
 		cd "$BASEDIR/tmp"
@@ -270,11 +341,11 @@ source "$IES4LINUX/lib/flash.sh"
 		
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/.ie1.reg
+		install_home_page ie15
 		
 	subsection $MSG_FINALIZING
 		createShortcuts ie15 1.5
 		chmod -R u+rwx "$BASEDIR/ie15"
-		clean_tmp
 	
 	ok
 }
@@ -286,7 +357,8 @@ source "$IES4LINUX/lib/flash.sh"
 
 	subsection $MSG_CREATING_PREFIX
 		set_wine_prefix "$BASEDIR/ie2/"
-		wineprefixcreate &> /dev/null
+		create_wine_prefix
+		clean_tmp
 
 	subsection $MSG_EXTRACTING_CABS
 		cd "$BASEDIR/tmp"
@@ -295,11 +367,16 @@ source "$IES4LINUX/lib/flash.sh"
 		
 	subsection $MSG_INSTALLING_REGISTRY
 		add_registry "$IES4LINUX"/winereg/.ie1.reg
+		install_home_page ie2
 		
 	subsection $MSG_FINALIZING
 		createShortcuts ie2 2.0
 		chmod -R u+rwx "$BASEDIR/ie2"
-		clean_tmp
 	
 	ok
 }
+
+# Post install
+kill_wineserver
+rm -rf "$BASEDIR/tmp"
+

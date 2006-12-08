@@ -1,68 +1,58 @@
-# IEs 4 Linux 2.0
-# English Strings
-
-# Translation details
 TRANSLATION_LOCALE="huHU"
-TRANSLATION_WHO="ŐRY Máté <orymate at gmail dot com>"
-TRANSLATION_LANGUAGE="magyar"
-TRANSLATION_VERSION="1.0"
 TRANSLATION_ENCODING="UTF8"
-
-# ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
-YES=i
-NO=n
-
-MSG_WELCOME_TEXT="Üdvözöljük, $(whoami)! Ez a program az IEs4Linux.\nLehetővé teszi az IE 6, 5.5 és 5.0 Gyors és könnyű telepítését.\nMár csak négy kérdést kell megválaszolnia az IE használatáig."
-MSG_WELCOME_INSTRUCTIONS="A program fel fog tenni néhány kérdést, amire igennel ($YES) vagy nemmel ($NO) válaszolhat. Az alapértelmezett minden esetben a félkövéren szedett."
-
-MSG_WELCOME_QUESTION_IE55="Az IE 6 automatikusan települni fog.\nSzeretné az IE 5.5 SP2-t is telepíteni?"
-MSG_WELCOME_QUESTION_IE5="Szeretné telepíteni az IE 5.01 SP2-t is?"
-
-MSG_LOCALES="Az IE-k a következő „locale”-k használatával telepíthetőek:"
-MSG_CHOOSE_LOCALE="Alapértelmezett: $IE6_LOCALE. Gépelje be a választott „locale”-t vagy üssön egy entert az alapértelmezett használatához."
-
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Alapértelmezésben minden a következő helyre települ: $BASEDIR_DEFAULT\nA Flash 9 beépülő telepítve lesz, és a program létrehoz munkaasztali indítóikonokat is."
-MSG_WELCOME_QUESTION_CONFIGURE="Megfelel ez önnek? (További beállításokért válaszoljon $NO-t.)"
-
-MSG_CONFIGURE_FLASH="Kerüljön telepítésre a Adobe Flash 9 beépülő?"
-MSG_CONFIGURE_SHORTCUTS="Hozzon létre a program munkaasztali indítóikonokat?"
-
-MSG_CONFIGURE_BASEDIR_MSG="Minden a következő helyre települ: $BASEDIR_DEFAULT"
-MSG_CONFIGURE_BASEDIR_QUESTION="Üssön egy entert a beállítás megtartásához vagy írja be a kívánt (abszolút) útvonalat: "
-
-MSG_CONFIGURE_BINDIR_MSG="A bináris futtatók a következő helyre települnek: $BINDIR_DEFAULT"
-MSG_CONFIGURE_BINDIR_QUESTION="Üssön egy entert a beállítás megtartásához vagy írja be a kívánt (abszolút) útvonalat: "
-
-MSG_CONFIGURE_WGET="A program wgetet használ a fájlok letöltéséhez. Ha szükség van speciális kapcsolókra, (proxy, …), itt megadhatóak: "
-
-MSG_START="A telepítés megkezdése…"
-
-# Sections
+MSG_LANGUAGE="Magyar"
 MSG_DOWNLOADING="A szükséges fájlok letöltése…"
 MSG_INSTALLING="Telepítés…"
 MSG_INSTALLING_FLASH="A Flash Player 9 telepítése…"
-
-# Subsections
+MSG_INSTALLATION_OPTIONS="Az IEs4Linux a következőket fogja tenni:"
+MSG_OPTION_INSTALL_IES="Internet Explorer-ek telepítése:"
+MSG_OPTION_INSTALL_FLASH="Adobe Flash 9.0 telepítése"
+MSG_OPTION_CREATE_ICONS="Ikon létrehozása az asztalra"
+MSG_OPTION_BASEDIR="Minden telepítése ide:"
+MSG_OPTION_DOWNLOADDIR="Letöltések ide:"
+MSG_OPTION_LOCALE="IE nyelv használata:"
 MSG_INITIALIZING="A telepítés előkészítése"
 MSG_CREATING_PREFIX="Wine előtagok létrehozása"
 MSG_EXTRACTING_CABS="CAB fájlok kibontása"
 MSG_INSTALLING_FONTS="TTF betűkészletek telepítése"
-MSG_INSTALLING_REGISTRY="Registry telepítése"
+MSG_INSTALLING_REGISTRY="Registrációs adatbázis telepítése"
 MSG_FINALIZING="Telepítés befejezése"
 MSG_COPYING_IE6="ie6 telepítés másolása"
 MSG_EXTRACTING_FILES="Fájlok kicsomagolása"
 MSG_PROCESSING_INF="Inf fájl feldolgozása"
 MSG_PERFORM_INSTALLATIONS="Telepítések végrehajtása"
 MSG_INSTALLING_FLASH_ON="Flash telepítése"
-
-# Errors
 MSG_ERROR_INSTALL_WINE="A telepítés előtt fel kell telepíteni a wine-t. \nLetölthető a http://www.winehq.org webhelyről."
-MSG_ERROR_INSTALL_CABEXTRACT="A telepítés előtt fel kell telepíteni a cabextractet. \nLetölthető a http://www.kyz.uklinux.net/cabextract.php webhelyről."
-MSG_ERROR_UPDATE_CABEXTRACT="A telepítés előtt frissíteni kell a cabextractet. \nLetölthető a http://www.kyz.uklinux.net/cabextract.php webhelyről."
+MSG_ERROR_INSTALL_CABEXTRACT="A telepítés előtt fel kell telepíteni a cabextract programot. \nLetölthető a http://www.kyz.uklinux.net/cabextract.php webhelyről."
+MSG_ERROR_UPDATE_CABEXTRACT="A telepítés előtt frissíteni kell a cabextract programot. \nLetölthető a http://www.kyz.uklinux.net/cabextract.php webhelyről."
 MSG_ERROR_INVALIDLOCALE="Érvénytelen „locale”! Futtassa újra az IEs4Linux-ot és válasszon egy érvényeset."
 MSG_WARNING_ROOT="Ne használja az IE-t rendszergazda felhasználóként, mert ez hatalmas biztonsági kockázatot jelent. Megfontolandó még egy különálló felhasználó használata is az IE futtatásához."
-
-# Post Install messages
+MSG_ERROR_INSTALL_WGET="A telepítés előtt telepítenie kell a 'wget' programot!"
+MSG_ERROR_INSTALL_UNZIP="A telepítés előtt telepítenie kell az 'unzip' programot!"
+MSG_WARNING_OLDWINE="Az IEs4Linux 2 a Wine legfrisebb verzióit (0.9.x) szeretné használni. Úgy tűnik, Ön egy régebbi verziót használ ($(wine --version)). Ajánlott a wine-t frissíteni a legújabbra (menjen a winehq.com webhelyre)."
+MSG_ERROR_NO_WINEPREFIXCREATE="Az Ön wine verziójában nincs telepítve a wineprefixcreate program. Lehet, hogy túl régi wine-t futtat. Próbálja meg frissíteni a legújabbra."
+MSG_ERROR_CABEXTRACTING="Hiba történt bizonyos CAB fájlok kicsomagolásakor"
+MSG_ERROR_CREATE_FOLDER="Nem lehet könyvtárat létrehozni"
+MSG_ERROR_DOWNLOADING="Hiba történt a letöltés közben. Kérem, futtassa újra az IEs4Linux-ot. A sérült fájl:"
+MSG_ERROR_NO_GUI_AVAILABLE="Nincs elérhető felhasználói felület. Használja a parancssoros ies4linux programot vagy telepítse a pygtk-t. Részletek: http://www.tatanka.com.br/ies4linux/page/No_GUI"
 MSG_INSTALLATIONS_FINISHED="Az IEs 4 Linux telepítése befejeződött."
 MSG_RUN_IES="Az IE-k futtatásához a következő parancsokat használhatja:"
-MSG_NEEDS_TRANSLATION="Ha van 5 perce, segítsen a program szerzőjének az IEs4Linux lefordításában az ön nyelvére.\nTovábbi információ: http://tatanka.com.br/ies4linux/forum/viewtopic.php?p=2"
+GUI_TITLE="Internet Explorer-ek Linuxhoz"
+GUI_INSTALLATION_OPTIONS="Telepítési beállítások"
+GUI_IE="Internet Explorer"
+GUI_EXTRA="Extra"
+GUI_INSTALL_IE6="Internet Explorer 6.0 SP1 telepítése"
+GUI_INSTALL_IE55="Internet Explorer 5.5 telepítése"
+GUI_INSTALL_IE5="Internet Explorer 5.01 telepítése"
+GUI_INSTALL_FLASH="Adobe Flash player 9 telepítése"
+GUI_CREATE_ICONS="Asztal ikonok létrehozása"
+GUI_LOCALE="Nyelv"
+GUI_ADVANCED_OPTIONS="Haladó beállítások"
+GUI_ADVANCED_BASEDIR="Alapkönyvtár"
+GUI_ADVANCED_BINDIR="Binárisok könyvtára"
+GUI_ADVANCED_DOWNLOADDIR="Letöltési könyvtár"
+GUI_ADVANCED_WGETFLAGS="Wget opciók"
+GUI_CANCEL_INSTALL="A telepítést a felhasználó megszakította"
+GUI_OK="Ok"
+GUI_CANCEL="Mégsem"
+GUI_CLOSE="Bezárás"

@@ -3,6 +3,7 @@ http://www.tatanka.com.br/ies4linux
 
 COPYRIGHT AND LICENSE
 =====================
+
 This software was written by me, Sergio Lopes <slopes at gmail>.
 Many people helped with patches, suggestions and tests.
 
@@ -10,24 +11,39 @@ This is distributed under the GNU GPL. See LICENSE for the license terms.
 
 USAGE
 =====
-Just execute the program ies4linux inside this folder and follow the instructions.
-To do this, open a terminal, cd to this folder and type:
-./ies4linux
+
+1) Graphical user interface
+
+   Just double-click the 'installer' executable or run it on a terminal
+   ./installer
+
+   Currently, GUI is only available on pygtk.
+
+2) Command-line utility
+
+   Run ./ies4linux on a terminal. To see possible options, run
+   ./ies4linux --help
 
 DEPENDENCIES
 ============
-You will need both Wine and cabextract. Homepages:
-http://www.winehq.com
-http://www.kyz.uklinux.net/cabextract.php
 
-ADVANCED USAGE
-==============
-Run ./ies4linux --help
+You will need both Wine and cabextract. Homepages:
+   http://www.winehq.com
+   http://www.kyz.uklinux.net/cabextract.php
+
 
 MORE INFORMATION
 ================
+
 Read the official Web page: http://www.tatanka.com.br/ies4linux/
 And the official forum: http://www.tatanka.com.br/ies4linux/forum/
+And also the official blog: http://www.tatanka.com.br/ies4linux/news/
+
+CHANGELOG
+=========
+
+There is always a partial changelog on our blog at:
+http://www.tatanka.com.br/ies4linux/news/
 
 +++
 Thanks for using this software!
