@@ -3,7 +3,7 @@
 
 import pygtk
 pygtk.require('2.0')
-import gtk, gobject, pango
+import gtk, gobject, pango, sys
 
 class GTKgui:
 		
@@ -168,12 +168,6 @@ class GTKgui:
 		# Tags
 		self.normal_tag = self.textbuffer.create_tag(font="Monospace")
 	
-		#tag = gtk.TextBuffer.create_tag('aligned')
-		#tag.set_property("font", "Courier")
-		#tag.set_property("foreground", "red")
-		#tag.set_property("size-points", 12)
-		#tag.set_property("weight", 400)
-		
 		self.section_tag = self.textbuffer.create_tag(weight=pango.WEIGHT_BOLD)
 		self.ok_tag = self.textbuffer.create_tag(weight=pango.WEIGHT_BOLD, foreground='Blue')
 		self.error_tag = self.textbuffer.create_tag(weight=pango.WEIGHT_BOLD, foreground='Red')
@@ -195,7 +189,7 @@ class GTKgui:
 		button.show()
 		
 	def get_command(self):
-		command = []
+		command = ["--no-color"]
 		for option in self.installationOptions:
 			if option.get_active() != option.defaultValue:
 				command.append(option.commandLineOption)
@@ -221,8 +215,6 @@ class GTKgui:
 			tag = self.error_tag
 			line = line[2:]
 				
-		gtk.gdk.threads_enter()
-		
 		# Delete last line if it is \r
 		if self.remove_next_line and line != '\n':
 			it = self.textbuffer.get_iter_at_line(self.textbuffer.get_line_count()-2)
@@ -232,8 +224,6 @@ class GTKgui:
 		# Insert text and relocate scroll
 		self.textbuffer.insert_with_tags(self.textbuffer.get_end_iter(), line, tag)
 		self.textview.scroll_to_iter(self.textbuffer.get_end_iter(), 0)
-		
-		gtk.gdk.threads_leave()
 		
 		if line[-1] == '\r': self.remove_next_line = True
 		
@@ -245,10 +235,9 @@ class GTKgui:
 	
 	def callback_cancel_button(self, widget, function=None):
 		if function != None: function()
-		gtk.gdk.threads_enter()
 		gtk.main_quit()
-		gtk.gdk.threads_leave()
 
 	def callback_abort_installation(self, widget, function=None):
 		if function != None: function()
 		gtk.main_quit()
+		

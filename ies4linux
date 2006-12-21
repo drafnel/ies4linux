@@ -101,7 +101,7 @@ Other options:
 
 Beta options:
 
---beta--install-ie7    Install Internet Explorer 7 (BETA INSTALLER!)
+--beta-install-ie7    Install Internet Explorer 7 (BETA INSTALLER!)
 
 __END_HELP__
 			exit 0

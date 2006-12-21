@@ -5,13 +5,14 @@ from subprocess import *
 class IEs4Linux:
 	def __init__(self, gui):
 		self.gui = gui
+		self.process_interrupted = False
 		
 	def main(self):
 		self.gui.create_window(title=os.getenv("GUI_TITLE"), logo="lib/ies4linux.svg")
 		self.gui.create_install_tab(title=os.getenv('GUI_INSTALLATION_OPTIONS'))
 		self.gui.create_advanced_tab(title=os.getenv('GUI_ADVANCED_OPTIONS'))
 		self.gui.add_ok_button(os.getenv('GUI_OK'), self.install_callback)
-		self.gui.add_cancel_button(os.getenv('GUI_CANCEL'))
+		self.gui.add_cancel_button(os.getenv('GUI_CANCEL'),self.cancel_callback)
 		
 		# Installation options
 		#self.gui.new_install_option_frame(os.getenv("GUI_IE"))
@@ -26,10 +27,10 @@ class IEs4Linux:
 		self.gui.add_install_option(os.getenv("GUI_CREATE_ICONS"),  "--no-icon",  True)
 		
 		# Advanced options
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BASEDIR"),     "--basedir",     os.getenv("HOME") + "/.ies4linux")
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BINDIR"),      "--bindir",      os.getenv("HOME") + "/bin")
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_DOWNLOADDIR"), "--downloaddir", os.getenv("HOME") + "/.ies4linux/downloads")
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_WGETFLAGS"),   "--wget-flags",   "--continue")
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BASEDIR"),     "--basedir",     os.getenv("BASEDIR"))
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BINDIR"),      "--bindir",      os.getenv("BINDIR"))
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_DOWNLOADDIR"), "--downloaddir", os.getenv("DOWNLOADDIR"))
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_WGETFLAGS"),   "--wget-flags",  os.getenv("WGETFLAGS"))
 		
 		self.gui.show()
 		
@@ -55,26 +56,32 @@ class IEs4Linux:
 			
 			if char == '':
 				self.process_finished = True
+				
+		if self.process_interrupted:
+			sys.exit(1)
 		
 		self.gui.installation_insert_text(line + '\n')
 		self.gui.add_close_button()
 		
+	def cancel_callback(self):
+		sys.exit(1)
+		
 	def abort_installation_callback(self):
 		if hasattr(self, 'process') and self.process.poll() == None:
 			self.process_finished = True
+			self.process_interrupted = True
 			os.kill(self.process.pid, 9)
 			print os.getenv('GUI_CANCEL_INSTALL')
+		sys.exit(1)
 		
 if __name__ == "__main__":
 	# In the near future we will have a QT version too
 	
 	if sys.argv[1] == 'gtk':
 		gui = GTKgui()
-	elif sys.argv[1] == 'qt':
-		gui = QTgui()
 		
 	i = IEs4Linux(gui)
-	i.command = ["./ies4linux", "--no-color"]
+	i.command = ["./ies4linux"]
 	i.command.extend(sys.argv[2:])
 	
 	i.main()

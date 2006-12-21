@@ -1,48 +1,16 @@
-# IEs 4 Linux 2.0
-# Bulgarian Strings
-
-# Translation details
 TRANSLATION_LOCALE="bgBG"
-TRANSLATION_WHO="Momchil Kinov <momchilk at gmail dot com>"
-TRANSLATION_LANGUAGE="Bulgarian"
-TRANSLATION_VERSION="1.0"
 TRANSLATION_ENCODING="UTF8"
-
-# ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
-YES=y
-NO=n
-
-MSG_WELCOME_TEXT="Здравейте, $(whoami)! Аз съм IEs4Linux.\nМога да инсталирам за Вас бързо и лесно IE 6, 5.5 и 5.0.\nВие сте само на четири 'enter-а от Вашите IE-та."
-MSG_WELCOME_INSTRUCTIONS="Ще Ви задам няколко въпроса. Моля отговорете с $YES или $NO (отговорът по подразбиране е удебелен)"
-
-MSG_WELCOME_QUESTION_IE55="IE 6 ще бъде инсталиран автоматично.\nЖелаете ли да инсталирам и 5.5 SP2?"
-MSG_WELCOME_QUESTION_IE5="А желаете ли да инсталирам IE 5.01 SP2?"
-
-MSG_LOCALES="IEs могат да бъдат инсталирани използвайки една от следните локализации:"
-MSG_CHOOSE_LOCALE="По подразбиране е $IE6_LOCALE. Натиснете Enter за да потвърдите или изберете друга локализация: "
-
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="По подразбиране ще инсталирам всичко в $BASEDIR_DEFAULT\nСъщо така ще инсталирам и Flash 9 приставка и ще създам икони на работния плот."
-MSG_WELCOME_QUESTION_CONFIGURE="Приемате ли настройките? (За да използвате разширените настройки напишете $NO)"
-
-MSG_CONFIGURE_FLASH="Да инсталирам ли Macromedia Flash 9 приставка?"
-MSG_CONFIGURE_SHORTCUTS="А икони на работния плот? Да ги създам ли?"
-
-MSG_CONFIGURE_BASEDIR_MSG="Всичко ще бъде инсталироно в $BASEDIR_DEFAULT"
-MSG_CONFIGURE_BASEDIR_QUESTION="Натиснете Еnter ако приемате или напишете нова папка: "
-
-MSG_CONFIGURE_BINDIR_MSG="Изпълнимите файлове ще бъдат инсталирани в $BINDIR_DEFAULT"
-MSG_CONFIGURE_BINDIR_QUESTION="Натиснете Еnter ако приемате или напишете нова папка: "
-
-MSG_CONFIGURE_WGET="Ще използвам wget за изтегляне на файловете. Ако се нуждате от специални параметри (proxy,...), напишете ги сега: "
-
-MSG_START="Добре! Хайде да стартираме инсталациите..."
-
-# Sections
+MSG_LANGUAGE="Английски"
 MSG_DOWNLOADING="Изтегляне на всичко необходимо"
 MSG_INSTALLING="Инсталиране"
 MSG_INSTALLING_FLASH="Инсталиране на Flash Player 9"
-
-# Subsections
+MSG_INSTALLATION_OPTIONS="IEs4Linux ще"
+MSG_OPTION_INSTALL_IES="Инсталира версии на Интернет Експлорър"
+MSG_OPTION_INSTALL_FLASH="Инсталира Adobe Flash 9.0"
+MSG_OPTION_CREATE_ICONS="Създаде десктоп икони"
+MSG_OPTION_BASEDIR="Инсталира всичко в "
+MSG_OPTION_DOWNLOADDIR="Изтегли всичко в"
+MSG_OPTION_LOCALE=""
 MSG_INITIALIZING="Инициализация"
 MSG_CREATING_PREFIX="Създаване на Wine Prefix"
 MSG_EXTRACTING_CABS="Разархивиране на CAB файлове"
@@ -54,15 +22,37 @@ MSG_EXTRACTING_FILES="Разархивиране на файловете"
 MSG_PROCESSING_INF="Обработвам inf файлове"
 MSG_PERFORM_INSTALLATIONS="Извършвам инсталациите"
 MSG_INSTALLING_FLASH_ON="Инсталирам flash"
-
-# Errors
 MSG_ERROR_INSTALL_WINE="Необходимо е да инсталирате wine! \nИзтеглете го от тук: http://www.winehq.org"
 MSG_ERROR_INSTALL_CABEXTRACT="Необходимо е да инсталирате cabextract! \nИзтеглете го от тук: http://www.kyz.uklinux.net/cabextract.php"
 MSG_ERROR_UPDATE_CABEXTRACT="Необходимо е да обновите cabextract! \nИзтеглете го от тук: http://www.kyz.uklinux.net/cabextract.php"
 MSG_ERROR_INVALIDLOCALE="Невалидна локализация! Моля стартирайте отново IEs4Linux и изберете валидна локализация."
 MSG_WARNING_ROOT="Вие сте root! Това е силно непрепоръчително! IE е твърде несигурен, за да го използвате с правата на root.\nЕдин съвет от приятел - стартирайте ме като обикновен потребител или още по-добре, ако имате възможност, създайте отделен потребител, с който да използвате Вашите IE-та."
-
-# Post Install messages
+MSG_ERROR_INSTALL_WGET="Необходимо е да инсталирате wget!"
+MSG_ERROR_INSTALL_UNZIP="Необходимо е да инсталирате unzip!"
+MSG_WARNING_OLDWINE=""
+MSG_ERROR_NO_WINEPREFIXCREATE=""
+MSG_ERROR_CABEXTRACTING="Възникна грешка при опит за разархивиране на някои файлове."
+MSG_ERROR_CREATE_FOLDER="Не може да бъде създадена папка"
+MSG_ERROR_DOWNLOADING="Възникна грешка при изтеглянето. Моля, стартирайте IEs4Linux отново. Повреден файл:"
+MSG_ERROR_NO_GUI_AVAILABLE=""
 MSG_INSTALLATIONS_FINISHED="Инсталацията на IEs 4 Linux завърши!"
 MSG_RUN_IES="За да стартирате Вашите IE-та, напишете:"
-MSG_NEEDS_TRANSLATION="Ако имате свободни 5 минути, моля помогнете ми в превода на IEs4Linux на Вашия език.\nПосетете: http://tatanka.com.br/ies4linux/forum/viewtopic.php?p=2" 
+GUI_TITLE="Интернет Експлорър за Линукс"
+GUI_INSTALLATION_OPTIONS=""
+GUI_IE="Интернет Експлорър"
+GUI_EXTRA=""
+GUI_INSTALL_IE6="Инсталиране на Интернет Експлорър 6.0 SP1"
+GUI_INSTALL_IE55="Инсталиране на Интернет Експлорър 5.5"
+GUI_INSTALL_IE5="Инсталиране на Интернет Експлорър 5.01"
+GUI_INSTALL_FLASH="Инсталиране на Adobe Flash player 9"
+GUI_CREATE_ICONS=""
+GUI_LOCALE=""
+GUI_ADVANCED_OPTIONS=""
+GUI_ADVANCED_BASEDIR="Основна директория"
+GUI_ADVANCED_BINDIR="Bin директория"
+GUI_ADVANCED_DOWNLOADDIR="Директория за изтегляне"
+GUI_ADVANCED_WGETFLAGS=""
+GUI_CANCEL_INSTALL="Инсталацията е прекъсната от потребителя"
+GUI_OK="ОК"
+GUI_CANCEL=""
+GUI_CLOSE="Затвори"

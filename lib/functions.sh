@@ -20,6 +20,14 @@ initVariables(){
 	export MESSAGE_FILE=enUS
 }
 
+# Create a temporary folder at /tmp
+initTempFolder(){
+	#IES4LINUX_TEMP="/tmp/ies4linux-$(whoami)"
+	IES4LINUX_TEMP="$IES4LINUX/tmp/"
+	mkdir -p "$IES4LINUX_TEMP"
+	export IES4LINUX_TEMP
+}
+
 # Determine locale and languages
 # We have two methods: $LANG and $(locale)
 initLanguage(){
@@ -51,7 +59,7 @@ initLanguage(){
 
 	debug Loading $MESSAGE_FILE with iconv
 	local enc=$TRANSLATION_ENCODING
-	eval $(iconv -f $enc "$MESSAGE_FILE" 2>/dev/null| grep -v -e "^#" -e "^[[:space:]]*$" | sed -e 's/^/export /g;s/$/;/g')2>/dev/null
+	eval $(iconv -f $enc "$MESSAGE_FILE" 2>/dev/null | grep -v -e "^#" -e "^[[:space:]]*$" | sed -e 's/^/export /g;s/$/;/g')
 
 }
 
@@ -86,7 +94,8 @@ download() {
 		pid=$(wget -q -b -o /dev/null -t 2 -c $URL $WGETFLAGS -O "$DOWNLOADDIR/$DIR$FILENAME" | sed -e 's/[^0-9]//g')
 		while ps --pid $pid &> /dev/null; do
 			if [ "$correctsize" != "" ];then
-				percent=$(( 100 * $(du -b "$DOWNLOADDIR/$DIR$FILENAME"| awk '{print $1}') / $correctsize ))%
+				du=$(ls -laF --block-size=1 "$DOWNLOADDIR/$DIR$FILENAME"| awk '{print $5}')
+				percent=$(( 100 * $du / $correctsize ))%
 			else
 				percent=-
 			fi
@@ -98,7 +107,7 @@ download() {
 	echo
 
 	# Check file size and md5
-	size=$(du -b "$DOWNLOADDIR/$DIR$FILENAME"| awk '{print $1}')
+	size=$(ls -laF --block-size=1 "$DOWNLOADDIR/$DIR$FILENAME"| awk '{print $5}')
 	md5=$(getMD5 "$DOWNLOADDIR/$DIR$FILENAME")
 	debug ${DIR}${FILENAME}: size $size md5 $md5
 
@@ -315,7 +324,7 @@ get_start_page(){
 # $1 IE Version
 run_ie(){
 	cd
-	if which ie$1 | grep -q "$BINDIR/ie$1"; then
+	if which ie$1 | grep -q "$BINDIR/ie$1" 2> /dev/null; then
 		echo " ie$1"
 	else
 		local l=$BINDIR/ie$1

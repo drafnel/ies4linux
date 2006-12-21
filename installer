@@ -19,44 +19,32 @@ initLanguage
 COMMAND_LINE_OPTIONS=$@
 
 # possible UIs
-function runUI(){
-	debug Using $1 GUI
-	python "$IES4LINUX"/ui/ies4linux.py $1 $COMMAND_LINE_OPTIONS
+function runPyGTK(){
+	debug Using pygtk GUI
+	python "$IES4LINUX"/ui/ies4linux.py gtk $COMMAND_LINE_OPTIONS
+}
+
+function runKommander(){
+	debug Using kommander gui
+	source "$IES4LINUX"/ui/kommander.sh $COMMAND_LINE_OPTIONS
 }
 
 # Decide what UI to run
-if python -c ""; then
-	
-	# detection based on easyubuntu detect.py#de()	
+haspygtk=$(python -c "import pygtk; pygtk.require('2.0'); import gtk" &> /dev/null; echo $?)
+haskmdr=$(kmdr-executor -v &> /dev/null; echo $?)
 
-	hasgtk=$(python -c "import pygtk; pygtk.require('2.0'); import gtk" &> /dev/null; echo $?)
-	hasqt=$(python -c "import qt" &> /dev/null; echo $?)
-
-	if [ "$hasgtk" = "0" ]; then
-		runUI gtk
-
-#	For the near future
-# 	if [ "$hasgtk" = "0" ] && [ "$hasqt" = "0" ]; then
-# 		if  [ "$KDE_FULL_SESSION" = "true" ]; then
-# 			runUI qt
-# 		else
-# 			runUI gtk
-# 		fi
-# 	elif [ "$hasgtk" = "0" ]; then
-# 		runUI gtk
-# 	elif [ "$hasqt" = "0" ]; then
-# 		runUI qt
-
+if [ "$haspygtk" = "0" ] && [ "$haskmdr" = "0" ]; then
+	if  [ "$KDE_FULL_SESSION" = "true" ]; then
+		runKommander
 	else
-		debug Could not find python
-		warning $MSG_NO_GUI_AVAILABLE
-	
-		"$IES4LINUX"/ies4linux --help
+		runPyGTK
 	fi
-
-else # no python
-	debug Could not find python
-	warning $MSG_ERROR_NO_GUI_AVAILABLE
-
+elif [ "$haspygtk" = "0" ]; then
+	runPyGTK
+elif [ "$haskmdr" = "0" ]; then
+	runKommander
+else
+	warning $MSG_NO_GUI_AVAILABLE
 	"$IES4LINUX"/ies4linux --help
 fi
+

@@ -257,7 +257,7 @@ ok
 		cp mshtml.dll mshtml.tlb mshtmled.dll mshtmler.dll inetcpl.cpl "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
 		cp ieapfltr.dll mstime.dll ieencode.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
 
-		cp dxtmsft.dll dxtrans.dll pngfilt.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
+		cp dxtmsft.dll dxtrans.dll pngfilt.dll  ieframe.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
 		cp ieproxy.dll ieui.dll jsproxy.dll vgx.dll imgutil.dll "$BASEDIR/ie7/$DRIVEC/$WINDOWS/$SYSTEM"
 		
 		register_dll "C:\\Windows\\System\\mshtml.dll"
