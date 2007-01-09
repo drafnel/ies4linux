@@ -1,22 +1,20 @@
 # Dynamically generates a kmdr file to install IEs4Linux
 
 # Temporary generated file
-initTempFolder
-kmdr_installer="$IES4LINUX_TEMP"/installer.kmdr
+mkdir -p "$HOME/.ies4linux/tmp"
+kmdr_installer="$HOME/.ies4linux/tmp/kommander.kmdr"
 echo "" > "$kmdr_installer"
 
 # Function to calculate next Installation option position
 # TODO make a better function :-)
-echo "10" > "$IES4LINUX_TEMP"/installation_option_y
+installation_option_y_file="$(tempfile)"
+echo "10" > "$installation_option_y_file"
 function next_position_y() {
-	local file="$IES4LINUX_TEMP"/installation_option_y
-	local installation_option_y=$(cat "$file" 2> /dev/null)
-
-	echo -n $((installation_option_y + 30)) > "$file"
+	local installation_option_y=$(cat "$installation_option_y_file" 2> /dev/null)
+	echo -n $((installation_option_y + 30)) > "$installation_option_y_file"
 	echo -n $installation_option_y
 	export installation_option_y
 }
-
 
 # Generate file
 cat << __END_KMDR__ >> "$kmdr_installer"
@@ -99,6 +97,7 @@ cat << __END_KMDR__ >> "$kmdr_installer"
                 </rect></property>
                 <property name="text"><string>${GUI_INSTALL_IE6}</string></property>
                 <property name="checked"><bool>true</bool></property>
+		<property name="enabled"><bool>false</bool></property>
             </widget>
 
             <widget class="CheckBox">
@@ -257,29 +256,28 @@ cat << __END_KMDR__ >> "$kmdr_installer"
 			@setGlobal(command, "--install-ie6")
 
 			@if (@install_ie55.checked)
-				@setGlobal(command, @global(command) --install-ie55)
+				echo export INSTALLIE55=1
 			@endif
 			
 			@if (@install_ie5.checked)
-				@setGlobal(command, @global(command) --install-ie5)
+				echo export INSTALLIE5=1
 			@endif
 
 			@if (!@install_flash.checked)
-				@setGlobal(command, @global(command) --no-flash)
+				echo export INSTALLFLASH=0
 			@endif
 
 			@if (!@create_icons.checked)
-				@setGlobal(command, @global(command) --no-icon)
+				echo export CREATE_ICON=0
 			@endif
 
-			@setGlobal(command, @global(command) --locale @locale.text)
+			echo export IE6_LOCALE=@locale.text
 	
-			echo SIMPLEOPTIONS=\"@global(command)\"
-			echo BASEDIR=\"@basedir.text\"
-			echo BINDIR=\"@bindir.text\"
-			echo DOWNLOADDIR=\"@downloaddir.text\"
-			echo WGETFLAGS=\"@wgetflags.text\"
-			echo CANCELLED=false
+			echo export BASEDIR=\"@basedir.text\"
+			echo export BINDIR=\"@bindir.text\"
+			echo export DOWNLOADDIR=\"@downloaddir.text\"
+			echo export WGETFLAGS=\"@wgetflags.text\"
+			echo export CANCELLED=false
 
 		</string></stringlist></property>
         	<property name="accel"><number>4101</number></property>
@@ -298,7 +296,7 @@ cat << __END_KMDR__ >> "$kmdr_installer"
 		<property name="text"><string>${GUI_CANCEL}</string></property>
 		<property name="accel"><number>4096</number></property>
 		<property name="associations" stdset="0"><stringlist><string>
-			echo CANCELLED=true
+			echo export CANCELLED=true
 		</string></stringlist></property>
 	</widget>
 
@@ -308,10 +306,10 @@ cat << __END_KMDR__ >> "$kmdr_installer"
 </UI>
 __END_KMDR__
 
-# Show installation options
+rm "$installation_option_y_file"
 
-kmdr-executor "$kmdr_installer" --icon "$IES4LINUX/lib/ies4linux.svg" > "$IES4LINUX_TEMP"/result
-source "$IES4LINUX_TEMP"/result
+eval $(kmdr-executor --icon "$IES4LINUX/lib/ies4linux.svg" "$kmdr_installer")
+rm "$kmdr_installer"
 
 if [ "$CANCELLED" != "false" ]; then
 	echo $GUI_CANCEL_INSTALL
@@ -319,6 +317,5 @@ if [ "$CANCELLED" != "false" ]; then
 fi
 
 # Execute command on Konsole
-konsole -T "${GUI_TITLE}" --nomenubar --notabbar --noclose --schema BlackOnWhite --icon "$IES4LINUX/lib/ies4linux.svg" --vt_sz 60x30 -e "$IES4LINUX/ies4linux" $SIMPLEOPTIONS --basedir "$BASEDIR" --bindir "$BINDIR" --downloaddir "$DOWNLOADDIR" --wget-flags "$WGETFLAGS" $@
+konsole -T "${GUI_TITLE}" --nomenubar --notabbar --noclose --schema BlackOnWhite --icon "$IES4LINUX/lib/ies4linux.svg" --vt_sz 60x30 -e "$IES4LINUX/lib/install.sh"
 
-rm -rf "$IES4LINUX_TEMP"

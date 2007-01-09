@@ -3,7 +3,7 @@
 
 import pygtk
 pygtk.require('2.0')
-import gtk, gobject, pango, sys
+import gtk, gobject, pango, sys, os
 
 class GTKgui:
 		
@@ -82,7 +82,7 @@ class GTKgui:
 		separator = gtk.HSeparator()
 		self.installContainer.pack_start(separator, False, True, 8)
 		
-	def add_install_option(self, msg, option, toggled, changeable=True):
+	def add_install_option(self, msg, variable, toggled, changeable=True):
 		container = self.installContainer
 		
 		checkButton = gtk.CheckButton(msg, container)
@@ -93,12 +93,12 @@ class GTKgui:
 		if not changeable:
 			checkButton.connect('toggled', lambda w: w.set_active(toggled))
 
-		checkButton.commandLineOption = option
+		checkButton.env_variable = variable
 
 		container.pack_start(checkButton, True, True, 0)
 		self.installationOptions.append(checkButton)
 		
-	def add_language_select(self, title, locales, default, option):
+	def add_language_select(self, title, locales, default, variable):
 		container = self.installContainer
 		
 		locales = locales.split(' ')
@@ -119,7 +119,7 @@ class GTKgui:
 		
 		container.pack_start(box)
 		self.locales = combo
-		self.locales.option = option
+		self.locales.env_variable = variable
 		
 	def add_advanced_option(self, msg, variable, default):
 		self.advancedTable.resize(len(self.advancedOptions) + 1, 2)
@@ -132,7 +132,7 @@ class GTKgui:
 		self.advancedTable.attach(label, 0, 1, i, i+1)
 		self.advancedTable.attach(entry, 1, 2, i, i+1)
 
-		entry.variable = variable
+		entry.env_variable = variable
 		self.advancedOptions.append(entry)
 
 	def show(self):
@@ -188,20 +188,17 @@ class GTKgui:
 		self.loggerVbox.pack_start(button, False, False)
 		button.show()
 		
-	def get_command(self):
-		command = ["--no-color"]
+	def update_environment(self):
 		for option in self.installationOptions:
-			if option.get_active() != option.defaultValue:
-				command.append(option.commandLineOption)
+			if option.get_active() == True:
+				os.putenv(option.env_variable, '1')
+			else:
+				os.putenv(option.env_variable, '0')
 				
 		for option in self.advancedOptions:
-			command.append(option.variable)
-			command.append(option.get_text())
+			os.putenv(option.env_variable, option.get_text())
 		
-		command.append(self.locales.option)
-		command.append(self.get_selected_locale())
-		
-		return command
+		os.putenv(self.locales.env_variable, self.get_selected_locale())
 		
 	def installation_insert_text(self, line):
 		# What tag to use

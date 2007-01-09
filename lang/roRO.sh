@@ -1,73 +1,58 @@
-# IEs 4 Linux 2.0
-# English Strings
-
-# Translation details
 TRANSLATION_LOCALE="roRO"
-TRANSLATION_WHO="Arion George  <geo dot arion at gmail dot com>"
-TRANSLATION_LANGUAGE="Romana"
-TRANSLATION_VERSION="1.0"
 TRANSLATION_ENCODING="UTF8"
-
-# ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
-YES=d
-NO=n
-
-MSG_WELCOME_TEXT="Bunvenit, $(whoami)! Sunt IEs4Linux.\nPot sa instalez pentru tine IE 6, 5.5 si 5.0 usor si repede.\nEsti la distanta de doar patru 'enter'-uri de IE-uri."
-MSG_WELCOME_INSTRUCTIONS="Iti voi pune niste intrebari acum. Raspunde doar $YES sau $NO (raspunsul implicit este cel ingrosat)"
-
-MSG_WELCOME_QUESTION_IE55="IE 6 va fi instalat automat.\nVreiti sa instalati si IE 5.5 SP2 ?"
-MSG_WELCOME_QUESTION_IE5="Si vreti sa instalati si IE 5.01 SP2?"
-
-MSG_LOCALES="IE-urile pot fi instalate folosind una din urmatoarele limbi :"
-MSG_CHOOSE_LOCALE="Implicita este $IE6_LOCALE. Apasa enter pentru a o pastra, sau alege alta : "
-
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Implicit, voi instala totul in $BASEDIR_DEFAULT\nVoi instala deasemenea plugin-ul Flash 9 si voi crea scurtaturi pe Desktop."
-MSG_WELCOME_QUESTION_CONFIGURE="Esti de acord cu asta ? (Pentru a configura optiunile avansate tasteaza $NO)"
-
-MSG_CONFIGURE_FLASH="Sa instalez si plugin-ul Adobe Flash 9 ?"
-MSG_CONFIGURE_SHORTCUTS="Si pot sa creez pictograme pe Desktop ?"
-
-MSG_CONFIGURE_BASEDIR_MSG="Totul va fi instalat la $BASEDIR_DEFAULT"
-MSG_CONFIGURE_BASEDIR_QUESTION="Apasati enter pentru a pastra setarea sau tastati noua cale (calea absoluta): "
-
-MSG_CONFIGURE_BINDIR_MSG="'Binary launchers' vor fi create la $BINDIR_DEFAULT"
-MSG_CONFIGURE_BINDIR_QUESTION="Apasati enter pentru a pastra setarea sau tastati noua cale: "
-
-MSG_CONFIGURE_WGET="Vom folosi use wget pentru a downloada fisierele. Daca aveti nevoie de anumite flag-uri (proxy,...), tastati-le acum: "
-
-MSG_START="Ok! Sa incepem instalarile..."
-
-# Sections
-MSG_DOWNLOADING="Se downloadeaza fisierele necesare..."
-MSG_INSTALLING="Se instaleaza"
-MSG_INSTALLING_FLASH="Se instaleaza Flash Player 9"
-
-# Subsections
-MSG_INITIALIZING="Se initializeaza"
-MSG_CREATING_PREFIX="Se creaza Wine Prefix"
-MSG_EXTRACTING_CABS="Se extrag fisiere .CAB "
-MSG_INSTALLING_FONTS="Se instaleaza fonturi TTF"
-MSG_INSTALLING_REGISTRY="Installing registry"
-MSG_FINALIZING="Se finalizeaza"
-MSG_COPYING_IE6="Se copiaza instalarea ie6"
-MSG_EXTRACTING_FILES="Se extrag fisiere"
-MSG_PROCESSING_INF="Se proceseaza fisiere .inf"
-MSG_PERFORM_INSTALLATIONS="Se instaleaza..."
-MSG_INSTALLING_FLASH_ON="Se instaleaza flash on"
-
-# Errors
-MSG_ERROR_INSTALL_WINE="Trebuie sa instalati wine mai intai! \nDownloadati-l de aici: http://www.winehq.org"
-MSG_ERROR_INSTALL_CABEXTRACT="Trebuie sa instalati cabextract mai intai! \nDownloadati-l de aici: http://www.kyz.uklinux.net/cabextract.php"
-MSG_ERROR_UPDATE_CABEXTRACT="Trebuie sa updatati cabextract mai intai! \nDownloadati-l de aici: http://www.kyz.uklinux.net/cabextract.php"
-MSG_ERROR_INVALIDLOCALE="Limba invalida! Va rugam executati IEs4Linux din nou si alegeti una valida."
-MSG_WARNING_ROOT="Sunteti root! Aceasta actiune este puternic descurajata ! IE este prea insecur ca dumneavoastra sa-i dati acces root.\nVreti un sfat de la un prieten? Executati-ma can un user normal sau, mai bine, daca puteti, creati un utilizator separat doar pentru IE-uri."
-
-# Post Install messages
-MSG_INSTALLATIONS_FINISHED="Instalarile IEs 4 Linux s-au terminat!"
-MSG_RUN_IES="Pentru a executa IE-urile, tastati:"
-MSG_NEEDS_TRANSLATION="Daca aveti 5 minute disponibile, ajutati-ma sa traduc IEs4Linux in limba dumneavoastra.\nVisitati: http://tatanka.com.br/ies4linux/forum/viewtopic.php?p=2"
-
-# TRANSLATION VERSION 1.0
-MSG_WARNING_OLDWINE="IEs4Linux 2.0 este creat pentru a fi folosit cu versiuni recente de Wine (0.9.x). Se pare ca dumneavoastra folositi o versiune veche ($(wine --version)).Este recomandat sa updatati wine cu noua versiune (Mergeti la: winehq.com)."
-MSG_ERROR_NO_WINEPREFIXCREATE="Wine-ul dumneavoastra nu are instalat wineprefixcreate. Poate folositi o versiune veche de Wine. Incercati sa o updatati cu noua versiune (Mergeti la: winehq.com)."
-MSG_ERROR_CABEXTRACTING="O eroare a avut loc incercand sa executam cabextract pe niste fisiere."
+MSG_LANGUAGE="Română"
+MSG_DOWNLOADING="Se descarcă fişierele necesare..."
+MSG_INSTALLING="Se instalează"
+MSG_INSTALLING_FLASH="Se instalează Flash Player 9"
+MSG_INSTALLATION_OPTIONS="IEs4Linux va:"
+MSG_OPTION_INSTALL_IES="Instala Internet Explorer-uri:"
+MSG_OPTION_INSTALL_FLASH="Instala Adobe Flash 9.0"
+MSG_OPTION_CREATE_ICONS="Crea iconiţe pe birou (desktop)"
+MSG_OPTION_BASEDIR="Instala totul în:"
+MSG_OPTION_DOWNLOADDIR="Descărca totul în:"
+MSG_OPTION_LOCALE="Folosind IE locale (limba):"
+MSG_INITIALIZING="Se iniţializează"
+MSG_CREATING_PREFIX="Se crează Wine Prefix"
+MSG_EXTRACTING_CABS="Se extrag fişiere .CAB "
+MSG_INSTALLING_FONTS="Se instalează fonturi TTF"
+MSG_INSTALLING_REGISTRY="Se instalează registry"
+MSG_FINALIZING="Se finalizează"
+MSG_COPYING_IE6="Se copiază instalarea ie6"
+MSG_EXTRACTING_FILES="Se extrag fişiere"
+MSG_PROCESSING_INF="Se procesează fişiere .inf"
+MSG_PERFORM_INSTALLATIONS="Se instalează..."
+MSG_INSTALLING_FLASH_ON="Se instalează flash on"
+MSG_ERROR_INSTALL_WINE="Trebuie să instalaţi WINE înainte! \nDescărcaţi-l de pe: http://www.winehq.org"
+MSG_ERROR_INSTALL_CABEXTRACT="Trebuie să instalaţi cabextract înainte! \nDescărcaţi-l de pe: http://www.kyz.uklinux.net/cabextract.php"
+MSG_ERROR_UPDATE_CABEXTRACT="Trebuie să actualizaţi cabextract prima dată! \nDescărcaţi-l de pe: http://www.kyz.uklinux.net/cabextract.php"
+MSG_ERROR_INVALIDLOCALE="Limba invalidă! Vă rugăm să executaţi IEs4Linux din nou şi să alegeţi una validă."
+MSG_WARNING_ROOT="Sunteţi root! Instalarea pe contul root este puternic descurajată! IE este prea vulnerabil ca dumneavoastră să-i daţi acces root.\nVă recomandăm să folosiţi un utilizator special alocat numai pentru IE."
+MSG_ERROR_INSTALL_WGET="Trebuie să instalaţi wget prima dată!"
+MSG_ERROR_INSTALL_UNZIP="Trebuie să instalaţi unzip prima dată!"
+MSG_WARNING_OLDWINE="IEs4Linux 2 este făcut pentru a fi folosit cu versiuni recente de Wine (0.9.x). Se pare că dumneavoastră folosiţi o versiune veche. Este recomandat să instalaţi ultima versiune (intraţi pe: winehq.com)."
+MSG_ERROR_NO_WINEPREFIXCREATE="Wine-ul dumneavoastră nu are instalat wineprefixcreate. Poate folosiţi o versiune veche de Wine. Încercaţi să instalaţi ultima versiune (intraţi pe: winehq.com)."
+MSG_ERROR_CABEXTRACTING="O eroare a avut loc încercând să executăm cabextract pe nişte fişiere."
+MSG_ERROR_CREATE_FOLDER="Nu am putut să creez directorul"
+MSG_ERROR_DOWNLOADING="O eroare a avut loc încercând să descarc un fişier. Vă rugăm să rulaţi IEs4Linux încă o dată. Fişierul corupt:"
+MSG_ERROR_NO_GUI_AVAILABLE="Nu se poate folosi interfaţa. Trebuie să folosiţi ies4linux din linie de comandă sau să instalaţi pygtk. Detalii pe: http://www.tatanka.com.br/ies4linux/page/No_GUI"
+MSG_INSTALLATIONS_FINISHED="Instalarea IEs 4 Linux s-a terminat!"
+MSG_RUN_IES="Pentru a executa IE-urile, tastaţi:"
+GUI_TITLE="Internet Explorer-uri pentru Linux"
+GUI_INSTALLATION_OPTIONS="Opţiuni de instalare"
+GUI_IE="Internet Explorer"
+GUI_EXTRA="Extra"
+GUI_INSTALL_IE6="Instalează Internet Explorer 6.0 SP1"
+GUI_INSTALL_IE55="Instalează Internet Explorer 5.5"
+GUI_INSTALL_IE5="Instalează Internet Explorer 5.01"
+GUI_INSTALL_FLASH="Instalează Adobe Flash Player 9"
+GUI_CREATE_ICONS="Crează iconiţe pe birou (desktop)"
+GUI_LOCALE="Limba (locale)"
+GUI_ADVANCED_OPTIONS="Opţiuni avansate"
+GUI_ADVANCED_BASEDIR="Directorul de bază"
+GUI_ADVANCED_BINDIR="Directorul binare"
+GUI_ADVANCED_DOWNLOADDIR="Directorul pentru fişierele descărcate"
+GUI_ADVANCED_WGETFLAGS="Parametrii wget"
+GUI_CANCEL_INSTALL="Instalarea a fost anulată de utilizator"
+GUI_OK="OK"
+GUI_CANCEL="Anulează"
+GUI_CLOSE="Închide"

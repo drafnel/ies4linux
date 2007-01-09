@@ -1,9 +1,56 @@
+#!/usr/bin/env bash
+#
 # IEs 4 Linux
 # Developed by: Sergio Luis Lopes Junior <slopes at gmail dot com>
 # Project site: http://tatanka.com.br/ies4linux
 # Released under the GNU GPL. See LICENSE for more information
-# install.sh Perform all installations
+#
+# install.sh
+#	Perform all installations. This is IEs4Linux kernel.
+#
+#	At this point, all environment should be set, all variables should have
+#	the final correct value
+#
+# This script does:
+#	- Show user what we will do
+#	- Prepare needed folders
+#	- Download all files
+#	- Install IE 6 SP1
+#	- Install Adobe Flash Player 9
+#	- Install IE 5.5
+#	- Install IE 5.01
+#	- Install IE 7 (alpha procedure)
+#	- Install IE 1.0
+#	- Install IE 1.5
+#	- Install IE 2.0
+#	- Show user how to run installed IEs
 
+
+# Show what we will do
+section $MSG_INSTALLATION_OPTIONS
+	IES="6.0"
+	[ "$INSTALLIE55" = "1" ] && IES="$IES, 5.5"
+	[ "$INSTALLIE5"  = "1" ] && IES="$IES, 5.01"
+	[ "$INSTALLIE1"  = "1" ] && IES="$IES, 1.0"
+	[ "$INSTALLIE15"  = "1" ] && IES="$IES, 1.5"
+	[ "$INSTALLIE2"  = "1" ] && IES="$IES, 2.0"
+	[ "$INSTALLIE7"  = "1" ] && IES="$IES, 7.0"
+	subsection - $MSG_OPTION_INSTALL_IES $IES
+	subsection - $MSG_OPTION_LOCALE	 $IE6_LOCALE
+
+	[ "$INSTALLFLASH" = "1" ] && subsection - $MSG_OPTION_INSTALL_FLASH
+	[ "$CREATE_ICON" = "1"  ] && subsection - $MSG_OPTION_CREATE_ICONS
+	subsection - $MSG_OPTION_BASEDIR $BASEDIR
+	#subsection - $MSG_OPTION_DOWNLOADDIR $DOWNLOADDIR
+ok
+
+# Prepare folders
+mkdir -p "$BINDIR"       || error $MSG_ERROR_CREATE_FOLDER $BINDIR
+mkdir -p "$BASEDIR/tmp/" || error $MSG_ERROR_CREATE_FOLDER $BASEDIR
+mkdir -p "$DOWNLOADDIR"  || error $MSG_ERROR_CREATE_FOLDER $DOWNLOADDIR
+cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
+
+# Download all files first
 section $MSG_DOWNLOADING
 	# Prepare downloads
 	touch "$DOWNLOADDIR/files"
@@ -15,6 +62,7 @@ section $MSG_DOWNLOADING
 
 		download http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
 		download http://activex.microsoft.com/controls/vc/mfc42.cab
+		download http://download.microsoft.com/download/win98SE/Update/5072/W98/EN-US/249973USA8.exe
 
 		mkdir -p "$DOWNLOADDIR/ie6/EN-US"
 		mkdir -p "$DOWNLOADDIR/ie6/$IE6_LOCALE"
@@ -82,10 +130,6 @@ ok
 			ln -s "$SYSTEM32" "system"
 		fi
 
-	subsection $MSG_INSTALLING DCOM98
-		extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
-		# run_inf_file "C:\\Windows\\System32\\dcom98.inf"
-
 	subsection $MSG_EXTRACTING_CABS
 		clean_tmp
 		cd "$BASEDIR/tmp"
@@ -93,15 +137,6 @@ ok
 		extractCABs "$DOWNLOADDIR/ie6/EN-US/SCR56EN.CAB"
 		extractCABs ie_1.cab
 		rm -f *cab regsvr32.exe setup*
-
-# 	subsection $MSG_PROCESSING_INF
-# 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
-# 		cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
-# 
-# 		for i in *.inf; do
-# 			subsubsection $i
-# 			run_inf_file ./$i
-# 		done
 
 	subsection $MSG_INSTALLING IE 6
 		mv cscript.exe "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$COMMAND/"
@@ -114,12 +149,25 @@ ok
 		mkdir -p "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
 		mv vgx.cat "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
 		mv -f * "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
+		clean_tmp
 
-	subsection $MSG_INSTALLING_REGISTRY
-		add_registry "$IES4LINUX"/winereg/ie6.reg
-		install_home_page ie6
-		reboot_wine
+	subsection $MSG_INSTALLING DCOM98
+		extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
+		mv "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/rpcltscm.dll" "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/rpcltspx.dll"
+		mv "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/dcom98.inf" "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 
+#	This is very slow and not add anything useful
+#
+# 	subsection $MSG_PROCESSING_INF
+# 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
+# 		cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
+# 
+# 		for i in *.inf; do
+# 			subsubsection $i
+# 			run_inf_file ./$i
+# 		done
+# 		cd "$BASEDIR/tmp"
+#
 # 	subsection $MSG_REGISTERING_DLLS	
 # 		cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM"
 # 		for dll in *.dll; do
@@ -127,12 +175,12 @@ ok
 # 			register_dll "C:\\Windows\\System\\$dll"
 # 		done
 
-
 	subsection $MSG_INSTALLING_FONTS
 		clean_tmp
 		cd "$BASEDIR/tmp"
 		extractCABs -F "*TTF" "$DOWNLOADDIR/ie6/$IE6_LOCALE/"/FONT*CAB
 		mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
+		clean_tmp
 
 	subsection $MSG_INSTALLING ActiveX MFC42
 		extractCABs "$DOWNLOADDIR/mfc42.cab"
@@ -141,9 +189,21 @@ ok
 		mv {olepro32,msvcrt,mfc42}.dll "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
 		register_dll "C:\\Windows\\System\\olepro32.dll"
 		register_dll "C:\\Windows\\System\\mfc42.dll"
-		reboot_wine
+		clean_tmp
+
+	subsection $MSG_INSTALLING RICHED20
+ 		extractCABs -F ver1200.exe "$DOWNLOADDIR/249973USA8.exe"
+ 		extractCABs "$BASEDIR/tmp/ver1200.exe"
+		mv riched20.120 "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/riched20.dll"
+		mv riched32.dll usp10.dll "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
+		clean_tmp
 	
+	subsection $MSG_INSTALLING_REGISTRY
+		add_registry "$IES4LINUX"/winereg/ie6.reg
+		install_home_page ie6
+
 	subsection $MSG_FINALIZING
+		reboot_wine
 		createShortcuts ie6 6.0
 		chmod -R u+rwx "$BASEDIR/ie6"
 	
@@ -380,3 +440,17 @@ ok
 kill_wineserver
 rm -rf "$BASEDIR/tmp"
 
+section $MSG_INSTALLATIONS_FINISHED
+
+# Show user how to run her IEs
+echo
+section $MSG_RUN_IES
+[ "$INSTALLIE6"  = "1" ] && run_ie 6
+[ "$INSTALLIE55" = "1" ] && run_ie 55
+[ "$INSTALLIE5"  = "1" ] && run_ie 5
+[ "$INSTALLIE1"  = "1" ] && run_ie 1
+[ "$INSTALLIE15"  = "1" ] && run_ie 15
+[ "$INSTALLIE2"  = "1" ] && run_ie 2
+[ "$INSTALLIE3"  = "1" ] && run_ie 3
+[ "$INSTALLIE7"  = "1" ] && run_ie 7
+echo

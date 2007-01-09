@@ -1,46 +1,16 @@
-# IEs 4 Linux 2.0
-# Spanish Strings
-
-# Translation details
 TRANSLATION_LOCALE="esAR"
-TRANSLATION_WHO="Guillermo Joandet <gjoandet at gmail dot com>"
-TRANSLATION_LANGUAGE="Español"
-TRANSLATION_VERSION="1.0"
 TRANSLATION_ENCODING="UTF8"
-
-# ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
-YES=s
-NO=n
-
-MSG_WELCOME_TEXT="Bienvenido, $(whoami)! Soy IEs4Linux.\nPuedo instalar IE 6, 5.5 y 5.0 por usted de forma sencilla y rápida.\nUsted está sólo a unos pocos 'Enter' de sus IEs."
-MSG_WELCOME_INSTRUCTIONS="Voy a formularle algunas preguntas ahora. Sólo elija $YES o $NO (la respuesta por defecto es la que está en negrita)"
-
-MSG_WELCOME_QUESTION_IE55="IE 6 será instalado en forma automática.\n¿Desea instalar además IE 5.5 SP2?"
-MSG_WELCOME_QUESTION_IE5="¿Desea instalar también IE 5.01 SP2?"
-MSG_LOCALES="IEs puede ser instalado usando alguna de las siguientes localizaciones:"
-MSG_CHOOSE_LOCALE="La localización por defecto es $IE6_LOCALE. Presione enter para mantenerla o seleccione una diferente: "
-
-MSG_WELCOME_INSTRUCTIONS_DEFAULT="Por defecto, instalaré todo en $BASEDIR_DEFAULT\nTambién instalaré el plugin de Flash 9 y crearé accesos directos en el Escritorio."
-MSG_WELCOME_QUESTION_CONFIGURE="¿Es esto correcto para usted? (Para configurar opciones avanzadas tipee $NO)"
-
-MSG_CONFIGURE_FLASH="¿Debo instalar el plugin de Adobe Flash 9?"
-MSG_CONFIGURE_SHORTCUTS="¿Debo crear los accesos directos en el Escritorio?"
-
-MSG_CONFIGURE_BASEDIR_MSG="Todo va a ser instalado en $BASEDIR_DEFAULT"
-MSG_CONFIGURE_BASEDIR_QUESTION="Presione enter para mantener este directorio o tipee el nuevo: "
-
-MSG_CONFIGURE_BINDIR_MSG="Los ejecutables serán creados en $BINDIR_DEFAULT"
-MSG_CONFIGURE_BINDIR_QUESTION="Presione enter para mantener este directorio o tipee el nuevo: "
-MSG_CONFIGURE_WGET="Vamos a utilizar wget para descargar los archivos. Si es necesario algún parámetro adicional, ingréselo ahora: "
-
-MSG_START="¡Muy Bien!. Vamos a comezar las instalaciones..."
-
-# Sections
+MSG_LANGUAGE="Español"
 MSG_DOWNLOADING="Descargando todo lo que necesitamos"
 MSG_INSTALLING="Instalando"
 MSG_INSTALLING_FLASH="Instalando Flash Player 9"
-
-# Subsections
+MSG_INSTALLATION_OPTIONS="IEs4Linux va a"
+MSG_OPTION_INSTALL_IES="Instalar los Internet Explorer"
+MSG_OPTION_INSTALL_FLASH="Instalar Adobe Flash 9.0"
+MSG_OPTION_CREATE_ICONS="Crear Iconos en el Escritorio"
+MSG_OPTION_BASEDIR="Instalar todo en"
+MSG_OPTION_DOWNLOADDIR="Descargar todo en"
+MSG_OPTION_LOCALE="Usando localización de IE"
 MSG_INITIALIZING="Inicializando"
 MSG_CREATING_PREFIX="Creando el Prefijo Wine"
 MSG_EXTRACTING_CABS="Extrayendo de archivos CAB"
@@ -52,15 +22,37 @@ MSG_EXTRACTING_FILES="Extrayendo archivos"
 MSG_PROCESSING_INF="Procesando el archivo inf"
 MSG_PERFORM_INSTALLATIONS="Efectuando Instalaciones"
 MSG_INSTALLING_FLASH_ON="Instalando flash"
-# Errors
 MSG_ERROR_INSTALL_WINE="¡Necesita instalar wine! \nDescarguelo desde: http://www.winehq.org"
 MSG_ERROR_INSTALL_CABEXTRACT="¡Necesita instalar cabextract! \nDescarguelo desde : http://www.kyz.uklinux.net/cabextract.php"
 MSG_ERROR_UPDATE_CABEXTRACT="¡Necesita actualizar cabextract! \nDescarguelo de: http://www.kyz.uklinux.net/cabextract.php"
 MSG_ERROR_INVALIDLOCALE="¡Localización inválida! Por favor ejecute IEs4Linux nuevamente y elija una opción correcta."
 MSG_WARNING_ROOT="¡Usted es root! ¡Esto es altamente desaconsejable¡ IE es demasiado inseguro para darle acceso root.\n¿Desea un consejo de amigo? Ejecuteme como usuario normal, o, lo que es mejor, cree un usuario separado para administrar sus IEs."
-
-# Post Install messages
+MSG_ERROR_INSTALL_WGET="Necesita instalar 'wget' primero!"
+MSG_ERROR_INSTALL_UNZIP="Necesita instalar 'unzip' primero!"
+MSG_WARNING_OLDWINE="IEs4Linux 2 ha sido desarrollado utilizando la versión más reciente de Wine (0.9.x). Al parecer usted está utilizando una versión anterior. Le recomendamos actualizar wine a la última versión disponible (visite winehq.com)"
+MSG_ERROR_NO_WINEPREFIXCREATE="El Wine instalado no tiene wineprefixcreate instalado. Probablemente esté utilizando una versión antigua. Por favor trate de actualizar a la última versión."
+MSG_ERROR_CABEXTRACTING="Ha ocurrido un error cuando se trató de descomprimir con cabextract algunos archivos."
+MSG_ERROR_CREATE_FOLDER="No se puede crear la carpeta"
+MSG_ERROR_DOWNLOADING="Ha ocurrido un error al descargar. Por favor ejecute nuevamente IEs4Linux. Archivo corrupto:"
+MSG_ERROR_NO_GUI_AVAILABLE="No hay interfaz disponible. Use la versión de línea de comando de IEs4Linux o instale PyGTK. Detalles en: http://www.tatanka.com.br/ies4linux/page/No_GUI  "
 MSG_INSTALLATIONS_FINISHED="¡Las instalaciones de IEs 4 Linux finalizaron!"
 MSG_RUN_IES="Para ejecutar sus IEs, tipee:"
-MSG_NEEDS_TRANSLATION="Si dispone de 5 minutos, puede ayudar con la traducción de IEs4Linux en su idioma.\nVisite: http://tatanka.com.br/ies4linux/forum/viewtopic.php?p=2"
-
+GUI_TITLE="Internet Explorer para Linux"
+GUI_INSTALLATION_OPTIONS="Opciones de Instalación"
+GUI_IE="Internet Explorer "
+GUI_EXTRA="Extra "
+GUI_INSTALL_IE6="Instalar Internet Explorer 6.0 SP1"
+GUI_INSTALL_IE55="Instalar Internet Explorer 5.5 "
+GUI_INSTALL_IE5="Instalar Internet Explorer 5.01 "
+GUI_INSTALL_FLASH="Instalar Adobe Flash player 9 "
+GUI_CREATE_ICONS="Crear Iconos en el Escritorio"
+GUI_LOCALE="Localización"
+GUI_ADVANCED_OPTIONS="Opciones Avanzadas"
+GUI_ADVANCED_BASEDIR="Directorio Base"
+GUI_ADVANCED_BINDIR="Directorio Bin"
+GUI_ADVANCED_DOWNLOADDIR="Directorio de descarga"
+GUI_ADVANCED_WGETFLAGS="Wget Flags"
+GUI_CANCEL_INSTALL="Instalación cancelada por el usuario"
+GUI_OK="OK"
+GUI_CANCEL="Cancelar"
+GUI_CLOSE="Cerrar"

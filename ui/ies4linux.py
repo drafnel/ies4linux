@@ -17,31 +17,32 @@ class IEs4Linux:
 		# Installation options
 		#self.gui.new_install_option_frame(os.getenv("GUI_IE"))
 		self.gui.add_install_option(os.getenv("GUI_INSTALL_IE6"),  "",  True, False)
-		self.gui.add_install_option(os.getenv("GUI_INSTALL_IE55"), "--install-ie55", False)
-		self.gui.add_install_option(os.getenv("GUI_INSTALL_IE5"),  "--install-ie5",  False)
-		self.gui.add_language_select(os.getenv("GUI_LOCALE"), os.getenv("IE6_LOCALES"), os.getenv("GUESSED_IE6_LOCALE"), "--locale")
+		self.gui.add_install_option(os.getenv("GUI_INSTALL_IE55"), "INSTALLIE55", False)
+		self.gui.add_install_option(os.getenv("GUI_INSTALL_IE5"),  "INSTALLIE5",  False)
+		self.gui.add_language_select(os.getenv("GUI_LOCALE"), os.getenv("IE6_LOCALES"), os.getenv("GUESSED_IE6_LOCALE"), "IE6_LOCALE")
 		self.gui.add_separator()
 		
 		#self.gui.new_install_option_frame(os.getenv("GUI_EXTRA"))
-		self.gui.add_install_option(os.getenv("GUI_INSTALL_FLASH"), "--no-flash", True)
-		self.gui.add_install_option(os.getenv("GUI_CREATE_ICONS"),  "--no-icon",  True)
+		self.gui.add_install_option(os.getenv("GUI_INSTALL_FLASH"), "INSTALLFLASH", True)
+		self.gui.add_install_option(os.getenv("GUI_CREATE_ICONS"),  "CREATE_ICON",  True)
 		
 		# Advanced options
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BASEDIR"),     "--basedir",     os.getenv("BASEDIR"))
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BINDIR"),      "--bindir",      os.getenv("BINDIR"))
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_DOWNLOADDIR"), "--downloaddir", os.getenv("DOWNLOADDIR"))
-		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_WGETFLAGS"),   "--wget-flags",  os.getenv("WGETFLAGS"))
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BASEDIR"),     "BASEDIR",     os.getenv("BASEDIR"))
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_BINDIR"),      "BINDIR",      os.getenv("BINDIR"))
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_DOWNLOADDIR"), "DOWNLOADDIR", os.getenv("DOWNLOADDIR"))
+		self.gui.add_advanced_option(os.getenv("GUI_ADVANCED_WGETFLAGS"),   "WGETFLAGS",  os.getenv("WGETFLAGS"))
 		
 		self.gui.show()
 		
 	def install_callback(self):
-		self.command.extend(self.gui.get_command())
+		os.putenv('NOCOLOR','1')
+		self.gui.update_environment()
 		self.gui.create_installation_window()
 		self.gui.add_abort_installation_button(os.getenv('GUI_CANCEL'), self.abort_installation_callback)
 		threading.Thread(target=self.run_command).start()
 		
 	def run_command(self):
-		self.process = Popen(self.command, stderr=STDOUT, stdout=PIPE)
+		self.process = Popen("./lib/install.sh", stderr=STDOUT, stdout=PIPE)
 		stdout = self.process.stdout
 		
 		self.process_finished = False
@@ -81,7 +82,4 @@ if __name__ == "__main__":
 		gui = GTKgui()
 		
 	i = IEs4Linux(gui)
-	i.command = ["./ies4linux"]
-	i.command.extend(sys.argv[2:])
-	
 	i.main()

@@ -1,94 +1,75 @@
-# IEs 4 Linux 2.0
-# English Strings
-
-# Translation details
 TRANSLATION_LOCALE="heIL"
-TRANSLATION_WHO="Artyom Tonkikh <artyomtnk at yahoo dot com>"
-TRANSLATION_LANGUAGE="Hebrew"
-TRANSLATION_VERSION="0.1"
 TRANSLATION_ENCODING="UTF8"
 
-bidi()
-{
-	echo "$1" | fribidi --rtl | perl -e 'while(<>){ print "$1\\n" if /(.*)/;}'
-}
-
-
-# ANSWER OPTIONS (should be the first letter of localized 'yes' and 'no'
-YES=כ
-NO=ל
-
-MSG_WELCOME_TEXT=`bidi "שלום, $(whoami)! אני IEs4Linux.
-אני יכול להתקין בשבילך בצורה קלה ומהיר את IE 6, 5.5 ו-5.0.
-אתה במרחק של מספר לחיצות Enter מ-IE-ים שלך."`
-MSG_WELCOME_INSTRUCTIONS=`bidi "אני אשאל עכשיו מספר שאלות. רק תענה $YES או $NO (ברירת מחדל מסומנת בגופן מודגש)"`
-
-MSG_WELCOME_QUESTION_IE55=`bidi "IE 6 יותקן בצורה אוטומטית.
-האם אתה רוצה להתקין גם IE 5.5 SP2?"`
-MSG_WELCOME_QUESTION_IE5=`bidi "האם אתה רוצה להתקין IE 5.01 SP2?"`
-
-MSG_LOCALES=`bidi "IE-ים יכולים להיות מותקנים לפי התאמות איזוריות הבאות:"`
-MSG_CHOOSE_LOCALE=`bidi "ברירת מחדל היא $IE6_LOCALE. לחץ enter על מנת לשמור אותה או תבחר אחרת: "`
-
-MSG_WELCOME_INSTRUCTIONS_DEFAULT=`bidi "הכל יותקן  כברירת מחדל ב-$BASEDIR
- כמן כן, אני אתקין תוסף Flash 8 ואיצור קיצורים על שולחן העבודה."`
-
-MSG_WELCOME_QUESTION_CONFIGURE=`bidi "האם זה הסדר? (להגדרת אפשרויות מתקדמות לחץ $NO)"`
-
-MSG_CONFIGURE_FLASH=`bidi "האם להתקין תוסף Adobe Flash 9?"`
-MSG_CONFIGURE_SHORTCUTS=`bidi "מה לגבי קיצורי דרך על שולחן העבודה? אפשר להתקין?"`
-
-MSG_CONFIGURE_BASEDIR_MSG=`bidi "הכל יותקן ב-$BASEDIR"`
-MSG_CONFIGURE_BASEDIR_QUESTION=`bidi "לחץ enter לאישור או הזן תיקיה חדשה (נתיב מלא): "`
-
-MSG_CONFIGURE_BINDIR_MSG=`bidi "תוכנות הרצה יישמרו ב-$HOME/bin/"`
-MSG_CONFIGURE_BINDIR_QUESTION=`bidi "לחץ enter לאישור הזן תיקיה חדשה: "`
-
-MSG_CONFIGURE_WGET=`bidi "אנחנו נשתמש ב-wget להורדת קבצים. אם יש דגלון מיוחד (proxy,...),
-הזן אותו עכשיו: "`
-
-MSG_START=`bidi "הכל בסדר! נתחיל התקנה..."`
+# Localized name of your language (like Português, Español, Français...)
+MSG_LANGUAGE="Hebrew"
 
 # Sections
-MSG_DOWNLOADING=`bidi "מוריד את הקבצים הנדרשים"`
+MSG_DOWNLOADING=`bidi "מוריד את כל הדרוש לנו"`
 MSG_INSTALLING=`bidi "מתקין"`
-MSG_INSTALLING_FLASH=`bidi "מתקין Flash Player 9"`
+MSG_INSTALLING_FLASH=`bidi "מתקין את נגן הפלאש 9.0"`
 
-# Subsections
-MSG_INITIALIZING=`bidi "איתחול"`
-MSG_CREATING_PREFIX=`bidi "יצירת Wine Prefix"`
-MSG_EXTRACTING_CABS=`bidi "פורס קבצי CAB"`
-MSG_INSTALLING_FONTS=`bidi "מתקין גופני TTF"`
-MSG_INSTALLING_REGISTRY=`bidi "מגדיר registry"`
+# Initialization
+MSG_INSTALLATION_OPTIONS=`bidi "IEs4Linux יבצע:"`
+MSG_OPTION_INSTALL_IES=`bidi "התקנה של אינטרנט קספלוררים:"`
+MSG_OPTION_INSTALL_FLASH=`bidi "יתקין את נגנ פלאש 9.0"`
+MSG_OPTION_CREATE_ICONS=`bidi "צור קיצורי דרך על שולחן העבודה"`
+MSG_OPTION_BASEDIR=`bidi "התקן הכל ב:"`
+MSG_OPTION_DOWNLOADDIR=`bidi "הורד הכל ל:"`
+MSG_OPTION_LOCALE=`bidi "השתמש בהגדרות שפה של אינטרנט אקספלורר:"`
+
+# Installation Subsections
+MSG_INITIALIZING=`bidi "מאתחל"`
+MSG_CREATING_PREFIX=`bidi "יוצר קידומת של wine"`
+MSG_EXTRACTING_CABS=`bidi "פותח קבצי CAB"`
+MSG_INSTALLING_FONTS=`bidi "מתקין פונטים TTF"`
+MSG_INSTALLING_REGISTRY=`bidi "מתקין רג'יסטרי"`
 MSG_FINALIZING=`bidi "מסיים"`
-MSG_COPYING_IE6=`bidi "מעתיק התקנה של ie6"`
-MSG_EXTRACTING_FILES=`bidi "פורס קבצים"`
-MSG_PROCESSING_INF=`bidi "מעבד קבצי inf"`
-MSG_PERFORM_INSTALLATIONS=`bidi "מבצע התקנה"`
-MSG_INSTALLING_FLASH_ON=`bidi "מתקין flash ב-"`
+MSG_COPYING_IE6=`bidi "מעתיק את התקנת אינטרנט אקספלורר 6"`
+MSG_EXTRACTING_FILES=`bidi "פותח קבצים"`
+MSG_PROCESSING_INF=`bidi "מעבד קבצי INF"`
+MSG_PERFORM_INSTALLATIONS=`bidi "מבצע התקנות"`
+MSG_INSTALLING_FLASH_ON=`bidi "מתקין פלאש על"`
 
-# Errors
-MSG_ERROR_INSTALL_WINE=`bidi "יש להתקין wine קודם! \n
-הורד אותו כאן: http://www.winehq.org"`
-MSG_ERROR_INSTALL_CABEXTRACT=`bidi "אתה חייב להתקין cabextract קודם!
-הורד אותו כאן: http://www.kyz.uklinux.net/cabextract.php"`
-MSG_ERROR_UPDATE_CABEXTRACT=`bidi "אתה צריך לשדרג cabextract לפני!
-הורד אותו כאן: http://www.kyz.uklinux.net/cabextract.php"`
-MSG_ERROR_INVALIDLOCALE=`bidi "התאמה איזורית לא נכונה! הרץ IEs4Linux שוב ותבחר את הנכונה."`
-MSG_WARNING_ROOT=`bidi "אתה משתמש על! זה מאוד לא מומלץ! IE פרוץ מידי על מנת לקבל הרשאות משתמש על
-רוצה עצה ידידותית? הרץ אותי כמשתמש רגיל או אפילו תיצור משתמש נפרד
-לצורך שימוש ב-IE-ים שלך"`
+# Errors messages
+MSG_ERROR_INSTALL_WINE=`bidi "יש להתקין את wine לפני שתמשיך \n הורד אותו כאן: http://www.winehq.org"`
+MSG_ERROR_INSTALL_CABEXTRACT=`bidi "יש להתקין את cabextract לפני שתמשיך! \n הורד אותו כאן: http://www.kyz.uklinux.net/cabextract.php"`
+MSG_ERROR_UPDATE_CABEXTRACT=`bidi "יש לעדכן את cabextract לפני שתמשיך! \n הורד אותו כאן: http://www.kyz.uklinux.net/cabextract.php"`
+MSG_ERROR_INVALIDLOCALE=`bidi "הגדרות שפה שגויות! אנא הפעל את IEs4Linux ובחר הגדרות שפה קיימות`
+MSG_WARNING_ROOT=`bidi "אתה משתמש על! אין זה מומלץ! אינטרנט אקספלורר הינו פחות מידי בטוח כדי לרוץ בבטחה עם הרשאות אלו. \n רוצה עצה ידידותית? הרץ תוכנה זו כמשתמש רגיל או, בעדיפות, צור משתמש חדש רק לטובת אינטרנט אקספלורר."`
+MSG_ERROR_INSTALL_WGET=`bidi "יש להתקין את 'wget' לפני שתמשיך!"`
+MSG_ERROR_INSTALL_UNZIP=`bidi "יש להתקין את 'unzip' לפני שתמשיך!"`
+MSG_WARNING_OLDWINE=`bidi "IEs4Linux 2 מפותחת לשימוש בגרסה עדכנית של wine (0.9.x). נראה כי אתה משתמש בגרסה ישנה. מומלץ לעדכן את wine לגירסה עדכנית (פנה ל: winehq.com)."`
+MSG_ERROR_NO_WINEPREFIXCREATE=`bidi "לעותק של wine שברשותך אין wineprefixcreate מותקן. אולי יש ברשותך גרסה ישנה של wine. נסה לעדכן את wine לגרסה החדשה ביותר"`
+MSG_ERROR_CABEXTRACTING=`bidi "קרתה שגיאה בעת ניסיון לפרוס קבצים באמצעות cabextract"`
+MSG_ERROR_CREATE_FOLDER=`bidi "לא יכול ליצור ספרייה"`
+MSG_ERROR_DOWNLOADING=`bidi "קרתה שגיאה בזמן ההורדה. אנא הורד שוב את ies4linux, קובץ פגום:"`
+MSG_ERROR_NO_GUI_AVAILABLE=`bidi "אין ממשק משתמש זמין. השתמש ב - ies4linux משורת פקודה או התקן pygtk. פרטים ב:
+ http://www.tatanka.com.br/ies4linux/page/No_GUI"`
 
 # Post Install messages
-MSG_INSTALLATIONS_FINISHED=`bidi "התקנת IEs 4 Linux הושלמה!"`
-MSG_RUN_IES=`bidi "להרצת IE-ים, הקלד:"`
-MSG_NEEDS_TRANSLATION=`bidi "אם יש לך 5 דקות לעשות לתרגם את IEs4Linux לשפה שלך.
-תבקר ב: http://tatanka.com.br/ies4linux/forum/viewtopic.php?p=2"`
+MSG_INSTALLATIONS_FINISHED=`bidi "הותקנו אקספלוררים ללינוקס!"`
+MSG_RUN_IES=`bidi "כדי להפעיל את האקספלוררים, הקש:"`
 
+# User interface
+GUI_TITLE=`bidi "אקספלוררים ללינוקס"`
+GUI_INSTALLATION_OPTIONS=`bidi "אפשרויות התקנה"`
+GUI_IE=`bidi "אינטרנט אקספלורר"`
+GUI_EXTRA=`bidi "תוספת"`
+GUI_INSTALL_IE6=`bidi "התקן את אינטרנט אקספלורר 6.0 SP1"`
+GUI_INSTALL_IE55=`bidi "התקן את אינטרנט אקספלורר 5.5"`
+GUI_INSTALL_IE5=`bidi "התקן את אינטרנט אקספלורר 5.01"`
+GUI_INSTALL_FLASH=`bidi "התקן את נגן הפלאש 9 של אדובי"`
+GUI_CREATE_ICONS=`bidi "צור קיצורי דרך בשולחן העבודה"`
+GUI_LOCALE=`bidi "הגדרות שפה"`
 
-MSG_WARNING_OLDWINE=`bidi "IEs4Linux 2.0 פותח עבור גרסה עדכנית של wine 0.9.x
-נראה שאתה משתמש בגרסה ישנה $(wine --version).
-מומלץ לך לעדכן wine לגרסה אחרונה (לך ל: winehq.com)."`
-MSG_ERROR_NO_WINEPREFIXCREATE=`bidi "wineprefixcreate לא מותקן ב-wine. ייתכן ואתה מריץ גרסה ישנה של Wine.
-תנסה לעדכן לגרסה אחרונה."`
-MSG_ERROR_CABEXTRACTING=`bidi "נפלה שגיאה בפריסת קבצי cab."`
+GUI_ADVANCED_OPTIONS=`bidi "אפשרויות מתקדמות"`
+GUI_ADVANCED_BASEDIR=`bidi "ספריית הבסיס"`
+GUI_ADVANCED_BINDIR=`bidi "ספריית קבצי ההפעלה"`
+GUI_ADVANCED_DOWNLOADDIR=`bidi "ספריית ההורדה"`
+GUI_ADVANCED_WGETFLAGS=`bidi "דגלים של Wget"`
+GUI_CANCEL_INSTALL=`bidi "התקנה בוטלה על ידי המשתמש"`
+
+GUI_OK=`bidi "המשך"`
+GUI_CANCEL=`bidi "בטח"`
+GUI_CLOSE=`bidi "סגור"`

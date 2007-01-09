@@ -11,11 +11,94 @@ IES4LINUX=`dirname "$0"`
 cd "$IES4LINUX"
 export IES4LINUX=`pwd`
 
-source lib/functions.sh
-initDebug
-initVariables
-initLanguage
-checkDependencies
+# Import functions
+. "$IES4LINUX"/lib/functions.sh
+
+# Debug module
+{
+	# Initialize debug
+	# Debug uses DEBUG environment variable
+	[ "$DEBUG" != true ] && DEBUG=false
+	debug Debug on
+
+}
+
+# Init variables
+{
+	export INSTALLIE6=1
+	export INSTALLFLASH=1
+	export CREATE_ICON=1
+	
+	export BASEDIR="$HOME/.ies4linux"
+	export BINDIR="$HOME/bin"
+	export WGETFLAGS="--continue"
+	export DOWNLOADDIR_SUFFIX="downloads"
+	export DOWNLOADDIR="$BASEDIR/$DOWNLOADDIR_SUFFIX"
+	
+	export IE6_LOCALE="EN-US"
+	export IE6_LOCALES="EN-US PT-BR DE FR ES IT NL SV JA KO NO DA CN TW FI PL HU AR HE CS PT RU EL TR"
+	
+	export NOCOLOR=0
+	
+	# Default locale
+	export GUESSED_IE6_LOCALE=EN-US
+	export MESSAGE_FILE=enUS
+
+	# Script mode: gui, automatic
+	export IES4LINUX_MODE="gui"
+}
+
+# Determine locale and languages
+# We have two methods: $LANG and $(locale)
+{
+	debug Loading lang/enUS.sh
+	eval $(grep -v -e "^#" -e "^[[:space:]]*$" "$IES4LINUX/lang/enUS.sh" | sed -e 's/^/export /g;s/$/;/g') 2> /dev/null
+
+	if [ ${#LANG} -ge 4 ]; then
+		debug "Using LANG to determine locale - $LANG"
+		SYSLANG=$(echo ${LANG:0:2} | tr A-Z a-z)
+		SYSCOUNTRY=$(echo ${LANG:3:2} | tr A-Z a-z)
+	else
+		$(locale | sed -e 's/^/export /g;s/"//g')
+		debug "Using 'locale' to determine locale - $LC_MESSAGES"
+		SYSLANG=$(echo ${LC_MESSAGES:0:2} | tr A-Z a-z)
+		SYSCOUNTRY=$(echo ${LC_MESSAGES:3:2} | tr A-Z a-z)
+	fi
+	
+	langline=$(grep -e "^${SYSLANG}[[:space:]]\+${SYSCOUNTRY}[[:space:]]\+" -e "^${SYSLANG}[[:space:]]\+\.[[:space:]]\+" "$IES4LINUX/lib/messages.txt" | head -n 1)
+
+	if [ "$langline" = "" ]; then return; fi
+
+	debug Found language line: $langline
+
+	export GUESSED_IE6_LOCALE="$(echo $langline | awk '{print $4}')"
+	MESSAGE_FILE="$IES4LINUX/lang/$(echo $langline | awk '{print $3}').sh"
+
+	# Hebrew hack
+	# TODO remove this hack :-)
+	if [ "$(echo $langline | awk '{print $3}')" = "heIL" ]; then
+		debug Hebrew hack
+		. "$MESSAGE_FILE" &> /dev/null
+	else
+		debug Loading $MESSAGE_FILE
+		eval $(grep -v -e "^#" -e "^[[:space:]]*$" "$MESSAGE_FILE" | sed -e 's/^/export /g;s/$/;/g')
+	
+		debug Loading $MESSAGE_FILE with iconv
+		enc=$TRANSLATION_ENCODING
+		eval $(iconv -f $enc "$MESSAGE_FILE" 2>/dev/null | grep -v -e "^#" -e "^[[:space:]]*$" | sed -e 's/^/export /g;s/$/;/g')
+	fi
+}
+
+# Check dependencies for wine, cabextract, wget, unzip
+{
+	wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
+	cabextract --version &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
+	wget --version &> /dev/null || error $MSG_ERROR_INSTALL_WGET
+	unzip -version &> /dev/null || error $MSG_ERROR_INSTALL_UNZIP
+	cabextract --version | grep -q "1."   || error $MSG_ERROR_UPDATE_CABEXTRACT
+	wine --version 2>&1  | grep -q "0.9." || warning $MSG_WARNING_OLDWINE
+	[ "$(whoami)" = "root" ] && warning $MSG_WARNING_ROOT
+}
 
 # Configure options
 {
@@ -23,33 +106,37 @@ checkDependencies
 	while [ $# -gt 0 ]; do
 		case "$1" in
 		--install-ie6 | --install-flash)   shift;;
-		--install-ie55)     INSTALLIE55=1;   shift ;;
-		--install-ie5)      INSTALLIE5=1;    shift ;;
-		--install-ie2)      INSTALLIE2=1;    shift ;;
-		--install-ie15)     INSTALLIE15=1;    shift ;;
-		--install-ie1)      INSTALLIE1=1;    shift ;;
+		--install-ie55)     export INSTALLIE55=1;   shift ;;
+		--install-ie5)      export INSTALLIE5=1;    shift ;;
+		--install-ie2)      export INSTALLIE2=1;    shift ;;
+		--install-ie15)     export INSTALLIE15=1;    shift ;;
+		--install-ie1)      export INSTALLIE1=1;    shift ;;
 	
-		--beta-install-ie7) INSTALLIE7=1;    shift ;;
+		--beta-install-ie7) export INSTALLIE7=1;    shift ;;
 	
-		--no-flash) INSTALLFLASH=0;  shift ;;
-		--no-icon)  CREATE_ICON=0;   shift ;;
+		--no-flash)         export INSTALLFLASH=0;  shift ;;
+		--no-icon)          export CREATE_ICON=0;   shift ;;
 		
-		--basedir)          BASEDIR=$2;     shift 2 ;;
-		--bindir)           BINDIR=$2;      shift 2 ;;
-		--downloaddir)	    DOWNLOADDIR=$2; changeddownloaddir=1; shift 2 ;;
+		--basedir)          export BASEDIR="$2";     shift 2 ;;
+		--bindir)           export BINDIR="$2";      shift 2 ;;
+		--downloaddir)	    export DOWNLOADDIR="$2"; changeddownloaddir=1; shift 2 ;;
 		
-		--wget-flags)       WGETFLAGS=$2;   shift 2 ;;
-		--no-color)	    NOCOLOR=1;	   shift 1 ;;
+		--wget-flags)       export WGETFLAGS="$2";   shift 2 ;;
+		--no-gui)           export IES4LINUX_MODE="automatic"; shift ;;
+		--no-color)	    export NOCOLOR=1;        shift 1 ;;
 	
 		--locale)
-			CHOOSED_IE6_LOCALE=$(echo "$2" | tr a-z A-Z)
+			export CHOOSED_IE6_LOCALE=$(echo "$2" | tr a-z A-Z)
 			shift 2
 			;;
 		--list-locales)
 			echo $IE6_LOCALES | fmt -w 40
 			exit 0
 			;;
-	
+		--debug)
+			export DEBUG=true
+			shift
+			;;
 		--easter-eggs)
 			cat <<__END_EGGS__
 IEs4Linux can do other useful (?!) things:
@@ -96,6 +183,7 @@ Directories:
 
 Other options:
 
+--no-gui               Don't show gui, perform an automatic installation
 --no-color             Don't show colors
 --help / -h            Display this message and exit OK
 
@@ -136,49 +224,38 @@ __END_HELP__
 	fi
 }
 
-# Show what we will do
-{
-	section $MSG_INSTALLATION_OPTIONS
-		IES="6.0"
-		[ "$INSTALLIE55" = "1" ] && IES="$IES, 5.5"
-		[ "$INSTALLIE5"  = "1" ] && IES="$IES, 5.01"
-		[ "$INSTALLIE1"  = "1" ] && IES="$IES, 1.0"
-		[ "$INSTALLIE15"  = "1" ] && IES="$IES, 1.5"
-		[ "$INSTALLIE2"  = "1" ] && IES="$IES, 2.0"
-		[ "$INSTALLIE7"  = "1" ] && IES="$IES, 7.0"
-		subsection - $MSG_OPTION_INSTALL_IES $IES
-		subsection - $MSG_OPTION_LOCALE	 $IE6_LOCALE
+# If mode=gui, let user configure some options
+if [ "$IES4LINUX_MODE" = "gui" ]; then
+
+	# Possible User Interfaces
+	runPyGTK(){
+		debug Using pygtk GUI
+		python "$IES4LINUX"/ui/ies4linux.py gtk
+	}
+	runKommander(){
+		debug Using kommander gui
+		bash "$IES4LINUX"/ui/kommander.sh
+	}
 	
-		[ "$INSTALLFLASH" = "1" ] && subsection - $MSG_OPTION_INSTALL_FLASH
-		[ "$CREATE_ICON" = "1"  ] && subsection - $MSG_OPTION_CREATE_ICONS
-		subsection - $MSG_OPTION_BASEDIR $BASEDIR
-		#subsection - $MSG_OPTION_DOWNLOADDIR $DOWNLOADDIR
-	ok
-}
+	# Decide what UI to run
+	haspygtk=$(python -c "import pygtk; pygtk.require('2.0'); import gtk" &> /dev/null; echo $?)
+	haskmdr=$(kmdr-executor -v &> /dev/null; echo $?)
+	
+	if [ "$haspygtk" = "0" ] && [ "$haskmdr" = "0" ]; then
+		if  [ "$KDE_FULL_SESSION" = "true" ]; then
+			runKommander
+		else
+			runPyGTK
+		fi
+	elif [ "$haspygtk" = "0" ]; then
+		runPyGTK
+	elif [ "$haskmdr" = "0" ]; then
+		runKommander
+	else
+		warning $MSG_NO_GUI_AVAILABLE
+		"$IES4LINUX"/ies4linux --help
+	fi
 
-# Prepare folders
-{
-	mkdir -p "$BINDIR"       || error $MSG_ERROR_CREATE_FOLDER $BINDIR
-	mkdir -p "$BASEDIR/tmp/" || error $MSG_ERROR_CREATE_FOLDER $BASEDIR
-	mkdir -p "$DOWNLOADDIR"  || error $MSG_ERROR_CREATE_FOLDER $DOWNLOADDIR
-	cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
-}
-
-source "$IES4LINUX/lib/install.sh"
-
-section $MSG_INSTALLATIONS_FINISHED
-
-# Show user how to run her IEs
-{
-	echo
-	section $MSG_RUN_IES
-	[ "$INSTALLIE6"  = "1" ] && run_ie 6
-	[ "$INSTALLIE55" = "1" ] && run_ie 55
-	[ "$INSTALLIE5"  = "1" ] && run_ie 5
-	[ "$INSTALLIE1"  = "1" ] && run_ie 1
-	[ "$INSTALLIE15"  = "1" ] && run_ie 15
-	[ "$INSTALLIE2"  = "1" ] && run_ie 2
-	[ "$INSTALLIE3"  = "1" ] && run_ie 3
-	[ "$INSTALLIE7"  = "1" ] && run_ie 7
-	echo
-}
+elif [ "$IES4LINUX_MODE" = "automatic" ]; then
+	bash "$IES4LINUX"/lib/install.sh
+fi
