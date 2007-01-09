@@ -7,7 +7,7 @@ echo "" > "$kmdr_installer"
 
 # Function to calculate next Installation option position
 # TODO make a better function :-)
-installation_option_y_file="$(tempfile)"
+installation_option_y_file="$(create_temp_file)"
 echo "10" > "$installation_option_y_file"
 function next_position_y() {
 	local installation_option_y=$(cat "$installation_option_y_file" 2> /dev/null)

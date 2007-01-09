@@ -260,7 +260,7 @@ function clean_tmp() {
 function extractCABs() {
 	local tmp="cabextract -Lq"
 	local num=1
-	local logfile=$(tempfile)
+	local logfile=$(create_temp_file)
 
 	while [ $num -le $# ]; do
 		tmp="$tmp \"$(eval echo \${$num})\""
@@ -279,7 +279,7 @@ function extractCABs() {
 # Generate reg and install it
 # $1 ie version
 function install_home_page(){
-	local temp=$(tempfile)
+	local temp=$(create_temp_file)
 
 	get_start_page $1
 	cat <<END > "$temp"
@@ -347,6 +347,13 @@ function ok() {
 	else
 		echo -e "[ OK ]\n"
 	fi
+}
+
+# Portable creation of temporary file
+function create_temp_file(){
+	mktemp 2> /dev/null && return 0
+	tempfile 2> /dev/null && return 0
+	return 1
 }
 
 #Used by Hebrew locale
