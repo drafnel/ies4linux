@@ -2,22 +2,27 @@
 # All functions *should* be declared using 'function' keyword.
 # All global variables used by functions should have function name in their name.
 
+
+# DEBUG MODULE ################################################################
+
 # Print a message if debug is on
 # $* Message to be printed
-function debug() { 
+function debug { 
 	[ "$DEBUG" = "true"  ] && echo "DEBUG: $*"
 }
 
 # Pipe to read messages and print them if debug is on
-function debugPipe() {
+function debugPipe {
 	while read line; do
 		debug $line
 	done
 }
 
+# DOWNLOAD MODULE #############################################################
+
 # Download something
 # $1 url do be downloaded
-function download() {
+function download {
 	local URL=$1
 	local FILENAME=$(echo $URL | sed -e "s/.*\///")
 	local DIR=$(echo $URL | grep $URL_IE6_CABS | sed -e "s/.*W98NT42KMeXP\//ie6\//;s/\/[^\/]*$/\//")
@@ -34,7 +39,7 @@ function download() {
 		printDownloadPercentage $FILENAME 0%
 
 		touch "$file"
-		pid=$(wget -q -b -o /dev/null -t 2 -c $URL $WGETFLAGS -O "$file" | sed -e 's/[^0-9]//g')
+		pid=$(wget -q -b -o /dev/null $URL $WGETFLAGS -O "$file" | sed -e 's/[^0-9]//g')
 		while ps --pid $pid &> /dev/null; do
 			if [ "$correctsize" != "" ];then
 				du=$(getFileSize "$file")
@@ -50,6 +55,7 @@ function download() {
 		local finalsize=$(getFileSize "$file")
 		if [ "$finalsize" = 0 ]; then
 			debug File $FILENAME not found
+			rm "$file"
 			return 1
 		fi
 		if [ "$finalsize" -lt "$((correctsize + 0))" ]; then
@@ -75,8 +81,8 @@ function download() {
 
 # $1 FILENAME
 # $2 PERCENTAGE
-download_status_bar=0
-function printDownloadPercentage(){
+export download_status_bar=0
+function printDownloadPercentage {
 	local max=20
 	echo -n "  $1"
 	local num=0
@@ -105,7 +111,7 @@ function printDownloadPercentage(){
 
 # Portable md5 calculator
 # $1 file
-function getMD5(){
+function getMD5 {
 	if [ `uname` = Linux ] ;then
 		MD5SUM=$(md5sum "$1")
 	else # Free BSD
@@ -116,7 +122,7 @@ function getMD5(){
 
 # Portable file size calculator
 # $1 file name
-function getFileSize(){
+function getFileSize {
 	stat '-c' '%s' "$1" 2> '/dev/null' && return 0
 
 	ls '--block-size=1' '-l' "$1" &> '/dev/null' && {
@@ -137,7 +143,7 @@ function getFileSize(){
 
 # Download something from Evolt, with mirror selection
 # $1 Evolt path
-function downloadEvolt() {
+function downloadEvolt {
 	local EVOLT_MIRROR1=http://www.mirrorservice.org/sites/browsers.evolt.org/browsers
 	local EVOLT_MIRROR2=http://planetmirror.com/pub/browsers
 	local EVOLT_MIRROR3=http://download.mirror.ac.uk/mirror/ftp.evolt.org
@@ -153,10 +159,114 @@ function downloadEvolt() {
 	fi
 }
 
+# WINE MODULE #################################################################
+
+# Call wineprefixcreate
+function create_wine_prefix {
+	if which wineprefixcreate &> /dev/null; then
+		( wineprefixcreate 2>&1 ) | debugPipe
+	else
+		error $MSG_ERROR_NO_WINEPREFIXCREATE
+	fi
+}
+
+# Register a dll
+# $1 dll to be registered
+function register_dll {
+	debug Registering DLL: $1
+	(WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i "$1" 2>&1) | debugPipe
+}
+
+# Add a registry file
+# $1 reg file to be registered
+function add_registry {
+	debug Add $1 to registry
+	(wine regedit "$1" 2>&1) | debugPipe
+}
+
+# Process an inf file
+# $1 Inf file to process
+function run_inf_file {
+	debug Process INF $1
+	( wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 "$1" 2>&1) | debugPipe
+}
+
+function reboot_wine {
+	debug Rebooting wine bottle
+	(wineboot 2>&1) | debugPipe
+}
+function kill_wineserver {
+	debug Kill wineserver
+	( (
+	wineserver -k || {
+		killall wine
+		killall wineserver
+	}
+	) 2>&1) | debugPipe
+
+}
+function set_wine_prefix {
+	export WINEPREFIX="$1"
+}
+
+# INSTALLER MODULE ############################################################
+
+# Extract a cab file in quiet mode
+# (also lower case every file)
+function extractCABs {
+	local tmp="cabextract -Lq"
+	local num=1
+	local logfile="$HOME/.ies4linux/tmp/cabextract"
+
+	while [ $num -le $# ]; do
+		tmp="$tmp \"$(eval echo \${$num})\""
+		num=$((num+1))
+	done
+
+	eval $tmp &> $logfile
+	if [ $? != 0 ]; then
+		cat "$logfile" && rm "$logfile"
+		error $MSG_ERROR_CABEXTRACTING
+	fi
+	cat "$logfile" | debugPipe
+	rm "$logfile"
+}
+
+# Generate reg and install it
+# $1 ie version
+function install_home_page {
+	local temp="$HOME/.ies4linux/tmp/homepage.reg"
+
+	get_start_page $1
+	cat <<END > "$temp"
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"First Home Page"="${START_PAGE}"
+"Start Page"="${START_PAGE}"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main]
+"Default_Page_URL"="${START_PAGE}"
+"Default_Search_URL"="http://www.google.com"
+"Search Page"="http://www.google.com"
+"Start Page"="${START_PAGE}"
+END
+	add_registry "$temp"
+	rm "$temp"
+}
+
+# $1 ie version
+# $2 (optional) firstrun
+function get_start_page {
+	local url="http://www.tatanka.com.br/ies4linux/startpage?lang=$TRANSLATION_LOCALE&ieversion=$1"
+	if [ "$2" = "firstrun" ]; then
+		url="$url&firstrun=true"
+	fi
+	export START_PAGE="$url"
+}
+
 # Create all shortcuts: .ies4linux/bin/$1, bin/$1 and Desktop icon
 # $1 excutable name
 # $2 IE version
-function createShortcuts() {
+function createShortcuts {
 	touch "$BASEDIR/$1/.firstrun"
 	rm -f "$BASEDIR/bin/$1" "$BINDIR/$1"
 	get_start_page $1 firstrun
@@ -182,139 +292,51 @@ END
         chmod +x "$BASEDIR/bin/$1"
 	ln -sf "$BASEDIR/bin/$1" "$BINDIR/$1"
 
-        if [ "$CREATE_ICON" = "1" ]; then
-		cat << END > "$BASEDIR"/tmp/IE$2.desktop
+	# Create launcher icon
+	ICON_FILE="$BASEDIR"/ies4linux-$1.desktop
+	cat << END > "$ICON_FILE"
 [Desktop Entry]
 Version=1.0
 Exec=$BINDIR/$1
 Icon=$BASEDIR/ies4linux.svg
 Name=Internet Explorer $2
-GenericName=Browser
+GenericName=Web Browser
 Comment=MSIE $2 by IEs4Linux
 Encoding=UTF-8
 Terminal=false
 Type=Application
-Categories=Internet
+Categories=Application;Network;
 END
-		if cd ~/Desktop || cd ~/desktop; then
-			cp "$BASEDIR"/tmp/IE$2.desktop .
-		fi
+
+	# Uses xdg-utils to install icon
+	[ "$DEBUG" = "true" ] && export XDG_UTILS_DEBUG_LEVEL=1
+
+	# Install icon on Desktop
+        if [ "$CREATE_DESKTOP_ICON" = "1" ]; then
+		"$IES4LINUX"/lib/xdg-desktop-icon install --novendor "$ICON_FILE"
+	fi
+
+	# Install icon on Menu
+        if [ "$CREATE_MENU_ICON" = "1" ]; then
+		"$IES4LINUX"/lib/xdg-desktop-menu install --noupdate --novendor "$ICON_FILE"
         fi
 }
 
-# Call wineprefixcreate
-function create_wine_prefix(){
-	if which wineprefixcreate &> /dev/null; then
-		( wineprefixcreate 2>&1 ) | debugPipe
-	else
-		error $MSG_ERROR_NO_WINEPREFIXCREATE
-	fi
-}
-
-# Register a dll
-# $1 dll to be registered
-function register_dll() {
-	debug Registering DLL: $1
-	(WINEDLLOVERRIDES="regsvr32.exe=b" wine regsvr32 /i "$1" 2>&1) | debugPipe
-}
-
-# Add a registry file
-# $1 reg file to be registered
-function add_registry() {
-	debug Add $1 to registry
-	(wine regedit "$1" 2>&1) | debugPipe
-}
-
-# Process an inf file
-# $1 Inf file to process
-function run_inf_file(){
-	debug Process INF $1
-	( wine rundll32 setupapi.dll,InstallHinfSection DefaultInstall 128 "$1" 2>&1) | debugPipe
-}
-
-# Call wineboot
-function reboot_wine() {
-	(wineboot 2>&1) | debugPipe
-}
-
-# Kill Wine Server
-function kill_wineserver() {
-	debug Kill wineserver
-	( (
-	wineserver -k || {
-		killall wine
-		killall wineserver
-	}
-	) 2>&1) | debugPipe
-
-}
-function set_wine_prefix() {
-	export WINEPREFIX="$1"
-}
-function clean_tmp() {
+function clean_tmp {
 	rm -rf "$BASEDIR"/tmp/*
 }
 
-# Extract a cab file in quiet mode
-# (also lower case every file)
-function extractCABs() {
-	local tmp="cabextract -Lq"
-	local num=1
-	local logfile=$(create_temp_file)
-
-	while [ $num -le $# ]; do
-		tmp="$tmp \"$(eval echo \${$num})\""
-		num=$((num+1))
-	done
-
-	eval $tmp &> $logfile
-	if [ $? != 0 ]; then
-		cat "$logfile" && rm "$logfile"
-		error $MSG_ERROR_CABEXTRACTING
-	fi
-	cat "$logfile" | debugPipe
-	rm "$logfile"
+# Portable creation of temporary file
+function create_temp_file {
+	mktemp 2> /dev/null && return 0
+	tempfile 2> /dev/null && return 0
+	return 1
 }
 
-# Generate reg and install it
-# $1 ie version
-function install_home_page(){
-	local temp=$(create_temp_file)
-
-	get_start_page $1
-	cat <<END > "$temp"
-[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
-"First Home Page"="${START_PAGE}"
-"Start Page"="${START_PAGE}"
-END
-	add_registry "$temp"
-	rm "$temp"
-}
-
-# $1 ie version
-# $2 (optional) firstrun
-function get_start_page(){
-	local url="http://www.tatanka.com.br/ies4linux/startpage?lang=$TRANSLATION_LOCALE&ieversion=$1"
-	if [ "$2" = "firstrun" ]; then
-		url="$url&firstrun=true"
-	fi
-	export START_PAGE="$url"
-}
-
-# Determine how to run a specific IE
-# $1 IE Version
-function run_ie(){
-	cd
-	if which ie$1 | grep -q "$BINDIR/ie$1" 2> /dev/null; then
-		echo " ie$1"
-	else
-		local l=$BINDIR/ie$1
-		echo " ${l//\/\//\/}"
-	fi
-}
+# OUTPUT MODULE ###############################################################
 
 # Functions to print things
-function warning() {
+function warning {
 	if [ $NOCOLOR = 0 ]; then
 		echo -en "\E[31;1m";
 		echo -e $*
@@ -324,24 +346,24 @@ function warning() {
 		echo "!! $*"
 	fi
 }
-function error() {
+function error {
 	warning $*
 	exit 1
 }
-function section() {
+function section {
 	if [ $NOCOLOR = 0 ]; then 
 		echo -e "\E[1m$*"; tput sgr0
 	else
 		echo "# $*"
 	fi
 }
-function subsection() {
+function subsection {
 	echo "  $*"
 }
-function subsubsection() {
+function subsubsection {
 	echo "    $*"
 }
-function ok() {
+function ok {
 	if [ $NOCOLOR = 0 ]; then 
 		echo -e "\E[34;1m[ OK ]\n"; tput sgr0
 	else
@@ -349,19 +371,38 @@ function ok() {
 	fi
 }
 
-# Portable creation of temporary file
-function create_temp_file(){
-	mktemp 2> /dev/null && return 0
-	tempfile 2> /dev/null && return 0
-	return 1
+# MISCELANEOUS MODULE #########################################################
+
+# Loads any file with environment variables
+# $1 the file to load
+function load_variables_file {
+	grep -v -e "^#" -e "^[[:space:]]*$" "$1" | sed -e 's/^/export /g;s/$/;/g' 2> /dev/null
+}
+
+function load_default_language { 
+	eval $(load_variables_file "$MESSAGE_FILE_FULLPATH")
+}
+
+# Determine how to run a specific IE
+# $1 IE Version
+function run_ie {
+	cd
+	if which ie$1 | grep -q "$BINDIR/ie$1" 2> /dev/null; then
+		echo " ie$1"
+	else
+		local l=$BINDIR/ie$1
+		echo " ${l//\/\//\/}"
+	fi
 }
 
 #Used by Hebrew locale
-function bidi() {
+function bidi {
 	echo "$1" | fribidi --rtl | perl -e 'while(<>){ print "$1\\n" if /(.*)/;}'
 }
 
-# Export all functions so subshell can access them
-for fn in $(grep "^function" "$IES4LINUX"/lib/functions.sh | sed -e 's/function[[:space:]]*//g;s/[[:space:]]*(.*$//g'); do
+###############################################################################
+
+# Export all functions so subshells can access them
+for fn in $(grep "^function" "$IES4LINUX"/lib/functions.sh | sed -e 's/function[[:space:]]*//g;s/{//g'); do
 	export -f $fn
 done

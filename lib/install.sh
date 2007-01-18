@@ -25,10 +25,18 @@
 #	- Install IE 2.0
 #	- Show user how to run installed IEs
 
+# Inialitazion module #########################################################
+
+# See if your chose at least one IE
+if [ "$((INSTALLIE6+INSTALLIE55+INSTALLIE5+INSTALLIE7+INSTALLIE1+INSTALLIE2+INSTALLIE15))" = "0" ]; then
+	exit 0
+fi
+
 
 # Show what we will do
 section $MSG_INSTALLATION_OPTIONS
-	IES="6.0"
+	IES=""
+	[ "$INSTALLIE6" = "1" ] && IES="6.0"
 	[ "$INSTALLIE55" = "1" ] && IES="$IES, 5.5"
 	[ "$INSTALLIE5"  = "1" ] && IES="$IES, 5.01"
 	[ "$INSTALLIE1"  = "1" ] && IES="$IES, 1.0"
@@ -50,34 +58,34 @@ mkdir -p "$BASEDIR/tmp/" || error $MSG_ERROR_CREATE_FOLDER $BASEDIR
 mkdir -p "$DOWNLOADDIR"  || error $MSG_ERROR_CREATE_FOLDER $DOWNLOADDIR
 cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
 
+# Download module #############################################################
+
 # Download all files first
 section $MSG_DOWNLOADING
-	# Prepare downloads
-	touch "$DOWNLOADDIR/files"
 
-	[ "$INSTALLIE6"   = "1" ] &&  {
-		URL_IE6_CABS=http://download.microsoft.com/download/ie6sp1/finrel/6_sp1/W98NT42KMeXP
-		IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_EXTRA IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX"
-		# other possible cabs BRANDING GSETUP95 IEEXINST README SWFLASH
+	# Basic downloads for IE6
+	URL_IE6_CABS=http://download.microsoft.com/download/ie6sp1/finrel/6_sp1/W98NT42KMeXP
+	IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_EXTRA IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX"
+	# other possible cabs BRANDING GSETUP95 IEEXINST README SWFLASH
 
-		download http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
-		download http://activex.microsoft.com/controls/vc/mfc42.cab
-		download http://download.microsoft.com/download/win98SE/Update/5072/W98/EN-US/249973USA8.exe
+	download http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
+	download http://activex.microsoft.com/controls/vc/mfc42.cab
+	download http://download.microsoft.com/download/win98SE/Update/5072/W98/EN-US/249973USA8.exe
 
-		mkdir -p "$DOWNLOADDIR/ie6/EN-US"
-		mkdir -p "$DOWNLOADDIR/ie6/$IE6_LOCALE"
+	mkdir -p "$DOWNLOADDIR/ie6/EN-US"
+	mkdir -p "$DOWNLOADDIR/ie6/$IE6_LOCALE"
 
-		for cab in $IE6_CABS; do
-			# SCR56EN is always downloaded from EN-US
-			if [ "$cab" = "SCR56EN" ] ; then
-				URL="$URL_IE6_CABS/EN-US/SCR56EN.CAB"
-			else
-				URL="$URL_IE6_CABS/$IE6_LOCALE/$cab.CAB"
-			fi
-			
-			download "$URL"
-		done
-	}
+	for cab in $IE6_CABS; do
+		# SCR56EN is always downloaded from EN-US
+		if [ "$cab" = "SCR56EN" ] ; then
+			URL="$URL_IE6_CABS/EN-US/SCR56EN.CAB"
+		else
+			URL="$URL_IE6_CABS/$IE6_LOCALE/$cab.CAB"
+		fi
+		
+		download "$URL"
+	done
+	
         [ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
         [ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
         [ "$INSTALLFLASH" = "1" ] && {
@@ -95,68 +103,73 @@ section $MSG_DOWNLOADING
         [ "$INSTALLIE3"  = "1" ] && downloadEvolt ie/32bit/3.02/win95typical/msie302r.exe
 ok
 
+# IE6 Installation module #####################################################
+
 # IE6 Installation Process
-[ "$INSTALLIE6"   = "1" ] &&  {
+if [ "$INSTALLIE6" = "1" ]; then
 	section $MSG_INSTALLING IE 6
+else
+	section $MSG_INSTALLING IE
+fi
+
+subsection $MSG_INITIALIZING
+	clean_tmp
+	set_wine_prefix "$BASEDIR/ie6/"
+	rm -rf "$BASEDIR/ie6"
+
+subsection $MSG_CREATING_PREFIX
+	create_wine_prefix
+
+	# Discover Wine folders
+	DRIVEC=drive_c
+	WINDOWS=Windows
+	SYSTEM=system
+	SYSTEM32=System32
+	FONTS=Fonts
+	INF=Inf
+	COMMAND=Command
+	if [ -d "$BASEDIR/ie6/fake_windows" ]; then DRIVEC=fake_windows; fi
+	if [ -d "$BASEDIR/ie6/$DRIVEC/windows" ]; then WINDOWS=windows; fi
+	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/system32" ]; then SYSTEM32=system32; fi
+	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/fonts" ]; then FONTS=fonts; fi
+	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/inf" ]; then INF=inf;fi
+	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/command" ]; then COMMAND=command;fi 
+	export DRIVEC WINDOWS SYSTEM FONTS INF COMMAND
+
+	# symlinking system to system32
+	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM32" ]; then 
+		rm -rf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"{S,s}ystem
+		cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"
+		ln -s "$SYSTEM32" "system"
+	fi
+
+subsection $MSG_EXTRACTING_CABS
+	clean_tmp
+	cd "$BASEDIR/tmp"
+	extractCABs "$DOWNLOADDIR/ie6/$IE6_LOCALE"/{ADVAUTH,CRLUPD,HHUPD,IEDOM,IE_EXTRA,IE_S*,SETUPW95,VGX}.CAB
+	extractCABs "$DOWNLOADDIR/ie6/EN-US/SCR56EN.CAB"
+	extractCABs ie_1.cab
+	rm -f *cab regsvr32.exe setup*
+
+subsection $MSG_INSTALLING IE 6
+	mv cscript.exe "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$COMMAND/"
+	mv wscript.exe "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"
 	
-	subsection $MSG_INITIALIZING
-		clean_tmp
-		set_wine_prefix "$BASEDIR/ie6/"
-		rm -rf "$BASEDIR/ie6"
-
-	subsection $MSG_CREATING_PREFIX
-		create_wine_prefix
+	mv sch128c.dll  "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/schannel.dll"
+	mkdir -p "$BASEDIR/ie6/$DRIVEC/Program Files/Internet Explorer"
+	mv iexplore.exe "$BASEDIR/ie6/$DRIVEC/Program Files/Internet Explorer/iexplore.exe"
 	
-		# Discover Wine folders
-		DRIVEC=drive_c
-		WINDOWS=Windows
-		SYSTEM=system
-		SYSTEM32=System32
-		FONTS=Fonts
-		INF=Inf
-		COMMAND=Command
-		if [ -d "$BASEDIR/ie6/fake_windows" ]; then DRIVEC=fake_windows; fi
-		if [ -d "$BASEDIR/ie6/$DRIVEC/windows" ]; then WINDOWS=windows; fi
-		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/system32" ]; then SYSTEM32=system32; fi
-		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/fonts" ]; then FONTS=fonts; fi
-		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/inf" ]; then INF=inf;fi
-		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/command" ]; then COMMAND=command;fi 
-		export DRIVEC WINDOWS SYSTEM FONTS INF COMMAND
+	mkdir -p "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
+	mv vgx.cat "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
+	mv -f * "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
+	clean_tmp
 
-		# symlinking system to system32
-		if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM32" ]; then 
-			rm -rf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"{S,s}ystem
-			cd "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"
-			ln -s "$SYSTEM32" "system"
-		fi
+subsection $MSG_INSTALLING DCOM98
+	extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
+	mv "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/rpcltscm.dll" "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/rpcltspx.dll"
+	mv "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/dcom98.inf" "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
 
-	subsection $MSG_EXTRACTING_CABS
-		clean_tmp
-		cd "$BASEDIR/tmp"
-		extractCABs "$DOWNLOADDIR/ie6/$IE6_LOCALE"/{ADVAUTH,CRLUPD,HHUPD,IEDOM,IE_EXTRA,IE_S*,SETUPW95,VGX}.CAB
-		extractCABs "$DOWNLOADDIR/ie6/EN-US/SCR56EN.CAB"
-		extractCABs ie_1.cab
-		rm -f *cab regsvr32.exe setup*
-
-	subsection $MSG_INSTALLING IE 6
-		mv cscript.exe "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$COMMAND/"
-		mv wscript.exe "$BASEDIR/ie6/$DRIVEC/$WINDOWS/"
-		
-		mv sch128c.dll  "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/schannel.dll"
-		mkdir -p "$BASEDIR/ie6/$DRIVEC/Program Files/Internet Explorer"
-		mv iexplore.exe "$BASEDIR/ie6/$DRIVEC/Program Files/Internet Explorer/iexplore.exe"
-		
-		mkdir -p "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
-		mv vgx.cat "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/sfp/ie/"
-		mv -f * "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
-		clean_tmp
-
-	subsection $MSG_INSTALLING DCOM98
-		extractCABs -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/" "$DOWNLOADDIR/DCOM98.EXE"
-		mv "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/rpcltscm.dll" "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/rpcltspx.dll"
-		mv "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/dcom98.inf" "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
-
-#	This is very slow and not add anything useful
+#	This is very slow and do not add anything useful
 #
 # 	subsection $MSG_PROCESSING_INF
 # 		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
@@ -175,42 +188,42 @@ ok
 # 			register_dll "C:\\Windows\\System\\$dll"
 # 		done
 
-	subsection $MSG_INSTALLING_FONTS
-		clean_tmp
-		cd "$BASEDIR/tmp"
-		extractCABs -F "*TTF" "$DOWNLOADDIR/ie6/$IE6_LOCALE/"/FONT*CAB
-		mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
-		clean_tmp
+subsection $MSG_INSTALLING_FONTS
+	clean_tmp
+	cd "$BASEDIR/tmp"
+	extractCABs -F "*TTF" "$DOWNLOADDIR/ie6/$IE6_LOCALE/"/FONT*CAB
+	mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
+	clean_tmp
 
-	subsection $MSG_INSTALLING ActiveX MFC42
-		extractCABs "$DOWNLOADDIR/mfc42.cab"
-		extractCABs mfc42.exe
-		mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
-		mv {olepro32,msvcrt,mfc42}.dll "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
-		register_dll "C:\\Windows\\System\\olepro32.dll"
-		register_dll "C:\\Windows\\System\\mfc42.dll"
-		clean_tmp
+subsection $MSG_INSTALLING ActiveX MFC42
+	extractCABs "$DOWNLOADDIR/mfc42.cab"
+	extractCABs mfc42.exe
+	mv *.inf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$INF/"
+	mv {olepro32,msvcrt,mfc42}.dll "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
+	register_dll "C:\\Windows\\System\\olepro32.dll"
+	register_dll "C:\\Windows\\System\\mfc42.dll"
+	clean_tmp
 
-	subsection $MSG_INSTALLING RICHED20
- 		extractCABs -F ver1200.exe "$DOWNLOADDIR/249973USA8.exe"
- 		extractCABs "$BASEDIR/tmp/ver1200.exe"
-		mv riched20.120 "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/riched20.dll"
-		mv riched32.dll usp10.dll "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
-		clean_tmp
-	
-	subsection $MSG_INSTALLING_REGISTRY
-		add_registry "$IES4LINUX"/winereg/ie6.reg
-		install_home_page ie6
+subsection $MSG_INSTALLING RICHED20
+	extractCABs -F ver1200.exe "$DOWNLOADDIR/249973USA8.exe"
+	extractCABs "$BASEDIR/tmp/ver1200.exe"
+	mv riched20.120 "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/riched20.dll"
+	mv riched32.dll usp10.dll "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$SYSTEM/"
+	clean_tmp
 
-	subsection $MSG_FINALIZING
-		reboot_wine
-		createShortcuts ie6 6.0
-		chmod -R u+rwx "$BASEDIR/ie6"
-	
-	ok
-}
+subsection $MSG_INSTALLING_REGISTRY
+	add_registry "$IES4LINUX"/winereg/ie6.reg
+	install_home_page ie6
 
-# Flash Installation Process
+subsection $MSG_FINALIZING
+	reboot_wine
+	[ "$INSTALLIE6"   = "1" ] &&  createShortcuts ie6 6.0
+	chmod -R u+rwx "$BASEDIR/ie6"
+
+ok
+
+# Flash Installation module ###################################################
+
 [ "$INSTALLFLASH" = "1" ] && {
 	section $MSG_INSTALLING_FLASH
 		clean_tmp
@@ -231,7 +244,8 @@ ok
 	ok
 }
 
-# IE5.5 Installation Process
+# IE5.5 Installation module ###################################################
+
 [ "$INSTALLIE55"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 5.5
 		kill_wineserver
@@ -261,7 +275,8 @@ ok
 	ok
 }
 
-# IE5 Installation Process
+# IE5.0 Installation module ###################################################
+
 [ "$INSTALLIE5"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 5.0
 		kill_wineserver
@@ -291,10 +306,12 @@ ok
 	ok
 }
 
+# IE7.0 Installation module ###################################################
+
 # ATTENTION: IES4LINUX IE7 SUPPORT IS PRE-PRE-ALPHA!
 # USE ONLY TO HELP ME TESTING THIS FEATURE
 [ "$INSTALLIE7"   = "1" ] &&  {
-	section $MSG_INSTALLING IE 7 ALPHA
+	section "$MSG_INSTALLING IE 7 (beta)"
 		kill_wineserver
 		set_wine_prefix "$BASEDIR/ie7/"
 		clean_tmp
@@ -348,7 +365,7 @@ ok
 		install_home_page ie7
 	
 	subsection $MSG_FINALIZING
-		wineboot
+		reboot_wine
 		touch "$BASEDIR/ie7/.firstrun"
 		createShortcuts ie7 7.0
 		chmod -R u+rwx "$BASEDIR/ie7"
@@ -356,7 +373,8 @@ ok
 	ok
 }
 
-# Some Easter Eggs
+# Easter eggs module ##########################################################
+
 [ "$INSTALLIE1"   = "1" ] &&  {
 	section $MSG_INSTALLING IE 1.0
 		kill_wineserver
@@ -436,9 +454,19 @@ ok
 	ok
 }
 
+# After Installation module ###################################################
+
+# Remove IE6 if user do not want it
+if [ "$INSTALLIE6" = "0" ]; then
+	rm -rf "$BASEDIR/ie6"
+fi
+
 # Post install
 kill_wineserver
 rm -rf "$BASEDIR/tmp"
+
+# Updates user menu
+"$IES4LINUX"/lib/xdg-desktop-menu forceupdate
 
 section $MSG_INSTALLATIONS_FINISHED
 

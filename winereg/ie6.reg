@@ -183,6 +183,7 @@
 "Window_Placement"=hex:2c,00,00,00,00,00,00,00,01,00,00,00,ff,ff,ff,ff,ff,ff,\
   ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,01,00,00,00,19,00,00,00,1b,04,00,00,2c,03,00,\
   00
+"Window Title"="Microsoft Internet Explorer 6.0"
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Security\P3Global]
 "Enabled"=dword:00000001
@@ -25668,15 +25669,11 @@
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main]
 "Anchor_Visitation_Horizon"=hex:01,00,00,00
 "Cache_Percent_of_Disk"=hex:0a,00,00,00
-"Default_Page_URL"="http://www.microsoft.com/isapi/redir.dll?prd=ie&pver=6&ar=msnhome"
-"Default_Search_URL"="http://www.microsoft.com/isapi/redir.dll?prd=ie&ar=iesearch"
 "Delete_Temp_Files_On_Exit"="yes"
 "Enable_Disk_Cache"="yes"
 "FullScreen"="no"
 "Placeholder_Height"=hex:1a,00,00,00
 "Placeholder_Width"=hex:1a,00,00,00
-"Search Page"="http://www.microsoft.com/isapi/redir.dll?prd=ie&ar=iesearch"
-"Start Page"="http://www.microsoft.com/isapi/redir.dll?prd={SUB_PRD}&clcid={SUB_CLSID}&pver={SUB_PVER}&ar=home"
 "Use_Async_DNS"="yes"
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\ErrorThresholds]

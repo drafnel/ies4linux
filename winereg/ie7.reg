@@ -142,3 +142,5 @@
 "wshext"="native"
 "xenroll"="native"
 
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Window Title"="Microsoft Internet Explorer 7.0"
