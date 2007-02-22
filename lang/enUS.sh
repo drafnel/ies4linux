@@ -9,6 +9,9 @@ MSG_DOWNLOADING="Downloading everything we need"
 MSG_INSTALLING="Installing"
 MSG_INSTALLING_FLASH="Installing Flash Player 9"
 
+# Download section
+MSG_DOWNLOADING_FROM="Downloading from"
+
 # Initialization
 MSG_INSTALLATION_OPTIONS="IEs4Linux will:"
 MSG_OPTION_INSTALL_IES="Install Internet Explorers:"
@@ -61,10 +64,9 @@ GUI_MENU="Menu"
 
 GUI_ADVANCED="Advanced"
 GUI_ADVANCED_OPTIONS="Advanced options"
-GUI_ADVANCED_NOTICE="Run 'ies4linux --help' for detailed. explanations about these options."
+GUI_ADVANCED_NOTICE="Run 'ies4linux --help' for detailed explanations about these options."
 
-GUI_BETA="Beta"
-GUI_BETA_NOTICE="All these options are still beta. Use them carefully. Please see tatanka.com.br/ies4linux/news for more information."
+GUI_BETA_NOTICE="All these options are still beta. Use them carefully. Please see tatanka.com.br/ies4linux/page/Beta for more information."
 
 GUI_BASEDIR="Base location for installs"
 GUI_BINDIR="Location of your bin folder"
@@ -78,18 +80,6 @@ GUI_CANCEL="Cancel"
 GUI_CLOSE="Close"
 GUI_CANCEL_INSTALL="Installation cancelled by user"
 
-# Will be deprecated
-GUI_INSTALL_IE6="Install Internet Explorer 6.0 SP1"
-GUI_INSTALL_IE55="Install Internet Explorer 5.5"
-GUI_INSTALL_IE5="Install Internet Explorer 5.01"
-GUI_INSTALL_FLASH="Install Adobe Flash player 9"
-GUI_ADVANCED_BASEDIR="Base dir"
-GUI_ADVANCED_BINDIR="Bin dir"
-GUI_ADVANCED_DOWNLOADDIR="Download dir"
-GUI_ADVANCED_WGETFLAGS="Wget Flags"
-GUI_CREATE_ICONS="Create Desktop icons"
-GUI_CREATE_MENU_ICONS="Create Menu icons"
-
 # Uninstaller
 MSG_UNINSTALLING="Uninstalling previous IEs4Linux installation"
 MSG_REMOVING_ICONS="Removing icons from Desktop and Menu"
@@ -97,4 +87,3 @@ MSG_REMOVING_BIN="Removing executables"
 MSG_REMOVING_DOWNLOADS="Removing downloaded files"
 MSG_REMOVING_FILES="Removing installation files"
 MSG_ERROR_NO_INSTALL_DATA="Cannot find a previous IEs4Linux installation"
-

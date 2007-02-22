@@ -1,0 +1,357 @@
+<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<class>form</class>
+<widget class="Dialog">
+    <property name="name">
+        <cstring>form</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>260</width>
+            <height>381</height>
+        </rect>
+    </property>
+    <property name="paletteBackgroundColor">
+        <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+        </color>
+    </property>
+    <property name="caption">
+        <string>Internet Explorers 4 Linux</string>
+    </property>
+    <property name="associations" stdset="0">
+        <stringlist>
+            <string></string>
+            <string></string>
+            <string></string>
+        </stringlist>
+    </property>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>ies</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>130</y>
+                <width>240</width>
+                <height>80</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_IES</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string></string>
+            </stringlist>
+        </property>
+        <widget class="CheckBox">
+            <property name="name">
+                <cstring>INSTALLIE55</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>70</x>
+                    <y>20</y>
+                    <width>50</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>&amp;5.5</string>
+            </property>
+        </widget>
+        <widget class="CheckBox">
+            <property name="name">
+                <cstring>INSTALLIE5</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>130</x>
+                    <y>20</y>
+                    <width>50</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>5.&amp;0</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string></string>
+                    <string></string>
+                    <string></string>
+                </stringlist>
+            </property>
+        </widget>
+        <widget class="CheckBox">
+            <property name="name">
+                <cstring>INSTALLIE6</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>50</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>&amp;6.0</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string></string>
+                    <string></string>
+                    <string></string>
+                </stringlist>
+            </property>
+        </widget>
+        <widget class="Label">
+            <property name="name">
+                <cstring>locale_label</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>50</y>
+                    <width>43</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>GUI_LOCALE:</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string></string>
+                </stringlist>
+            </property>
+        </widget>
+        <widget class="ComboBox">
+            <item>
+                <property name="text">
+                    <string>LOCALE_ITEM</string>
+                </property>
+            </item>
+            <property name="name">
+                <cstring>locale</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>60</x>
+                    <y>50</y>
+                    <width>70</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="currentItem">
+                <number>0</number>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string>LOCALES</string>
+                </stringlist>
+            </property>
+        </widget>
+    </widget>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>plugins</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>220</y>
+                <width>240</width>
+                <height>50</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_PLUGINS</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string></string>
+            </stringlist>
+        </property>
+        <widget class="CheckBox">
+            <property name="name">
+                <cstring>INSTALLFLASH</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>150</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>Adobe Flash &amp;9</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string></string>
+                    <string></string>
+                    <string></string>
+                </stringlist>
+            </property>
+        </widget>
+    </widget>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>icons</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>280</y>
+                <width>240</width>
+                <height>50</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_ICONS</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string></string>
+            </stringlist>
+        </property>
+        <widget class="CheckBox">
+            <property name="name">
+                <cstring>CREATE_MENU_ICON</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>140</x>
+                    <y>20</y>
+                    <width>90</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>GUI_&amp;MENU</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string></string>
+                    <string></string>
+                    <string></string>
+                </stringlist>
+            </property>
+        </widget>
+        <widget class="CheckBox">
+            <property name="name">
+                <cstring>CREATE_DESKTOP_ICON</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>130</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>&amp;GUI_DESKTOP</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string></string>
+                    <string></string>
+                    <string></string>
+                </stringlist>
+            </property>
+        </widget>
+    </widget>
+    <widget class="CloseButton">
+        <property name="name">
+            <cstring>cancel</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>80</x>
+                <y>340</y>
+                <width>80</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>G&amp;UI_CANCEL</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string>
+			echo export CANCELLED=true
+			echo export NEXT_DIALOG=
+		</string>
+            </stringlist>
+        </property>
+    </widget>
+    <widget class="CloseButton">
+        <property name="name">
+            <cstring>advanced</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>160</x>
+                <y>340</y>
+                <width>90</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>GU&amp;I_ADVANCED</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string>#ADVANCED#</string>
+            </stringlist>
+        </property>
+    </widget>
+    <widget class="CloseButton">
+        <property name="name">
+            <cstring>ok</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>340</y>
+                <width>70</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>GUI_&amp;OK</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string>#COMMANDS#</string>
+            </stringlist>
+        </property>
+    </widget>
+    <widget class="PixmapLabel">
+        <property name="name">
+            <cstring>PixmapLabel2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>80</x>
+                <y>10</y>
+                <width>100</width>
+                <height>97</height>
+            </rect>
+        </property>
+        <property name="pixmap">
+            <pixmap>image0</pixmap>
+        </property>
+    </widget>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

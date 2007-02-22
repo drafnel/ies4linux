@@ -27,11 +27,10 @@
 
 # Inialitazion module #########################################################
 
-# See if your chose at least one IE
+# See if user chose at least one IE
 if [ "$((INSTALLIE6+INSTALLIE55+INSTALLIE5+INSTALLIE7+INSTALLIE1+INSTALLIE2+INSTALLIE15))" = "0" ]; then
 	exit 0
 fi
-
 
 # Show what we will do
 section $MSG_INSTALLATION_OPTIONS
@@ -68,6 +67,9 @@ section $MSG_DOWNLOADING
 	IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_EXTRA IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX"
 	# other possible cabs BRANDING GSETUP95 IEEXINST README SWFLASH
 
+	# All MS downloads
+	subsection $MSG_DOWNLOADING_FROM microsoft.com:
+
 	download http://download.microsoft.com/download/d/1/3/d13cd456-f0cf-4fb2-a17f-20afc79f8a51/DCOM98.EXE
 	download http://activex.microsoft.com/controls/vc/mfc42.cab
 	download http://download.microsoft.com/download/win98SE/Update/5072/W98/EN-US/249973USA8.exe
@@ -86,21 +88,29 @@ section $MSG_DOWNLOADING
 		download "$URL"
 	done
 	
-        [ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
-        [ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
-        [ "$INSTALLFLASH" = "1" ] && {
-                download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
-        }
         [ "$INSTALLIE7" = "1" ] && {
 		download "http://download.microsoft.com/download/3/8/8/38889DC1-848C-4BF2-8335-86C573AD86D9/IE7-WindowsXP-x86-enu.exe"
 		#download "http://download.microsoft.com/download/whistler/Patch/q305601/WXP/EN-US/Q305601_WxP_SP1_x86_ENU.exe"
 	}
 
-        # Easter eggs
+	# All Evolt downloads
+	if [ "$((INSTALLIE55+INSTALLIE5+INSTALLIE1+INSTALLIE2+INSTALLIE15))" -gt "0" ]; then
+		echo
+		subsection $MSG_DOWNLOADING_FROM Evolt Browser Archive:
+	fi
+        [ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
+        [ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
         [ "$INSTALLIE1"  = "1" ] && downloadEvolt ie/32bit/1.0/Msie10.exe
         [ "$INSTALLIE15" = "1" ] && downloadEvolt ie/32bit/1.5/IE15I386.EXE
         [ "$INSTALLIE2"  = "1" ] && downloadEvolt ie/32bit/2.0/msie20.exe
         [ "$INSTALLIE3"  = "1" ] && downloadEvolt ie/32bit/3.02/win95typical/msie302r.exe
+
+        # Other downloads
+        [ "$INSTALLFLASH" = "1" ] && {
+        	echo
+        	subsection $MSG_DOWNLOADING_FROM macromedia.com:
+                download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
+        }
 ok
 
 # IE6 Installation module #####################################################
@@ -217,7 +227,7 @@ subsection $MSG_INSTALLING_REGISTRY
 
 subsection $MSG_FINALIZING
 	reboot_wine
-	[ "$INSTALLIE6"   = "1" ] &&  createShortcuts ie6 6.0
+	[ "$INSTALLIE6" = "1" ] &&  createShortcuts ie6 6.0
 	chmod -R u+rwx "$BASEDIR/ie6"
 
 ok
@@ -316,9 +326,16 @@ ok
 		set_wine_prefix "$BASEDIR/ie7/"
 		clean_tmp
 
+		# HACK before copying ie6 let user configure proxy
+		if [ "$HACK_IE7_PROXY" = "1" ]; then
+			echo "  HACK: Configure your Proxy now and then close ie6"
+			"$BASEDIR"/bin/ie6
+			echo "  HACK: Proceeding with the installation"
+		fi
+
 	subsection $MSG_COPYING_IE6
 		rm -rf "$BASEDIR/ie7"
-		cp -r "$BASEDIR"/ie6 "$BASEDIR"/ie7
+		cp -PR "$BASEDIR"/ie6 "$BASEDIR"/ie7
 	
 	subsection $MSG_EXTRACTING_FILES
 		cd "$BASEDIR/tmp/"
@@ -463,7 +480,7 @@ fi
 
 # Post install
 kill_wineserver
-rm -rf "$BASEDIR/tmp"
+cd "$IES4LINUX" && rm -rf "$BASEDIR/tmp"
 
 # Updates user menu
 "$IES4LINUX"/lib/xdg-desktop-menu forceupdate
@@ -477,7 +494,7 @@ section $MSG_RUN_IES
 [ "$INSTALLIE55" = "1" ] && run_ie 55
 [ "$INSTALLIE5"  = "1" ] && run_ie 5
 [ "$INSTALLIE1"  = "1" ] && run_ie 1
-[ "$INSTALLIE15"  = "1" ] && run_ie 15
+[ "$INSTALLIE15" = "1" ] && run_ie 15
 [ "$INSTALLIE2"  = "1" ] && run_ie 2
 [ "$INSTALLIE3"  = "1" ] && run_ie 3
 [ "$INSTALLIE7"  = "1" ] && run_ie 7

@@ -32,18 +32,18 @@ function download {
 	local correctsize=$(echo $line|awk '{print $2}')
 	local correctmd5=$(echo $line|awk '{print $3}')
 
-	echo -n "  $FILENAME"
+	echo -n "   $FILENAME"
 
 	# Download file if (1) doesn't exist or (2) download was interrupted before
 	if [ ! -f "$file" ] || [ "$(getFileSize "$file")" -lt "$((correctsize + 0))" ]; then
-		printDownloadPercentage $FILENAME 0%
+		printDownloadPercentage $FILENAME 0
 
 		touch "$file"
 		pid=$(wget -q -b -o /dev/null $URL $WGETFLAGS -O "$file" | sed -e 's/[^0-9]//g')
 		while ps --pid $pid &> /dev/null; do
 			if [ "$correctsize" != "" ];then
 				du=$(getFileSize "$file")
-				percent=$(( 100 * $du / $correctsize ))%
+				percent=$(( 100 * $du / $correctsize ))
 			else
 				percent=-
 			fi
@@ -62,7 +62,7 @@ function download {
 			error $MSG_ERROR_DOWNLOADING $DIR$FILENAME
 		fi
 
-		printDownloadPercentage $FILENAME 100%
+		printDownloadPercentage $FILENAME 100
 	fi
 	echo
 
@@ -83,30 +83,34 @@ function download {
 # $2 PERCENTAGE
 export download_status_bar=0
 function printDownloadPercentage {
-	local max=20
-	echo -n "  $1"
-	local num=0
-	while [ $num -le $(( $max - ${#1} )) ]; do
-		echo -n " "
-		num=$((num+1))
-	done
+	# Print a space
+	echo -ne "\r   "
+
+	# Print percentage or bar
 	if [ $2 = "-" ]; then
 		if [ $download_status_bar = 0 ]; then
-			echo -n "-   "
+			echo -n "-    "
 		elif [ $download_status_bar = 1 ]; then
-			echo -n "\   "
+			echo -n "\    "
 		elif [ $download_status_bar = 2 ]; then
-			echo -n "|  "
+			echo -n "|   "
 		else
-			echo -n "/   "
+			echo -n "/    "
 			download_status_bar=-1
 		fi
 		download_status_bar=$(($download_status_bar + 1))
 	else
-		echo -n "$2 "
+		if [ $2 -lt 10 ]; then # 0-9
+			echo -n "${2}%   "
+		elif [ $2 -lt 100 ]; then # 10-99
+			echo -n "${2}%  "
+		else # 100
+			echo -n "${2}% "
+		fi
 	fi
-	echo -n "          "
-	echo -ne "\r"
+
+	# Print filename
+	echo -n "$1"
 }
 
 # Portable md5 calculator
@@ -125,20 +129,27 @@ function getMD5 {
 function getFileSize {
 	stat '-c' '%s' "$1" 2> '/dev/null' && return 0
 
-	ls '--block-size=1' '-l' "$1" &> '/dev/null' && {
-		ls -laF --block-size=1 "$1" | awk '{print $5}'
-		return 0
-	}
-
 	du -b "$1" &> /dev/null && {
 		du -b "$1" | awk '{print $1}'
 		return 0
 	}
 
 	wc '-c' "$1" &> '/dev/null' && {
-		wc '-c' "$1"
+		wc '-c' "$1"http://projects.ee.bgu.ac.il/
 		return 0
 	}
+
+	ls '--block-size=1' '-l' "$1" &> '/dev/null' && {
+		ls -laF --block-size=1 "$1" | awk '{print $5}'
+		return 0
+	}
+
+	ls '-l' "$1" &> '/dev/null' && { # for OSX
+		ls -laF "$1" | awk '{print $5}'
+		return 0
+	}
+
+	return 1
 }
 
 # Download something from Evolt, with mirror selection

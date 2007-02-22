@@ -11,8 +11,6 @@ IES4LINUX=`dirname "$0"`
 cd "$IES4LINUX"
 export IES4LINUX=`pwd`
 
-mkdir -p "$HOME/.ies4linux/tmp" || error Needs ~/.ies4linux/tmp for temporary files
-
 # Import functions
 # TODO don't use period operator
 . "$IES4LINUX"/lib/functions.sh
@@ -20,6 +18,9 @@ mkdir -p "$HOME/.ies4linux/tmp" || error Needs ~/.ies4linux/tmp for temporary fi
 # Initialize Debug module
 [ "$DEBUG" != true ] && DEBUG=false
 debug Debug on
+
+# Initialize tmp dir
+mkdir -p "$HOME/.ies4linux/tmp" || error Needs ~/.ies4linux/tmp for temporary files
 
 # Init variables
 export INSTALLIE7=0
@@ -121,6 +122,7 @@ while [ $# -gt 0 ]; do
 	--install-ie1)      export INSTALLIE1=1;    shift ;;
 
 	--install-ie7|--beta-install-ie7) export INSTALLIE7=1;    shift ;;
+	--hack-ie7-proxy-settings)        export HACK_IE7_PROXY=1; shift ;;
 
 	--no-ie6)           export INSTALLIE6=0;   shift ;;
 	--no-flash)         export INSTALLFLASH=0;  shift ;;
@@ -130,11 +132,16 @@ while [ $# -gt 0 ]; do
 	--basedir)          export BASEDIR="$2";     shift 2 ;;
 	--bindir)           export BINDIR="$2";      shift 2 ;;
 	--downloaddir)	    export DOWNLOADDIR="$2"; changeddownloaddir=1; shift 2 ;;
-	
 	--wget-flags)       export WGETFLAGS="$2";   shift 2 ;;
+	
 	--no-gui)           export IES4LINUX_MODE="automatic"; shift ;;
 	--no-color)	    export NOCOLOR=1;        shift 1 ;;
 	--gui)              export PREFERRED_GUI=$2; shift 2 ;;
+	--no-localization)
+		eval $(load_variables_file "$IES4LINUX/lang/enUS.sh")
+		shift
+		;;
+	
 
 	--uninstall)
 		bash "$IES4LINUX"/lib/uninstall.sh
@@ -153,11 +160,11 @@ while [ $# -gt 0 ]; do
 		shift
 		;;
 	--help | -h)
-		bash lib/help.sh
+		sh lib/help.sh
 		exit 0
 		;;
 	--full-help)
-		bash lib/help.sh full
+		sh lib/help.sh full
 		exit 0
 		;;	
 	*)
@@ -190,38 +197,51 @@ fi
 
 # Run installer ###############################################################
 
-cd "$IES4LINUX"
-
 # If mode=gui, let user configure some options
 if [ "$IES4LINUX_MODE" = "gui" ]; then
 
 	# Decide what UI to run
 	haspygtk=$(python -c "import pygtk; pygtk.require('2.0'); import gtk" &> /dev/null; echo $?)
 	haskmdr=$(kmdr-executor -v &> /dev/null; echo $?)
+
+	cd "$IES4LINUX"
 	
 	if [ "$PREFERRED_GUI" = "gtk" ] && [ "$haspygtk" = "0" ]; then
-		bash ui/python-gtk.sh
+		bash ui/pygtk/python-gtk.sh
 	elif [ "$PREFERRED_GUI" = "kommander" ] && [ "$haskmdr" = "0" ]; then
-		bash ui/kommander.sh
+		bash ui/kommander/kommander.sh
+	elif [ "$PREFERRED_GUI" = "terminal" ]; then
+		bash ui/terminal.sh
 	else
 		if [ "$haspygtk" = "0" ] && [ "$haskmdr" = "0" ]; then
 			if  [ "$KDE_FULL_SESSION" = "true" ]; then
-				bash ui/kommander.sh
+				bash ui/kommander/kommander.sh
 			else
-				bash ui/python-gtk.sh
+				bash ui/pygtk/python-gtk.sh
 			fi
 		elif [ "$haspygtk" = "0" ]; then
-			bash ui/python-gtk.sh
+			bash ui/pygtk/python-gtk.sh
 		elif [ "$haskmdr" = "0" ]; then
-			bash ui/kommander.sh
+			bash ui/kommander/kommander.sh
 		else
 			warning $MSG_NO_GUI_AVAILABLE
 			./ies4linux --help
 		fi
 	fi
 
+# 	if [ "$?" = "1" ]; then
+# 		warning $MSG_NO_GUI_AVAILABLE
+# 		./ies4linux --help
+# 	fi
+
 elif [ "$IES4LINUX_MODE" = "automatic" ]; then
-	bash lib/install.sh
+	bash "$IES4LINUX"/lib/install.sh
 fi
 
-rm -rf "$HOME/.ies4linux/tmp"
+cd
+
+# Remove temp dir
+cd "$IES4LINUX" && rm -rf "$HOME/.ies4linux/tmp"
+
+# Remove ~/.ies4linux if its empty now
+rmdir "$HOME/.ies4linux" &> /dev/null

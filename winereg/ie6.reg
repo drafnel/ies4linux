@@ -164,6 +164,9 @@
 "WindowFrame"=""
 "WindowText"=""
 
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Connection Wizard]
+"Completed"=hex:01,00,00,00
+
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Extensions\CmdMapping]
 "NextId"=dword:00002001
 
@@ -179,7 +182,6 @@
 "Error Dlg Displayed On Every Error"="no"
 "FullScreen"="no"
 "LastCheckedHi"=dword:01c53d2c
-"Start Page"="about:blank"
 "Window_Placement"=hex:2c,00,00,00,00,00,00,00,01,00,00,00,ff,ff,ff,ff,ff,ff,\
   ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,01,00,00,00,19,00,00,00,1b,04,00,00,2c,03,00,\
   00

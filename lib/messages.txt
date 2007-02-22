@@ -1,6 +1,6 @@
 en	.	enUS	EN-US
 pt	br	ptBR	PT-BR
-pt	.	ptBR	PT
+pt	.	ptPT	PT
 cs	.	csCZ	CS
 it	.	itIT	IT
 fr	.	frFR	FR
@@ -31,7 +31,6 @@ sl	sl	slSL	EN-US
 si	si	siSI	EN-US
 et	ee	etEE	EN-US
 fi	.	fiFI	FI
-eo	.	eoXX	EN-US
 sr	yu	srYU	EN-US
 id	.	idID	EN-US
 lv	.	lvLV	EN-US

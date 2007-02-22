@@ -15,10 +15,19 @@ class BasicWindow:
 		self.current_container = self.window.main_vbox
 		
 	def add_icon(self):
-		logo = gtk.Image()
-		logo.set_from_pixbuf(logoImg.scale_simple(100,100,gtk.gdk.INTERP_BILINEAR))
-		logo.set_size_request(100, 100)
-		self.add_widget(logo)
+		if logoImg != None:
+			logo = gtk.Image()
+			logo.set_from_pixbuf(logoImg.scale_simple(100,100,gtk.gdk.INTERP_BILINEAR))
+			logo.set_size_request(100, 100)
+			self.add_widget(logo)
+		else:
+			label = gtk.Label()
+			label.set_justify(gtk.JUSTIFY_CENTER)
+			label.set_markup('<span size="xx-large" foreground="#0242c2">IEs 4 Linux</span>')
+			label.set_alignment(0, 0)
+			label.set_line_wrap(True)
+			label.set_size_request(270, -1)
+			self.add_widget(label, 0)
 	
 	def add_widget(self, widget, space=5):
 		self.current_container.pack_start(widget, False, False, space)
@@ -83,7 +92,7 @@ class MainWindow(BasicWindow):
 		label = gtk.Label(env("GUI_LOCALE") + ': ')
 		
 		combo = gtk.combo_box_new_text()
-		default = env("GUESSED_IE6_LOCALE")
+		default = env("IE6_LOCALE")
 		i = 0
 		for locale in locales:
 			combo.append_text(locale)
@@ -155,7 +164,7 @@ class AdvancedWindow(BasicWindow):
 		self.add_widget(TextfieldSection(env("GUI_WGETFLAGS"), "WGETFLAGS").widget)
 		
 		self.add_separator()
-		self.add_title(env("GUI_BETA"))
+		self.add_title("Beta")
 		self.add_info(env("GUI_BETA_NOTICE"), size=400)
 
 		ies = CheckboxesSection(env("GUI_IES"), 'h')
@@ -315,7 +324,8 @@ def create_window(title):
 	window.set_title(title)
 	window.set_border_width(10)
 	window.set_resizable(False)
-	window.set_icon(logoImg.scale_simple(15,15,gtk.gdk.INTERP_BILINEAR))
+	if logoImg != None:
+		window.set_icon(logoImg.scale_simple(15,15,gtk.gdk.INTERP_BILINEAR))
 	
 	mainBox = gtk.VBox()
 	window.add(mainBox)
@@ -358,8 +368,8 @@ textfield_options = []
 try:
 	logoImg = gtk.gdk.pixbuf_new_from_file("lib/ies4linux.svg")
 except gobject.GError:
-	print "DEBUG: Could not load image file"
-	
+	logoImg = None
+
 # Create user interface
 mw = MainWindow()
 mw.show()

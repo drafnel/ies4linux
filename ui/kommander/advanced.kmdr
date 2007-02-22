@@ -1,0 +1,311 @@
+<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<class>form</class>
+<widget class="Dialog">
+    <property name="name">
+        <cstring>form</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>408</width>
+            <height>576</height>
+        </rect>
+    </property>
+    <property name="paletteBackgroundColor">
+        <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+        </color>
+    </property>
+    <property name="caption">
+        <string>Internet Explorers 4 Linux</string>
+    </property>
+    <property name="associations" stdset="0">
+        <stringlist>
+            <string></string>
+            <string></string>
+            <string></string>
+        </stringlist>
+    </property>
+    <widget class="PixmapLabel">
+        <property name="name">
+            <cstring>PixmapLabel2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>150</x>
+                <y>10</y>
+                <width>100</width>
+                <height>97</height>
+            </rect>
+        </property>
+        <property name="pixmap">
+            <pixmap>image0</pixmap>
+        </property>
+    </widget>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>GroupBox4_4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>350</y>
+                <width>390</width>
+                <height>51</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_WGETFLAGS</string>
+        </property>
+        <widget class="LineEdit">
+            <property name="name">
+                <cstring>WGETFLAGS</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>370</width>
+                    <height>21</height>
+                </rect>
+            </property>
+        </widget>
+    </widget>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>GroupBox4_3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>290</y>
+                <width>390</width>
+                <height>51</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_DOWNLOADDIR</string>
+        </property>
+        <widget class="LineEdit">
+            <property name="name">
+                <cstring>DOWNLOADDIR</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>370</width>
+                    <height>21</height>
+                </rect>
+            </property>
+        </widget>
+    </widget>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>GroupBox4_2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>230</y>
+                <width>390</width>
+                <height>51</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_BINDIR</string>
+        </property>
+        <widget class="LineEdit">
+            <property name="name">
+                <cstring>BINDIR</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>370</width>
+                    <height>21</height>
+                </rect>
+            </property>
+        </widget>
+    </widget>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>GroupBox4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>170</y>
+                <width>390</width>
+                <height>51</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_BASEDIR</string>
+        </property>
+        <widget class="LineEdit">
+            <property name="name">
+                <cstring>BASEDIR</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>370</width>
+                    <height>21</height>
+                </rect>
+            </property>
+        </widget>
+    </widget>
+    <widget class="Label">
+        <property name="name">
+            <cstring>dialog_title</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>110</y>
+                <width>380</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="font">
+            <font>
+                <bold>1</bold>
+            </font>
+        </property>
+        <property name="text">
+            <string>GUI_ADVANCED_OPTIONS</string>
+        </property>
+    </widget>
+    <widget class="Label">
+        <property name="name">
+            <cstring>dialog_title_2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>410</y>
+                <width>380</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="font">
+            <font>
+                <bold>1</bold>
+            </font>
+        </property>
+        <property name="text">
+            <string>Beta</string>
+        </property>
+    </widget>
+    <widget class="Label">
+        <property name="name">
+            <cstring>Label3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>130</y>
+                <width>380</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>GUI_ADVANCED_NOTICE</string>
+        </property>
+        <property name="alignment">
+            <set>WordBreak|AlignVCenter</set>
+        </property>
+    </widget>
+    <widget class="GroupBox">
+        <property name="name">
+            <cstring>icons</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>480</y>
+                <width>390</width>
+                <height>50</height>
+            </rect>
+        </property>
+        <property name="title">
+            <string>GUI_IES</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string></string>
+            </stringlist>
+        </property>
+        <widget class="CheckBox">
+            <property name="name">
+                <cstring>INSTALLIE7</cstring>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>20</y>
+                    <width>80</width>
+                    <height>21</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>&amp;7.0</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string></string>
+                    <string></string>
+                    <string></string>
+                </stringlist>
+            </property>
+        </widget>
+    </widget>
+    <widget class="CloseButton">
+        <property name="name">
+            <cstring>ok</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>540</y>
+                <width>390</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>GUI_O&amp;K</string>
+        </property>
+        <property name="associations" stdset="0">
+            <stringlist>
+                <string>#COMMANDS#</string>
+            </stringlist>
+        </property>
+    </widget>
+    <widget class="Label">
+        <property name="name">
+            <cstring>Label3_2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>430</y>
+                <width>390</width>
+                <height>50</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>GUI_BETA_NOTICE</string>
+        </property>
+        <property name="alignment">
+            <set>WordBreak|AlignVCenter</set>
+        </property>
+    </widget>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

@@ -1,6 +1,6 @@
-TRANSLATION_LOCALE="ptBR"
+TRANSLATION_LOCALE="ptPT"
 TRANSLATION_ENCODING="UTF8"
-MSG_LANGUAGE="Português do Brasil"
+MSG_LANGUAGE="Português"
 MSG_DOWNLOADING="Baixando tudo que precisamos"
 MSG_INSTALLING="Instalando"
 MSG_INSTALLING_FLASH="Instalando Flash Player 9"
