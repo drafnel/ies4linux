@@ -9,7 +9,7 @@
 #   Copyright 2006, Kevin Krammer <kevin.krammer@gmx.at>
 #   Copyright 2006, Jeremy White <jwhite@codeweavers.com>
 #
-#   Modified by Sérgio Lopes in 2007 for use on IEs4Linux
+#   Modified by Sergio Lopes in 2007 for IEs4Linux
 #
 #   LICENSE:
 #
@@ -30,14 +30,6 @@
 #   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 #   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 #   OTHER DEALINGS IN THE SOFTWARE.
-#
-#---------------------------------------------
-
-#@xdg-utils-common@
-
-#----------------------------------------------------------------------------
-#   Common utility functions included in all XDG wrapper scripts
-#----------------------------------------------------------------------------
 
 DEBUG()
 {
@@ -46,10 +38,6 @@ DEBUG()
   shift
   echo "$@" >&2
 }
-
-#-------------------------------------------------------------
-# Exit script on successfully completing the desired operation
-
 exit_success()
 {
     if [ $# -gt 0 ]; then
@@ -59,13 +47,6 @@ exit_success()
 
     exit 0
 }
-
-
-#-----------------------------------------
-# Exit script on malformed arguments, not enough arguments
-# or missing required option.
-# prints usage information
-
 exit_failure_syntax()
 {
     if [ $# -gt 0 ]; then
@@ -78,10 +59,6 @@ exit_failure_syntax()
 
     exit 1
 }
-
-#-------------------------------------------------------------
-# Exit script on missing file specified on command line
-
 exit_failure_file_missing()
 {
     if [ $# -gt 0 ]; then
@@ -90,10 +67,6 @@ exit_failure_file_missing()
 
     exit 2
 }
-
-#-------------------------------------------------------------
-# Exit script on failure to locate necessary tool applications
-
 exit_failure_operation_impossible()
 {
     if [ $# -gt 0 ]; then
@@ -102,10 +75,6 @@ exit_failure_operation_impossible()
 
     exit 3
 }
-
-#-------------------------------------------------------------
-# Exit script on failure returned by a tool application
-
 exit_failure_operation_failed()
 {
     if [ $# -gt 0 ]; then
@@ -114,10 +83,6 @@ exit_failure_operation_failed()
 
     exit 4
 }
-
-#------------------------------------------------------------
-# Exit script on insufficient permission to read a specified file
-
 exit_failure_file_permission_read()
 {
     if [ $# -gt 0 ]; then
@@ -126,10 +91,6 @@ exit_failure_file_permission_read()
 
     exit 5
 }
-
-#------------------------------------------------------------
-# Exit script on insufficient permission to read a specified file
-
 exit_failure_file_permission_write()
 {
     if [ $# -gt 0 ]; then
@@ -138,7 +99,6 @@ exit_failure_file_permission_write()
 
     exit 6
 }
-
 check_input_file()
 {
     if [ ! -e "$1" ]; then
@@ -161,16 +121,11 @@ check_vendor_prefix()
     esac
 
     echo "xdg-desktop-icon: $file_label '$file' does not have a proper vendor prefix" >&2
-    echo 'A vendor prefix consists of alpha characters ([a-zA-Z]) and is terminated' >&2
-    echo 'with a dash ("-"). An example '"$file_label"' is '"'example-$file'" >&2
-    echo "Use --novendor to override or 'xdg-desktop-icon --manual' for additional info." >&2
     exit 1
 }
 
 check_output_file()
 {
-    # if the file exists, check if it is writeable
-    # if it does not exists, check if we are allowed to write on the directory
     if [ -e "$1" ]; then
         if [ ! -w "$1" ]; then
             exit_failure_file_permission_write "no permission to write to file '$1'"
@@ -182,10 +137,6 @@ check_output_file()
         fi
     fi
 }
-
-#----------------------------------------
-# Checks for shared commands, e.g. --help
-
 check_common_commands()
 {
     while [ $# -gt 0 ] ; do
@@ -223,10 +174,6 @@ else
     xdg_redirect_output=" >&2"
 fi
 
-#--------------------------------------
-# Checks for known desktop environments
-# set variable DE to the desktop environments name, lowercase
-
 detectDE()
 {
     if [ x"$KDE_FULL_SESSION" = x"true" ]; then DE=kde;
@@ -234,12 +181,6 @@ detectDE()
     elif xprop -root _DT_SAVE_MODE | grep ' = \"xfce4\"$' >/dev/null 2>&1; then DE=xfce;
     fi
 }
-
-#----------------------------------------------------------------------------
-# kfmclient exec/openURL can give bogus exit value in KDE <= 3.5.4
-# It also always returns 1 in KDE 3.4 and earlier
-# Simply return 0 in such case
-
 kfmclient_fix_exit_code()
 {
     version=`kde-config --version 2>/dev/null | grep KDE`
@@ -372,5 +313,3 @@ case $action in
 esac
 
 exit_success
-
-

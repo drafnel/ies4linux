@@ -1,3 +1,4 @@
+# IEs4Linux
 # Functions needed everywhere.
 # All functions *should* be declared using 'function' keyword.
 # All global variables used by functions should have function name in their name.
@@ -16,6 +17,59 @@ function debugPipe {
 	while read line; do
 		debug $line
 	done
+}
+
+function isNotDebug {
+	[ "$DEBUG" = "true"  ] && return 0
+	return 1
+}
+
+# INIT MODULE #################################################################
+
+function init_variables {
+	export LINUX=1
+}
+
+# Find where wine is
+function find_wine {
+	which wine &> /dev/null || error $MSG_ERROR_INSTALL_WINE
+	wine --version 2>&1  | grep -q "0.9." || warning $MSG_WARNING_OLDWINE
+}
+
+# check for cabextract
+function find_cabextract {
+	which cabextract &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
+	cabextract --version | grep -q "1."   || error $MSG_ERROR_UPDATE_CABEXTRACT
+	export DARWIN_DOWNLOAD_CABEXTRACT=1
+}
+
+# check for wget or curl
+function find_download_program {
+	if which wget &> /dev/null; then
+		export HASWGET=1
+	elif which curl &> /dev/null; then
+		export HASCURL=1
+	else
+		error $MSG_ERROR_INSTALL_WGET
+	fi
+}
+
+function find_unzip {
+	which unzip &> /dev/null || error "$(I) couldn't find unzip"
+}
+
+function pre_install {
+	# do nothing
+	echo a > /dev/null
+}
+function post_install {
+	# Updates user menu
+	# [ "$CREATE_MENU_ICON" = "1" ] && "$IES4LINUX"/lib/xdg-desktop-menu forceupdate
+	echo a > /dev/null
+}
+
+function uninstall {
+	bash "$IES4LINUX"/lib/uninstall.sh
 }
 
 # DOWNLOAD MODULE #############################################################
@@ -37,10 +91,20 @@ function download {
 	# Download file if (1) doesn't exist or (2) download was interrupted before
 	if [ ! -f "$file" ] || [ "$(getFileSize "$file")" -lt "$((correctsize + 0))" ]; then
 		printDownloadPercentage $FILENAME 0
-
 		touch "$file"
-		pid=$(wget -q -b -o /dev/null $URL $WGETFLAGS -O "$file" | sed -e 's/[^0-9]//g')
-		while ps --pid $pid &> /dev/null; do
+
+		local useragent="Mozilla/4.0 (compatible; MSIE 6.0; Windows 98)"
+		if [ "$HASWGET" = "1" ]; then
+			pid=$(wget -q -b -t 1 -T 5 -U "$useragent" -o /dev/null $URL $WGETFLAGS -O "$file" | sed -e 's/[^0-9]//g')
+		elif [ "$HASCURL" = "1" ]; then
+			( curl -s -A "$useragent" "$URL" -o "$file" & )
+			pid="$(pidof curl)"
+		else
+			error no download program!
+		fi
+		debug Download PID=$pid
+		
+		while ps -p $pid | grep $pid &> /dev/null; do
 			if [ "$correctsize" != "" ];then
 				du=$(getFileSize "$file")
 				percent=$(( 100 * $du / $correctsize ))
@@ -53,7 +117,7 @@ function download {
 
 		# After wget ends, see if (1) 404 or (2) stoped
 		local finalsize=$(getFileSize "$file")
-		if [ "$finalsize" = 0 ]; then
+		if [ "$finalsize" = "0" ]; then
 			debug File $FILENAME not found
 			rm "$file"
 			return 1
@@ -69,6 +133,7 @@ function download {
 	# Check file size and md5
 	size=$(getFileSize "$file")
 	md5=$(getMD5 "$file")
+	debug ${DIR}${FILENAME}: correctsize $correctsize correctmd5 $correctmd5
 	debug ${DIR}${FILENAME}: size $size md5 $md5
 
 	if [ "$correctmd5" != "" ] ; then
@@ -116,9 +181,9 @@ function printDownloadPercentage {
 # Portable md5 calculator
 # $1 file
 function getMD5 {
-	if [ `uname` = Linux ] ;then
+	if which md5sum &> /dev/null;then
 		MD5SUM=$(md5sum "$1")
-	else # Free BSD
+	else
 		MD5SUM=$(md5 -q "$1")
 	fi
 	echo $MD5SUM | awk '{print $1}'
@@ -135,7 +200,7 @@ function getFileSize {
 	}
 
 	wc '-c' "$1" &> '/dev/null' && {
-		wc '-c' "$1"http://projects.ee.bgu.ac.il/
+		wc '-c' "$1"
 		return 0
 	}
 
@@ -160,6 +225,7 @@ function downloadEvolt {
 	local EVOLT_MIRROR3=http://download.mirror.ac.uk/mirror/ftp.evolt.org
 
 	if ! download $EVOLT_MIRROR1/$1 ; then
+		echo -ne "\r "
 		debug Trying Evolt Mirror 2
 		if ! download $EVOLT_MIRROR2/$1 ; then
 			debug Trying Evolt Mirror 3
@@ -309,7 +375,7 @@ END
 [Desktop Entry]
 Version=1.0
 Exec=$BINDIR/$1
-Icon=$BASEDIR/ies4linux.svg
+Icon=$BASEDIR/ies4linux.png
 Name=Internet Explorer $2
 GenericName=Web Browser
 Comment=MSIE $2 by IEs4Linux
@@ -318,19 +384,15 @@ Terminal=false
 Type=Application
 Categories=Application;Network;
 END
-
-	# Uses xdg-utils to install icon
+	
 	[ "$DEBUG" = "true" ] && export XDG_UTILS_DEBUG_LEVEL=1
-
-	# Install icon on Desktop
-        if [ "$CREATE_DESKTOP_ICON" = "1" ]; then
+	if [ "$CREATE_DESKTOP_ICON" = "1" ]; then
 		"$IES4LINUX"/lib/xdg-desktop-icon install --novendor "$ICON_FILE"
 	fi
-
-	# Install icon on Menu
-        if [ "$CREATE_MENU_ICON" = "1" ]; then
-		"$IES4LINUX"/lib/xdg-desktop-menu install --noupdate --novendor "$ICON_FILE"
-        fi
+	# menu creation is disabled
+	#if [ "$CREATE_MENU_ICON" = "1" ]; then
+	#	"$IES4LINUX"/lib/xdg-desktop-menu install --noupdate --novendor "$ICON_FILE"
+	#fi
 }
 
 function clean_tmp {
@@ -345,6 +407,11 @@ function create_temp_file {
 }
 
 # OUTPUT MODULE ###############################################################
+
+function I {
+	debug "Hi, I'm Linux"
+	echo IEs4Linux
+}
 
 # Functions to print things
 function warning {
@@ -404,11 +471,6 @@ function run_ie {
 		local l=$BINDIR/ie$1
 		echo " ${l//\/\//\/}"
 	fi
-}
-
-#Used by Hebrew locale
-function bidi {
-	echo "$1" | fribidi --rtl | perl -e 'while(<>){ print "$1\\n" if /(.*)/;}'
 }
 
 ###############################################################################

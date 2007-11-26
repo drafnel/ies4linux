@@ -4,7 +4,7 @@ pt	.	ptPT	PT
 cs	.	csCZ	CS
 it	.	itIT	IT
 fr	.	frFR	FR
-ru	.	ruRU	RU
+ru	.	enUS	RU
 nb	.	nbNO	NO
 nn	.	nbNO	NO
 no	.	nbNO	NO
@@ -23,7 +23,7 @@ da	.	daDK	DA
 hu	.	huHU	HU
 cn	.	zhCN	CN
 sv	.	svSE	SV
-he	.	heIL	HE
+he	.	enUS	HE
 sk	sk	skSK	EN-US
 ro	ro	roRO	EN-US
 lt	lt	ltLT	EN-US

@@ -1,0 +1,34 @@
+8
+
+dir
+15
+svn+ssh://lowpis@www.tatanka.com.br/home/lowpis/svn/svn/ies4linux/tags/2.99.0/ui
+svn+ssh://lowpis@www.tatanka.com.br/home/lowpis/svn/svn
+
+
+
+2007-11-24T05:27:29.318604Z
+4
+lowpis
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+569b4aba-a53f-0410-84d6-d73a99985419
+
+kommander
+dir
+
+pygtk
+dir
+

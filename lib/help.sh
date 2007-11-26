@@ -20,6 +20,8 @@ You can configure other things:
 --install-ie55         Install IE5.5 in BASEDIR/ie55/
 --install-ie5          Install IE5 in BASEDIR/ie5/
 
+--install-corefonts    Install MS Core Fonts (corefonts.sf.net)
+
 --no-flash             Don't install Adobe Flash Player 9
 --no-ie6               Don't install IE 6
 

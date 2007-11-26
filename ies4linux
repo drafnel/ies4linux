@@ -11,9 +11,22 @@ IES4LINUX=`dirname "$0"`
 cd "$IES4LINUX"
 export IES4LINUX=`pwd`
 
+# Where are we running?
+export LINUX=0
+export DARWIN=0
+if [ $(uname) = "Darwin" ]; then
+	export DARWIN=1
+elif [ $(uname) = "Linux" ]; then
+	export LINUX=1
+fi
+
 # Import functions
-# TODO don't use period operator
 . "$IES4LINUX"/lib/functions.sh
+
+# If it's darwin, overwrite some functions
+if [ "$DARWIN" = "1" ]; then
+	. "$IES4LINUX"/mac/functions-overwrite.sh
+fi
 
 # Initialize Debug module
 [ "$DEBUG" != true ] && DEBUG=false
@@ -32,12 +45,13 @@ export INSTALLIE15=0
 export INSTALLIE1=0
 
 export INSTALLFLASH=1
+export INSTALLCOREFONTS=0
 export CREATE_DESKTOP_ICON=1
-export CREATE_MENU_ICON=1
+export CREATE_MENU_ICON=0
 
 export BASEDIR="$HOME/.ies4linux"
 export BINDIR="$HOME/bin"
-export WGETFLAGS="-t 2 -c "
+export WGETFLAGS="-c "
 export DOWNLOADDIR_SUFFIX="downloads"
 export DOWNLOADDIR="$BASEDIR/$DOWNLOADDIR_SUFFIX"
 
@@ -52,6 +66,9 @@ export MESSAGE_FILE=enUS
 
 # Script mode: gui, automatic
 export IES4LINUX_MODE="gui"
+
+# Someone can override some variables
+init_variables
 
 # Determine locale and languages
 # We have two methods: $LANG and $(locale)
@@ -84,29 +101,21 @@ export IES4LINUX_MODE="gui"
 		export MESSAGE_FILE=$(echo $langline | awk '{print $3}')
 		export MESSAGE_FILE_FULLPATH="$IES4LINUX/lang/$MESSAGE_FILE.sh"
 
-		# Hebrew/Russian hack
-		# TODO remove this hack :-)
-		if [ "$MESSAGE_FILE" = "heIL" ] || [ "$MESSAGE_FILE" = "ruRU" ]; then
-			debug Hebrew hack
-			. "$MESSAGE_FILE_FULLPATH" &> /dev/null
-		else
-			debug Loading lang/$MESSAGE_FILE.sh
-			load_default_language
-		
-			debug Loading $MESSAGE_FILE with iconv
-			enc=$TRANSLATION_ENCODING
-			eval $(load_variables_file "$MESSAGE_FILE_FULLPATH" | iconv -f $enc 2> /dev/null )
-		fi
+		debug Loading lang/$MESSAGE_FILE.sh
+		load_default_language
+	
+		debug Loading $MESSAGE_FILE with iconv
+		enc=$TRANSLATION_ENCODING
+		eval $(load_variables_file "$MESSAGE_FILE_FULLPATH" | iconv -f $enc 2> /dev/null )
 	fi
 }
 
 # Check dependencies for wine, cabextract, wget, unzip ########################
-wine --version &> /dev/null || error $MSG_ERROR_INSTALL_WINE
-cabextract --version &> /dev/null || error $MSG_ERROR_INSTALL_CABEXTRACT
-wget --version &> /dev/null || error $MSG_ERROR_INSTALL_WGET
-unzip -version &> /dev/null || error $MSG_ERROR_INSTALL_UNZIP
-cabextract --version | grep -q "1."   || error $MSG_ERROR_UPDATE_CABEXTRACT
-wine --version 2>&1  | grep -q "0.9." || warning $MSG_WARNING_OLDWINE
+find_wine
+find_cabextract
+find_download_program
+find_unzip
+
 [ "$(whoami)" = "root" ] && warning $MSG_WARNING_ROOT
 
 # Configure options ###########################################################
@@ -128,6 +137,7 @@ while [ $# -gt 0 ]; do
 	--no-flash)         export INSTALLFLASH=0;  shift ;;
 	--no-desktop-icon)  export CREATE_DESKTOP_ICON=0;   shift ;;
 	--no-menu-icon)     export CREATE_MENU_ICON=0;   shift ;;
+	--install-corefonts) export INSTALLCOREFONTS=1; shift ;;
 	
 	--basedir)          export BASEDIR="$2";     shift 2 ;;
 	--bindir)           export BINDIR="$2";      shift 2 ;;
@@ -142,9 +152,8 @@ while [ $# -gt 0 ]; do
 		shift
 		;;
 	
-
 	--uninstall)
-		bash "$IES4LINUX"/lib/uninstall.sh
+		uninstall
 		exit 0
 		;;
 	--locale)
@@ -210,8 +219,6 @@ if [ "$IES4LINUX_MODE" = "gui" ]; then
 		bash ui/pygtk/python-gtk.sh
 	elif [ "$PREFERRED_GUI" = "kommander" ] && [ "$haskmdr" = "0" ]; then
 		bash ui/kommander/kommander.sh
-	elif [ "$PREFERRED_GUI" = "terminal" ]; then
-		bash ui/terminal.sh
 	else
 		if [ "$haspygtk" = "0" ] && [ "$haskmdr" = "0" ]; then
 			if  [ "$KDE_FULL_SESSION" = "true" ]; then
@@ -224,7 +231,7 @@ if [ "$IES4LINUX_MODE" = "gui" ]; then
 		elif [ "$haskmdr" = "0" ]; then
 			bash ui/kommander/kommander.sh
 		else
-			warning $MSG_NO_GUI_AVAILABLE
+			warning $MSG_ERROR_NO_GUI_AVAILABLE
 			./ies4linux --help
 		fi
 	fi

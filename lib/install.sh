@@ -33,7 +33,7 @@ if [ "$((INSTALLIE6+INSTALLIE55+INSTALLIE5+INSTALLIE7+INSTALLIE1+INSTALLIE2+INST
 fi
 
 # Show what we will do
-section $MSG_INSTALLATION_OPTIONS
+section "$(I) will:"
 	IES=""
 	[ "$INSTALLIE6" = "1" ] && IES="6.0"
 	[ "$INSTALLIE55" = "1" ] && IES="$IES, 5.5"
@@ -46,6 +46,7 @@ section $MSG_INSTALLATION_OPTIONS
 	subsection - $MSG_OPTION_LOCALE	 $IE6_LOCALE
 
 	[ "$INSTALLFLASH" = "1" ] && subsection - $MSG_OPTION_INSTALL_FLASH
+	[ "$INSTALLCOREFONTS" = "1" ] && subsection - Install MS Core Fonts
 	[ "$CREATE_ICON" = "1"  ] && subsection - $MSG_OPTION_CREATE_ICONS
 	subsection - $MSG_OPTION_BASEDIR $BASEDIR
 	#subsection - $MSG_OPTION_DOWNLOADDIR $DOWNLOADDIR
@@ -55,7 +56,7 @@ ok
 mkdir -p "$BINDIR"       || error $MSG_ERROR_CREATE_FOLDER $BINDIR
 mkdir -p "$BASEDIR/tmp/" || error $MSG_ERROR_CREATE_FOLDER $BASEDIR
 mkdir -p "$DOWNLOADDIR"  || error $MSG_ERROR_CREATE_FOLDER $DOWNLOADDIR
-cp "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
+cp "$IES4LINUX/lib/ies4linux.png" "$IES4LINUX/lib/ies4linux.svg" "$BASEDIR"
 
 # Download module #############################################################
 
@@ -64,8 +65,8 @@ section $MSG_DOWNLOADING
 
 	# Basic downloads for IE6
 	URL_IE6_CABS=http://download.microsoft.com/download/ie6sp1/finrel/6_sp1/W98NT42KMeXP
-	IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_EXTRA IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SCR56EN SETUPW95 FONTCORE FONTSUP VGX"
-	# other possible cabs BRANDING GSETUP95 IEEXINST README SWFLASH
+	IE6_CABS="ADVAUTH CRLUPD HHUPD IEDOM IE_EXTRA IE_S1 IE_S2 IE_S5 IE_S4 IE_S3 IE_S6 SETUPW95 FONTCORE FONTSUP VGX"
+	# other possible cabs BRANDING GSETUP95 IEEXINST README SWFLASH (SCR56EN)
 
 	# All MS downloads
 	subsection $MSG_DOWNLOADING_FROM microsoft.com:
@@ -78,15 +79,11 @@ section $MSG_DOWNLOADING
 	mkdir -p "$DOWNLOADDIR/ie6/$IE6_LOCALE"
 
 	for cab in $IE6_CABS; do
-		# SCR56EN is always downloaded from EN-US
-		if [ "$cab" = "SCR56EN" ] ; then
-			URL="$URL_IE6_CABS/EN-US/SCR56EN.CAB"
-		else
-			URL="$URL_IE6_CABS/$IE6_LOCALE/$cab.CAB"
-		fi
-		
-		download "$URL"
+		download "$URL_IE6_CABS/$IE6_LOCALE/$cab.CAB"
 	done
+
+	# SCR56EN is always downloaded from EN-US
+	download "$URL_IE6_CABS/EN-US/SCR56EN.CAB"
 	
         [ "$INSTALLIE7" = "1" ] && {
 		download "http://download.microsoft.com/download/3/8/8/38889DC1-848C-4BF2-8335-86C573AD86D9/IE7-WindowsXP-x86-enu.exe"
@@ -96,7 +93,7 @@ section $MSG_DOWNLOADING
 	# All Evolt downloads
 	if [ "$((INSTALLIE55+INSTALLIE5+INSTALLIE1+INSTALLIE2+INSTALLIE15))" -gt "0" ]; then
 		echo
-		subsection $MSG_DOWNLOADING_FROM Evolt Browser Archive:
+		subsection "Downloading from Evolt Browser Archive:"
 	fi
         [ "$INSTALLIE55" = "1" ] && downloadEvolt ie/32bit/standalone/ie55sp2_9x.zip
         [ "$INSTALLIE5"  = "1" ] && downloadEvolt ie/32bit/standalone/ie501sp2_9x.zip
@@ -105,13 +102,27 @@ section $MSG_DOWNLOADING
         [ "$INSTALLIE2"  = "1" ] && downloadEvolt ie/32bit/2.0/msie20.exe
         [ "$INSTALLIE3"  = "1" ] && downloadEvolt ie/32bit/3.02/win95typical/msie302r.exe
 
-        # Other downloads
+        # Flash
         [ "$INSTALLFLASH" = "1" ] && {
         	echo
-        	subsection $MSG_DOWNLOADING_FROM macromedia.com:
+        	subsection "Downloading from macromedia.com:"
                 download "http://download.macromedia.com/get/shockwave/cabs/flash/swflash.cab" || error Cannot download flash
         }
+
+	# Core fonts
+	[ "$INSTALLCOREFONTS" = "1" ] && {
+        	echo
+        	subsection "Downloading from sourceforge.net"
+
+		export COREFONTS="andale32.exe arial32.exe arialb32.exe comic32.exe courie32.exe georgi32.exe impact32.exe times32.exe trebuc32.exe verdan32.exe wd97vwr32.exe webdin32.exe"
+		for font in $COREFONTS; do
+			download "http://internap.dl.sourceforge.net/sourceforge/corefonts/$font"
+		done
+	}
 ok
+
+# Someone needs to to something before we continue???
+pre_install
 
 # IE6 Installation module #####################################################
 
@@ -204,6 +215,17 @@ subsection $MSG_INSTALLING_FONTS
 	extractCABs -F "*TTF" "$DOWNLOADDIR/ie6/$IE6_LOCALE/"/FONT*CAB
 	mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
 	clean_tmp
+
+[ "$INSTALLCOREFONTS" = "1" ] && {
+subsection Installing Core Fonts
+	for font in $COREFONTS; do
+		extractCABs -F "*TTF" "$DOWNLOADDIR/$font"
+	done
+	extractCABs -F "*cab" "$DOWNLOADDIR/wd97vwr32.exe"
+	extractCABs -F "*TTF" "$BASEDIR/tmp/viewer1.cab"
+	chmod u+w "tahoma.ttf"
+	mv *ttf "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$FONTS/"
+}
 
 subsection $MSG_INSTALLING ActiveX MFC42
 	extractCABs "$DOWNLOADDIR/mfc42.cab"
@@ -481,11 +503,9 @@ fi
 # Post install
 kill_wineserver
 cd "$IES4LINUX" && rm -rf "$BASEDIR/tmp"
+post_install
 
-# Updates user menu
-"$IES4LINUX"/lib/xdg-desktop-menu forceupdate
-
-section $MSG_INSTALLATIONS_FINISHED
+section "$(I) installations finished!"
 
 # Show user how to run her IEs
 echo

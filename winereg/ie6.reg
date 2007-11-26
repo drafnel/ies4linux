@@ -31017,6 +31017,2002 @@
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\trust\CTLs]
 
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"ActiveXCache"="c:\\windows\\Downloaded Program Files"
+"CodeBaseSearchPath"="CODEBASE;<http://activex.microsoft.com/objects/ocget.dll>;<http://codecs.microsoft.com/isapi/ocget.dll>"
+"MinorVersion"=";SP1;"
+"UrlEncoding"="0x00000000"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0]
+"SpecialDomains"="lp. rg."
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache]
+"Signature"="Client UrlCache MMF Ver 5.2"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache\Content]
+"CacheLimit"=dword:001807bb
+"CachePath"="C:\\WINDOWS\\Temporary Internet Files"
+"CachePrefix"=""
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache\Cookies]
+"CacheLimit"=dword:00002000
+"CachePrefix"="Cookie:"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\Cache\History]
+"CacheLimit"=dword:00002000
+"CachePrefix"="Visited:"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\NSCookieUpgrade]
+"Version"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Accepted Documents]
+"0"="image/gif"
+"1"="image/x-xbitmap"
+"2"="image/jpeg"
+"3"="image/pjpeg"
+"flash"="application/x-shockwave-flash"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ActiveX Cache]
+"0"="C:\\WINDOWS\\Downloaded Program Files"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache]
+"CleanupFactor"=hex:19,00,00,00
+"CleanupInterval"=hex:80,51,01,00
+"CleanupTime"=hex:00,00,00,00
+"DebugFlag"=hex:ff,ff,00,00
+"FreshnessInterval"=hex:80,f4,03,00
+"Persistent"=hex:01,00,00,00
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Content]
+"CacheLimit"=dword:001807bb
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Cookies]
+"CacheLimit"=dword:00002000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\History]
+"CacheLimit"=dword:00002000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Special Paths\Cookies]
+"CacheLimit"=hex:00,04,00,00
+"CachePrefix"="Cookie:"
+"Directory"="C:\\WINDOWS\\Cookies"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache\Special Paths\History]
+@="Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Url History"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Last Update\Cryptography]
+"Version"="5.102"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Last Update\IEXPLOREV4]
+"CurrentVerTimestamp"="Tue, 31 Dec 1996 01:00:00 GMT"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Passport]
+@=""
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SafeSites]
+"ie.search.msn.com"="http://ie.search.msn.com/*"
+"winweb"="%windir%\\Web\\*"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4774"
+"Text"="ActiveX Controls and plugins"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ACTIVEX]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"HelpID"="iexplore.hlp#50499"
+"PlugUIText"="@inetcplc.dll,-4775"
+"Text"="Run ActiveX controls and plugins"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ACTIVEX\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ACTIVEX\APPROVE]
+"CheckedValue"=dword:00010000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4806"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Administrator approved"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ACTIVEX\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ACTIVEX\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ENABLE]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4776"
+"Text"="Download signed ActiveX controls"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ENABLE\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1001"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ENABLE\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1001"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\ENABLE\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1001"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SAFETY]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4783"
+"Text"="Initialize and script ActiveX controls not marked as safe"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SAFETY\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1201"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SAFETY\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1201"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SAFETY\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1201"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SCRIPTSAFE]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4784"
+"Text"="Script ActiveX controls marked safe for scripting"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SCRIPTSAFE\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1405"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SCRIPTSAFE\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1405"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\SCRIPTSAFE\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1405"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\UNSIGNEDACTIVEX]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4777"
+"Text"="Download unsigned ActiveX controls"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\UNSIGNEDACTIVEX\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1004"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\UNSIGNEDACTIVEX\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1004"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\ACTIVE_CONTENT\UNSIGNEDACTIVEX\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1004"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\AUTH]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1323"
+"PlugUIText"="@inetcplc.dll,-4788"
+"Text"="User Authentication"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\AUTH\LOGON]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1323"
+"HelpID"="iexplore.hlp#50283"
+"PlugUIText"="@inetcplc.dll,-4790"
+"Text"="Logon"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\AUTH\LOGON\ANONYMOUS]
+"CheckedValue"=dword:00030000
+"DefaultValue"=dword:00030000
+"HelpID"="iexplore.hlp#50283"
+"PlugUIText"="@inetcplc.dll,-4807"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Anonymous logon"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\AUTH\LOGON\ASK]
+"CheckedValue"=dword:00010000
+"DefaultValue"=dword:00030000
+"HelpID"="iexplore.hlp#50283"
+"PlugUIText"="@inetcplc.dll,-4808"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt for user name and password"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\AUTH\LOGON\COND]
+"CheckedValue"=dword:00020000
+"DefaultValue"=dword:00030000
+"HelpID"="iexplore.hlp#50283"
+"PlugUIText"="@inetcplc.dll,-4810"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Automatic logon only in Intranet zone"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\AUTH\LOGON\SILENT]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00030000
+"HelpID"="iexplore.hlp#50283"
+"PlugUIText"="@inetcplc.dll,-4809"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Automatic logon with current username and password"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4486"
+"PlugUIText"="@inetcplc.dll,-4791"
+"Text"="Downloads"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD\FILEDOWNLOAD]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4486"
+"PlugUIText"="@inetcplc.dll,-4792"
+"Text"="File download"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD\FILEDOWNLOAD\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1803"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD\FILEDOWNLOAD\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1803"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD\FONTDOWNLOAD]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4486"
+"PlugUIText"="@inetcplc.dll,-4793"
+"Text"="Font download"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD\FONTDOWNLOAD\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1604"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD\FONTDOWNLOAD\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1604"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\DOWNLOAD\FONTDOWNLOAD\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1604"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4794"
+"Text"="Miscellaneous"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\ClientCertPrompt]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4862"
+"Text"="Don't prompt for client certificate selection when no certificates or only one certificate exists"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\ClientCertPrompt\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1A04"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\ClientCertPrompt\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1A04"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\CrossDomainData]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4785"
+"Text"="Access data sources across domains"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\CrossDomainData\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1406"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\CrossDomainData\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1406"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\CrossDomainData\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1406"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\DRAGDROP]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4796"
+"Text"="Drag and drop or copy and paste files"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\DRAGDROP\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1802"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\DRAGDROP\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1802"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\DRAGDROP\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1802"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\FORMDATA]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4797"
+"Text"="Submit non-encrypted form data"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\FORMDATA\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"Mask"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1601"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\FORMDATA\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"Mask"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1601"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\FORMDATA\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"Mask"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1601"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\INSTALLDT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4795"
+"Text"="Installation of desktop items"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\INSTALLDT\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1800"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\INSTALLDT\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1800"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\INSTALLDT\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1800"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\LAUNCHING]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4798"
+"Text"="Launching applications and files in an IFRAME"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\LAUNCHING\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1804"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\LAUNCHING\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1804"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\LAUNCHING\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1804"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\META_REFRESH]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4870"
+"Text"="Allow META REFRESH"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\META_REFRESH\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1608"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\META_REFRESH\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1608"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\MIXED_CONTENT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4872"
+"Text"="Display mixed content"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\MIXED_CONTENT\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1609"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\MIXED_CONTENT\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1609"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\MIXED_CONTENT\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1609"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SOFTDIST]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"HelpID"="iexplore.hlp#50282"
+"PlugUIText"="@inetcplc.dll,-4830"
+"Text"="Software channel permissions"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SOFTDIST\HIGH]
+"CheckedValue"=dword:00010000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50282"
+"PlugUIText"="@inetcplc.dll,-4816"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="High safety"
+"Type"="radio"
+"ValueName"="1E05"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SOFTDIST\LOW]
+"CheckedValue"=dword:00030000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50282"
+"PlugUIText"="@inetcplc.dll,-4814"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Low safety"
+"Type"="radio"
+"ValueName"="1E05"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SOFTDIST\MEDIUM]
+"CheckedValue"=dword:00020000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50282"
+"PlugUIText"="@inetcplc.dll,-4815"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Medium safety"
+"Type"="radio"
+"ValueName"="1E05"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SubFrameNavigate]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4855"
+"Text"="Navigate sub-frames across different domains"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SubFrameNavigate\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1607"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SubFrameNavigate\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1607"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\SubFrameNavigate\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1607"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\UserData]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4853"
+"Text"="Userdata persistence"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\UserData\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1606"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\MISC\UserData\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1606"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4782"
+"Text"="Scripting"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4786"
+"Text"="Active scripting"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPT\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1400"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPT\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1400"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPT\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1400"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTJAVA]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4787"
+"Text"="Scripting of Java applets"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTJAVA\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1402"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTJAVA\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1402"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTJAVA\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1402"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTPASTE]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4854"
+"Text"="Allow paste operations via script"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTPASTE\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1407"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTPASTE\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1407"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SO\SCRIPTING\SCRIPTPASTE\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1407"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4774"
+"Text"="ActiveX Controls and plugins"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ACTIVEX]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"HelpID"="iexplore.hlp#50499"
+"PlugUIText"="@inetcplc.dll,-4775"
+"Text"="Run ActiveX controls and plugins"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ACTIVEX\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ACTIVEX\APPROVE]
+"CheckedValue"=dword:00010000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4806"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Administrator approved"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ACTIVEX\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ACTIVEX\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1200"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ENABLE]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4776"
+"Text"="Download signed ActiveX controls"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ENABLE\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1001"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ENABLE\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1001"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\ENABLE\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1001"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SAFETY]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4783"
+"Text"="Initialize and script ActiveX controls not marked as safe"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SAFETY\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1201"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SAFETY\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1201"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SAFETY\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1201"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SCRIPTSAFE]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4784"
+"Text"="Script ActiveX controls marked safe for scripting"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SCRIPTSAFE\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1405"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SCRIPTSAFE\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1405"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\SCRIPTSAFE\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1405"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\UNSIGNEDACTIVEX]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1321"
+"PlugUIText"="@inetcplc.dll,-4777"
+"Text"="Download unsigned ActiveX controls"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\UNSIGNEDACTIVEX\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1004"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\UNSIGNEDACTIVEX\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1004"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\ACTIVE_CONTENT\UNSIGNEDACTIVEX\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1004"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\AUTH]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1323"
+"PlugUIText"="@inetcplc.dll,-4788"
+"Text"="User Authentication"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\AUTH\LOGON]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,1323"
+"PlugUIText"="@inetcplc.dll,-4790"
+"Text"="Logon"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\AUTH\LOGON\ANONYMOUS]
+"CheckedValue"=dword:00030000
+"DefaultValue"=dword:00030000
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4807"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Anonymous logon"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\AUTH\LOGON\ASK]
+"CheckedValue"=dword:00010000
+"DefaultValue"=dword:00030000
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4808"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt for user name and password"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\AUTH\LOGON\COND]
+"CheckedValue"=dword:00020000
+"DefaultValue"=dword:00030000
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4810"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Automatic logon only in Intranet zone"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\AUTH\LOGON\SILENT]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00030000
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4809"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Automatic logon with current username and password"
+"Type"="radio"
+"ValueName"="1A00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4486"
+"PlugUIText"="@inetcplc.dll,-4791"
+"Text"="Downloads"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD\FILEDOWNLOAD]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4486"
+"PlugUIText"="@inetcplc.dll,-4792"
+"Text"="File download"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD\FILEDOWNLOAD\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1803"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD\FILEDOWNLOAD\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1803"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD\FONTDOWNLOAD]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4486"
+"PlugUIText"="@inetcplc.dll,-4793"
+"Text"="Font download"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD\FONTDOWNLOAD\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1604"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD\FONTDOWNLOAD\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1604"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\DOWNLOAD\FONTDOWNLOAD\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1604"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\JAVAPER]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4441"
+"PlugUIText"="@inetcplc.dll,-4778"
+"Text"="Java"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\JAVAPER\JAVA]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4441"
+"PlugUIText"="@inetcplc.dll,-4779"
+"Text"="Java permissions"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\JAVAPER\JAVA\CUSTOM]
+"CheckedValue"=dword:00800000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50241"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4817"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Custom"
+"Type"="radio"
+"ValueName"="1C00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\JAVAPER\JAVA\DISABLE]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50241"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4818"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable Java"
+"Type"="radio"
+"ValueName"="1C00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\JAVAPER\JAVA\HIGH]
+"CheckedValue"=dword:00010000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50241"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4816"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="High safety"
+"Type"="radio"
+"ValueName"="1C00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\JAVAPER\JAVA\LOW]
+"CheckedValue"=dword:00030000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50241"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4814"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Low safety"
+"Type"="radio"
+"ValueName"="1C00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\JAVAPER\JAVA\MEDIUM]
+"CheckedValue"=dword:00020000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50241"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4815"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Medium safety"
+"Type"="radio"
+"ValueName"="1C00"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4794"
+"Text"="Miscellaneous"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\ClientCertPrompt]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4862"
+"Text"="Don't prompt for client certificate selection when no certificates or only one certificate exists"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\ClientCertPrompt\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1A04"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\ClientCertPrompt\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1A04"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\CrossDomainData]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4785"
+"Text"="Access data sources across domains"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\CrossDomainData\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1406"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\CrossDomainData\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1406"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\CrossDomainData\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1406"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\DRAGDROP]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4796"
+"Text"="Drag and drop or copy and paste files"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\DRAGDROP\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1802"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\DRAGDROP\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1802"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\DRAGDROP\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1802"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\FORMDATA]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4797"
+"Text"="Submit non-encrypted form data"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\FORMDATA\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1601"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\FORMDATA\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1601"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\FORMDATA\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1601"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\INSTALLDT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4795"
+"Text"="Installation of desktop items"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\INSTALLDT\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1800"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\INSTALLDT\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1800"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\INSTALLDT\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1800"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\LAUNCHING]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4798"
+"Text"="Launching applications and files in an IFRAME"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\LAUNCHING\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1804"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\LAUNCHING\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1804"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\LAUNCHING\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1804"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\META_REFRESH]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4870"
+"Text"="Allow META REFRESH"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\META_REFRESH\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1608"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\META_REFRESH\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1608"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\MIXED_CONTENT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4872"
+"Text"="Display mixed content"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\MIXED_CONTENT\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1609"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\MIXED_CONTENT\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1609"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\MIXED_CONTENT\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1609"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SOFTDIST]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"HelpID"="iexplore.hlp#50282"
+"PlugUIText"="@inetcplc.dll,-4830"
+"Text"="Software channel permissions"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SOFTDIST\HIGH]
+"CheckedValue"=dword:00010000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50282"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4816"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="High safety"
+"Type"="radio"
+"ValueName"="1E05"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SOFTDIST\LOW]
+"CheckedValue"=dword:00030000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50282"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4814"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Low safety"
+"Type"="radio"
+"ValueName"="1E05"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SOFTDIST\MEDIUM]
+"CheckedValue"=dword:00020000
+"DefaultValue"=dword:00000000
+"HelpID"="iexplore.hlp#50282"
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4815"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Medium safety"
+"Type"="radio"
+"ValueName"="1E05"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SubFrameNavigate]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4855"
+"Text"="Navigate sub-frames across different domains"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SubFrameNavigate\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1607"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SubFrameNavigate\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1607"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\SubFrameNavigate\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1607"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\UserData]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4443"
+"PlugUIText"="@inetcplc.dll,-4853"
+"Text"="Userdata persistence"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\UserData\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1606"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\MISC\UserData\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1606"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4782"
+"Text"="Scripting"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPT]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4786"
+"Text"="Active scripting"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPT\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1400"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPT\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1400"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPT\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1400"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTJAVA]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4787"
+"Text"="Scripting of Java applets"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTJAVA\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1402"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTJAVA\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1402"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTJAVA\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"HKeyRoot"=dword:80000002
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1402"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTPASTE]
+"Bitmap"="C:\\WINDOWS\\SYSTEM\\inetcpl.cpl,4485"
+"PlugUIText"="@inetcplc.dll,-4854"
+"Text"="Allow paste operations via script"
+"Type"="group"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTPASTE\ALLOW]
+"CheckedValue"=dword:00000000
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4803"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Enable"
+"Type"="radio"
+"ValueName"="1407"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTPASTE\DENY]
+"CheckedValue"=dword:00000003
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4805"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Disable"
+"Type"="radio"
+"ValueName"="1407"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\SOIEAK\SCRIPTING\SCRIPTPASTE\QUERY]
+"CheckedValue"=dword:00000001
+"DefaultValue"=dword:00000003
+"PlugUIText"="@inetcplc.dll,-4804"
+"RegPath"="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%s"
+"Text"="Prompt"
+"Type"="radio"
+"ValueName"="1407"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Subscription Folder]
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\TemplatePolicies]
+@=""
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\TemplatePolicies\High]
+@=""
+"1001"=dword:00000003
+"1004"=dword:00000003
+"1200"=dword:00000003
+"1201"=dword:00000003
+"1400"=dword:00000003
+"1402"=dword:00000003
+"1405"=dword:00000003
+"1406"=dword:00000003
+"1407"=dword:00000003
+"1601"=dword:00000001
+"1604"=dword:00000001
+"1605"=dword:00000000
+"1606"=dword:00000003
+"1607"=dword:00000003
+"1608"=dword:00000003
+"1609"=dword:00000001
+"1800"=dword:00000003
+"1802"=dword:00000001
+"1803"=dword:00000003
+"1804"=dword:00000003
+"1A00"=dword:00010000
+"1A02"=dword:00000003
+"1A03"=dword:00000003
+"1A04"=dword:00000003
+"1A05"=dword:00000003
+"1A06"=dword:00000003
+"1C00"=dword:00000000
+"1E05"=dword:00010000
+"Description"="Exclude content that could damage your computer."
+"DisplayName"="High safety (very secure)"
+"Icon"="wininet.dll#00001205"
+"TemplateIndex"=dword:00012000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\TemplatePolicies\Low]
+@=""
+"1001"=dword:00000000
+"1004"=dword:00000001
+"1200"=dword:00000000
+"1201"=dword:00000001
+"1400"=dword:00000000
+"1402"=dword:00000000
+"1405"=dword:00000000
+"1406"=dword:00000000
+"1407"=dword:00000000
+"1601"=dword:00000000
+"1604"=dword:00000000
+"1605"=dword:00000000
+"1606"=dword:00000000
+"1607"=dword:00000000
+"1608"=dword:00000000
+"1609"=dword:00000001
+"1800"=dword:00000000
+"1802"=dword:00000000
+"1803"=dword:00000000
+"1804"=dword:00000000
+"1A00"=dword:00000000
+"1A02"=dword:00000000
+"1A03"=dword:00000000
+"1A04"=dword:00000000
+"1A05"=dword:00000000
+"1A06"=dword:00000000
+"1C00"=dword:00030000
+"1E05"=dword:00030000
+"Description"="Do not warn before running potentially damaging content."
+"DisplayName"="Low safety (very insecure)"
+"Icon"="wininet.dll#00001207"
+"TemplateIndex"=dword:00010000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\TemplatePolicies\Medium]
+@=""
+"1001"=dword:00000001
+"1004"=dword:00000003
+"1200"=dword:00000000
+"1201"=dword:00000003
+"1400"=dword:00000000
+"1402"=dword:00000000
+"1405"=dword:00000000
+"1406"=dword:00000003
+"1407"=dword:00000000
+"1601"=dword:00000001
+"1604"=dword:00000000
+"1605"=dword:00000000
+"1606"=dword:00000000
+"1607"=dword:00000000
+"1608"=dword:00000000
+"1609"=dword:00000001
+"1800"=dword:00000001
+"1802"=dword:00000000
+"1803"=dword:00000000
+"1804"=dword:00000001
+"1A00"=dword:00020000
+"1A02"=dword:00000000
+"1A03"=dword:00000000
+"1A04"=dword:00000003
+"1A05"=dword:00000001
+"1A06"=dword:00000000
+"1C00"=dword:00010000
+"1E05"=dword:00020000
+"Description"="Warn before running potentially damaging content."
+"DisplayName"="Medium safety (medium security)"
+"Icon"="wininet.dll#00001206"
+"TemplateIndex"=dword:00011000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\TemplatePolicies\MedLow]
+@=""
+"1001"=dword:00000001
+"1004"=dword:00000003
+"1200"=dword:00000000
+"1201"=dword:00000003
+"1400"=dword:00000000
+"1402"=dword:00000000
+"1405"=dword:00000000
+"1406"=dword:00000001
+"1407"=dword:00000000
+"1601"=dword:00000000
+"1604"=dword:00000000
+"1605"=dword:00000000
+"1606"=dword:00000000
+"1607"=dword:00000000
+"1608"=dword:00000000
+"1609"=dword:00000001
+"1800"=dword:00000001
+"1802"=dword:00000000
+"1803"=dword:00000000
+"1804"=dword:00000001
+"1A00"=dword:00020000
+"1A02"=dword:00000000
+"1A03"=dword:00000000
+"1A04"=dword:00000000
+"1A05"=dword:00000000
+"1A06"=dword:00000000
+"1C00"=dword:00020000
+"1E05"=dword:00020000
+"Description"="Recommended for intranet."
+"DisplayName"="Intranet recommended safety (less secure)"
+"Icon"="wininet.dll#00001206"
+"TemplateIndex"=dword:00010500
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Url History]
+"CacheLimit"=hex:00,02,00,00
+"CachePrefix"="Visited: "
+"DaysToKeep"=hex:14,00,00,00
+"Directory"="C:\\WINDOWS\\History"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\User Agent\UA Tokens]
+@=""
+"MSN 2.0"=""
+"MSN 2.5"=""
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap]
+@=""
+"IntranetName"=dword:00000001
+"ProxyByPass"=dword:00000001
+"UNCAsIntranet"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains]
+@=""
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProtocolDefaults]
+@=""
+"@ivt"=dword:00000001
+"file"=dword:00000003
+"ftp"=dword:00000003
+"http"=dword:00000003
+"https"=dword:00000003
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Ranges]
+@=""
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones]
+@=""
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\0]
+@=""
+"1001"=dword:00000000
+"1004"=dword:00000000
+"1200"=dword:00000000
+"1201"=dword:00000001
+"1400"=dword:00000000
+"1402"=dword:00000000
+"1405"=dword:00000000
+"1406"=dword:00000000
+"1407"=dword:00000000
+"1601"=dword:00000000
+"1604"=dword:00000000
+"1605"=dword:00000000
+"1606"=dword:00000000
+"1607"=dword:00000000
+"1608"=dword:00000000
+"1609"=dword:00000001
+"1800"=dword:00000000
+"1802"=dword:00000000
+"1803"=dword:00000000
+"1804"=dword:00000000
+"1805"=dword:00000000
+"1A00"=dword:00000000
+"1A02"=dword:00000000
+"1A03"=dword:00000000
+"1A04"=dword:00000000
+"1A05"=dword:00000000
+"1A06"=dword:00000000
+"1A10"=dword:00000000
+"1C00"=dword:00020000
+"1E05"=dword:00030000
+"CurrentLevel"=dword:00000000
+"Description"="Your computer"
+"DisplayName"="My Computer"
+"Flags"=dword:00000021
+"Icon"="explorer.exe#0100"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1]
+@=""
+"1001"=dword:00000001
+"1004"=dword:00000003
+"1200"=dword:00000000
+"1201"=dword:00000003
+"1400"=dword:00000000
+"1402"=dword:00000000
+"1405"=dword:00000000
+"1406"=dword:00000001
+"1407"=dword:00000000
+"1601"=dword:00000000
+"1604"=dword:00000000
+"1605"=dword:00000000
+"1606"=dword:00000000
+"1607"=dword:00000000
+"1608"=dword:00000000
+"1609"=dword:00000001
+"1800"=dword:00000001
+"1802"=dword:00000000
+"1803"=dword:00000000
+"1804"=dword:00000001
+"1805"=dword:00000000
+"1A00"=dword:00020000
+"1A02"=dword:00000000
+"1A03"=dword:00000000
+"1A04"=dword:00000000
+"1A05"=dword:00000000
+"1A06"=dword:00000000
+"1A10"=dword:00000000
+"1C00"=dword:00020000
+"1E05"=dword:00020000
+"CurrentLevel"=dword:00010500
+"Description"="This zone contains all Web sites that are on your organization's intranet."
+"DisplayName"="Local intranet"
+"Flags"=dword:000000db
+"Icon"="shell32.dll#0018"
+"MinLevel"=dword:00010000
+"RecommendedLevel"=dword:00010500
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2]
+@=""
+"1001"=dword:00000000
+"1004"=dword:00000001
+"1200"=dword:00000000
+"1201"=dword:00000001
+"1400"=dword:00000000
+"1402"=dword:00000000
+"1405"=dword:00000000
+"1406"=dword:00000000
+"1407"=dword:00000000
+"1601"=dword:00000000
+"1604"=dword:00000000
+"1605"=dword:00000000
+"1606"=dword:00000000
+"1607"=dword:00000000
+"1608"=dword:00000000
+"1609"=dword:00000001
+"1800"=dword:00000000
+"1802"=dword:00000000
+"1803"=dword:00000000
+"1804"=dword:00000000
+"1805"=dword:00000000
+"1A00"=dword:00000000
+"1A02"=dword:00000000
+"1A03"=dword:00000000
+"1A04"=dword:00000000
+"1A05"=dword:00000000
+"1A06"=dword:00000000
+"1A10"=dword:00000000
+"1C00"=dword:00030000
+"1E05"=dword:00030000
+"CurrentLevel"=dword:00010000
+"Description"="This zone contains Web sites that you trust not to damage your computer or data."
+"DisplayName"="Trusted sites"
+"Flags"=dword:00000047
+"Icon"="inetcpl.cpl#00004480"
+"MinLevel"=dword:00010000
+"RecommendedLevel"=dword:00010000
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3]
+@=""
+"CurrentLevel"=dword:00000000
+"Description"="This zone contains all Web sites you haven't placed in other zones""DisplayName"="Internet"
+"Flags"=dword:00000001
+"Icon"="inetcpl.cpl#001313"
+"MinLevel"=dword:00011000
+"RecommendedLevel"=dword:00011000 
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4]
+@=""
+"1001"=dword:00000003
+"CurrentLevel"=dword:00000000
+"Description"="This zone contains Web sites that could potentially damage your computer or data."
+"DisplayName"="Restricted sites"
+"Flags"=dword:00000003
+"Icon"="inetcpl.cpl#00004481"
+"MinLevel"=dword:00012000
+"RecommendedLevel"=dword:00012000 
+
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Script Host\Settings]
 "ActiveDebugging"="1"
 "DisplayLogo"="1"

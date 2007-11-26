@@ -8,7 +8,7 @@
 #   Copyright 2006, Kevin Krammer <kevin.krammer@gmx.at>
 #   Copyright 2006, Jeremy White <jwhite@codeweavers.com>
 #
-#   Modified by Sérgio Lopes in 2007 for use on IEs4Linux
+#   Modified by Sergio Lopes in 2007 for IEs4Linux
 #
 #   LICENSE:
 #
@@ -29,15 +29,6 @@
 #   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 #   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 #   OTHER DEALINGS IN THE SOFTWARE.
-#
-#---------------------------------------------
-
-#@xdg-utils-common@
-
-#----------------------------------------------------------------------------
-#   Common utility functions included in all XDG wrapper scripts
-#----------------------------------------------------------------------------
-
 DEBUG()
 {
   [ -z "${XDG_UTILS_DEBUG_LEVEL}" ] && return 0;
@@ -45,10 +36,6 @@ DEBUG()
   shift
   echo "$@" >&2
 }
-
-#-------------------------------------------------------------
-# Exit script on successfully completing the desired operation
-
 exit_success()
 {
     if [ $# -gt 0 ]; then
@@ -58,13 +45,6 @@ exit_success()
 
     exit 0
 }
-
-
-#-----------------------------------------
-# Exit script on malformed arguments, not enough arguments
-# or missing required option.
-# prints usage information
-
 exit_failure_syntax()
 {
     if [ $# -gt 0 ]; then
@@ -77,10 +57,6 @@ exit_failure_syntax()
 
     exit 1
 }
-
-#-------------------------------------------------------------
-# Exit script on missing file specified on command line
-
 exit_failure_file_missing()
 {
     if [ $# -gt 0 ]; then
@@ -89,10 +65,6 @@ exit_failure_file_missing()
 
     exit 2
 }
-
-#-------------------------------------------------------------
-# Exit script on failure to locate necessary tool applications
-
 exit_failure_operation_impossible()
 {
     if [ $# -gt 0 ]; then
@@ -101,10 +73,6 @@ exit_failure_operation_impossible()
 
     exit 3
 }
-
-#-------------------------------------------------------------
-# Exit script on failure returned by a tool application
-
 exit_failure_operation_failed()
 {
     if [ $# -gt 0 ]; then
@@ -113,10 +81,6 @@ exit_failure_operation_failed()
 
     exit 4
 }
-
-#------------------------------------------------------------
-# Exit script on insufficient permission to read a specified file
-
 exit_failure_file_permission_read()
 {
     if [ $# -gt 0 ]; then
@@ -125,10 +89,6 @@ exit_failure_file_permission_read()
 
     exit 5
 }
-
-#------------------------------------------------------------
-# Exit script on insufficient permission to read a specified file
-
 exit_failure_file_permission_write()
 {
     if [ $# -gt 0 ]; then
@@ -137,7 +97,6 @@ exit_failure_file_permission_write()
 
     exit 6
 }
-
 check_input_file()
 {
     if [ ! -e "$1" ]; then
@@ -160,16 +119,11 @@ check_vendor_prefix()
     esac
 
     echo "xdg-desktop-menu: $file_label '$file' does not have a proper vendor prefix" >&2
-    echo 'A vendor prefix consists of alpha characters ([a-zA-Z]) and is terminated' >&2
-    echo 'with a dash ("-"). An example '"$file_label"' is '"'example-$file'" >&2
-    echo "Use --novendor to override or 'xdg-desktop-menu --manual' for additional info." >&2
     exit 1
 }
 
 check_output_file()
 {
-    # if the file exists, check if it is writeable
-    # if it does not exists, check if we are allowed to write on the directory
     if [ -e "$1" ]; then
         if [ ! -w "$1" ]; then
             exit_failure_file_permission_write "no permission to write to file '$1'"
@@ -181,10 +135,6 @@ check_output_file()
         fi
     fi
 }
-
-#----------------------------------------
-# Checks for shared commands, e.g. --help
-
 check_common_commands()
 {
     while [ $# -gt 0 ] ; do
@@ -221,11 +171,6 @@ else
     # All output to stderr
     xdg_redirect_output=" >&2"
 fi
-
-#--------------------------------------
-# Checks for known desktop environments
-# set variable DE to the desktop environments name, lowercase
-
 detectDE()
 {
     if [ x"$KDE_FULL_SESSION" = x"true" ]; then DE=kde;
@@ -233,12 +178,6 @@ detectDE()
     elif xprop -root _DT_SAVE_MODE | grep ' = \"xfce4\"$' >/dev/null 2>&1; then DE=xfce;
     fi
 }
-
-#----------------------------------------------------------------------------
-# kfmclient exec/openURL can give bogus exit value in KDE <= 3.5.4
-# It also always returns 1 in KDE 3.4 and earlier
-# Simply return 0 in such case
-
 kfmclient_fix_exit_code()
 {
     version=`kde-config --version 2>/dev/null | grep KDE`
@@ -301,10 +240,6 @@ BEGIN {
     mv $1.new $1
 }
 
-# Make application $1/$2 the default for all the mimetypes it support,
-# iff such mimetype didn't had a default application already.
-# $1 Install dir for desktop file
-# $2 base name of desktop file
 make_lazy_default()
 {
     local mimetypes
@@ -455,7 +390,8 @@ update_submenu()
 
     DEBUG 1 "Updating $orig_menu_file ($action)"
 
-    tmpfile=`mktemp`
+    test "${TMPDIR+set}" = set || TMPDIR=/tmp
+    tmpfile=`mktemp $TMPDIR/tmp.XXXXXXXXXX`
     orig_desktop_files=
     if [ -r "$orig_menu_file" ] ; then
         awk '
@@ -502,7 +438,8 @@ BEGIN {
     
     if [ -n "$new_desktop_files" ] ; then
         # Install/update
-        tmpfile=`mktemp`
+        test "${TMPDIR+set}" = set || TMPDIR=/tmp
+        tmpfile=`mktemp $TMPDIR/tmp.XXXXXXXXXX`
         (
             echo '<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"'
             echo '    "http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">'
@@ -547,7 +484,8 @@ BEGIN {
     
     # Uninstall .directory files only if no longer referenced
     if [ $action = "uninstall" ] ; then
-        tmpfile=`mktemp`
+        test "${TMPDIR+set}" = set || TMPDIR=/tmp
+        tmpfile=`mktemp $TMPDIR/tmp.XXXXXXXXXX`
         for menu_file in $xdg_dir/*; do
             if grep 'generated and managed by xdg-desktop-menu' $menu_file > /dev/null 2> /dev/null; then
                 awk '
