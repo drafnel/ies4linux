@@ -116,7 +116,7 @@ section $MSG_DOWNLOADING
 
 		export COREFONTS="andale32.exe arial32.exe arialb32.exe comic32.exe courie32.exe georgi32.exe impact32.exe times32.exe trebuc32.exe verdan32.exe wd97vwr32.exe webdin32.exe"
 		for font in $COREFONTS; do
-			download "http://internap.dl.sourceforge.net/sourceforge/corefonts/$font"
+			download "http://downloads.sourceforge.net/project/corefonts/the%20fonts/final/$font"
 		done
 	}
 ok
