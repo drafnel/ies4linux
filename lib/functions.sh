@@ -33,7 +33,7 @@ function init_variables {
 # Find where wine is
 function find_wine {
 	which wine &> /dev/null || error $MSG_ERROR_INSTALL_WINE
-	wine --version 2>&1  | grep -q "0.9." || warning $MSG_WARNING_OLDWINE
+	wine --version 2>&1  | grep -q -e "0.9." -e "wine-[1-9]"|| warning $MSG_WARNING_OLDWINE
 }
 
 # check for cabextract
