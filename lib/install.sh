@@ -155,6 +155,11 @@ subsection $MSG_CREATING_PREFIX
 	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/fonts" ]; then FONTS=fonts; fi
 	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/inf" ]; then INF=inf;fi
 	if [ -d "$BASEDIR/ie6/$DRIVEC/$WINDOWS/command" ]; then COMMAND=command;fi 
+
+	for d in "$FONTS" "$INF" "$COMMAND"; do
+		mkdir -p  "$BASEDIR/ie6/$DRIVEC/$WINDOWS/$d"
+	done
+
 	export DRIVEC WINDOWS SYSTEM FONTS INF COMMAND
 
 	# symlinking system to system32
