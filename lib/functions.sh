@@ -240,9 +240,9 @@ function downloadEvolt {
 # Call wineprefixcreate
 function create_wine_prefix {
 	if which wineprefixcreate &> /dev/null; then
-		( wineprefixcreate 2>&1 ) | debugPipe
+		( WINEARCH=win32 wineprefixcreate 2>&1 ) | debugPipe
 	elif which wineboot &> /dev/null; then
-		( wineboot 2>&1 ) | debugPipe
+		( WINEARCH=win32 wineboot 2>&1 ) | debugPipe
 	else
 		error $MSG_ERROR_NO_WINEPREFIXCREATE
 	fi
